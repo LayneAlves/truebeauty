@@ -1,0 +1,387 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Arial', sans-serif;
+  background: #fff;
+  color: #333;
+  line-height: 1.6;
+}
+img {
+  width: 100%;
+  display: block;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* HEADER */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 50px;
+  padding: 20px 16px;
+  margin-bottom: 26px;
+  background-color: #f8f8f8;
+  border-bottom: 1px solid #e1e1e1;
+}
+.header-left, .header-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.logo {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+/* BANNER PRINCIPAL */
+.main-banner img {
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+  margin-bottom: 12px;
+}
+
+/* CATEGORIAS */
+
+.categories-carousel {
+  padding: 12px 0;
+  background-color: #fff;
+}
+
+.categories-carousel .swiper-wrapper {
+  display: flex;
+  padding-left: 16px;
+  gap: 8px;
+}
+
+.categories-carousel .swiper-slide {
+  flex-shrink: 0;
+  width: auto;                      /*NÃO usar largura fixa */
+  max-width: max-content;          /*Só o necessário */
+  padding: 10px 126px;               /*Tamanho compacto */
+  background-color: #f1f1f1;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #333;
+  text-align: center;
+  white-space: nowrap;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+}
+
+/* BANNER ROTATIVO */
+.rotating-banner img {
+  width: 100%;
+  height: auto;
+  max-height: 240px;       /* ajusta se quiser limitar a altura */
+  object-fit: contain;     /* 👈 mostra a imagem inteira */
+  border-radius: 6px;
+  display: block;
+}
+
+
+/* DESCRIÇÃO + BOTÃO */
+.description {
+  text-align: center;
+  padding: 16px;
+}
+.description p {
+  margin-bottom: 12px;
+  font-size: 16px;
+}
+.description .button {
+  display: inline-block;
+  background-color: #8B0000	;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 25px;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+.description .button:hover {
+  background-color: #b02074;
+}
+
+/* PRODUTOS */
+/* Container dos cards usa flexbox para organizar os cards lado a lado */
+.card-container {
+  display: flex;                   /* ativa flexbox */
+  flex-wrap: wrap;                 /* permite quebra de linha */
+  gap: 24px;                      /* espaçamento entre cards */
+  justify-content: center;        /* centraliza os cards */
+  padding: 20px;                  /* padding interno */
+}
+
+.card {
+ margin-left: auto;
+  margin-right: auto;
+  width: 280px;                   /* largura fixa */
+  height: 450px;              /* altura mínima */
+  background: white;              /* fundo branco */
+  border-radius: 12px;            /* cantos arredondados */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.05); /* sombra leve */
+  padding: 20px;                  /* espaçamento interno */
+  text-align: center;             /* texto centralizado */
+  display: flex;                 /* usa flexbox para o conteúdo */
+  flex-direction: column;        /* organiza verticalmente */
+  justify-content: center;     /* empurra conteúdo para baixo */
+}
+
+/* Aumenta o card ao passar o mouse */
+.card:hover {
+  transform: scale(1.03);        /* zoom leve */
+}
+
+/* Define tamanho e margem para a imagem dentro do card */
+.card-img {
+  width: 100%;                   /* largura total */
+  height: 180px;                 /* altura fixa */
+  object-fit: contain;           /* mantém proporção */
+  margin-bottom: 16px;           /* margem inferior */
+}
+
+/* Estilo do título do card */
+.card-title {
+  font-size: 20px;               /* tamanho da fonte */
+  color: #333;                  /* cor do texto */
+  margin-bottom: 8px;            /* margem inferior */
+}
+
+/* Estilo do texto do card */
+.card-text {
+  font-size: 14px;               /* tamanho da fonte */
+  color: #777;                  /* cor cinza */
+  margin-bottom: 16px;           /* margem inferior */
+}
+
+/* Estilo do botão do card */
+.card-button {
+  display: inline-block;         /* exibe como bloco inline */
+  padding: 10px 20px;            /* espaçamento interno */
+  background-color: #8B0000	;     /* fundo laranja */
+  color: white;                  /* texto branco */
+  text-decoration: none;         /* remove sublinhado */
+  border-radius: 8px;            /* cantos arredondados */
+  font-weight: bold;             /* texto em negrito */
+  transition: background-color 0.3s ease; /* animação suave */
+}
+
+/* Efeito hover no botão */
+.card-button:hover {
+  background-color: #8B0000	;     /* mantém cor do fundo */
+}
+
+/* FOOTER */
+.footer {
+  text-align: center;
+  padding: 16px;
+  background-color: #f8f8f8;
+  color: #999;
+  font-size: 14px;
+}* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Arial', sans-serif;
+  background: #fff;
+  color: #333;
+  line-height: 1.6;
+}
+img {
+  width: 100%;
+  display: block;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* HEADER */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 50px;
+  padding: 20px 16px;
+  margin-bottom: 26px;
+  background-color: #f8f8f8;
+  border-bottom: 1px solid #e1e1e1;
+}
+.header-left, .header-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.logo {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+/* BANNER PRINCIPAL */
+.main-banner img {
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+  margin-bottom: 12px;
+}
+
+/* CATEGORIAS */
+
+.categories-carousel {
+  padding: 12px 0;
+  background-color: #fff;
+}
+
+.categories-carousel .swiper-wrapper {
+  display: flex;
+  padding-left: 16px;
+  gap: 8px;
+}
+
+.categories-carousel .swiper-slide {
+  flex-shrink: 0;
+  width: auto;                      /*NÃO usar largura fixa */
+  max-width: max-content;          /*Só o necessário */
+  padding: 10px 126px;               /*Tamanho compacto */
+  background-color: #f1f1f1;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #333;
+  text-align: center;
+  white-space: nowrap;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+}
+
+/* BANNER ROTATIVO */
+.rotating-banner img {
+  width: 100%;
+  height: auto;
+  max-height: 240px;       /* ajusta se quiser limitar a altura */
+  object-fit: contain;     /* 👈 mostra a imagem inteira */
+  border-radius: 6px;
+  display: block;
+}
+
+
+/* DESCRIÇÃO + BOTÃO */
+.description {
+  text-align: center;
+  padding: 16px;
+}
+.description p {
+  margin-bottom: 12px;
+  font-size: 16px;
+}
+.description .button {
+  display: inline-block;
+  background-color: #8B0000	;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 25px;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+.description .button:hover {
+  background-color: #b02074;
+}
+
+/* PRODUTOS */
+/* Container dos cards usa flexbox para organizar os cards lado a lado */
+.card-container {
+  display: flex;                   /* ativa flexbox */
+  flex-wrap: wrap;                 /* permite quebra de linha */
+  gap: 24px;                      /* espaçamento entre cards */
+  justify-content: center;        /* centraliza os cards */
+  padding: 20px;                  /* padding interno */
+}
+
+.card {
+ margin-left: auto;
+  margin-right: auto;
+  width: 280px;                   /* largura fixa */
+  height: 450px;              /* altura mínima */
+  background: white;              /* fundo branco */
+  border-radius: 12px;            /* cantos arredondados */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.05); /* sombra leve */
+  padding: 20px;                  /* espaçamento interno */
+  text-align: center;             /* texto centralizado */
+  display: flex;                 /* usa flexbox para o conteúdo */
+  flex-direction: column;        /* organiza verticalmente */
+  justify-content: center;     /* empurra conteúdo para baixo */
+}
+
+/* Aumenta o card ao passar o mouse */
+.card:hover {
+  transform: scale(1.03);        /* zoom leve */
+}
+
+/* Define tamanho e margem para a imagem dentro do card */
+.card-img {
+  width: 100%;                   /* largura total */
+  height: 180px;                 /* altura fixa */
+  object-fit: contain;           /* mantém proporção */
+  margin-bottom: 16px;           /* margem inferior */
+}
+
+/* Estilo do título do card */
+.card-title {
+  font-size: 20px;               /* tamanho da fonte */
+  color: #333;                  /* cor do texto */
+  margin-bottom: 8px;            /* margem inferior */
+}
+
+/* Estilo do texto do card */
+.card-text {
+  font-size: 14px;               /* tamanho da fonte */
+  color: #777;                  /* cor cinza */
+  margin-bottom: 16px;           /* margem inferior */
+}
+
+/* Estilo do botão do card */
+.card-button {
+  display: inline-block;         /* exibe como bloco inline */
+  padding: 10px 20px;            /* espaçamento interno */
+  background-color: #8B0000	;     /* fundo laranja */
+  color: white;                  /* texto branco */
+  text-decoration: none;         /* remove sublinhado */
+  border-radius: 8px;            /* cantos arredondados */
+  font-weight: bold;             /* texto em negrito */
+  transition: background-color 0.3s ease; /* animação suave */
+}
+
+/* Efeito hover no botão */
+.card-button:hover {
+  background-color: #8B0000	;     /* mantém cor do fundo */
+}
+
+/* FOOTER */
+.footer {
+  text-align: center;
+  padding: 16px;
+  background-color: #f8f8f8;
+  color: #999;
+  font-size: 14px;
+}
