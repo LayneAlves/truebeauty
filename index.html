@@ -41,13 +41,18 @@
   </section>
 
   <!-- BANNER ROTATIVO -->
-  <section class="rotating-banner swiper">
-    <div class="swiper-wrapper">
-      <div class="swiper-slide"><img src="./imagens/banner rotativo.jpg" alt="Slide 1"></div>
-      <div class="swiper-slide"><img src="./imagens/banner rotativo.jpg" alt="Slide 2"></div>
-      <div class="swiper-slide"><img src="./imagens/banner rotativo.jpg" alt="Slide 3"></div>
-    </div>
-  </section>
+<section class="custom-carousel">
+  <div class="carousel-track">
+    <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb" alt="Banner 1">
+    <img src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308" alt="Banner 2">
+    <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e" alt="Banner 3">
+  </div>
+  <div class="carousel-dots">
+    <span class="dot active"></span>
+    <span class="dot"></span>
+    <span class="dot"></span>
+  </div>
+</section>
 
   <!-- DESCRIÇÃO + BOTÃO -->
   <section class="description">
@@ -121,9 +126,31 @@
   <footer class="footer">
     <p>&copy; 2025 True Beauty. Todos os direitos reservados.</p>
   </footer>
+<script>
+  const track = document.querySelector('.carousel-track');
+const dots = document.querySelectorAll('.carousel-dots .dot');
+const slides = track.children;
+let current = 0;
 
-  <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
-  <script src="js/script.js"></script>
+function goToSlide(idx) {
+  track.style.transform = `translateX(-${idx * 100}%)`;
+  dots.forEach(dot => dot.classList.remove('active'));
+  dots[idx].classList.add('active');
+  current = idx;
+}
+
+dots.forEach((dot, idx) => {
+  dot.addEventListener('click', () => goToSlide(idx));
+});
+
+setInterval(() => {
+  let next = (current + 1) % slides.length;
+  goToSlide(next);
+}, 3000);
+
+goToSlide(0);
+</script>
+
 </body>
 
 </html>
