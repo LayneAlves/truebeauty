@@ -203,17 +203,21 @@ banner rotativo */
 /* PRODUTOS */
 /* Container dos cards usa flexbox para organizar os cards lado a lado */
 .card-container {
+  width: 80vw;
   display: flex;                   /* ativa flexbox */
-  flex-wrap: wrap;                 /* permite quebra de linha */
-  gap: 24px;                      /* espaçamento entre cards */
-  justify-content: center;        /* centraliza os cards */
-  padding: 20px;                  /* padding interno */
+  /* flex-wrap: wrap; */
+  gap: 24px;                   /* espaçamento entre cards */
+  justify-content: left;        /* centraliza os cards */
+  padding: 20px; 
+  margin: 0 auto; 
+  overflow-x: scroll;
+  scrollbar-width: none;             /* padding interno */
 }
 
 /* CARD INDEX */
 
 .card-container section {
-  width: 280px;
+  flex: 0 0 280px;
   height: 450px;
   background: white;
   border-radius: 12px;
@@ -230,14 +234,14 @@ banner rotativo */
   scale: 1.03;
   box-shadow: 1px 5px 10px rgba(0, 0, 0, .4);
 }
-.card-container section div {
+.card-container section header {
   width: 280px;
   height: 340px;
   overflow: hidden;
   object-fit: cover;
 }
 
-.card-container section div img {
+.card-container section header img {
   object-position: cover;
   width: 100%;
 }
