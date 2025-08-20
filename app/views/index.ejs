@@ -1,47 +1,21 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>True Beauty</title>
-  <link rel="stylesheet" href="assets/css/style.css" />
-
-</head>
+<!-- HEAD -->
+  <%- include('./include/head.ejs') %>
 
 <body>
-
-  <header class="header">
-    <div class="header-left">
-      <button class="icon-btn menu-icon">
-        <img src="assets/imagem/menu.png" alt="menu">
-      </button>
-      <button class="icon-btn search-icon">
-        <img src="assets/imagem/lupa.png" alt="lupa">
-    </div>
-    <div class="header-center">
-      <h1 class="logo">True Beauty</h1>
-    </div>
-    <div class="header-right">
-      <button class="icon-btn cart-icon">
-        <img src="assets/imagem/sacola.png" alt="carrinho-de-compras">
-      </button>
-      <button class="icon-btn user-icon">
-        <img src="assets/imagem/perfil.png" alt="">
-      </button>
-    </div>
-  </header>
+  <!-- HEADER -->
+   <%- include('./include/header.ejs') %>
+   <a href="<%= baseUrl %>/produtos">Clique aqui</a>
 
   <!-- BANNER PRINCIPAL -->
   <section class="main-banner">
-    <img
-      src="https://www.almapbbdo.com.br/static/upload/general/92b6338a-255e-4400-aae0-28a700d7a9bf.jpg"
-      alt="Banner principal">
+    <img src="https://www.almapbbdo.com.br/static/upload/general/92b6338a-255e-4400-aae0-28a700d7a9bf.jpg" alt="Banner principal">
   </section>
 
   <!-- CARROSSEL DE CATEGORIAS -->
   <section class="categories-carousel">
-    <!-- <div class=""> -->
       <div class="item cabelo">
         <div class="conteudo">
           <h2>Cabelo</h2>
@@ -50,6 +24,7 @@
           </div>
         </div>
       </div>
+
       <div class="item corpo">
         <div class="conteudo">
           <h2>Corpo</h2>
@@ -58,6 +33,7 @@
           </div>
         </div>
       </div>
+
       <div class="item banho">
         <div class="mask"></div>
         <div class="conteudo">
@@ -67,6 +43,7 @@
           </div>
         </div>
       </div>
+
       <div class="item perfume">
         <div class="conteudo">
           <h2>Perfume</h2>
@@ -75,6 +52,7 @@
           </div>
         </div>
       </div>
+
       <div class="item rosto">
         <div class="conteudo">
           <h2>Rosto</h2>
@@ -83,7 +61,6 @@
           </div>
         </div>
       </div>
-    <!-- </div> -->
   </section>
 
 
@@ -91,10 +68,8 @@
   <section class="custom-carousel">
     <div class="carousel-track">
       <img src="https://gkpb.com.br/wp-content/uploads/2024/02/banner-egeo.jpg" alt="Banner 1">
-      <img src="https://cdn.awsli.com.br/1975/1975471/arquivos/banner-antiqueda-fortalecedor-hidrabell-cosm-ticos.jpg"
-        alt="Banner 2">
-      <img src="https://blog.farmadelivery.com.br/wp-content/uploads/2022/06/template_blog_nivea.jpg.webp"
-        alt="Banner 3">
+      <img src="https://cdn.awsli.com.br/1975/1975471/arquivos/banner-antiqueda-fortalecedor-hidrabell-cosm-ticos.jpg" alt="Banner 2">
+      <img src="https://blog.farmadelivery.com.br/wp-content/uploads/2022/06/template_blog_nivea.jpg.webp" alt="Banner 3">
     </div>
     <div class="carousel-dots">
       <span class="dot active"></span>
@@ -105,19 +80,23 @@
 
   <!-- DESCRIÇÃO + BOTÃO -->
   <section class="description">
-    <p>Descubra a verdadeira beleza com nossos produtos exclusivos.</p>
+    <h3>Descubra a verdadeira beleza com nossos produtos exclusivos.</h3>
     <a href="pagina.html" class="button">Conheça</a>
   </section>
 
   <!-- CARROSSEL DE PRODUTOS -->
-  <div class="card-container">
+  <section class="card-container">
     <!-- Cabelo -->
-    <div class="card">
-      <img src="/imagens/kit branco eudora.webp" alt="">
-      <h3 class="card-title">Eudora</h3>
-      <p class="card-text">Kit Siàge Cica Therapy</p>
-      <a href="#" class="card-button">Comprar</a>
-    </div>
+    <section>
+      <div>
+        <img src="/assets/imagem/cabelo.jpg" alt="">
+      </div>
+      <article>
+        <h2 class="card-title">Eudora</h2>
+        <p class="card-text">Kit Siàge Cica Therapy</p>
+        <a href="#" class="card-button">Comprar</a>
+      </article>
+    </section>
 
     <!-- Corpo e Banho -->
     <div class="card">
@@ -134,6 +113,7 @@
       <p class="card-text">Colônia Masculina 100ml</p>
       <a href="#" class="card-button">Comprar</a>
     </div>
+
     <div class="card">
       <img src="/imagens/kit branco eudora.webp" alt="">
       <h3 class="card-title">Eudora</h3>
@@ -156,10 +136,6 @@
       <p class="card-text">Colônia Masculina 100ml</p>
       <a href="#" class="card-button">Comprar</a>
     </div>
-
-
-  </div>
-  </div>
   </section>
 
   <div id="carouselExampleIndicators" class="carousel slide">
@@ -175,9 +151,7 @@
 
 
     <!-- FOOTER -->
-    <footer class="footer">
-      <p>&copy; 2025 True Beauty. Todos os direitos reservados.</p>
-    </footer>
+    <%- include('./include/footer.ejs') %>
 
     <script>
       const track = document.querySelector('.carousel-track');
