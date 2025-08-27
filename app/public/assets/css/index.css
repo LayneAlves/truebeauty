@@ -208,29 +208,14 @@ banner rotativo */
 .description {
   text-align: center;
   padding: 16px;
-  margin: 48px 0;
+  margin: 0px ;
 }
 
-.description a {
-  margin-top: 24px;
-}
 
 .description p {
-  margin-bottom: 12px;
-  font-size: 16px;
+  font-size: 10px;
 }
-.description .button {
-  display: inline-block;
-  background-color: #8B0000	;
-  color: white;
-  padding: 10px 20px;
-  border-radius: 25px;
-  font-weight: bold;
-  transition: black
-}
-.description .button:hover {
-  background-color: #b02074;
-}
+
 
 /* PRODUTOS */
 /* Container dos cards usa flexbox para organizar os cards lado a lado */
@@ -279,7 +264,7 @@ banner rotativo */
 }
 
 .card-container section article {
-  padding: 24px;
+  padding: 8px 16px; 
 }
 
 .card-container section article a {
