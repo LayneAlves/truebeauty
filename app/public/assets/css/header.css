@@ -4,7 +4,7 @@
   align-items: center;
   font-size: 50px;
   padding: 16px 32px;
-  margin-bottom: 26px;
+  
   background-color: #ffffff;
   border-bottom: 1px solid #ddd;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
@@ -13,28 +13,229 @@
   z-index: 1000;
 }
 
+/* Menu horizontal (desktop refinado) */
+.desktop-menu {
+ width: 100%;
+  background-color: #ffffff;
+  position: relative;
+  z-index: 999;
+  justify-content: center;
+}
+
+.desktop-menu ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+  padding: 8px 0; /* menos padding horizontal */
+  margin: 0 auto; /* centraliza a UL */
+  gap: 24px; /* espaço entre itens */
+  max-width: 1200px; /* limite maximo da largura */
+  width: 100%; /* para ajudar no alinhamento */
+}
+
+.desktop-menu ul li a {
+  text-decoration: none;
+  color: #555;
+  font-weight: 500;
+  font-size: 14px;
+  padding: 6px 10px;
+  border-radius: 4px;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.desktop-menu ul li a:hover {
+  background-color: #f5f5f5;
+  color: #8B0000;
+}
+
+
+/* Fim menu desktop */
+
+/* Menu Lateral */
+.side-menu {
+  position: fixed;
+  top: 0;
+  left: -250px; /* escondido inicialmente */
+  width: 250px;
+  height: 100vh;
+  background-color: white;
+  box-shadow: 2px 0 5px rgba(0,0,0,0.3);
+  transition: left 0.3s ease;
+  z-index: 1000;
+  padding-top: 70px; /* espaço pro header */
+}
+
+.side-menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.side-menu ul li {
+  padding: 16px 24px;
+  border-bottom: 1px solid #eee;
+}
+
+.side-menu ul li a {
+  color: #333;
+  font-weight: bold;
+  display: block;
+}
+
+.side-menu.open {
+  left: 0; /* mostra o menu */
+}
+
+/* Overlay (fundo escurecido) */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.5);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 900;
+}
+
+.overlay.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+/* Barra de pesquisa */
+.search-icon {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  height: 40px;
+  margin-right: 16px;
+  transition: margin-right 0.3s ease;
+  background-color: rgba(255,0,0,0.1); /* só pra teste */
+}
+
+.search-icon:hover + .cart-icon {
+  margin-left: 48px; /* ou o valor que quiser para afastar */
+  transition: margin-left 0.3s ease;
+}
+
+
+.search-icon input {
+  width: 0;
+  opacity: 0;
+  padding: 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  height: 30px;
+  font-size: 14px;
+  transition: width 0.3s ease, opacity 0.3s ease, padding 0.3s ease;
+  overflow: hidden;
+}
+
+.search-icon:hover input {
+  width: 200px;
+  opacity: 1;
+  padding: 0 8px;
+}
+.cart-icon {
+   margin-right: auto; 
+  display: flex;
+  gap: 16px;
+  transition: margin-left 0.3s ease;
+}
+
+/* fim */
+
 .icon-btn img{
 width: 30px;
 height: 30px;
 }
-.header-left, .header-right {
+.header nav {
+  position: relative; /* para o absolute funcionar */
   display: flex;
   align-items: center;
-  gap: 12px;
+  justify-content: flex-start; /* alinhar tudo à esquerda para facilitar */
+  padding: 0 16px; /* algum espaçamento lateral */
+  height: 60px; /* altura do header */
 }
-.header-center{
-  flex: 1;
-  text-align: center;
-}
+
+/* Para desktop: organizar os itens pela ordem visual que você quer */
+/* Usamos flex-grow no logo para centralizar */
+
+
+
 .logo {
- font-size: 24px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 24px; /* ou o tamanho que quiser */
   font-weight: bold;
   color: #8B0000;
   margin: 0;
+  white-space: nowrap; /* evitar quebra */
 }
-.header-left,
-.header-right {
+
+
+.cart-icon, .user-icon {
+  order: 4; /* à direita */
+}
+
+/* Menu hamburguer fica invisível no desktop */
+#menu-toggle,
+.search-icon,
+.cart-icon,
+.user-icon {
+  z-index: 10; /* para ficarem acima do logo */
+}
+
+.search-icon {
+  margin-right: 16px;
+}
+
+/* Container dos ícones da direita */
+.cart-icon,
+.user-icon {
+  margin-left: auto;
   display: flex;
-  align-items: center;
   gap: 16px;
+ 
 }
+
+/* MOBILE menu*/
+
+#menu-toggle {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  #menu-toggle {
+    display: block; /* mostra no mobile */
+    order: 0;
+  }
+
+  
+  #menu-toggle {
+    display: block;
+    order: 0; /* primeiro */
+  }
+
+  .search-icon {
+    order: 1; /* segundo */
+  }
+
+  .logo {
+    order: 2;
+    flex-grow: 1;
+    text-align: center;
+  }
+
+  .cart-icon, .user-icon {
+    display: none; /* oculta os ícones da direita no mobile */
+  }
+}
+
+
