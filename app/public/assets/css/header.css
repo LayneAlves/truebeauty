@@ -15,7 +15,7 @@
 
 /* Menu horizontal (desktop refinado) */
 .desktop-menu {
- width: 100%;
+  width: 100%;
   background-color: #ffffff;
   position: relative;
   z-index: 999;
@@ -25,11 +25,12 @@
 .desktop-menu ul {
   display: flex;
   justify-content: center;
-  align-items: center;
+  /* align-items: center; */
   list-style: none;
   padding: 8px 0; /* menos padding horizontal */
   margin: 0 auto; /* centraliza a UL */
-  gap: 24px; /* espaço entre itens */
+  column-gap: 8px;
+  row-gap: 16px; /* espaço entre itens */
   max-width: 1200px; /* limite maximo da largura */
   width: 100%; /* para ajudar no alinhamento */
 }
@@ -47,6 +48,27 @@
 .desktop-menu ul li a:hover {
   background-color: #f5f5f5;
   color: #8B0000;
+}
+
+.desktop-menu > ul > li {
+  position: relative;
+  background-color: #ffffff;
+  padding: 8px 16px;
+  cursor: pointer;
+}
+
+.desktop-menu > ul li > ul {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  display: none;
+  flex-direction: column;
+  background-color: #ffffff;
+}
+
+.desktop-menu > ul li:hover > ul {
+  display: flex;
 }
 
 
@@ -119,7 +141,7 @@
 }
 
 .search-icon:hover + .cart-icon {
-  margin-left: 48px; /* ou o valor que quiser para afastar */
+
   transition: margin-left 0.3s ease;
 }
 
@@ -142,7 +164,7 @@
   padding: 0 8px;
 }
 .cart-icon {
-   margin-right: auto; 
+  margin-right: auto;
   display: flex;
   gap: 16px;
   transition: margin-left 0.3s ease;
@@ -194,15 +216,18 @@ height: 30px;
 
 .search-icon {
   margin-right: 16px;
-}
+} 
 
 /* Container dos ícones da direita */
-.cart-icon,
 .user-icon {
   margin-left: auto;
   display: flex;
   gap: 16px;
- 
+}
+
+.cart-icon {
+  display: flex;
+  gap: 16px;
 }
 
 /* MOBILE menu*/
@@ -211,31 +236,120 @@ height: 30px;
   display: none;
 }
 
-@media (max-width: 768px) {
-  #menu-toggle {
-    display: block; /* mostra no mobile */
-    order: 0;
-  }
+/* --- MOBILE (até 480px) --- */
 
-  
-  #menu-toggle {
-    display: block;
-    order: 0; /* primeiro */
-  }
+@media (max-width: 480px) {
 
-  .search-icon {
-    order: 1; /* segundo */
-  }
+  .header {
 
+    font-size: 32px; /* menor fonte */
+
+    padding: 12px 16px;
+
+  }
+ 
+  .desktop-menu {
+
+    display: none; /* esconde menu desktop */
+
+  }
+ 
+  .side-menu {
+
+    width: 220px; /* menu lateral um pouco menor */
+
+    padding-top: 60px;
+
+  }
+ 
   .logo {
-    order: 2;
-    flex-grow: 1;
+
+    font-size: 20px;
+
+    position: static;
+
+    transform: none;
+
     text-align: center;
+
+    flex-grow: 1;
+
   }
+ 
+  .search-icon input {
+
+    width: 150px; /* menor input */
+
+  }
+
+}
+ 
+/* --- TABLET (481px a 768px) --- */
+
+@media (min-width: 481px) and (max-width: 768px) {
+
+  .header {
+
+    font-size: 40px;
+
+    padding: 14px 24px;
+
+  }
+ 
+  .desktop-menu {
+
+    display: flex; /* mostra menu desktop */
+
+    justify-content: center;
+
+  }
+ 
+  .desktop-menu ul {
+
+    gap: 16px;
+
+    max-width: 900px;
+
+  }
+ 
+  .side-menu {
+
+    width: 240px;
+
+    padding-top: 65px;
+
+  }
+ 
+  .logo {
+
+    font-size: 22px;
+
+    position: absolute;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+  }
+ 
+  .search-icon input {
+
+    width: 180px;
+
+  }
+ 
+  /* Mostrar ícones no tablet */
 
   .cart-icon, .user-icon {
-    display: none; /* oculta os ícones da direita no mobile */
+
+    display: flex;
+
   }
+
 }
+ 
+
+
+ 
 
 
