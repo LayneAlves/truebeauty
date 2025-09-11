@@ -1,7 +1,30 @@
 .footer {
   text-align: center;
   padding: 16px;
-  background-color: #f8f8f8;
+  background-color: #770003;
   color: #999;
   font-size: 14px;
+}
+.icon{
+  width:16px;
+  height: 16px;
+  margin-right: 6px;
+  vertical-align: middle;
+
+}
+
+.footer ul li.acompanhe{
+  position: relative;
+  padding-left: 25px;
+}
+
+.footer ul li.acompanhe::before{
+  content: url(/app/public/assets/imagem/caminhão.png);
+  background-size: 16px 16px;
+  width: 16px;
+  height: 16px;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
 }
