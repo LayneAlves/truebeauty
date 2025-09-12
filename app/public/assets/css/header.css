@@ -2,354 +2,111 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: 50px;
-  padding: 16px 32px;
-  
+  height: 60px;
+  font-size: 16px;
+  padding: 0;
   background-color: #ffffff;
   border-bottom: 1px solid #ddd;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
-  position: sticky;
-  top: 0;
-  z-index: 1000;
 }
 
-/* Menu horizontal (desktop refinado) */
-.desktop-menu {
-  width: 100%;
-  background-color: #ffffff;
-  position: relative;
-  z-index: 999;
-  justify-content: center;
-}
-
-.desktop-menu ul {
+.header nav {
   display: flex;
-  justify-content: center;
-  /* align-items: center; */
-  list-style: none;
-  padding: 8px 0; /* menos padding horizontal */
-  margin: 0 auto; /* centraliza a UL */
-  column-gap: 8px;
-  row-gap: 16px; /* espaço entre itens */
-  max-width: 1200px; /* limite maximo da largura */
-  width: 100%; /* para ajudar no alinhamento */
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+  width: 100%;
+  height: 100%;
 }
 
-.desktop-menu ul li a {
-  text-decoration: none;
-  color: #555;
-  font-weight: 500;
-  font-size: 14px;
-  padding: 6px 10px;
-  border-radius: 4px;
-  transition: background-color 0.2s, color 0.2s;
-}
-
-.desktop-menu ul li a:hover {
-  background-color: #f5f5f5;
+.header nav h1 {
   color: #8B0000;
 }
 
-.desktop-menu > ul > li {
-  position: relative;
-  background-color: #ffffff;
-  padding: 8px 16px;
+.header nav label {
+  display: flex;
+  flex-direction: column;
+  row-gap: 8px;
   cursor: pointer;
 }
 
-.desktop-menu > ul li > ul {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  width: 100%;
-  display: none;
-  flex-direction: column;
-  background-color: #ffffff;
-}
-
-.desktop-menu > ul li:hover > ul {
-  display: flex;
-}
-
-
-/* Fim menu desktop */
-
-/* Menu Lateral */
-.side-menu {
-  position: fixed;
-  top: 0;
-  left: -250px; /* escondido inicialmente */
-  width: 250px;
-  height: 100vh;
-  background-color: white;
-  box-shadow: 2px 0 5px rgba(0,0,0,0.3);
-  transition: left 0.3s ease;
-  z-index: 1000;
-  padding-top: 70px; /* espaço pro header */
-}
-
-.side-menu ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.side-menu ul li {
-  padding: 16px 24px;
-  border-bottom: 1px solid #eee;
-}
-
-.side-menu ul li a {
-  color: #333;
-  font-weight: bold;
+.header nav label span::after {
+  content: '';
+  width: 30px;
+  height: 3px;
+  background-color: #8B0000;
   display: block;
 }
 
-.side-menu.open {
-  left: 0; /* mostra o menu */
-}
-
-/* Overlay (fundo escurecido) */
-.overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: rgba(0,0,0,0.5);
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.3s ease;
-  z-index: 900;
-}
-
-.overlay.active {
-  opacity: 1;
-  pointer-events: all;
-}
-
-/* Barra de pesquisa */
-.search-icon {
-  position: relative;
+.header nav > ul:nth-of-type(1) {
   display: flex;
-  align-items: center;
-  gap: 4px;
-  height: 40px;
-  margin-right: 16px;
-  transition: margin-right 0.3s ease;
-  background-color: rgba(255,0,0,0.1); /* só pra teste */
-}
-
-.search-icon:hover + .cart-icon {
-
-  transition: margin-left 0.3s ease;
-}
-
-
-.search-icon input {
-  width: 0;
-  opacity: 0;
-  padding: 0;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  height: 30px;
-  font-size: 14px;
-  transition: width 0.3s ease, opacity 0.3s ease, padding 0.3s ease;
-  overflow: hidden;
-}
-
-.search-icon:hover input {
-  width: 200px;
-  opacity: 1;
-  padding: 0 8px;
-}
-.cart-icon {
-  margin-right: auto;
-  display: flex;
-  gap: 16px;
-  transition: margin-left 0.3s ease;
-}
-
-/* fim */
-
-.icon-btn img{
-width: 30px;
-height: 30px;
-}
-.header nav {
-  position: relative; /* para o absolute funcionar */
-  display: flex;
-  align-items: center;
-  justify-content: flex-start; /* alinhar tudo à esquerda para facilitar */
-  padding: 0 16px; /* algum espaçamento lateral */
-  height: 60px; /* altura do header */
-}
-
-/* Para desktop: organizar os itens pela ordem visual que você quer */
-/* Usamos flex-grow no logo para centralizar */
-
-
-
-.logo {
+  flex-direction: column;
+  row-gap: 8px;
+  width: 100%;
+  background-color: #FFFFFF;
   position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 24px; /* ou o tamanho que quiser */
-  font-weight: bold;
-  color: #8B0000;
   margin: 0;
-  white-space: nowrap; /* evitar quebra */
+  padding: 16px 0 0 16px;
+  top: 60px;
+  left: -100%;
+  transition: left 0.3s ease;
+  z-index: 10;
+  list-style: none;
 }
 
-
-.cart-icon, .user-icon {
-  order: 4; /* à direita */
+.header nav ul li {
+  list-style: none;
 }
 
-/* Menu hamburguer fica invisível no desktop */
-#menu-toggle,
-.search-icon,
-.cart-icon,
-.user-icon {
-  z-index: 10; /* para ficarem acima do logo */
+.header nav input:checked ~ ul:nth-of-type(1) {
+  left: 0;
 }
 
-.search-icon {
-  margin-right: 16px;
-} 
-
-/* Container dos ícones da direita */
-.user-icon {
-  margin-left: auto;
-  display: flex;
-  gap: 16px;
+.header nav > ul > li span {
+  margin-bottom: 8px;
+  font-weight: 600;
 }
 
-.cart-icon {
-  display: flex;
-  gap: 16px;
-}
-
-/* MOBILE menu*/
-
-#menu-toggle {
-  display: none;
-}
-
-/* --- MOBILE (até 480px) --- */
-
-@media (max-width: 480px) {
-
-  .header {
-
-    font-size: 32px; /* menor fonte */
-
-    padding: 12px 16px;
-
+@media (min-width: 991px) {
+  .header nav {
+    position: relative;
   }
- 
-  .desktop-menu {
-
-    display: none; /* esconde menu desktop */
-
+  .header nav > label {
+    display: none;
   }
- 
-  .side-menu {
-
-    width: 220px; /* menu lateral um pouco menor */
-
-    padding-top: 60px;
-
-  }
- 
-  .logo {
-
-    font-size: 20px;
-
-    position: static;
-
-    transform: none;
-
-    text-align: center;
-
-    flex-grow: 1;
-
-  }
- 
-  .search-icon input {
-
-    width: 150px; /* menor input */
-
-  }
-
-}
- 
-/* --- TABLET (481px a 768px) --- */
-
-@media (min-width: 481px) and (max-width: 768px) {
-
-  .header {
-
-    font-size: 40px;
-
-    padding: 14px 24px;
-
-  }
- 
-  .desktop-menu {
-
-    display: flex; /* mostra menu desktop */
-
-    justify-content: center;
-
-  }
- 
-  .desktop-menu ul {
-
-    gap: 16px;
-
-    max-width: 900px;
-
-  }
- 
-  .side-menu {
-
-    width: 240px;
-
-    padding-top: 65px;
-
-  }
- 
-  .logo {
-
-    font-size: 22px;
-
-    position: absolute;
-
-    left: 50%;
-
-    transform: translateX(-50%);
-
-  }
- 
-  .search-icon input {
-
-    width: 180px;
-
-  }
- 
-  /* Mostrar ícones no tablet */
-
-  .cart-icon, .user-icon {
-
+  
+  .header nav > ul {
     display: flex;
+    flex-direction: row !important;
+    justify-content: center !important;
+    column-gap: 16px;
+    width: 100%;
+    position: relative;
+    left: 0 !important;
+    border-radius: 0 0 50px 50px;
+    transition: height 0.4s ease;
+  }
 
+  .header nav > ul > li {
+    padding-bottom: 16px;
+    width: 150px;
+    cursor: pointer;
+    transition: height 0.4s ease;
+  }
+
+  .header nav > ul > li ul {
+    display: flex;
+    flex-direction: column;
+    row-gap: 8px;
+    margin-top: 16px;
+    overflow: hidden;
+    height: 0;
+    transition: height 0.4s ease;
+  }
+  
+  .header nav > ul > li:hover > ul {
+    height: 100%;
+    transition: height 0.4s ease;
   }
 
 }
- 
-
-
- 
-
-
