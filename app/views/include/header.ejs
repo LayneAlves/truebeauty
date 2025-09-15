@@ -9,7 +9,7 @@
 
     <ul>
       <li>
-        <span>Ver Tudo</span>
+       <a href="vertudo"> <span>Ver Tudo</span></a>
         <ul>
           <li><a href="#">Perfumes</a></li>
           <li><a href="#">Cabelo</a></li>
@@ -74,7 +74,6 @@
 
     <div class="icon-btn search-icon">
       <img src="assets/imagem/lupa.png" alt="lupa">
-      <!-- <input type="text" placeholder="Digite sua busca..." id="lupa"> -->
     </div>
 
     <h1 class="logo">True Beauty</h1>
@@ -107,36 +106,7 @@
     overlay.classList.remove('active');
   });
 
-// Barra de pesquisa
-const searchIcon = document.querySelector('.search-icon');
-const cartIcon = document.querySelector('.cart-icon');
-const input = searchIcon.querySelector('input');
 
-searchIcon.addEventListener('mouseenter', () => {
-  input.style.width = '200px';
-  input.style.opacity = '1';
-  input.style.padding = '0 8px';
-  cartIcon.style.marginLeft = '48px';
-  cartIcon.style.transition = 'margin-left 0.3s ease';
-});
-
-searchIcon.addEventListener('mouseleave', () => {
-  // Só fecha se o input não estiver focado (para evitar fechar enquanto digita)
-  if (document.activeElement !== input) {
-    input.style.width = '0';
-    input.style.opacity = '0';
-    input.style.padding = '0';
-    cartIcon.style.marginLeft = '16px';
-  }
-});
-
-// Fechar a barra quando o input perde o foco
-input.addEventListener('blur', () => {
-  input.style.width = '0';
-  input.style.opacity = '0';
-  input.style.padding = '0';
-  cartIcon.style.marginLeft = '16px';
-});
 
 
 // Fim da barra

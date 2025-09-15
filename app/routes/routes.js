@@ -3,12 +3,12 @@ const router = express.Router();
 
 // CONTROLLERS
 const indexController = require('../controllers/indexController');
-const produtosController = require('../controllers/produtosController');
+const vertudoController = require('../controllers/vertudoController');
 const categoriasController = require('../controllers/categoriasController');
 
 // ROUTER
 router.get('/', indexController.renderIndex);
-router.get('/produtos', produtosController.renderProdutos);
+router.get('/vertudo', vertudoController.renderVertudo);
 router.get('/categorias', categoriasController.renderCategorias);
 
 module.exports = router;
