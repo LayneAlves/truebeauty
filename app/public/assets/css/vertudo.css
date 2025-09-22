@@ -54,10 +54,11 @@ main {
   margin-bottom: 20px;
   padding-left: 20px;
   border-left: 4px solid #8B0000;
+  margin-top: 0px;
 }
 
 /* CARD CONTAINERS - RESPONSIVE */
-.card-container {
+/* .card-container {
   display: flex;
   gap: 20px;
   padding: 20px;
@@ -106,7 +107,7 @@ main {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-}
+} */
 
 /* MOBILE FIRST - 320px to 480px */
 @media (max-width: 480px) {
