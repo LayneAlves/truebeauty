@@ -6,7 +6,12 @@
 /* CELULAR */
 @media (max-width: 480px) {
    .categories-carousel  { 
-    width: 100%; height: 100%px; } 
+    width: 100%;  } 
+    .categories-carousel section {
+      min-width:20%;
+      max-height: 260px;               
+     
+}
   }
 
   /* TABLET */
@@ -109,7 +114,7 @@ button {
 }
 
 .categories-carousel section {
-  width: 200px;
+  width: 60%;
   height: 400px;               
   background-size: cover;
   background-repeat: no-repeat;
@@ -164,7 +169,6 @@ button {
 .categories-carousel section.banho {
   position: relative;
   background-image: url("https://img.freepik.com/fotos-premium/esta-lavagem-do-corpo-me-deixa-com-uma-sensacao-fresca-que-permanece-foto-de-estudio-de-uma-jovem-tomando-banho-contra-um-fundo-azul_590464-62358.jpg");
-  background-position: center;
   background-size: cover;
   background-position: center;
   border-radius: 20px;
