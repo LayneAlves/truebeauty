@@ -52,3 +52,86 @@
   .card-container section article a {
     width: 100%;
   }
+
+
+
+  /*AQUI É A PARTE DOS CARDS QUE ESTAVAM NO INDEX.CSS*/
+
+
+  
+.card {
+  margin-left: auto;
+   margin-right: auto;
+   width: 280px;                   /* largura fixa */
+   height: 450px;              /* altura mínima */
+   background: white;              /* fundo branco */
+   border-radius: 12px;            /* cantos arredondados */
+   box-shadow: 0 4px 8px rgba(0,0,0,0.05); /* sombra leve */
+   padding: 20px;                  /* espaçamento interno */
+   text-align: center;             /* texto centralizado */
+   display: flex;                 /* usa flexbox para o conteúdo */
+   flex-direction: column;        /* organiza verticalmente */
+   justify-content: center;     /* empurra conteúdo para baixo */
+ }
+ 
+ /* Aumenta o card ao passar o mouse */
+ .card:hover {
+   transform: scale(1.03);        /* zoom leve */
+ }
+ 
+ /* Define tamanho e margem para a imagem dentro do card */
+ .card-img {
+   width: 100%;                   /* largura total */
+   height: 180px;                 /* altura fixa */
+   object-fit: contain;           /* mantém proporção */
+   margin-bottom: 16px;           /* margem inferior */
+ }
+ 
+ /* Estilo do título do card */
+ .card-title {
+   font-size: 20px;               /* tamanho da fonte */
+   color: #333;                  /* cor do texto */
+   margin-bottom: 8px;            /* margem inferior */
+ }
+ 
+ /* Estilo do texto do card */
+ .card-text {
+   font-size: 14px;               /* tamanho da fonte */
+   color: #777;                  /* cor cinza */
+   margin-bottom: 16px;           /* margem inferior */
+ }
+ 
+ /* Estilo do botão do card */
+ .card-button {
+   display: inline-block;         /* exibe como bloco inline */
+   padding: 10px 20px;            /* espaçamento interno */
+   background-color: #8B0000	;     /* fundo laranja */
+   color: white;                  /* texto branco */
+   text-decoration: none;         /* remove sublinhado */
+   border-radius: 8px;            /* cantos arredondados */
+   font-weight: bold;             /* texto em negrito */
+   transition: background-color 0.3s ease; /* animação suave */
+ }
+ 
+ /* Efeito hover no botão */
+ .card-button:hover {
+   background-color: #8B0000	;     /* mantém cor do fundo */
+ }
+ 
+ /* Preço do card */
+ .card-price {
+  font-size: 17px;
+   font-weight: bold;
+   color: #222;               /* cor neutra para profissionalismo */
+   margin-bottom: 12px;
+   display: inline-block;
+   padding: 6px 14px;
+   border-radius: 8px;
+ 
+ }
+ .card-price .currency {
+   font-size: 14px;
+   margin-right: 2px;
+   color: #8B0000;            /* dá um toque na cor institucional */
+ }
+ 
