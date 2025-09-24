@@ -87,7 +87,7 @@ button {
 .main-banner img {
    width: 100%;
   /* max-width: 900px; */
-  margin: 0px auto;
+  margin: px auto;
   position: relative;
   overflow: hidden;
   border-radius: 12px;

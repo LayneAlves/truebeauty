@@ -5,7 +5,7 @@
     gap: 24px;                   /* espaçamento entre cards */
     justify-content: left;        /* centraliza os cards */
     padding: 20px; 
-    margin: 0 auto; 
+    margin: 50px auto; 
     overflow-x: scroll;
     scrollbar-width: none;             /* padding interno */
   }
