@@ -6,11 +6,9 @@
   font-size: 14px;
 }
 
-<<<<<<< Updated upstream
 footer img{
   width: 50px;
   height: auto;
-=======
 }
 
 .footer ul li.acompanhe{
@@ -27,5 +25,4 @@ footer img{
   left: 0;
   top: 50%;
   transform: translateY(-50%);
->>>>>>> Stashed changes
 }
