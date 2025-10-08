@@ -10,7 +10,19 @@
     max-height: 260px;               
      
 }
+
+.main-banner img {
+   max-width: 90%;
+   
+
   }
+
+  .custom-carousel {
+   max-width: 90%;
+   
+  }
+
+}
 
   /* TABLET */
 @media (min-width: 481px) and (max-width: 840px) {
@@ -91,7 +103,7 @@ button {
 .main-banner img {
    width: 100%;
   /* max-width: 900px; */
-  margin: px auto;
+  margin: auto;
   position: relative;
   overflow: hidden;
   border-radius: 12px;

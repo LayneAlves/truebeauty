@@ -1,3 +1,42 @@
+/* CELULAR */
+@media (max-width: 480px) {
+  .card-container {
+    width: 80vw;
+    margin: 50px auto; 
+  }
+
+   .card-container section {
+    max-width: 150px;
+    max-height: 250px;
+  }
+
+   .card-container section header img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* antes era cover, que cortava */
+  }
+
+  .card-container section article {
+    padding: 8px 16px; 
+  }
+
+  .card-title {
+     font-size: 14px;               /* tamanho da fonte */
+   margin-bottom: 5px;            /* margem inferior */
+ }
+
+ .card-text {
+   font-size: 12px;               /* tamanho da fonte */
+   margin-bottom: 5px;           /* margem inferior */
+ }
+
+ .card-price {
+   margin-bottom: 5px;
+ }
+ 
+  
+}
+
 .card-container {
     width: 80vw;
     display: flex;                   /* ativa flexbox */
@@ -31,7 +70,7 @@
     box-shadow: 1px 5px 10px rgba(0, 0, 0, .4);
   }
   .card-container section header {
-      width: 280px;
+    width: 280px;
     height: 380px;   /* aumentei de 340px para 380px */
     overflow: hidden;
     display: flex;
@@ -40,7 +79,7 @@
   }
   
   .card-container section header img {
-     width: 100%;
+    width: 100%;
     height: 100%;
     object-fit: contain; /* antes era cover, que cortava */
   }
