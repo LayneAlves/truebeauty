@@ -10,6 +10,9 @@ const cuidados_pessoaisController = require('../controllers/cuidados_pessoaisCon
 const perfumes_femininoController = require('../controllers/perfumes_femininoController');
 const maquiagemController = require('../controllers/maquiagemController');
 const skin_careController = require('../controllers/skin_careController');
+const hidratacaoController = require('../controllers/hidratacaoController');
+const nutricaoController = require('../controllers/nutricaoController');
+const reconstrucaoController = require('../controllers/reconstrucaoController');
 
 // ROUTER
 router.get('/', indexController.renderIndex);
@@ -20,5 +23,9 @@ router.get('/cuidados_pessoais', cuidados_pessoaisController.renderCuidados_pess
 router.get('/perfumes_feminino', perfumes_femininoController.renderPerfumes_feminino);
 router.get('/maquiagem', maquiagemController.renderMaquiagem);
 router.get('/skin_care', skin_careController.renderSkin_care);
+router.get('/hidratacao', hidratacaoController.renderHidratacao);
+router.get('/nutricao', nutricaoController.renderNutricao);
+router.get('/reconstrucao', reconstrucaoController.renderReconstrucao);
+
 
 module.exports = router;
