@@ -5,26 +5,52 @@
 
 /* CELULAR */
 @media (max-width: 480px) {
+
+  /*CARROSSEL DE CATEGORIAS*/
   .categories-carousel{
     overflow-x: scroll;  
     scrollbar-width: none;  
+    justify-content: left;
       
   }
    
  .categories-carousel section {
     min-width:30%;
     max-height: 200px; 
+    margin: 30px 0px 30px 0px;
                
   }
 
+  h2{
+    font-size: 1.2em;
+  }
+
+  .categories-carousel section h2 {
+    bottom: 20px;
+    -webkit-text-stroke: 0.6px;
+    -webkit-text-stroke-color: #2b2a2a;
+  }
+
+  .categories-carousel section a {
+  max-width: 80px;
+  max-height: 20px;
+  font-size: 14px;
+  padding-bottom: 24px;
+ 
+  }
+
+  /*BANNER PRINCIPAL*/
 .main-banner img {
    max-width: 90%;
   }
 
+  /*BANNER ROTATIVO*/
   .custom-carousel {
    max-width: 90%;
    
   }
+
+  /*CARROSSEL DE PRODUTOS*/
 
   .card-container {
     width: 80vw;
@@ -161,8 +187,8 @@ button {
 
 .categories-carousel {
   display: flex;
-  justify-content: center;
-  margin:70px ;
+  /* justify-content: center; */
+  margin:7% ;
   gap: 20px;
 }
 
