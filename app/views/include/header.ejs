@@ -86,11 +86,123 @@
 
     <button class="icon-btn cart-icon">
       <img src="assets/imagem/icons/sacola.png" alt="carrinho-de-compras">
+     
+  
     </button>
   </nav>
 </header>
 
+<!-- Sacola -->
+<div id="overlay-sacola" class="overlay-sacola"></div>
 
+<aside id="sacola-lateral" class="sacola-lateral">
+  <header class="sacola-header">
+    <h2>Minha sacola</h2>
+    <button id="fechar-sacola" class="fechar-btn">&times;</button>
+  </header>
+
+  <div class="item-sacola">
+    <div class="info-item">
+      <img src="assets/imagem/imagem_maquiagem/base_boca_rosa.jpg" alt="">
+      <p><strong>Boca Rosa By Payout - Base Mate</strong></p>
+      <p>R$61,50</p>
+    </div>
+    <div class="acoes-item">
+      <input type="number" min="1" value="1" class="input-quantidade" />
+      <button class="btn-excluir">Excluir</button>
+    </div>
+  </div>
+
+  <button class="btn-finalizar">Finalizar compra</button>
+</aside>
+
+<!-- Fim sacola -->
+
+<!-- js sacola -->
+
+
+<script>
+const btnAbrirSacola = document.querySelector('.cart-icon'); // botão do carrinho
+const sacola = document.getElementById('sacola-lateral');
+const overlaySacola = document.getElementById('overlay-sacola');
+const btnFecharSacola = document.getElementById('fechar-sacola');
+
+function abrirSacola() {
+  sacola.classList.add('aberta');
+  overlaySacola.classList.add('ativo');
+}
+
+function fecharSacola() {
+  sacola.classList.remove('aberta');
+  overlaySacola.classList.remove('ativo');
+}
+
+btnAbrirSacola.addEventListener('click', abrirSacola);
+btnFecharSacola.addEventListener('click', fecharSacola);
+overlaySacola.addEventListener('click', fecharSacola);
+
+// Botão Excluir remove o item
+document.querySelector('.btn-excluir').addEventListener('click', () => {
+  const item = document.querySelector('.item-sacola');
+  item.remove();
+});
+
+</script>
+
+<!-- Fim js sacola -->
+
+
+<!--Perfil -->
+<div id="overlay-perfil" class="overlay-perfil"></div>
+
+<div id="modal-perfil" class="modal-perfil">
+  <button id="fechar-perfil" class="fechar-btn">&times;</button>
+  <h2>Entrar na sua conta</h2>
+  <form id="form-perfil">
+    <label for="email">Email</label>
+    <input type="email" id="email" name="email" placeholder="Digite seu email" required />
+    
+    <label for="senha">Senha</label>
+    <input type="password" id="senha" name="senha" placeholder="Digite sua senha" required />
+    
+    <button type="submit" class="btn-login">Entrar</button>
+  </form>
+</div>
+
+<!-- Js Perfil -->
+<script>
+  const btnAbrirPerfil = document.querySelector('.user-icon');
+const modalPerfil = document.getElementById('modal-perfil');
+const overlayPerfil = document.getElementById('overlay-perfil');
+const btnFecharPerfil = document.getElementById('fechar-perfil');
+
+function abrirPerfil() {
+  modalPerfil.classList.add('ativo');
+  overlayPerfil.classList.add('ativo');
+}
+
+function fecharPerfil() {
+  modalPerfil.classList.remove('ativo');
+  overlayPerfil.classList.remove('ativo');
+}
+
+btnAbrirPerfil.addEventListener('click', abrirPerfil);
+btnFecharPerfil.addEventListener('click', fecharPerfil);
+overlayPerfil.addEventListener('click', fecharPerfil);
+
+// Opcional: prevenir submit do formulário para teste
+document.getElementById('form-perfil').addEventListener('submit', e => {
+  e.preventDefault();
+  alert('Formulário enviado! Email: ' + e.target.email.value);
+  fecharPerfil();
+});
+
+</script>
+<!-- Fim perfil -->
+
+
+
+<!-- menu hamburguer -->
 <div id="overlay" class="overlay"></div>
 
 <script>
@@ -107,9 +219,5 @@
     sideMenu.classList.remove('open');
     overlay.classList.remove('active');
   });
-
-
-
-
-// Fim da barra
+// Fim do menu hamb
 </script>
