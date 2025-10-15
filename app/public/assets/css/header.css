@@ -117,7 +117,7 @@
   }
   
   .icon-btn {
-    margin: 0 4px;
+    /* margin: 0 4px; */ 
     padding: 6px;
   }
   
@@ -139,6 +139,8 @@
 @media (max-width: 990px) {
   .header nav > label {
     display: flex;
+    margin: 8px;
+    row-gap: 7px;
   }
 }
 
@@ -181,6 +183,7 @@
     height: 100%;
     transition: height 0.4s ease;
   }
+
 }
 
 /* Sacola */
