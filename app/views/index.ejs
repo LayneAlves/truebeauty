@@ -187,7 +187,7 @@
     </section>
   </section>
 
-  <div id="carouselExampleIndicators" class="carousel slide">
+  <!-- <div id="carouselExampleIndicators" class="carousel slide">
     <div class="carousel-indicators">
       <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
         aria-current="true" aria-label="Slide 1"></button>
@@ -195,8 +195,36 @@
         aria-label="Slide 2"></button>
       <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
         aria-label="Slide 3"></button>
+    </div> -->
+
+    <!-- Seção de destaque -->
+<section class="dica-make">
+  <h2><span>Mais vendidos </span></h2>
+
+  <div class="cards-container">
+    <div class="card-destaque">
+      <img class="img-fundo" src="/assets/imagem/imagens_skin_care/emilia_clarke_1.webp" alt="Modelo com maquiagem">
+      <div class="info">
+        <h3>Clinique iD</h3>
+      <img class="img-produto" src="/assets/imagem/imagens_skin_care/clinique_id.jpg" alt="Produto 1">
+        <p class="preco">R$ 20,90</p>
+        <button>Comprar</button>
+      </div>
     </div>
 
+    <div class="card-destaque">
+      <img class="img-fundo" src="/assets/imagem/imagens_Cabelos/propagandaCachos.webp" alt="Modelo com maquiagem">
+      <div class="info">
+        <h3>Creme - Salon Line</h3>
+         <img class="img-produto" src="/assets/imagem/imagens_Cabelos/salonLine_coco.jpg " alt="Produto 2">
+        <p class="preco">R$ 30,90</p>
+        <button>Comprar</button>
+      </div>
+    </div>
+  </div>
+  <br><br>
+</section>
+    <!-- Fim da seção -->
 </main>
 
     <!-- FOOTER -->
@@ -225,8 +253,19 @@
       }, 3000);
 
       goToSlide(0);
+
+
     </script>
 
+<script>
+// Seção de destaque
+const botoes = document.querySelectorAll(".card button");
+  botoes.forEach(botao => {
+  botao.addEventListener("click", () => {
+    alert("Produto adicionado à sacola!");
+  });
+});
+</script>
 </body>
 
 </html>
