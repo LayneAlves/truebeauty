@@ -57,27 +57,22 @@ main {
   margin-top: 80px;
 }
 
-/* CARD CONTAINERS - RESPONSIVE */
-/* .card-container {
+.card-container {
   display: flex;
   gap: 20px;
   padding: 20px;
-  overflow-x: auto;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
+  justify-content: center;
   width: 100%;
-}
-
-.card-container::-webkit-scrollbar {
-  display: none;
+  max-width: 1800px;
+  margin: 0 auto;
 }
 
 .card-container section {
-  flex: 0 0 280px;
+  flex: 0 0 350px;
   height: 450px;
   background: white;
   border-radius: 12px;
-  
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.4);
   overflow: hidden;
   transition: transform 0.3s ease;
 }
@@ -107,7 +102,7 @@ main {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-} */
+}
 
 /* MOBILE FIRST - 320px to 480px */
 @media (max-width: 480px) {
