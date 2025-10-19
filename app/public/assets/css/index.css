@@ -92,6 +92,12 @@
   margin-bottom: 5px;
 }
 
+/*HEADER*/
+
+.header nav > ul:nth-of-type(1){
+  max-width: 45%;
+}
+
 
 
 
@@ -123,6 +129,7 @@ li{
   padding-top: 30px;
 }
 
+
 /*SACOLA*/
 
 .btn-excluir{
@@ -144,19 +151,63 @@ strong{
   font-size: 1.3rem;
 }
 
+
+/*MAIS VENDIDOS*/
+
+.card-destaque{
+  max-width: 55%;
+  max-height: 320px;
 }
+
+.img-produto{
+  max-width: 28%;
+}
+
+.info{
+  height: 26%;
+}
+
+.info button{
+  max-width: 45%;
+}
+
+
+
+}
+
+
 
 
   /* TABLET */
 @media (min-width: 481px) and (max-width: 840px) {
-   
-  .categories-carousel  {
-     width: 100%; 
-     
-    } 
+  
+  /*CARROSSEL DE CATEGORIAS */
+  .categories-carousel{
+    overflow-x: scroll;  
+    scrollbar-width: none;  
+    justify-content: left;
+      
+  }
+
+  .categories-carousel section {
+    min-width:25%;
+    max-height: 320px; 
+    margin: 30px 0px 30px 0px;
+               
+  }
+
+ /*BANNER PRINCIPAL*/
+  .main-banner img {
+    max-width: 95%;
   }
    
+}
 
+  /*BANNER ROTATIVO*/
+  .custom-carousel {
+   max-width: 95%;
+   
+  }
 
 * {
   margin: 0;
@@ -468,8 +519,6 @@ banner rotativo */
 .card-destaque {
   position: relative;
   width: 350px;
-  min-width: 350px;
-  max-width: 350px;
   flex: 0 0 350px;
   height: 500px;
   border-radius: 10px;
@@ -505,10 +554,10 @@ banner rotativo */
 
 /* bloco das infos abaixo do produto */
 .info {
-  font-size: 12px;
+  font-size: 70%;
   background-color: white;
   position: absolute;
-  bottom: 20px;
+  bottom: 4%;
   left: 50%;
   transform: translateX(-50%);
   text-align: center;
@@ -525,26 +574,26 @@ banner rotativo */
   
 }
 .info h3 {
-  margin-top: 10px;
+  margin-top: 5%;
 }
 
 h3 {
   color: rgba(0, 0, 0, 0.675);
   font-size: 1.1em;
-  margin-bottom: 5px;
+  margin-bottom: 3%;
 }
 
 .preco {
   color: #4f0103;
   font-weight: bold;
-  margin-bottom: 8px;
+  margin-bottom: 3%;
 }
 
 button {
   background: #8B0000;
   color: #fff;
-  padding: 6px 14px;
-  margin-bottom: 8px;
+  padding: 6px;
+  margin-bottom: 3%;
   cursor: pointer;
   transition: background 0.3s;
   font-size: 0.9em;
