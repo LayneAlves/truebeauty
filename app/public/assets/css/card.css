@@ -1,9 +1,9 @@
 .card-container {
-    width: 80vw;
+    /* width: 80vw; */
     display: flex;                   /* ativa flexbox */
     /* flex-wrap: wrap; */
     gap: 24px;                   /* espaçamento entre cards */
-    justify-content: left;        /* centraliza os cards */
+    justify-content: flex-start;        /* centraliza os cards */
     padding: 20px; 
     margin: 50px auto; 
     overflow-x: scroll;
