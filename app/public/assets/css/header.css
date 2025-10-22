@@ -36,7 +36,7 @@
   content: '';
   width: 30px;
   height: 3px;
-  background-color: #8B0000;
+
   display: block;
 }
 
@@ -84,7 +84,7 @@
 }
 
 .search-input:focus {
-  border-color: #8B0000;
+
   width: 150px;
   padding: 0 12px;
   opacity: 1;
@@ -123,10 +123,6 @@
   list-style: none;
 }
 
-/* [data-page="vertudo"] > .header nav > ul:nth-of-type(1) {
-  background-color: rgba(128, 128, 128, 0.338);
- 
-} */
 
 .header nav ul li {
   list-style: none;
@@ -275,7 +271,7 @@
 .sacola-header h2 {
   margin: 0;
   font-size: 1.5rem;
-  color: #333;
+  color: white;
 }
 
 .fechar-btn {
