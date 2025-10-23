@@ -16,11 +16,9 @@ const reconstrucaoController = require('../controllers/reconstrucaoController');
 const perfumes_masculinoController = require('../controllers/perfumes_masculinoController');
 const perfumes_infantilController = require('../controllers/perfumes_infantilController');
 const body_splashController = require('../controllers/body_splashController');
-
 const rostoController = require('../controllers/rostoController');
 const olhosController = require('../controllers/olhosControllers');
 const labiosController = require('../controllers/labiosController');
-
 const depilacaoController = require('../controllers/depilacaoController');
 const higieneIntimaController = require('../controllers/higieneIntimaController');
 const protetorSolarController = require('../controllers/protetorSolarController');
@@ -47,11 +45,9 @@ router.get('/reconstrucao', reconstrucaoController.renderReconstrucao);
 router.get('/perfumes_masculino', perfumes_masculinoController.renderPerfumes_masculino);
 router.get('/perfumes_infantil', perfumes_infantilController.renderPerfumes_infantil);
 router.get('/body_splash', body_splashController.renderBody_splash);
-
 router.get('/rosto', rostoController.renderRosto);
 router.get('/olhos', olhosController.renderOlhos);
 router.get('/labios', labiosController.renderLabios);
-
 router.get('/depilacao', depilacaoController.renderDepilacao);
 router.get('/higieneIntima', higieneIntimaController.renderHigieneIntima);
 router.get('/protetorSolar', protetorSolarController.renderProtetorSolar);
