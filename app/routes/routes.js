@@ -21,7 +21,6 @@ const rostoController = require('../controllers/rostoController');
 const olhosController = require('../controllers/olhosControllers');
 const labiosController = require('../controllers/labiosController');
 
-
 const depilacaoController = require('../controllers/depilacaoController');
 const higieneIntimaController = require('../controllers/higieneIntimaController');
 const protetorSolarController = require('../controllers/protetorSolarController');
@@ -31,7 +30,6 @@ const brumaController = require('../controllers/brumaController');
 const corretivoController = require('../controllers/corretivoController');
 const poController = require('../controllers/poController');
 const batomController = require('../controllers/batomController');
-
 
 
 // ROUTER
@@ -63,8 +61,6 @@ router.get('/bruma', brumaController.renderBruma);
 router.get('/corretivo', corretivoController.renderCorretivo);
 router.get('/po', poController.renderPo);
 router.get('/batom', batomController.renderBatom);
-router.get('/olhos', olhosController.renderOlhos);
-
 
 
 
