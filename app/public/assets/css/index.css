@@ -267,6 +267,13 @@ strong{
   min-height: 30px;
 }
 
+.search-icon:hover .search-input {
+  width: 160px;
+  padding: 0 18px;
+  opacity: 1;
+  font-size: 16px;
+}
+
 /*FOOTER*/
 
 nav{
