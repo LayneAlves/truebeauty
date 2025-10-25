@@ -16,12 +16,9 @@ const reconstrucaoController = require('../controllers/reconstrucaoController');
 const perfumes_masculinoController = require('../controllers/perfumes_masculinoController');
 const perfumes_infantilController = require('../controllers/perfumes_infantilController');
 const body_splashController = require('../controllers/body_splashController');
-<<<<<<< HEAD
 const rostoController = require('../controllers/rostoController');
 const olhosController = require('../controllers/olhosControllers');
 const labiosController = require('../controllers/labiosController');
-
-=======
 const depilacaoController = require('../controllers/depilacaoController');
 const higieneIntimaController = require('../controllers/higieneIntimaController');
 const protetorSolarController = require('../controllers/protetorSolarController');
@@ -31,8 +28,6 @@ const brumaController = require('../controllers/brumaController');
 const corretivoController = require('../controllers/corretivoController');
 const poController = require('../controllers/poController');
 const batomController = require('../controllers/batomController');
-const olhosController = require('../controllers/olhosController');
->>>>>>> 93f3cfbd5c4325be84fab1b71f022c419e2709e4
 
 // ROUTER
 router.get('/', indexController.renderIndex);
@@ -49,11 +44,9 @@ router.get('/reconstrucao', reconstrucaoController.renderReconstrucao);
 router.get('/perfumes_masculino', perfumes_masculinoController.renderPerfumes_masculino);
 router.get('/perfumes_infantil', perfumes_infantilController.renderPerfumes_infantil);
 router.get('/body_splash', body_splashController.renderBody_splash);
-<<<<<<< HEAD
 router.get('/rosto', rostoController.renderRosto);
 router.get('/olhos', olhosController.renderOlhos);
 router.get('/labios', labiosController.renderLabios);
-=======
 router.get('/depilacao', depilacaoController.renderDepilacao);
 router.get('/higieneIntima', higieneIntimaController.renderHigieneIntima);
 router.get('/protetorSolar', protetorSolarController.renderProtetorSolar);
@@ -63,10 +56,6 @@ router.get('/bruma', brumaController.renderBruma);
 router.get('/corretivo', corretivoController.renderCorretivo);
 router.get('/po', poController.renderPo);
 router.get('/batom', batomController.renderBatom);
-router.get('/olhos', olhosController.renderOlhos);
-
->>>>>>> 93f3cfbd5c4325be84fab1b71f022c419e2709e4
-
 
 
 module.exports = router;
