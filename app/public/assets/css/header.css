@@ -36,7 +36,7 @@
   content: '';
   width: 30px;
   height: 3px;
-
+  background-color: #8B0000;
   display: block;
 }
 
@@ -170,7 +170,11 @@
   .header nav > label {
     display: flex;
     margin: 8px;
-    row-gap: 7px;
+    row-gap: 5px;
+  }
+
+  .header nav label span::after{
+    width: 25px ;
   }
 }
 
