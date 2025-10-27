@@ -57,4 +57,13 @@ router.get('/corretivo', corretivoController.renderCorretivo);
 router.get('/po', poController.renderPo);
 router.get('/batom', batomController.renderBatom);
 
+// Rotas do carrinho
+router.get('/carrinho', (req, res) => {
+    res.render('carrinho', { baseUrl: '' });
+});
+
+router.get('/checkout', (req, res) => {
+    res.render('checkout', { baseUrl: '' });
+});
+
 module.exports = router;

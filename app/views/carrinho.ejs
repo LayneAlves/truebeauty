@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<%- include('./include/head.ejs') %>
+
+<body>
+  <%- include('./include/header.ejs') %>
+
+  <main>
+    <section class="page-header">
+      <h1>Meu Carrinho</h1>
+      <p>Revise seus itens antes de finalizar a compra</p>
+    </section>
+
+    <section class="carrinho-container">
+      <div id="itens-carrinho" class="itens-carrinho">
+        <!-- Itens serão inseridos aqui pelo JavaScript -->
+      </div>
+      
+      <div class="resumo-carrinho">
+        <h3>Resumo do Pedido</h3>
+        <div class="total-container">
+          <p id="total-carrinho">Total: R$ 0,00</p>
+        </div>
+        <button id="btn-checkout" class="btn-checkout">Finalizar Compra</button>
+        <button id="btn-limpar" class="btn-limpar">Limpar Carrinho</button>
+      </div>
+    </section>
+  </main>
+
+  <%- include('./include/footer.ejs') %>
+
+  <style>
+    .page-header {
+      text-align: center;
+      padding: 40px 20px;
+      background: linear-gradient(135deg, #8B0000 0%, #A52A2A 100%);
+      color: white;
+      margin-bottom: 40px;
+    }
+
+    .carrinho-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 40px;
+    }
+
+    .itens-carrinho {
+      background: white;
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    .item-carrinho {
+      display: flex;
+      align-items: center;
+      padding: 20px 0;
+      border-bottom: 1px solid #eee;
+    }
+
+    .item-carrinho img {
+      width: 80px;
+      height: 80px;
+      object-fit: contain;
+      margin-right: 20px;
+    }
+
+    .item-info {
+      flex: 1;
+    }
+
+    .item-info h4 {
+      margin: 0 0 10px 0;
+      color: #333;
+    }
+
+    .item-info p {
+      margin: 0;
+      color: #666;
+      font-size: 14px;
+    }
+
+    .item-controles {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .quantidade-input {
+      width: 60px;
+      padding: 8px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      text-align: center;
+    }
+
+    .btn-remover {
+      background: #dc3545;
+      color: white;
+      border: none;
+      padding: 8px 12px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .resumo-carrinho {
+      background: white;
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      height: fit-content;
+    }
+
+    .resumo-carrinho h3 {
+      margin-top: 0;
+      color: #8B0000;
+    }
+
+    .total-container {
+      padding: 20px 0;
+      border-top: 1px solid #eee;
+      border-bottom: 1px solid #eee;
+      margin: 20px 0;
+    }
+
+    .btn-checkout, .btn-limpar {
+      width: 100%;
+      padding: 15px;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      margin-bottom: 10px;
+    }
+
+    .btn-checkout {
+      background: #8B0000;
+      color: white;
+    }
+
+    .btn-limpar {
+      background: #6c757d;
+      color: white;
+    }
+
+    .carrinho-vazio {
+      text-align: center;
+      padding: 60px 20px;
+      color: #666;
+    }
+
+    @media (max-width: 768px) {
+      .carrinho-container {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+      
+      .item-carrinho {
+        flex-direction: column;
+        text-align: center;
+      }
+      
+      .item-carrinho img {
+        margin: 0 0 15px 0;
+      }
+    }
+  </style>
+
+  <script>
+    class CarrinhoPagina {
+      constructor() {
+        this.carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+        this.inicializar();
+      }
+
+      inicializar() {
+        this.renderizarItens();
+        this.configurarEventos();
+      }
+
+      renderizarItens() {
+        const container = document.getElementById('itens-carrinho');
+        
+        if (this.carrinho.length === 0) {
+          container.innerHTML = `
+            <div class="carrinho-vazio">
+              <h3>Seu carrinho está vazio</h3>
+              <p>Adicione produtos para continuar</p>
+              <a href="/" style="color: #8B0000;">Continuar comprando</a>
+            </div>
+          `;
+          return;
+        }
+
+        container.innerHTML = this.carrinho.map(item => `
+          <div class="item-carrinho" data-id="${item.id}">
+            <img src="${item.imagem}" alt="${item.nome}">
+            <div class="item-info">
+              <h4>${item.nome}</h4>
+              <p>${item.preco}</p>
+            </div>
+            <div class="item-controles">
+              <input type="number" min="1" value="${item.quantidade}" class="quantidade-input" data-id="${item.id}">
+              <button class="btn-remover" data-id="${item.id}">Remover</button>
+            </div>
+          </div>
+        `).join('');
+
+        this.atualizarTotal();
+      }
+
+      atualizarTotal() {
+        const total = this.carrinho.reduce((sum, item) => {
+          const preco = parseFloat(item.preco.replace('R$', '').replace(',', '.'));
+          return sum + (preco * item.quantidade);
+        }, 0);
+
+        document.getElementById('total-carrinho').textContent = 
+          `Total: R$ ${total.toFixed(2).replace('.', ',')}`;
+      }
+
+      alterarQuantidade(id, quantidade) {
+        const item = this.carrinho.find(item => item.id == id);
+        if (item) {
+          item.quantidade = parseInt(quantidade);
+          localStorage.setItem('carrinho', JSON.stringify(this.carrinho));
+          this.renderizarItens();
+        }
+      }
+
+      removerItem(id) {
+        this.carrinho = this.carrinho.filter(item => item.id != id);
+        localStorage.setItem('carrinho', JSON.stringify(this.carrinho));
+        this.renderizarItens();
+      }
+
+      limparCarrinho() {
+        this.carrinho = [];
+        localStorage.removeItem('carrinho');
+        this.renderizarItens();
+      }
+
+      configurarEventos() {
+        document.addEventListener('click', (e) => {
+          if (e.target.classList.contains('btn-remover')) {
+            this.removerItem(e.target.dataset.id);
+          }
+        });
+
+        document.addEventListener('change', (e) => {
+          if (e.target.classList.contains('quantidade-input')) {
+            this.alterarQuantidade(e.target.dataset.id, e.target.value);
+          }
+        });
+
+        document.getElementById('btn-checkout').addEventListener('click', () => {
+          if (this.carrinho.length > 0) {
+            window.location.href = '/checkout';
+          } else {
+            alert('Seu carrinho está vazio!');
+          }
+        });
+
+        document.getElementById('btn-limpar').addEventListener('click', () => {
+          if (confirm('Tem certeza que deseja limpar o carrinho?')) {
+            this.limparCarrinho();
+          }
+        });
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      new CarrinhoPagina();
+    });
+  </script>
+</body>
+</html>
