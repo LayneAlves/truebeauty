@@ -546,7 +546,7 @@ banner rotativo */
   width: 100%;
 }
 .carousel-track img {
-  width: 100%;
+  width: 73%;
   height: 100%;
   object-fit: cover; /* ou 'contain' se quiser que tudo da imagem apareça */
   flex-shrink: 0;
