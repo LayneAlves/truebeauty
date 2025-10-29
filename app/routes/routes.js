@@ -28,11 +28,6 @@ const brumaController = require('../controllers/brumaController');
 const corretivoController = require('../controllers/corretivoController');
 const poController = require('../controllers/poController');
 const batomController = require('../controllers/batomController');
-<<<<<<< HEAD
-=======
-
->>>>>>> b673bc15221202666c26b64742923d80b09dadb2
-
 // ROUTER
 router.get('/', indexController.renderIndex);
 router.get('/vertudo', vertudoController.renderVertudo);
@@ -60,11 +55,6 @@ router.get('/bruma', brumaController.renderBruma);
 router.get('/corretivo', corretivoController.renderCorretivo);
 router.get('/po', poController.renderPo);
 router.get('/batom', batomController.renderBatom);
-<<<<<<< HEAD
-=======
-
-
->>>>>>> b673bc15221202666c26b64742923d80b09dadb2
 
 
 module.exports = router;
