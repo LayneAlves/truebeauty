@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<%- include('./include/head.ejs') %>
+
+<body>
+  <%- include('./include/header.ejs') %>
+
+  <main>
+    <section class="page-header">
+      <h1>Para Finalizar Sua Compra</h1>
+      <p>Complete seus dados para finalizar o pedido</p>
+    </section>
+
+    <section class="checkout-container">
+      <div class="formulario-checkout">
+        <h3>Dados de Entrega</h3>
+        <form id="form-checkout">
+          <div class="form-group">
+            <label for="nome">Nome Completo</label>
+            <input type="text" id="nome" name="nome" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="telefone">Telefone</label>
+            <input type="tel" id="telefone" name="telefone" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="cep">CEP</label>
+            <input type="text" id="cep" name="cep" required>
+          </div>
+          
+          <div class="form-row">
+            <div class="form-group">
+              <label for="endereco">Endereço</label>
+              <input type="text" id="endereco" name="endereco" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="numero">Número</label>
+              <input type="text" id="numero" name="numero" required>
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label for="complemento">Complemento</label>
+            <input type="text" id="complemento" name="complemento">
+          </div>
+          
+          <div class="form-row">
+            <div class="form-group">
+              <label for="bairro">Bairro</label>
+              <input type="text" id="bairro" name="bairro" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="cidade">Cidade</label>
+              <input type="text" id="cidade" name="cidade" required>
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <div class="resumo-pedido">
+        <h3>Resumo do Pedido</h3>
+        <div id="itens-resumo" class="itens-resumo">
+          <!-- Itens serão inseridos aqui -->
+        </div>
+        
+        <div class="total-pedido">
+          <p id="total-pedido">Total: R$ 0,00</p>
+        </div>
+        
+        <button id="btn-finalizar" class="btn-finalizar-pedido">Confirmar Pedido</button>
+      </div>
+    </section>
+  </main>
+
+  <%- include('./include/footer.ejs') %>
+
+  <style>
+   
+  </style>
+
+  <script>
+    class CheckoutPagina {
+      constructor() {
+        this.carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+        this.inicializar();
+      }
+
+      inicializar() {
+        if (this.carrinho.length === 0) {
+          alert('Seu carrinho está vazio!');
+          window.location.href = '/';
+          return;
+        }
+
+        this.renderizarResumo();
+        this.configurarEventos();
+      }
+
+      renderizarResumo() {
+        const container = document.getElementById('itens-resumo');
+        
+        container.innerHTML = this.carrinho.map(item => `
+          <div class="item-resumo">
+            <img src="${item.imagem}" alt="${item.nome}">
+            <div class="item-info-resumo">
+              <strong>${item.nome}</strong><br>
+              Qtd: ${item.quantidade}
+            </div>
+            <div class="item-preco-resumo">${item.preco}</div>
+          </div>
+        `).join('');
+
+        this.atualizarTotal();
+      }
+
+      atualizarTotal() {
+        const total = this.carrinho.reduce((sum, item) => {
+          const preco = parseFloat(item.preco.replace('R$', '').replace(',', '.'));
+          return sum + (preco * item.quantidade);
+        }, 0);
+
+        document.getElementById('total-pedido').textContent = 
+          `Total: R$ ${total.toFixed(2).replace('.', ',')}`;
+      }
+
+      configurarEventos() {
+        document.getElementById('btn-finalizar').addEventListener('click', () => {
+          const form = document.getElementById('form-checkout');
+          
+          if (form.checkValidity()) {
+            this.finalizarPedido();
+          } else {
+            alert('Por favor, preencha todos os campos obrigatórios.');
+          }
+        });
+      }
+
+      finalizarPedido() {
+        // Simular processamento
+        alert('Pedido realizado com sucesso! Obrigado pela compra.');
+        
+        // Limpar carrinho
+        localStorage.removeItem('carrinho');
+        
+        // Redirecionar para home
+        window.location.href = '/';
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      new CheckoutPagina();
+    });
+  </script>
+</body>
+</html>
