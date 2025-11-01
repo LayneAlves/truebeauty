@@ -9,63 +9,63 @@
 
     <ul>
       <li>
-       <a href="vertudo"> <span>Ver Tudo</span></a>
+       <a href="vertudo"> <span>Ver Tudo</span> <div class="bootstrap"></div></a>
         <ul>
-          <li><a href="perfumes">Perfumes</a></li>
-          <li><a href="cabelos">Cabelo</a></li>
-          <li><a href="maquiagem">Maquiagem</a></li>
-          <li><a href="cuidados_pessoais">Cuidados Pessoais</a></li>
+          <li><a href="perfumes" id="demo" class="collapse">Perfumes</a></li>
+          <li><a href="cabelos" id="demo" class="collapse">Cabelo</a></li>
+          <li><a href="maquiagem" id="demo" class="collapse">Maquiagem</a></li>
+          <li><a href="cuidados_pessoais" id="demo" class="collapse">Cuidados Pessoais</a></li>
         </ul>
       </li>   
       
       <li>
-        <a href="perfumes"><span>Perfumes</span></a>
+        <a href="perfumes" data-toggle="collapse" data-target="#demo"><span>Perfumes</span></a>
         <ul>
-          <li><a href="perfumes_feminino">Perfumes Feminino</a></li>
-          <li><a href="perfumes_masculino">Perfume Masculino</a></li>
-          <li><a href="perfumes_infantil">Perfume Infantil</a></li>
-          <li><a href="body_splash">Body Splash</a></li>
+          <li><a href="perfumes_feminino" id="demo" class="collapse">Perfumes Feminino</a></li>
+          <li><a href="perfumes_masculino" id="demo" class="collapse">Perfume Masculino</a></li>
+          <li><a href="perfumes_infantil" id="demo" class="collapse">Perfume Infantil</a></li>
+          <li><a href="body_splash" id="demo" class="collapse">Body Splash</a></li>
         </ul>
       </li>
 
       <li>
-        <a href="cabelos"><span>Cabelo</span></a>
+        <a href="cabelos" data-toggle="collapse" data-target="#demo"><span>Cabelo</span></a>
         <ul>
-          <li><a href="hidratacao">Hidratação</a></li>
-          <li><a href="nutricao">Nutrição</a></li>
-          <li><a href="reconstrucao">Reconstrução</a></li>
+          <li><a href="hidratacao" id="demo" class="collapse">Hidratação</a></li>
+          <li><a href="nutricao" id="demo" class="collapse">Nutrição</a></li>
+          <li><a href="reconstrucao" id="demo" class="collapse">Reconstrução</a></li>
         </ul>
       </li>
 
       <li>
-        <a href="cuidados_pessoais"><span>Cuidados Pessoais</span></a>
+        <a href="cuidados_pessoais" data-toggle="collapse" data-target="#demo"><span>Cuidados Pessoais</span></a>
         <ul>
-          <li><a href="depilacao">Depilação</a></li>
-          <li><a href="higieneIntima">Higiene Intima</a></li>
-          <li><a href="protetorSolar">Protetor Solar</a></li>
-          <li><a href="kitBarba">Kit de Barbear</a></li>
+          <li><a href="depilacao" id="demo" class="collapse">Depilação</a></li>
+          <li><a href="higieneIntima" id="demo" class="collapse">Higiene Intima</a></li>
+          <li><a href="protetorSolar" id="demo" class="collapse">Protetor Solar</a></li>
+          <li><a href="kitBarba" id="demo" class="collapse">Kit de Barbear</a></li>
         </ul>
       </li>
 
       <li>
-        <a href="maquiagem"><span>Maquiagem</span></a>
+        <a href="maquiagem" data-toggle="collapse" data-target="#demo"><span>Maquiagem</span></a>
         <ul>
-          <li><a href="primer">Primer</a></li>
-          <li><a href="bruma">Bruma</a></li>
-          <li><a href="base">Base</a></li>
-          <li><a href="corretivo">Corretivo</a></li>
-          <li><a href="po">Pó</a></li>
-          <li><a href="batom">Batom</a></li>
-          <li><a href="olho">Olho</a></li>
+          <li><a href="primer" id="demo" class="collapse">Primer</a></li>
+          <li><a href="bruma" id="demo" class="collapse">Bruma</a></li>
+          <li><a href="base" id="demo" class="collapse">Base</a></li>
+          <li><a href="corretivo" id="demo" class="collapse">Corretivo</a></li>
+          <li><a href="po" id="demo" class="collapse">Pó</a></li>
+          <li><a href="batom" id="demo" class="collapse">Batom</a></li>
+          <li><a href="olho" id="demo" class="collapse">Olho</a></li>
         </ul>
       </li>
 
       <li>
-        <a href="skin_care"><span>Skin Care</span></a>
+        <a href="skin_care" data-toggle="collapse" data-target="#demo"><span>Skin Care</span></a>
         <ul>
-          <li><a href="rosto">Rosto</a></li>
-          <li><a href="olhos">Olhos</a></li>
-          <li><a href="labios">Labios</a></li>
+          <li><a href="rosto" id="demo" class="collapse">Rosto</a></li>
+          <li><a href="olhos" id="demo" class="collapse">Olhos</a></li>
+          <li><a href="labios" id="demo" class="collapse">Labios</a></li>
         </ul>
       </li>
     </ul>
@@ -184,4 +184,7 @@ document.getElementById('form-perfil').addEventListener('submit', e => {
 // Fim do menu hamb
 </script>
 
-
+<!-- JS DO MENU HAMBURGUER-->
+ 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>

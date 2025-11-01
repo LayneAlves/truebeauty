@@ -81,6 +81,7 @@
   padding: 0 12px;
   opacity: 1;
   font-size: 16px;
+  z-index: 20;
 }
 
 .search-input:focus {
