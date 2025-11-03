@@ -194,7 +194,44 @@
   .header nav label span::after{
     width: 25px ;
   }
+
+  .menu-list {
+    position: absolute;
+    top: 70px;
+    left: -100%;
+    width: 80%;
+    background: white;
+    transition: left 0.3s ease;
+    padding: 15px;
+    list-style: none;
+    z-index: 1000;
+  }
+
+  #menu-hamburguer:checked ~ .menu-list {
+    left: 0;
+  }
+
+  .menu-list li {
+    margin-bottom: 10px;
+  }
+
+  .menu-list a {
+    color: #333;
+    text-decoration: none;
+    padding: 8px 0;
+  }
+
+  .header nav > ul:nth-of-type(1) {
+    position: fixed;
+    left: -100%;
+    height: 100vh;
+    z-index: 1000;
+    box-shadow: 0 5px rgba(0,0,0,0.2);
+    overflow-y: auto;
+  }
+  
 }
+
 
 @media (min-width: 991px) {
   .header nav {
@@ -626,3 +663,56 @@
 
 
 /* Fim perfil  */
+
+/*MENU HAMBURGUER*/
+.submenu {
+  list-style: none;
+  padding-left: 20px;
+  display: none;
+  animation: slideDown 0.3s ease;
+}
+
+.submenu.show {
+  display: block;
+}
+
+.menu-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.submenu-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+}
+
+.submenu-toggle .arrow {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  border-left: 10px solid #8B0000;
+  border-top: 8px solid transparent;
+  border-bottom: 8px solid transparent;
+  transition: transform 0.3s ease;
+  margin: 10px;
+}
+
+.submenu-toggle[aria-expanded="true"] .arrow {
+  transform: rotate(90deg);
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/*FIM O MENU HABURGUER*/
