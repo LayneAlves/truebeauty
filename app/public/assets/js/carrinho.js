@@ -180,8 +180,7 @@ class Carrinho {
     
     btnFinalizar.addEventListener('click', () => {
       if (this.itens.length > 0) {
-        window.location.href = '/checkout.html';
-        this.limparCarrinho();
+        window.location.href = '/checkout';
       } else {
         alert('Seu carrinho está vazio!');
       }

@@ -102,26 +102,23 @@
   height: 28px !important;
 }
 
-/*Barra de pesquisa overlay overlay*/
+/*MENU HAMBUGUER*/
+ .bootstrap::before{
+  content: "▶";
+  transition: transform 0.3s;
+  cursor: pointer;
+  margin: 20px;
+ }
 
-.search-overlay {
-  position: fixed;         /* Fica fixo na tela, mesmo rolando */
-  top: 0; left: 0;         /* Começa no canto superior esquerdo */
-  width: 100%;             /* Ocupa toda a largura da tela */
-  background: white;       /* Pode ser branco ou semi-transparente */
-  padding: 20px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-  z-index: 1000;           /* Mais alto que os outros elementos */
-  
-  display: none;           /* Começa escondido */
-  justify-content: center; /* Centraliza o conteúdo */
-  align-items: center;
-}
- 
-/* Quando ativar, o overlay aparece */
-.search-overlay.active {
+ /*QUANDO O BOTAO É CLICADO*/
+ .bootstrap::before:active{
+  transform: rotate(90deg);
+ }
+
+ .header nav ul a{
   display: flex;
-}
+  justify-content: space-between;
+ }
 
 
 
