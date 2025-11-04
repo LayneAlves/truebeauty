@@ -142,30 +142,49 @@
 
 <!-- Fim sacola -->
 
-<!-- js sacola -->
-
-
-
-
-<!-- Fim js sacola -->
 
 
 <!--Perfil -->
-<div id="overlay-perfil" class="overlay-perfil"></div>
 
-<div id="modal-perfil" class="modal-perfil">
+<!-- Overlay (fundo escuro) -->
+<section id="overlay-perfil" class="overlay-perfil"></section>
+
+<!-- Container principal do login -->
+<section id="modal-perfil" class="modal-perfil">
   <button id="fechar-perfil" class="fechar-btn">&times;</button>
-  <h2>Entrar na sua conta</h2>
-  <form id="form-perfil">
-    <label for="email">Email</label>
-    <input type="email" id="email" name="email" placeholder="Digite seu email" required />
-    
-    <label for="senha">Senha</label>
-    <input type="password" id="senha" name="senha" placeholder="Digite sua senha" required />
-    
-    <button type="submit" class="btn-login">Entrar</button>
-  </form>
-</div>
+
+  <main class="login-container">
+    <h2>Bem-vinda ao TrueBeauty</h2>
+    <p>
+      Aqui você pode acompanhar todos os detalhes dos seus pedidos e ficar ainda mais conectada com a gente. É super simples:
+    </p>
+    <p class="info">
+      - É o seu primeiro acesso? <a href="#">Crie sua conta</a> <br>
+    </p>
+
+    <h3>Fazer login</h3>
+
+    <section class="social-login">
+   
+      <button class="google">
+        <img src="assets/imagem/imagem_Logo/google.png" alt="Google">
+        Continuar com o Google
+      </button>
+
+    </section>
+
+    <p class="divider">OU</p>
+
+    <form id="form-perfil" class="form-login">
+      <input type="email" id="email" name="email" placeholder="E-mail" required>
+      <input type="password" id="senha" name="senha" placeholder="Senha" required>
+      <a href="#" class="forgot">Esqueceu a senha?</a>
+      <button type="submit" class="btn-login">FAZER LOGIN</button>
+    </form>
+
+  </main>
+</section>
+
 
 <!-- Js Perfil -->
 <script>
