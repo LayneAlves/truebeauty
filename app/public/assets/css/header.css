@@ -102,6 +102,9 @@
   width: 150px;
   padding: 0 12px;
   opacity: 1;
+  border-color: #8B0000; /* muda a cor da borda */
+  box-shadow: 0 0 5px #8B0000; /* adiciona um brilho */
+  background-color: #fff; /* cor de fundo */
 }
 
  .logo {
@@ -183,6 +186,11 @@
     height: 28px;
     font-size: 12px;
   }
+
+   /* Quando o input estiver ativo (por exemplo, após clicar na lupa e mostrar) */
+  .search-input.active {
+    background-color: #999;
+  }
 }
 
 .header nav > label {
@@ -238,6 +246,9 @@
   .submenu-toggle {
     display: inline-block;
   }
+
+
+ 
 
   
   
