@@ -111,6 +111,10 @@
       <input type="text" placeholder="Pesquisar..." class="search-input">
     </div>
 
+    <!-- Overlay para a pesquisa -->
+    <div id="overlay-pesquisa" class="overlay-pesquisa"></div>
+
+
     
 
     <a href="/" class="logo">
@@ -257,3 +261,28 @@ document.getElementById('form-perfil').addEventListener('submit', e => {
     });
   });
 </script>
+
+<!--Pesquisa overlay-->
+<script>
+  const lupaBtn = document.querySelector('.search-icon img');
+  const searchInput = document.querySelector('.search-input');
+  const overlayPesquisa = document.getElementById('overlay-pesquisa');
+
+  // Clicar na lupa → ativa a barra e o fundo escuro
+  lupaBtn.addEventListener('click', () => {
+    searchInput.classList.toggle('active');
+    const ativo = searchInput.classList.contains('active');
+    overlayPesquisa.classList.toggle('ativo', ativo);
+
+    if (ativo) {
+      searchInput.focus();
+    }
+  });
+
+  // Clicar fora (no fundo escuro) → fecha tudo
+  overlayPesquisa.addEventListener('click', () => {
+    searchInput.classList.remove('active');
+    overlayPesquisa.classList.remove('ativo');
+  });
+</script>
+

@@ -193,6 +193,11 @@ strong{
   max-width: 45%;
 }
 
+/*FINALIZAR COMPRA*/
+.page-header{
+  margin: 0 4% 0 ;
+}
+
 
 
 }
@@ -345,6 +350,12 @@ li{
 strong{
   font-size: 1.3rem;
 }
+
+/*FINALIZAR COMPRA*/
+.page-header{
+  margin: 0 2% 0 ;
+}
+
 
    
 }
@@ -521,7 +532,7 @@ banner rotativo */
 .carousel-track {
   display: flex;
   transition: transform 0.6s cubic-bezier(.77,0,.18,1);
-  width: 100%;
+  width: 141%;
 }
 .carousel-track img {
   width: 73%;
