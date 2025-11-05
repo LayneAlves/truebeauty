@@ -28,7 +28,7 @@
   color: #333; /* Cor escura para os links */
   text-decoration: none;
   font-weight: 500;
-  transition: color 0.3s ease, transform 0.3s ease; /* Transição suave */
+  /* transition: color 0.3s ease, transform 0.3s ease; Transição suave */
 }
 
 .header nav a:hover {
@@ -104,18 +104,23 @@
   opacity: 1;
 }
 
-
  .logo {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
   z-index: 5;
+   pointer-events: none;
+
+
 }
 
 .logo > img {
   height: 40px !important;
+  display: block;
+  pointer-events: none;
 
 }
+
 .user-icon{
   margin-left: auto;
 }
@@ -256,22 +261,26 @@
     transition: height 0.4s ease;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
   }
+   .header nav > ul > li {
+  flex: 1; /* todos com a mesma proporção */
+  text-align: center;
+  padding-bottom: 16px;
+  cursor: pointer;
+}
 
-  .header nav > ul > li {
-    padding-bottom: 16px;
-    width: 150px;
-    cursor: pointer;
-    transition: height 0.4s ease;
-  }
 
   .header nav > ul > li ul {
     display: flex;
     flex-direction: column;
+    padding-left: 10px; 
+    text-align: left !important;
     row-gap: 8px;
     margin-top: 16px;
     overflow: hidden;
     height: 0;
     transition: height 0.4s ease;
+    text-align: left;
+    
   }
   
   .header nav > ul > li:hover > ul {
