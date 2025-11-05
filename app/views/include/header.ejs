@@ -264,25 +264,55 @@ document.getElementById('form-perfil').addEventListener('submit', e => {
 
 <!--Pesquisa overlay-->
 <script>
-  const lupaBtn = document.querySelector('.search-icon img');
+  const lupaBtnImg = document.querySelector('.search-icon img');
   const searchInput = document.querySelector('.search-input');
   const overlayPesquisa = document.getElementById('overlay-pesquisa');
 
-  // Clicar na lupa → ativa a barra e o fundo escuro
-  lupaBtn.addEventListener('click', () => {
-    searchInput.classList.toggle('active');
-    const ativo = searchInput.classList.contains('active');
+  // Função auxiliar pra ativar/desativar
+  function setPesquisaAtiva(ativo) {
+    searchInput.classList.toggle('active', ativo);
     overlayPesquisa.classList.toggle('ativo', ativo);
+
+    // Fallback blur: adiciona classe no body para aplicar filter:blur() aos irmãos do header
+    if (window.matchMedia('(max-width: 991px)').matches) {
+      document.body.classList.toggle('blurred', ativo);
+    } else {
+      document.body.classList.remove('blurred');
+    }
 
     if (ativo) {
       searchInput.focus();
     }
+  }
+
+  // Clique na lupa
+  lupaBtnImg.addEventListener('click', (e) => {
+    e.stopPropagation(); // não propagar
+    const ativo = !searchInput.classList.contains('active');
+    setPesquisaAtiva(ativo);
   });
 
-  // Clicar fora (no fundo escuro) → fecha tudo
+  // Clique no overlay fecha
   overlayPesquisa.addEventListener('click', () => {
-    searchInput.classList.remove('active');
-    overlayPesquisa.classList.remove('ativo');
+    setPesquisaAtiva(false);
+  });
+
+  // Clique fora da área da pesquisa fecha
+  document.addEventListener('click', (e) => {
+    // considera dentro se clicou na lupa, no input, ou no contêiner .search-icon
+    const dentro = e.target.closest('.search-icon') || e.target.closest('.search-input');
+    if (!dentro) {
+      setPesquisaAtiva(false);
+    }
+  });
+
+  // Se a tela for redimensionada e ultrapassar breakpoint, remove o blur/overlay
+  window.addEventListener('resize', () => {
+    if (!window.matchMedia('(max-width: 991px)').matches) {
+      setPesquisaAtiva(false);
+    }
   });
 </script>
+
+
 

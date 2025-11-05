@@ -185,18 +185,34 @@ strong{
   max-width: 28%;
 }
 
+/*FAZER LOGIN*/
 .info{
-  height: 26%;
+  height: 5%;
 }
 
 .info button{
   max-width: 45%;
 }
 
+.btn-login{
+  padding: 12px;
+}
+
+.modal-perfil{
+  max-width: 95%;
+  padding: 35px 0;
+}
+
 /*FINALIZAR COMPRA*/
 .page-header{
   margin: 0 4% 0 ;
 }
+
+h1{
+  font-size: 1.5em;
+}
+
+
 
 
 
