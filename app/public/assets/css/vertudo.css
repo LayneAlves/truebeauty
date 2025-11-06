@@ -1,6 +1,5 @@
 @import url('./header.css');
 @import url('./footer.css');
-@import url('./index.css');
 
 /* BASE STYLES */
 * {
@@ -14,7 +13,7 @@ body {
 }
 
 main {
-  width: 100%;
+  /* width: 100%; -- tirei pq tava atrapalhando o perfil  */
   max-width: 1200px;
   margin: 0 auto;
   padding: 0;
@@ -57,6 +56,10 @@ main {
   margin-top: 80px;
 }
 
+/*COMENTEI TUDO DOS CARDS POIS ESTAVA DANDO CONFLITO COM O CSS INDEX, 
+OS CARDS ESTAVAM BAGUNÇADOS*/
+
+/* 
 .card-container {
   display: flex;
   gap: 20px;
@@ -102,7 +105,7 @@ main {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-}
+} */
 
 /* MOBILE FIRST - 320px to 480px */
 @media (max-width: 480px) {
@@ -110,47 +113,60 @@ main {
     padding: 20px 15px;
     margin-bottom: 25px;
   }
-  
-  .category-section {
+
+  .card-container section header {
+    box-shadow: none;
+  }
+
+
+  /* .category-section {
     margin-bottom: 30px;
     padding: 0 5px;
   }
-  
-  .category-title {
+   */
+  /* .category-title {
     padding-left: 15px;
     margin-bottom: 15px;
   }
-  
-  .card-container {
+   */
+  /* .card-container {
     padding: 15px 10px;
     gap: 15px;
     
-  }
+  } 
   
   .card-container section {
     flex: 0 0 200px;
     height: 320px;
    
-  }
-  
-  .card-title {
+  }  */
+
+  /* .card-title {
     font-size: 14px !important;
     line-height: 1.2;
-  }
-  
-  .card-text {
+  } */
+
+  /* .card-text {
     font-size: 11px !important;
     line-height: 1.3;
   }
-  
-  .card-price {
+   */
+  /* .card-price {
     font-size: 13px !important;
   }
-  
-  .card-button {
+   */
+  /* .card-button {
     padding: 6px 12px !important;
     font-size: 11px !important;
+  } */
+
+  .modal-perfil {
+    max-width: 95%;
+    padding: 35px 0;
   }
+
+
+
 }
 
 /* TABLET PORTRAIT - 481px to 768px */
@@ -158,12 +174,12 @@ main {
   .category-section {
     padding: 0 8px;
   }
-  
+
   .card-container {
     padding: 18px 15px;
     gap: 18px;
   }
-  
+
   .card-container section {
     flex: 0 0 240px;
     height: 380px;

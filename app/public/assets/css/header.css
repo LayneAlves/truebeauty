@@ -1,3 +1,5 @@
+@import url('./vertudo.css');
+
 .header {
   display: flex;
   justify-content: space-between;
@@ -299,6 +301,10 @@
   
   header {
     box-shadow: 0 2px 4px #8B0000;
+  }
+
+  .sacola-header{
+    box-shadow: none;
   }
 
 }

@@ -1,27 +1,28 @@
 @import url('./header.css');
 @import url('./footer.css');
 @import url('./card.css');
+@import url('./vertudo.css');
 
 
 /* CELULAR */
 @media (max-width: 480px) {
 
   /*CARROSSEL DE CATEGORIAS*/
-  .categories-carousel{
-    overflow-x: scroll;  
-    scrollbar-width: none;  
+  .categories-carousel {
+    overflow-x: scroll;
+    scrollbar-width: none;
     justify-content: left;
-      
-  }
-   
- .categories-carousel section {
-    min-width:30%;
-    max-height: 200px; 
-    margin: 30px 0px 30px 0px;
-               
+
   }
 
-  h2{
+  .categories-carousel section {
+    min-width: 30%;
+    max-height: 200px;
+    margin: 30px 0px 30px 0px;
+
+  }
+
+  h2 {
     font-size: 1.2em;
   }
 
@@ -32,185 +33,200 @@
   }
 
   .categories-carousel section a {
-  max-width: 80px;
-  max-height: 20px;
-  font-size: 14px;
-  padding-bottom: 24px;
- 
+    max-width: 80px;
+    max-height: 20px;
+    font-size: 14px;
+    padding-bottom: 24px;
+
   }
 
   /*BANNER PRINCIPAL*/
-.main-banner img {
-   max-width: 90%;
+  .main-banner img {
+    max-width: 90%;
   }
 
   /*BANNER ROTATIVO*/
   .custom-carousel {
-   max-width: 90%;
-   
+    max-width: 90%;
+
   }
 
   /*CARROSSEL DE PRODUTOS*/
 
   .card-container {
     width: 80vw;
-    margin: 50px auto; 
+    margin: 50px auto;
   }
 
-   .card-container section {
+  .card-container section {
     max-width: 150px;
     max-height: 250px;
   }
 
-  .card-container section header{
+  .card-container section header {
     width: 100%;
- }
+  }
 
-   .card-container section header img {
+  .card-container section header img {
     width: 100%;
     height: 100%;
     background-position: center;
-    object-fit: contain; /* antes era cover, que cortava */
+    object-fit: contain;
+    /* antes era cover, que cortava */
   }
 
   .card-container section article {
-    padding: 5px 10px; 
+    padding: 5px 10px;
   }
 
 
   .card-title {
-    font-size: 70%;               /* tamanho da fonte */
-  margin-bottom: 5px;            /* margem inferior */
-}
+    font-size: 70%;
+    /* tamanho da fonte */
+    margin-bottom: 5px;
+    /* margem inferior */
+  }
 
-.card-text {
-  font-size: 70%;               /* tamanho da fonte */
-  margin-bottom: 5px;           /* margem inferior */
-}
+  .card-text {
+    font-size: 70%;
+    /* tamanho da fonte */
+    margin-bottom: 5px;
+    /* margem inferior */
+  }
 
-.card-price {
-  margin-bottom: 5px;
-}
+  .card-price {
+    margin-bottom: 5px;
+  }
 
-/*HEADER*/
+  /*HEADER*/
 
-.header nav > ul:nth-of-type(1){
-  max-width: 45%;
-}
+  .header nav>ul:nth-of-type(1) {
+    max-width: 45%;
+  }
 
-.logo > img{
-  height: 28px !important;
-}
+  .logo>img {
+    height: 28px !important;
+  }
 
-/*MENU HAMBUGUER*/
- .bootstrap::before{
-  content: "▶";
-  transition: transform 0.3s;
-  cursor: pointer;
-  margin: 20px;
- }
+  /*MENU HAMBUGUER*/
+  .bootstrap::before {
+    content: "▶";
+    transition: transform 0.3s;
+    cursor: pointer;
+    margin: 20px;
+  }
 
- /*QUANDO O BOTAO É CLICADO*/
- .bootstrap::before:active{
-  transform: rotate(90deg);
- }
+  /*QUANDO O BOTAO É CLICADO*/
+  .bootstrap::before:active {
+    transform: rotate(90deg);
+  }
 
- .header nav ul a{
-  display: flex;
-  justify-content: space-between;
- }
-
-
+  .header nav ul a {
+    display: flex;
+    justify-content: space-between;
+  }
 
 
-/*FOOTER*/
 
-nav{
-  margin: 25px 0px 30px 0px;
-}
 
-h3{
-  font-size: 15px;
-}
+  /*FOOTER*/
 
-a{
-  font-size: 13px;
-}
+  nav {
+    margin: 25px 0px 30px 0px;
+  }
 
-li{
-  font-size: 13px;
-}
+  h3 {
+    font-size: 15px;
+  }
 
-#redessociais{
-  column-gap: 20px;
-  margin-top: 30px;
+  a {
+    font-size: 13px;
+  }
+
+  li {
+    font-size: 13px;
+  }
+
+  #redessociais {
+    column-gap: 20px;
+    margin-top: 30px;
+
+  }
+
+  .footer {
+    padding-top: 30px;
+  }
+
+
+  /*SACOLA*/
+
+  .btn-excluir {
+    padding: 10px 15px;
+    border-radius: 7px;
+    font-size: 13px;
+  }
+
+  .input-quantidade {
+    width: 43px;
+    margin-top: 14px;
+  }
+
+  .info-item p {
+    font-size: 1.3rem;
+  }
+
+  strong {
+    font-size: 1.3rem;
+  }
+
+
+  /*MAIS VENDIDOS*/
+
+  .card-destaque {
+    max-width: 55%;
+    max-height: 320px;
+  }
+
+  .img-produto {
+    max-width: 28%;
+  }
+
+  /*FAZER LOGIN*/
+  .info {
+    height: 5%;
+  }
+
+  .info button {
+    max-width: 45%;
+  }
+
+  .btn-login {
+    padding: 12px;
+  }
+
+  .modal-perfil {
+    max-width: 95%;
+    padding: 35px 0;
+  }
+
   
-}
+  .login-container p{
+    margin-bottom: 5%;
+  }
 
-.footer{
-  padding-top: 30px;
-}
+  .login-title{
+    margin-bottom: 5%;
+  }
 
+  /*FINALIZAR COMPRA*/
+  .page-header {
+    margin: 0 4% 0;
+  }
 
-/*SACOLA*/
+  h1 {
+    font-size: 1.5em;
+  }
 
-.btn-excluir{
-  padding: 10px 15px;
-  border-radius: 7px;
-  font-size: 13px;
-}
-
-.input-quantidade{
-  width: 43px;
-  margin-top: 14px;
-}
-
-.info-item p{
-  font-size: 1.3rem;
-}
-
-strong{
-  font-size: 1.3rem;
-}
-
-
-/*MAIS VENDIDOS*/
-
-.card-destaque{
-  max-width: 55%;
-  max-height: 320px;
-}
-
-.img-produto{
-  max-width: 28%;
-}
-
-/*FAZER LOGIN*/
-.info{
-  height: 5%;
-}
-
-.info button{
-  max-width: 45%;
-}
-
-.btn-login{
-  padding: 12px;
-}
-
-.modal-perfil{
-  max-width: 95%;
-  padding: 35px 0;
-}
-
-/*FINALIZAR COMPRA*/
-.page-header{
-  margin: 0 4% 0 ;
-}
-
-h1{
-  font-size: 1.5em;
-}
 
 
 
@@ -221,33 +237,33 @@ h1{
 
 
 
-  /* TABLET */
+/* TABLET */
 @media (min-width: 481px) and (max-width: 840px) {
-  
+
   /*CARROSSEL DE CATEGORIAS */
-  .categories-carousel{
-    overflow-x: scroll;  
-    scrollbar-width: none;  
+  .categories-carousel {
+    overflow-x: scroll;
+    scrollbar-width: none;
     justify-content: left;
-      
+
   }
 
   .categories-carousel section {
-    min-width:25%;
-    max-height: 320px; 
+    min-width: 25%;
+    max-height: 320px;
     margin: 30px 0px 30px 0px;
-               
+
   }
 
 
 
   /*BANNER ROTATIVO*/
   .custom-carousel {
-   max-width: 95%;
-   
+    max-width: 95%;
+
   }
 
-   /*BANNER PRINCIPAL*/
+  /*BANNER PRINCIPAL*/
   .main-banner img {
     max-width: 95%;
   }
@@ -256,124 +272,130 @@ h1{
 
   .card-container {
     width: 90vw;
-    margin: 50px auto; 
+    margin: 50px auto;
   }
 
-   .card-container section {
+  .card-container section {
     max-width: 250px;
     max-height: 350px;
   }
 
-  .card-container section header{
+  .card-container section header {
     width: 100%;
- }
+    box-shadow: none;
+  }
 
-   .card-container section header img {
+  .card-container section header img {
     width: 100%;
     height: 100%;
     background-position: center;
-    object-fit: contain; /* antes era cover, que cortava */
+    object-fit: contain;
+    /* antes era cover, que cortava */
   }
 
   .card-container section article {
-    padding: 10px 15px; 
+    padding: 10px 15px;
   }
 
 
   .card-title {
-    font-size: 80%;               /* tamanho da fonte */
-   margin-bottom: 10px;            /* margem inferior */
-}
+    font-size: 80%;
+    /* tamanho da fonte */
+    margin-bottom: 10px;
+    /* margem inferior */
+  }
 
-.card-text {
-  font-size: 80%;               /* tamanho da fonte */
-  margin-bottom: 10px;           /* margem inferior */
-}
+  .card-text {
+    font-size: 80%;
+    /* tamanho da fonte */
+    margin-bottom: 10px;
+    /* margem inferior */
+  }
 
-.card-price {
-  margin-bottom: 10px;
-  font-size: 19px;
-}
+  .card-price {
+    margin-bottom: 10px;
+    font-size: 19px;
+  }
 
-/*HEADER*/
+  /*HEADER*/
 
-.header nav > ul:nth-of-type(1){
-  max-width: 45%;
-}
+  .header nav>ul:nth-of-type(1) {
+    max-width: 45%;
+  }
 
-.icon-btn {
-  padding: 15px;
-}
+  .icon-btn {
+    padding: 15px;
+  }
 
-.icon-btn img{
-  min-width: 30px;
-  min-height: 30px;
-}
+  .icon-btn img {
+    min-width: 30px;
+    min-height: 30px;
+  }
 
-.search-icon:hover .search-input {
-  width: 160px;
-  padding: 0 18px;
-  opacity: 1;
-  font-size: 16px;
-}
+  .search-icon:hover .search-input {
+    width: 160px;
+    padding: 0 18px;
+    opacity: 1;
+    font-size: 16px;
+  }
 
-/*FOOTER*/
+  /*FOOTER*/
 
-nav{
-  margin: 25px 0px 30px 0px;
-}
+  nav {
+    margin: 25px 0px 30px 0px;
+  }
 
-a{
-  font-size: 15px;
-}
+  a {
+    font-size: 15px;
+  }
 
-li{
-  font-size: 13px;
-}
+  li {
+    font-size: 13px;
+  }
 
-#redessociais{
-  column-gap: 120px;
-  margin-top: 30px;
-  
-}
+  #redessociais {
+    column-gap: 120px;
+    margin-top: 30px;
 
-.footer{
-  padding-top: 30px;
-}
+  }
 
-.footer nav{
-  gap: 130px;
-}
+  .footer {
+    padding-top: 30px;
+  }
 
-/*SACOLA*/
+  .footer nav {
+    gap: 130px;
+  }
 
-.btn-excluir{
-  padding: 10px 15px;
-  border-radius: 7px;
-  font-size: 13px;
-}
+  /*SACOLA*/
 
-.input-quantidade{
-  width: 44px;
-  margin-top: 15px;
-  font-size: 1.1rem;
-}
+  .btn-excluir {
+    padding: 10px 15px;
+    border-radius: 7px;
+    font-size: 13px;
+  }
 
-.info-item p{
-  font-size: 1.3rem;
-}
+  .input-quantidade {
+    width: 44px;
+    margin-top: 15px;
+    font-size: 1.1rem;
+  }
 
-strong{
-  font-size: 1.3rem;
-}
+  .info-item p {
+    font-size: 1.3rem;
+  }
 
-/*FINALIZAR COMPRA*/
-.page-header{
-  margin: 0 2% 0 ;
-}
+  strong {
+    font-size: 1.3rem;
+  }
+
+  /*FINALIZAR COMPRA*/
+  .page-header {
+    margin: 0 2% 0;
+  }
 
 
-   
+
 }
 
 * {
@@ -381,6 +403,7 @@ strong{
   padding: 0;
   box-sizing: border-box;
 }
+
 body {
   font-family: 'Arial', sans-serif;
   background: #fff;
@@ -388,10 +411,10 @@ body {
   line-height: 1.6;
 }
 
-main{
-width: 100vw;
-max-width: 1200px;
-margin: 0 auto;
+main {
+  width: 100vw;
+  max-width: 1200px;
+  margin: 0 auto;
   overflow: hidden;
 }
 
@@ -404,16 +427,18 @@ a {
   text-decoration: none;
   color: inherit;
 }
+
 button {
   background: none;
   border: none;
   cursor: pointer;
 }
 
-    /* HEADER */
+/* HEADER */
 
 .icon-btn {
-  font-size: 26px; /* Aumenta tamanho dos ícones */
+  font-size: 26px;
+  /* Aumenta tamanho dos ícones */
   background: none;
   border: none;
   cursor: pointer;
@@ -423,13 +448,13 @@ button {
 
 /* BANNER PRINCIPAL */
 .main-banner img {
-   width: 100%;
+  width: 100%;
   /* max-width: 900px; */
   margin: auto;
   position: relative;
   overflow: hidden;
   border-radius: 12px;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
   margin-top: 7%;
 }
 
@@ -443,20 +468,20 @@ button {
 .categories-carousel {
   display: flex;
   /* justify-content: center; */
-  margin:7% ;
+  margin: 7%;
   gap: 20px;
 }
 
 .categories-carousel section {
   width: 60%;
-  height: 400px;               
+  height: 400px;
   background-size: cover;
   background-repeat: no-repeat;
   border-radius: 20px;
   /* font-size: 13px; */
   font-weight: 500;
   text-align: center;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
   transition: background-color 0.3s ease;
   cursor: pointer;
   overflow: hidden;
@@ -484,8 +509,9 @@ button {
   left: 50%;
   transform: translateX(-50%);
 }
-.categories-carousel section a:hover{
-  background-color: #8b00009d ;
+
+.categories-carousel section a:hover {
+  background-color: #8b00009d;
   transition: .3s;
   color: #FFFFFF;
 }
@@ -522,8 +548,10 @@ button {
 /* camada que escurece */
 .banho .overlay {
   position: absolute;
-  inset: 0; /* cobre tudo */
-  background: rgba(0,0,0,0.35); /* preto com transparência */
+  inset: 0;
+  /* cobre tudo */
+  background: rgba(0, 0, 0, 0.35);
+  /* preto com transparência */
 }
 
 /* garante que título e botão fiquem por cima */
@@ -543,20 +571,24 @@ banner rotativo */
   position: relative;
   overflow: hidden;
   border-radius: 12px;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
 }
+
 .carousel-track {
   display: flex;
-  transition: transform 0.6s cubic-bezier(.77,0,.18,1);
+  transition: transform 0.6s cubic-bezier(.77, 0, .18, 1);
   width: 141%;
 }
+
 .carousel-track img {
   width: 73%;
   height: 100%;
-  object-fit: cover; /* ou 'contain' se quiser que tudo da imagem apareça */
+  object-fit: cover;
+  /* ou 'contain' se quiser que tudo da imagem apareça */
   flex-shrink: 0;
-  
+
 }
+
 .carousel-dots {
   position: absolute;
   bottom: 18px;
@@ -565,6 +597,7 @@ banner rotativo */
   display: flex;
   gap: 10px;
 }
+
 .carousel-dots .dot {
   width: 12px;
   height: 12px;
@@ -575,17 +608,19 @@ banner rotativo */
   transition: opacity 0.3s;
   border: 2px solid #8B0000;
 }
+
 .carousel-dots .dot.active {
   opacity: 1;
   background: #8B0000;
 }
+
 /* ...existing code... */
 
 /* DESCRIÇÃO + BOTÃO */
 .description {
   text-align: center;
   padding: 16px;
-  margin: 0px ;
+  margin: 0px;
 }
 
 
@@ -629,7 +664,7 @@ banner rotativo */
   cursor: pointer;
   z-index: 10;
   transition: all 0.3s ease;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
 .scroll-arrow:hover {
@@ -671,7 +706,7 @@ banner rotativo */
   height: 500px;
   border-radius: 10px;
   overflow: hidden;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
   transition: transform 0.3s;
   background-color: #923636;
 }
@@ -716,11 +751,12 @@ banner rotativo */
   border-radius: 30px;
 }
 
-.info button{
+.info button {
   border-radius: 70px;
   width: 100px;
-  
+
 }
+
 .info h3 {
   margin-top: 5%;
 }
@@ -756,7 +792,7 @@ button {
 .dica-make h2 {
   font-size: 2em;
   color: transparent;
-  background-image: linear-gradient(90deg,#FF0000,#CC0000,#990000, #ff0000);
+  background-image: linear-gradient(90deg, #FF0000, #CC0000, #990000, #ff0000);
   background-size: 200%;
   background-clip: text;
   -webkit-background-clip: text;
@@ -769,6 +805,7 @@ button {
   0% {
     background-position: 0%;
   }
+
   100% {
     background-position: 200%;
   }

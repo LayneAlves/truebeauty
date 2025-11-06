@@ -166,7 +166,7 @@
       - É o seu primeiro acesso? <a href="#">Crie sua conta</a> <br>
     </p>
 
-    <h3>Fazer login</h3>
+    <h3 id="login-title">Fazer login</h3>
 
     <section class="social-login">
    
@@ -280,11 +280,12 @@ document.getElementById('form-perfil').addEventListener('submit', e => {
 
   function setPesquisaAtiva(ativo) {
     pesquisaAtiva = ativo;
+
     searchContainer.classList.toggle('active', ativo);
     searchInput.classList.toggle('active', ativo);
     overlayPesquisa.classList.toggle('ativo', ativo);
 
-    // Blur só em telas pequenas
+    // Blur apenas no mobile/tablet
     if (window.matchMedia('(max-width: 991px)').matches) {
       document.body.classList.toggle('blurred', ativo);
     } else {
@@ -298,32 +299,39 @@ document.getElementById('form-perfil').addEventListener('submit', e => {
     }
   }
 
-  // Clique na lupa alterna (abre/fecha)
+  // Clique na lupa: alterna abrir/fechar
   lupaBtnImg.addEventListener('click', (e) => {
+    e.stopPropagation(); // impede que o clique vá pro document
+    if (pesquisaAtiva) {
+      // Se já estiver ativa, fecha
+      setPesquisaAtiva(false);
+    } else {
+      // Se estiver fechada, abre
+      setPesquisaAtiva(true);
+    }
+  });
+
+  // Impede que cliques dentro da área da busca fechem o campo
+  searchContainer.addEventListener('click', (e) => {
     e.stopPropagation();
-    setPesquisaAtiva(!pesquisaAtiva);
   });
 
-  // Clique no overlay fecha
-  overlayPesquisa.addEventListener('click', () => {
-    setPesquisaAtiva(false);
-  });
-
-  // Clique fora da área fecha
-  document.addEventListener('click', (e) => {
-    const dentro = e.target.closest('.search-icon');
-    if (!dentro && pesquisaAtiva) {
+  // Clique fora: fecha
+  document.addEventListener('click', () => {
+    if (pesquisaAtiva) {
       setPesquisaAtiva(false);
     }
   });
 
-  // Fechar ao redimensionar para telas grandes
+
+  // Redimensionamento: garante que feche em telas grandes
   window.addEventListener('resize', () => {
     if (!window.matchMedia('(max-width: 991px)').matches) {
       setPesquisaAtiva(false);
     }
   });
 </script>
+
 
 
 
