@@ -244,36 +244,47 @@ document.getElementById('form-perfil').addEventListener('submit', e => {
 </script>
 
 <!-- JS DO MENU HAMBURGUER-->
- 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-
 <script>
   document.querySelectorAll('.submenu-toggle').forEach(button => {
     button.addEventListener('click', () => {
-      const targetId = button.getAttribute('data-target');
-      const submenu = document.querySelector(targetId);
+      const target = document.querySelector(button.dataset.target);
       const expanded = button.getAttribute('aria-expanded') === 'true';
 
-      // Alterna o estado visual
+      // fecha todos os outros submenus primeiro
+      document.querySelectorAll('.submenu').forEach(sub => {
+        if (sub !== target) sub.classList.remove('show');
+      });
+      document.querySelectorAll('.submenu-toggle').forEach(btn => {
+        if (btn !== button) btn.setAttribute('aria-expanded', 'false');
+      });
+
+      // alterna o submenu clicado
       button.setAttribute('aria-expanded', !expanded);
-      submenu.classList.toggle('show');
+      target.classList.toggle('show', !expanded);
     });
   });
 </script>
 
+
+
+
+
 <!--Pesquisa overlay-->
 <script>
-  const lupaBtnImg = document.querySelector('.search-icon img');
-  const searchInput = document.querySelector('.search-input');
+  const searchContainer = document.querySelector('.search-icon');
+  const lupaBtnImg = searchContainer.querySelector('img');
+  const searchInput = searchContainer.querySelector('.search-input');
   const overlayPesquisa = document.getElementById('overlay-pesquisa');
 
-  // Função auxiliar pra ativar/desativar
+  let pesquisaAtiva = false;
+
   function setPesquisaAtiva(ativo) {
+    pesquisaAtiva = ativo;
+    searchContainer.classList.toggle('active', ativo);
     searchInput.classList.toggle('active', ativo);
     overlayPesquisa.classList.toggle('ativo', ativo);
 
-    // Fallback blur: adiciona classe no body para aplicar filter:blur() aos irmãos do header
+    // Blur só em telas pequenas
     if (window.matchMedia('(max-width: 991px)').matches) {
       document.body.classList.toggle('blurred', ativo);
     } else {
@@ -282,14 +293,15 @@ document.getElementById('form-perfil').addEventListener('submit', e => {
 
     if (ativo) {
       searchInput.focus();
+    } else {
+      searchInput.blur();
     }
   }
 
-  // Clique na lupa
+  // Clique na lupa alterna (abre/fecha)
   lupaBtnImg.addEventListener('click', (e) => {
-    e.stopPropagation(); // não propagar
-    const ativo = !searchInput.classList.contains('active');
-    setPesquisaAtiva(ativo);
+    e.stopPropagation();
+    setPesquisaAtiva(!pesquisaAtiva);
   });
 
   // Clique no overlay fecha
@@ -297,22 +309,23 @@ document.getElementById('form-perfil').addEventListener('submit', e => {
     setPesquisaAtiva(false);
   });
 
-  // Clique fora da área da pesquisa fecha
+  // Clique fora da área fecha
   document.addEventListener('click', (e) => {
-    // considera dentro se clicou na lupa, no input, ou no contêiner .search-icon
-    const dentro = e.target.closest('.search-icon') || e.target.closest('.search-input');
-    if (!dentro) {
+    const dentro = e.target.closest('.search-icon');
+    if (!dentro && pesquisaAtiva) {
       setPesquisaAtiva(false);
     }
   });
 
-  // Se a tela for redimensionada e ultrapassar breakpoint, remove o blur/overlay
+  // Fechar ao redimensionar para telas grandes
   window.addEventListener('resize', () => {
     if (!window.matchMedia('(max-width: 991px)').matches) {
       setPesquisaAtiva(false);
     }
   });
 </script>
+
+
 
 
 
