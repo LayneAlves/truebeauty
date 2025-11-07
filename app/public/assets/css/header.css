@@ -10,6 +10,7 @@
   padding: 0;
   background-color: #ffffff;
   position: relative;
+
 }
 
 .header nav {
@@ -22,7 +23,6 @@
   max-width: 1200px;
   margin: 0 auto;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
-
 }
 
 .header nav a {
@@ -138,12 +138,12 @@
 .header nav>ul:nth-of-type(1) {
   display: flex;
   flex-direction: column;
-  row-gap: 8px;
+  /* row-gap: 10px; */
   width: 100%;
   background-color: #FFFFFF;
   position: absolute;
   margin: 0;
-  padding: 16px 0 0 16px;
+  padding: 16px 0 16px 0;
   top: 60px;
   left: -100%;
   transition: left 0.3s ease;
@@ -157,7 +157,7 @@
 }
 
 .header nav>ul>li:hover {
-  border-bottom: 5px solid #8B0000;
+  border-bottom: 3px solid #8B0000;
   /* Adicionando underline ao passar o mouse */
 }
 
@@ -231,6 +231,10 @@
     left: 0;
   }
 
+  .header nav>ul{
+    align-items: flex-start !important;
+  }
+
   .menu-list li {
     margin-bottom: 10px;
   }
@@ -248,6 +252,7 @@
     z-index: 1000;
     box-shadow: 0 5px rgba(0, 0, 0, 0.2);
     overflow-y: auto;
+    padding-left: 3%;
   }
 
   .submenu-toggle {
@@ -845,7 +850,7 @@ input {
 
 .menu-item {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
 }
 
@@ -890,7 +895,7 @@ input {
 }
 
 /* ====== ESCONDER AS SETAS NO DESKTOP ====== */
-@media (min-width: 1025px) {
+@media (min-width: 991px) {
   .submenu-toggle {
     display: none !important;
   }

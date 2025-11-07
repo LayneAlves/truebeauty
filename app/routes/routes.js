@@ -24,7 +24,7 @@ const higieneIntimaController = require('../controllers/higieneIntimaController'
 const protetorSolarController = require('../controllers/protetorSolarController');
 const kitBarbaController = require('../controllers/kitBarbaController');
 const primerController = require('../controllers/primerController');
-const brumaController = require('../controllers/brumaController');
+// const brumaController = require('../controllers/brumaController');
 const corretivoController = require('../controllers/corretivoController');
 const poController = require('../controllers/poController');
 const batomController = require('../controllers/batomController');
@@ -52,7 +52,7 @@ router.get('/higieneIntima', higieneIntimaController.renderHigieneIntima);
 router.get('/protetorSolar', protetorSolarController.renderProtetorSolar);
 router.get('/kitBarba', kitBarbaController.renderKitBarba);
 router.get('/primer', primerController.renderPrimer);
-router.get('/bruma', brumaController.renderBruma);
+// router.get('/bruma', brumaController.renderBruma);
 router.get('/corretivo', corretivoController.renderCorretivo);
 router.get('/po', poController.renderPo);
 router.get('/batom', batomController.renderBatom);
