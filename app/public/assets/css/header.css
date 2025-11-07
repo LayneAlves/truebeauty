@@ -116,9 +116,10 @@
 .logo {
   position: absolute;
   left: 50%;
-  transform: translateX(-50%);
+  /* transform: translateX(-50%); */
+  margin-left: -50px;
   z-index: 5;
-  pointer-events: none;
+  /* pointer-events: none; */
 
 
 }
