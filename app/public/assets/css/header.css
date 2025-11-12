@@ -117,7 +117,7 @@
   position: absolute;
   left: 50%;
   /* transform: translateX(-50%); */
-  margin-left: -50px;
+  margin-left: -100px;
   z-index: 5;
   /* pointer-events: none; */
 
@@ -159,6 +159,7 @@
 
 .header nav>ul>li:hover {
   border-bottom: 3px solid #8B0000;
+  margin: 0 18px;
   /* Adicionando underline ao passar o mouse */
 }
 
@@ -356,7 +357,7 @@
     padding-left: 10px;
     text-align: left !important;
     row-gap: 8px;
-    margin-top: 16px;
+    margin: 16px 0 0 30px;
     overflow: hidden;
     height: 0;
     transition: height 0.4s ease;
