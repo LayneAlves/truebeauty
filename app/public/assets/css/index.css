@@ -123,7 +123,6 @@
 
   .header nav ul a {
     display: flex;
-    justify-content: space-between;
   }
 
 
@@ -188,7 +187,7 @@
   }
 
   .img-produto {
-    max-width: 28%;
+    max-width: 20%;
   }
 
   /*FAZER LOGIN*/
@@ -736,7 +735,7 @@ banner rotativo */
 }
 
 /* bloco das infos abaixo do produto */
-.info {
+.maisvendidos {
   font-size: 70%;
   background-color: white;
   position: absolute;
@@ -745,19 +744,19 @@ banner rotativo */
   transform: translateX(-50%);
   text-align: center;
   z-index: 3;
-  width: 70%;
+  width: 80%;
 
   flex-direction: column;
   border-radius: 30px;
 }
 
-.info button {
+.maisvendidos button {
   border-radius: 70px;
   width: 100px;
 
 }
 
-.info h3 {
+.maisvendidos h3 {
   margin-top: 5%;
 }
 
