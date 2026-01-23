@@ -459,14 +459,10 @@ button {
 
 /* CATEGORIAS */
 
-/* .categories-carousel {
-  padding: 12px 0;
-  background-color: #fff;
-} */
+/* CATEGORIAS */
 
 .categories-carousel {
   display: flex;
-  /* justify-content: center; */
   margin: 7%;
   gap: 20px;
 }
@@ -474,74 +470,98 @@ button {
 .categories-carousel section {
   width: 60%;
   height: 400px;
-  background-size: cover;
-  background-repeat: no-repeat;
   border-radius: 20px;
-  /* font-size: 13px; */
   font-weight: 500;
   text-align: center;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-  transition: background-color 0.3s ease;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
   cursor: pointer;
-  overflow: hidden;
   position: relative;
+  overflow: hidden;
 }
 
+/* IMAGEM (AGORA VAI NO ::before) */
+.categories-carousel section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: transform 0.6s ease;
+  z-index: 0;
+}
+
+/* OVERLAY ESCURO SUAVE */
+.categories-carousel section::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.25);
+  transition: background 0.4s ease;
+  z-index: 1;
+}
+
+/* ZOOM NA IMAGEM */
+.categories-carousel section:hover::before {
+  transform: scale(1.1);
+}
+
+/* ESCURECE UM POUCO MAIS NO HOVER */
+.categories-carousel section:hover::after {
+  background: rgba(0, 0, 0, 0.4);
+}
+
+/* TEXTO */
 .categories-carousel section h2 {
   color: #FFFFFF;
   position: absolute;
   bottom: 48px;
   left: 50%;
   transform: translateX(-50%);
+  z-index: 2;
 }
 
+/* BOTÃO */
 .categories-carousel section a {
   color: black;
-  background-color: rgba(255, 255, 255, 0.719);
+  background-color: rgba(255, 255, 255, 0.85);
   width: 100px;
   height: 24px;
   line-height: 24px;
   border-radius: 10px;
-  margin: 0 auto;
   position: absolute;
   bottom: 16px;
   left: 50%;
   transform: translateX(-50%);
+  z-index: 2;
+  transition: .3s;
 }
 
 .categories-carousel section a:hover {
-  background-color: #8b00009d;
-  transition: .3s;
+  background-color: #8b0000;
   color: #FFFFFF;
 }
 
-.categories-carousel section.cabelo {
+/* IMAGENS DAS CATEGORIAS (AGORA NO ::before) */
+
+.categories-carousel section.cabelo::before {
   background-image: url("https://i.pinimg.com/originals/3e/e1/d4/3ee1d4f8c52fc7637a257facd61423b3.jpg");
-  background-position: center;
 }
 
-.categories-carousel section.corpo {
+.categories-carousel section.corpo::before {
   background-image: url("https://img.freepik.com/fotos-premium/rosto-de-mulher-negra-e-creme-hidratante-para-beleza-da-pele-ou-cosmeticos-contra-um-fundo-de-estudio-cinza-retrato-de-mulher-africana-feliz-com-sorriso-para-locao-creme-hidratante-ou-produto-facial_590464-170930.jpg");
-  background-position: center;
 }
 
-.categories-carousel section.banho {
-  position: relative;
+.categories-carousel section.banho::before {
   background-image: url("https://img.freepik.com/fotos-premium/esta-lavagem-do-corpo-me-deixa-com-uma-sensacao-fresca-que-permanece-foto-de-estudio-de-uma-jovem-tomando-banho-contra-um-fundo-azul_590464-62358.jpg");
-  background-size: cover;
-  background-position: center;
-  border-radius: 20px;
-  overflow: hidden;
 }
 
-.categories-carousel section.perfume {
+.categories-carousel section.perfume::before {
   background-image: url("https://www.makeupatelier.com.br/wp-content/uploads/2022/04/mulher-passando-perfume.jpg");
-  background-position: center;
 }
 
-.categories-carousel section.rosto {
+.categories-carousel section.rosto::before {
   background-image: url("https://img.freepik.com/fotos-premium/retrato-sereno-de-uma-mulher-de-beleza-natural_1365064-5523.jpg");
-  background-position: center;
 }
 
 /* camada que escurece */

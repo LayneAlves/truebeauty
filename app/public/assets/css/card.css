@@ -76,7 +76,7 @@
  
  /* Aumenta o card ao passar o mouse */
  .card:hover {
-   transform: scale(1.03);        /* zoom leve */
+   transform: scale(2.03);        /* zoom leve */
  }
  
  /* Define tamanho e margem para a imagem dentro do card */
