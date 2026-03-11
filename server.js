@@ -6,6 +6,7 @@ app.locals.baseUrl = 'http://localhost:3000';
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'app/views'));
 app.use(express.static(path.join(__dirname, 'app/public')));
+app.use(express.urlencoded({ extended: true }));
 
 const indexRoutes = require('./app/routes/routes');
 app.use('/', indexRoutes);

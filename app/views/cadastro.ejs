@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<!-- HEAD -->
+  <link rel="stylesheet" href="<%=baseUrl%>/assets/css/cadastro.css" />
+  <%- include('./include/head.ejs') %>
+
+<body>
+
+  <!-- HEADER -->
+   <%- include('./include/header.ejs') %>
+
+   <main>
+    <section class="cadastro-section">
+      <h1><%= titulo %></h1>
+      <% if (typeof erro !== 'undefined') { %>
+        <p style="color: red;"><%= erro %></p>
+      <% } %>
+      <% if (typeof sucesso !== 'undefined') { %>
+        <p style="color: green;"><%= sucesso %></p>
+      <% } %>
+      <form action="/cadastro" method="post" class="cadastro-form">
+        <div class="form-group">
+          <label for="nome">Nome:</label>
+          <input type="text" id="nome" name="nome" required>
+          <span id="nome-error" style="color: red; display: none;">Nome deve ter pelo menos 3 caracteres.</span>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required>
+          <span id="email-error" style="color: red; display: none;">Email inválido.</span>
+        </div>
+
+        <div class="form-group">
+          <label for="senha">Senha:</label>
+          <input type="password" id="senha" name="senha" required>
+          <ul id="senha-requisitos">
+            <li id="req-length" class="invalid">Pelo menos 8 caracteres.</li>
+            <li id="req-case" class="invalid">Pelo menos uma letra maiúscula e uma minúscula.</li>
+            <li id="req-number" class="invalid">Pelo menos um número.</li>
+            <li id="req-special" class="invalid">Pelo menos um desses caracteres especiais: ~ ! ? @ # $ % ^ & *</li>
+          </ul>
+        </div>
+
+        <button type="submit">Cadastrar</button>
+      </form>
+    </section>
+   </main>
+
+  <!-- FOOTER -->
+   <%- include('./include/footer.ejs') %>
+
+  <script>
+    const nomeInput = document.getElementById('nome');
+    const emailInput = document.getElementById('email');
+    const senhaInput = document.getElementById('senha');
+    const nomeError = document.getElementById('nome-error');
+    const emailError = document.getElementById('email-error');
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    // Validação do nome
+    nomeInput.addEventListener('input', function() {
+      if (this.value.length >= 3) {
+        nomeError.style.display = 'none';
+      } else {
+        nomeError.style.display = 'block';
+      }
+    });
+
+    // Validação do email
+    emailInput.addEventListener('input', function() {
+      if (emailRegex.test(this.value)) {
+        emailError.style.display = 'none';
+      } else {
+        emailError.style.display = 'block';
+      }
+    });
+
+    // Validação da senha
+    senhaInput.addEventListener('input', function() {
+      const senha = this.value;
+      const lengthReq = document.getElementById('req-length');
+      const caseReq = document.getElementById('req-case');
+      const numberReq = document.getElementById('req-number');
+      const specialReq = document.getElementById('req-special');
+
+      // Pelo menos 8 caracteres
+      if (senha.length >= 8) {
+        lengthReq.classList.remove('invalid');
+        lengthReq.classList.add('valid');
+      } else {
+        lengthReq.classList.remove('valid');
+        lengthReq.classList.add('invalid');
+      }
+
+      // Pelo menos uma maiúscula e uma minúscula
+      if (/[a-z]/.test(senha) && /[A-Z]/.test(senha)) {
+        caseReq.classList.remove('invalid');
+        caseReq.classList.add('valid');
+      } else {
+        caseReq.classList.remove('valid');
+        caseReq.classList.add('invalid');
+      }
+
+      // Pelo menos um número
+      if (/\d/.test(senha)) {
+        numberReq.classList.remove('invalid');
+        numberReq.classList.add('valid');
+      } else {
+        numberReq.classList.remove('valid');
+        numberReq.classList.add('invalid');
+      }
+
+      // Pelo menos um caractere especial
+      if (/[~!?@#$%^&*]/.test(senha)) {
+        specialReq.classList.remove('invalid');
+        specialReq.classList.add('valid');
+      } else {
+        specialReq.classList.remove('valid');
+        specialReq.classList.add('invalid');
+      }
+    });
+  </script>
+
+</body>
+</html>

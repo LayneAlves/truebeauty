@@ -28,6 +28,7 @@ const primerController = require('../controllers/primerController');
 const corretivoController = require('../controllers/corretivoController');
 const poController = require('../controllers/poController');
 const batomController = require('../controllers/batomController');
+const userController = require('../controllers/userController');
 
 // ROUTER
 router.get('/', indexController.renderIndex);
@@ -65,5 +66,9 @@ router.get('/carrinho', (req, res) => {
 router.get('/checkout', (req, res) => {
     res.render('checkout', { baseUrl: '' });
 });
+
+// Rotas de cadastro
+router.get('/cadastro', userController.renderCadastro);
+router.post('/cadastro', userController.salvarUsuario);
 
 module.exports = router;
