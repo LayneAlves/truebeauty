@@ -1,62 +1,33 @@
-const fs = require('fs').promises;
-const path = require('path');
+const UserModel = require('../models/userModel');
 
-const usersFilePath = path.join(__dirname, '../../data/users.json');
-
-exports.renderCadastro = (req, res) => {
-    res.render('cadastro', {
-        titulo: 'Cadastro de Usuário',
-        baseUrl: req.app.locals.baseUrl
-    });
-};
-
-exports.salvarUsuario = async (req, res) => {
-    try {
-        const { nome, email, senha } = req.body;
-
-        // Ler usuários existentes
-        let users = [];
+const UserController = {
+    async cadastrar(req, res){
         try {
-            const data = await fs.readFile(usersFilePath, 'utf8');
-            users = JSON.parse(data);
-        } catch (err) {
-            // Arquivo não existe ou vazio, users permanece []
-        }
-
-        // Verificar se email já existe
-        const userExists = users.find(user => user.email === email);
-        if (userExists) {
-            return res.render('cadastro', {
-                titulo: 'Cadastro de Usuário',
-                baseUrl: req.app.locals.baseUrl,
-                erro: 'Email já cadastrado.'
-            });
-        }
-
-        // Adicionar novo usuário
-        const newUser = {
-            id: users.length + 1,
-            nome,
-            email,
-            senha // Nota: senha em plain text, considere criptografar em produção
-        };
-        users.push(newUser);
-
-        // Escrever de volta no arquivo
-        await fs.writeFile(usersFilePath, JSON.stringify(users, null, 2));
-
-        // Redirecionar ou renderizar sucesso
+            //Recebe os dados do formulario
+            const{ nome, email, senha } = req.body;
+            const newUser = {
+                id: UserModel.users().reduce((maxId, user) => Math.max(maxId, user.id), 0) + 1,
+                nome,
+                email,
+                senha
+            }
+        //await, espere até ele funcionar  
+        await UserModel.cadastrar(newUser);
+        return res.redirect ('/');
+        //Retorno ao usuário
+        } catch (error) {
+            console.error('Erro ao cadastrar usuário:', error);
+            res.status(500).send('Erro ao cadastrar usuário');
+            }
+     
+    },
+    renderCadastro(req, res) {
         res.render('cadastro', {
             titulo: 'Cadastro de Usuário',
-            baseUrl: req.app.locals.baseUrl,
-            sucesso: 'Usuário cadastrado com sucesso!'
-        });
-    } catch (error) {
-        console.error(error);
-        res.render('cadastro', {
-            titulo: 'Cadastro de Usuário',
-            baseUrl: req.app.locals.baseUrl,
-            erro: 'Erro ao cadastrar usuário.'
+            baseUrl: req.app.locals.baseUrl
         });
     }
-};
+}
+
+module.exports = UserController;
+

@@ -1,127 +1,164 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 
-<!-- HEAD -->
-  <link rel="stylesheet" href="<%=baseUrl%>/assets/css/cadastro.css" />
+<head>
   <%- include('./include/head.ejs') %>
+  <link rel="stylesheet" href="<%=baseUrl%>/assets/css/cadastro.css" />
+</head>
 
 <body>
 
-  <!-- HEADER -->
-   <%- include('./include/header.ejs') %>
+<!-- HEADER -->
+<%- include('./include/header.ejs') %>
 
-   <main>
-    <section class="cadastro-section">
-      <h1><%= titulo %></h1>
-      <% if (typeof erro !== 'undefined') { %>
-        <p style="color: red;"><%= erro %></p>
-      <% } %>
-      <% if (typeof sucesso !== 'undefined') { %>
-        <p style="color: green;"><%= sucesso %></p>
-      <% } %>
-      <form action="/cadastro" method="post" class="cadastro-form">
-        <div class="form-group">
-          <label for="nome">Nome:</label>
-          <input type="text" id="nome" name="nome" required>
-          <span id="nome-error" style="color: red; display: none;">Nome deve ter pelo menos 3 caracteres.</span>
-        </div>
+<main>
+<section class="cadastro-section">
 
-        <div class="form-group">
-          <label for="email">Email:</label>
-          <input type="email" id="email" name="email" required>
-          <span id="email-error" style="color: red; display: none;">Email inválido.</span>
-        </div>
+<h1>Crie sua conta</h1>
 
-        <div class="form-group">
-          <label for="senha">Senha:</label>
-          <input type="password" id="senha" name="senha" required>
-          <ul id="senha-requisitos">
-            <li id="req-length" class="invalid">Pelo menos 8 caracteres.</li>
-            <li id="req-case" class="invalid">Pelo menos uma letra maiúscula e uma minúscula.</li>
-            <li id="req-number" class="invalid">Pelo menos um número.</li>
-            <li id="req-special" class="invalid">Pelo menos um desses caracteres especiais: ~ ! ? @ # $ % ^ & *</li>
-          </ul>
-        </div>
 
-        <button type="submit">Cadastrar</button>
-      </form>
-    </section>
-   </main>
+<form action="/cadastro" method="post" class="cadastro-form">
 
-  <!-- FOOTER -->
-   <%- include('./include/footer.ejs') %>
+<div class="form-group">
+  <input type="text" id="nome" name="nome" placeholder=" " required>
+  <label for="nome">Nome:</label>
 
-  <script>
-    const nomeInput = document.getElementById('nome');
-    const emailInput = document.getElementById('email');
-    const senhaInput = document.getElementById('senha');
-    const nomeError = document.getElementById('nome-error');
-    const emailError = document.getElementById('email-error');
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  <span id="nome-error" style="color:red; display:none;">
+  Nome deve ter pelo menos 3 caracteres.
+  </span>
+</div>
 
-    // Validação do nome
-    nomeInput.addEventListener('input', function() {
-      if (this.value.length >= 3) {
-        nomeError.style.display = 'none';
-      } else {
-        nomeError.style.display = 'block';
+<div class="form-group">
+  <input type="text" id="email" name="email" placeholder=" " required>
+  <label for="email">Email:</label>
+  <span id="email-error" style="color:red; display:none;">
+  Email inválido.
+  </span>
+</div>
+
+<div class="form-group">
+  <input type="password" id="senha" name="senha" placeholder=" " required>
+  <label for="senha">Senha:</label>
+
+<ul id="senha-requisitos">
+<li id="req-length" class="invalid">Pelo menos 8 caracteres</li>
+<li id="req-case" class="invalid">Uma letra maiúscula e uma minúscula</li>
+<li id="req-number" class="invalid">Pelo menos um número</li>
+<li id="req-special" class="invalid">Pelo menos um caractere especial</li>
+</ul>
+
+</div>
+
+<button type="submit" class="btn-cadastro">Cadastrar</button>
+
+</form>
+</section>
+</main>
+
+<!-- FOOTER -->
+<%- include('./include/footer.ejs') %>
+
+<script>
+(function () {
+  // Executa somente após o DOM estar carregado
+  document.addEventListener("DOMContentLoaded", function () {
+    const form = document.querySelector(".cadastro-form")
+    if (!form) return
+
+    const inputNome = form.querySelector("#nome")
+    const inputEmail = form.querySelector("#email")
+    const inputSenha = form.querySelector("#senha")
+    const listaRequisitos = form.querySelector("#senha-requisitos")
+
+    const nomeError = form.querySelector("#nome-error")
+    const emailError = form.querySelector("#email-error")
+
+    const senhaRequisitos = {
+      length: form.querySelector("#req-length"),
+      case: form.querySelector("#req-case"),
+      number: form.querySelector("#req-number"),
+      special: form.querySelector("#req-special"),
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+
+
+    const marcarValido = (input) => {
+      if (!input) return
+      input.classList.remove("input-invalido")
+      input.classList.add("input-valido")
+    }
+
+    const marcarInvalido = (input) => {
+      if (!input) return
+      input.classList.remove("input-valido")
+      input.classList.add("input-invalido")
+    }
+
+    const setDisplay = (el, show) => {
+      if (!el) return
+      el.style.display = show ? "" : "none"
+    }
+
+    if (inputNome) {
+      inputNome.addEventListener("input", () => {
+        const valido = inputNome.value.trim().length >= 3
+        setDisplay(nomeError, !valido)
+        valido ? marcarValido(inputNome) : marcarInvalido(inputNome)
+      })
+    }
+
+    if (inputEmail) {
+      inputEmail.addEventListener("input", () => {
+        const valor = inputEmail.value.trim()
+        const valido = emailRegex.test(valor)
+        setDisplay(emailError, !valido)
+        valido ? marcarValido(inputEmail) : marcarInvalido(inputEmail)
+      })
+    }
+
+    if (inputSenha) {
+      inputSenha.addEventListener("input", () => {
+        const valor = inputSenha.value
+      // ATIVAR REQUISIÇÕES DE SENHA
+      if(valor.length > 0){
+      listaRequisitos.classList.add("ativo")
+      }else{
+      listaRequisitos.classList.remove("ativo")
       }
-    });
+        const lengthOk = valor.length >= 8
+        const caseOk = /[A-Z]/.test(valor) && /[a-z]/.test(valor)
+        const numberOk = /\d/.test(valor)
+        const specialOk = /[~!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?]/.test(valor)
 
-    // Validação do email
-    emailInput.addEventListener('input', function() {
-      if (emailRegex.test(this.value)) {
-        emailError.style.display = 'none';
-      } else {
-        emailError.style.display = 'block';
-      }
-    });
+        if (senhaRequisitos.length) {
+          senhaRequisitos.length.classList.toggle("valid", lengthOk)
+          senhaRequisitos.length.classList.toggle("invalid", !lengthOk)
+        }
 
-    // Validação da senha
-    senhaInput.addEventListener('input', function() {
-      const senha = this.value;
-      const lengthReq = document.getElementById('req-length');
-      const caseReq = document.getElementById('req-case');
-      const numberReq = document.getElementById('req-number');
-      const specialReq = document.getElementById('req-special');
+        if (senhaRequisitos.case) {
+          senhaRequisitos.case.classList.toggle("valid", caseOk)
+          senhaRequisitos.case.classList.toggle("invalid", !caseOk)
+        }
 
-      // Pelo menos 8 caracteres
-      if (senha.length >= 8) {
-        lengthReq.classList.remove('invalid');
-        lengthReq.classList.add('valid');
-      } else {
-        lengthReq.classList.remove('valid');
-        lengthReq.classList.add('invalid');
-      }
+        if (senhaRequisitos.number) {
+          senhaRequisitos.number.classList.toggle("valid", numberOk)
+          senhaRequisitos.number.classList.toggle("invalid", !numberOk)
+        }
 
-      // Pelo menos uma maiúscula e uma minúscula
-      if (/[a-z]/.test(senha) && /[A-Z]/.test(senha)) {
-        caseReq.classList.remove('invalid');
-        caseReq.classList.add('valid');
-      } else {
-        caseReq.classList.remove('valid');
-        caseReq.classList.add('invalid');
-      }
+        if (senhaRequisitos.special) {
+          senhaRequisitos.special.classList.toggle("valid", specialOk)
+          senhaRequisitos.special.classList.toggle("invalid", !specialOk)
+        }
 
-      // Pelo menos um número
-      if (/\d/.test(senha)) {
-        numberReq.classList.remove('invalid');
-        numberReq.classList.add('valid');
-      } else {
-        numberReq.classList.remove('valid');
-        numberReq.classList.add('invalid');
-      }
+        const senhaValida = lengthOk && caseOk && numberOk && specialOk
+        senhaValida ? marcarValido(inputSenha) : marcarInvalido(inputSenha)
+      })
+    }
+  })
+})()
 
-      // Pelo menos um caractere especial
-      if (/[~!?@#$%^&*]/.test(senha)) {
-        specialReq.classList.remove('invalid');
-        specialReq.classList.add('valid');
-      } else {
-        specialReq.classList.remove('valid');
-        specialReq.classList.add('invalid');
-      }
-    });
-  </script>
+</script>
 
 </body>
 </html>

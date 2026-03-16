@@ -816,6 +816,8 @@ button {
 }
 
 input {
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 4px;
@@ -839,7 +841,7 @@ input {
 .btn-login {
   background-color: #8B0000;
   color: #fff;
-  border: none;
+  border-radius: 10px;
   font-weight: bold;
   padding: 15px;
 }
@@ -847,7 +849,13 @@ input {
 .btn-login:hover {
   background-color: #ff0000;
 }
-
+.btn-cadastro {
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  color: #8B0000;
+  border-radius: 10px;
+  font-weight: bold;
+  padding: 15px;
+}
 
 /* Fim perfil  */
 

@@ -1,5 +1,7 @@
 const express = require('express');
 const router = express.Router();
+const UserController = require('../controllers/userController');
+
 
 // CONTROLLERS
 const indexController = require('../controllers/indexController');
@@ -24,11 +26,10 @@ const higieneIntimaController = require('../controllers/higieneIntimaController'
 const protetorSolarController = require('../controllers/protetorSolarController');
 const kitBarbaController = require('../controllers/kitBarbaController');
 const primerController = require('../controllers/primerController');
-// const brumaController = require('../controllers/brumaController');
 const corretivoController = require('../controllers/corretivoController');
 const poController = require('../controllers/poController');
 const batomController = require('../controllers/batomController');
-const userController = require('../controllers/userController');
+
 
 // ROUTER
 router.get('/', indexController.renderIndex);
@@ -53,7 +54,6 @@ router.get('/higieneIntima', higieneIntimaController.renderHigieneIntima);
 router.get('/protetorSolar', protetorSolarController.renderProtetorSolar);
 router.get('/kitBarba', kitBarbaController.renderKitBarba);
 router.get('/primer', primerController.renderPrimer);
-// router.get('/bruma', brumaController.renderBruma);
 router.get('/corretivo', corretivoController.renderCorretivo);
 router.get('/po', poController.renderPo);
 router.get('/batom', batomController.renderBatom);
@@ -68,7 +68,7 @@ router.get('/checkout', (req, res) => {
 });
 
 // Rotas de cadastro
-router.get('/cadastro', userController.renderCadastro);
-router.post('/cadastro', userController.salvarUsuario);
+router.get('/cadastro', UserController.renderCadastro);
+router.post('/cadastro', UserController.cadastrar);
 
 module.exports = router;
