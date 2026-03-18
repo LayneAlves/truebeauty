@@ -736,9 +736,9 @@ banner rotativo */
 .img-produto {
   position: absolute;
   left: 14%;
-  top: 24px;
+  top: 15px;
   transform: translateX(-50%);
-  width: 50px;
+  width: 74px;
   height: auto;
   z-index: 2;
   display: flex;
@@ -749,7 +749,7 @@ banner rotativo */
   font-size: 70%;
   background-color: white;
   position: absolute;
-  bottom: 4%;
+  bottom: 10px;
   left: 50%;
   transform: translateX(-50%);
   text-align: center;
@@ -757,7 +757,7 @@ banner rotativo */
   width: 80%;
 
   flex-direction: column;
-  border-radius: 30px;
+  border-radius: 20px;
 }
 
 .maisvendidos button {
@@ -772,14 +772,14 @@ banner rotativo */
 
 h3 {
   color: rgba(0, 0, 0, 0.675);
-  font-size: 1.1em;
+  font-size: 14px;
   margin-bottom: 3%;
 }
 
 .preco {
   color: #4f0103;
   font-weight: bold;
-  margin-bottom: 3%;
+  font-size: 18px;
 }
 
 button {

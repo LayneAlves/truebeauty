@@ -12,75 +12,86 @@
       <p>Complete seus dados para finalizar o pedido</p>
     </section>
 
-    <section class="checkout-container">
-      <div class="formulario-checkout">
-        <h3>Dados de Entrega</h3>
-        <form id="form-checkout">
-          <div class="form-group">
-            <label for="nome">Nome Completo</label>
-            <input type="text" id="nome" name="nome" required>
-          </div>
-          
-          <div class="form-group">
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" required>
-          </div>
-          
-          <div class="form-group">
-            <label for="endereco">Endereço</label>
-            <input type="text" id="endereco" name="endereco" required>
-          </div>
-          
-          <div class="form-group">
-            <label for="cep">CEP</label>
-            <input type="number" id="cep" name="cep" required>
-          </div>
-          
-          <div class="form-row">
-            <div class="form-group">
-              <label for="telefone">Telefone</label>
-              <input type="text" id="telefone" name="telefone" required>
-            </div>
-            
-            <div class="form-group">
-              <label for="numero">Número</label>
-              <input type="number" id="numero" name="numero" required>
-            </div>
-          </div>
-          
-          <div class="form-group">
-            <label for="complemento">Complemento</label>
-            <input type="text" id="complemento" name="complemento">
-          </div>
-          
-          <div class="form-row">
-            <div class="form-group">
-              <label for="bairro">Bairro</label>
-              <input type="text" id="bairro" name="bairro" required>
-            </div>
-            
-            <div class="form-group">
-              <label for="cidade">Cidade</label>
-              <input type="text" id="cidade" name="cidade" required>
-            </div>
-          </div>
-        </form>
+<section class="checkout-container">
+<div class="formulario-checkout">
+  <h3>Dados de Entrega</h3>
+
+    <form id="form-checkout">
+
+      <!-- Nome -->
+      <div class="form-group">
+        <label>Nome Completo</label>
+        <input type="text" required>
       </div>
 
-      <div class="resumo-pedido">
-        <h3>Resumo do Pedido</h3>
-        <div id="itens-resumo" class="itens-resumo">
-          <!-- Itens serão inseridos aqui -->
-        </div>
-        
-        <div class="total-pedido">
-          <p id="total-pedido">Total: R$ 0,00</p>
-        </div>
-        
-        <button id="btn-finalizar" class="btn-finalizar-pedido">Confirmar Pedido</button>
+      <!-- Email -->
+      <div class="form-group">
+        <label>Email</label>
+        <input type="email" required>
       </div>
-    </section>
-  </main>
+
+      <!-- Telefone + CEP -->
+      <div class="form-row telefone-cep">
+        <div class="form-group">
+          <label>Telefone</label>
+          <input type="number" required>
+        </div>
+
+        <div class="form-group cep">
+          <label>CEP</label>
+          <input type="number" required>
+        </div>
+      </div>
+
+      <!-- Endereço + Número -->
+      <div class="form-row endereco-numero">
+        <div class="form-group">
+          <label>Endereço</label>
+          <input type="text" required>
+        </div>
+
+        <div class="form-group numero">
+          <label>Número</label>
+          <input type="number" required>
+        </div>
+      </div>
+
+      <!-- Complemento -->
+      <div class="form-group">
+        <label>Complemento</label>
+        <input type="text">
+      </div>
+
+      <!-- Bairro + Cidade -->
+      <div class="form-row">
+        <div class="form-group">
+          <label>Bairro</label>
+          <input type="text" required>
+        </div>
+
+        <div class="form-group">
+          <label>Cidade</label>
+          <input type="text" required>
+        </div>
+      </div>
+
+    </form>
+</div>
+
+    <div class="resumo-pedido">
+      <h3>Resumo do Pedido</h3>
+      <div id="itens-resumo" class="itens-resumo">
+        <!-- Itens serão inseridos aqui -->
+      </div>
+      
+      <div class="total-pedido">
+        <p id="total-pedido">Total: R$ 0,00</p>
+      </div>
+      
+      <button id="btn-finalizar" class="btn-finalizar-pedido">Confirmar Pedido</button>
+    </div>
+  </section>
+</main>
 
   <%- include('./include/footer.ejs') %>
 
