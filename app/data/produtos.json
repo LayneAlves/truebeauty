@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "nome": "batom",
+    "preco": "25,00",
+    "descricao": "vermelho neon"
+  },
+  {
+    "id": 2,
+    "nome": "base",
+    "preco": "50,00",
+    "descricao": "cor clara"
+  },
+  {
+    "id": 3,
+    "nome": "pó compacto",
+    "preco": "30,00",
+    "descricao": "cor média"
+  }
+]

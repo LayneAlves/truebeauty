@@ -9,8 +9,13 @@
   font-size: 16px;
   padding: 0;
   background-color: #ffffff;
-  position: relative;
-
+  
+  position: fixed;
+  margin-bottom: 80px;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
 }
 
 .header nav {
@@ -22,17 +27,14 @@
   height: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
 }
 
 .header nav a {
   color: #333;
-  /* Cor escura para os links */
   text-decoration: none;
   font-weight: 500;
-  /* transition: color 0.3s ease, transform 0.3s ease; Transição suave */
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 }
 
 .header nav a:hover {
@@ -118,10 +120,8 @@
 .logo {
   position: absolute;
   left: 50%;
-  /* transform: translateX(-50%); */
   margin-left: -100px;
   z-index: 5;
-  /* pointer-events: none; */
 
 
 }
@@ -141,7 +141,6 @@
 .header nav>ul:nth-of-type(1) {
   display: flex;
   flex-direction: column;
-  /* row-gap: 10px; */
   width: 100%;
   background-color: #FFFFFF;
   position: absolute;
@@ -157,18 +156,14 @@
 
 .header nav ul li {
   list-style: none;
+  
 }
 
-.header nav>ul>li:hover {
-  border-bottom: 3px solid #8B0000;
-  margin: 0 18px;
-  /* Adicionando underline ao passar o mouse */
-}
 
 .header nav input:checked~ul:nth-of-type(1) {
   left: 0;
 }
-
+/* título das categorias do header */
 .header nav>ul>li div span {
   margin-bottom: 8px;
   font-weight: 600;
@@ -331,12 +326,6 @@
 
 
 
-
-
-
-
-
-
 @media (min-width: 991px) {
   .header nav {
     position: relative;
@@ -350,31 +339,32 @@
     width: 100%;
     position: relative;
     left: 0 !important;
-    border-radius: 0 0 50px 50px;
+    border-radius: 0 0 20px 20px;
     transition: height 0.4s ease;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.10);
   }
-
+/* submenu */
   .header nav>ul>li {
     flex: 1;
-    /* todos com a mesma proporção */
-    text-align: center;
+     text-align: center;
     padding-bottom: 16px;
     cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
-
-
   .header nav>ul>li ul {
     display: flex;
     flex-direction: column;
-    padding-left: 10px;
-    text-align: left !important;
     row-gap: 8px;
     margin: 16px 0 0 30px;
+    margin: 16px 0 0 0;
+    padding: 0;
+    width: 100%;
+    align-items: center;
     overflow: hidden;
     height: 0;
     transition: height 0.4s ease;
-    text-align: left;
 
   }
 
@@ -382,9 +372,7 @@
     height: 100%;
     transition: height 0.4s ease;
   }
-
 }
-
 /* Sacola */
 
 /* Overlay da sacola */
@@ -697,7 +685,7 @@
 
 /* Modal centralizado */
 .modal-perfil {
-  position: fixed;
+  position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%) scale(0.9);
@@ -710,6 +698,13 @@
   pointer-events: none;
   transition: opacity 0.3s ease, transform 0.3s ease;
   z-index: 1001;
+}
+
+.login-container > img {
+  display: block;
+  margin: 0 auto 20px;
+  width: 120px; /* controla o tamanho REAL */
+  height: auto;
 }
 
 .modal-perfil.ativo {
@@ -862,7 +857,6 @@ input {
 /*MENU HAMBURGUER*/
 .submenu {
   list-style: none;
-  /* padding-left: 20px; */
   display: none;
   animation: slideDown 0.3s ease;
 }

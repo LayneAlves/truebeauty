@@ -70,6 +70,21 @@
   <!-- CARROSSEL DE PRODUTOS -->
   <section class="card-container">
     <!-- Cabelo -->
+     <% produtos.forEach(produto => { %>  
+      <section>
+        <header>
+          <img src="<%=produto.imagem%>" alt="<%=produto.nome%>">
+        </header>
+        <article>
+          <h2 class="card-title"><%=produto.nome%></h2>
+          <p class="card-text"><%=produto.descricao%></p>
+          <p class="card-price">
+             <span class="currency">R$</span> <%=produto.preco%>
+          </p>
+          <a href="#" class="card-button">Comprar</a>
+        </article>
+      </section>
+      <% }) %>
     <section>
       <header>
         <img src="assets/imagem/imagens_Cabelos/kitEudoraRoxo.webp" alt="">

@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const UserController = require('../controllers/userController');
+const ProdutoController = require('../controllers/produtoController');
 
 
 // CONTROLLERS
@@ -32,7 +33,7 @@ const batomController = require('../controllers/batomController');
 
 
 // ROUTER
-router.get('/', indexController.renderIndex);
+router.get('/', ProdutoController.produtos);
 router.get('/vertudo', vertudoController.renderVertudo);
 router.get('/perfumes', perfumesController.renderPerfumes);
 router.get('/cabelos', cabelosController.renderCabelos);
@@ -70,5 +71,9 @@ router.get('/checkout', (req, res) => {
 // Rotas de cadastro
 router.get('/cadastro', UserController.renderCadastro);
 router.post('/cadastro', UserController.cadastrar);
+
+// router.get('/cadastro-produto', ProdutoController.renderCadastro) CRIAR PAGINA DE CADASTRO DE PRODUTO
+router.post('/cadastro-produto', ProdutoController.cadastrar);
+router.get('/produtos', ProdutoController.produtos);
 
 module.exports = router;

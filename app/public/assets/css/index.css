@@ -443,16 +443,11 @@ button {
 /* BANNER PRINCIPAL */
 .main-banner img {
   width: 100%;
-  /* max-width: 900px; */
   margin: auto;
   position: relative;
-  overflow: hidden;
   border-radius: 12px;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
-  margin-top: 7%;
+  margin-top: 180px;
 }
-
-/* CATEGORIAS */
 
 /* CATEGORIAS */
 
