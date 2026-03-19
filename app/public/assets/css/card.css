@@ -62,8 +62,8 @@
 .card {
   margin-left: auto;
    margin-right: auto;
-   width: 280px;                   /* largura fixa */
-   height: 260px;              /* altura mínima */
+   width: 277px;                   /* largura fixa */
+   height: 220px;              /* altura mínima */
    background: white;              /* fundo branco */
    border-radius: 12px;            /* cantos arredondados */
    box-shadow: 0 4px 8px rgba(0,0,0,0.05); /* sombra leve */
