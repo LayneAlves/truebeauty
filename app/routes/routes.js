@@ -59,6 +59,11 @@ router.get('/corretivo', corretivoController.renderCorretivo);
 router.get('/po', poController.renderPo);
 router.get('/batom', batomController.renderBatom);
 
+const for_admController = require('../controllers/for_edmController');
+
+router.get('/for_adm', for_admController.renderfor_adm);
+
+
 // Rotas do carrinho
 router.get('/carrinho', (req, res) => {
     res.render('carrinho', { baseUrl: '' });
