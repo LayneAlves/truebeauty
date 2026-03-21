@@ -33,7 +33,7 @@ const batomController = require('../controllers/batomController');
 
 
 // ROUTER
-router.get('/', ProdutoController.produtos);
+router.get('/', ProdutoController.index);
 router.get('/vertudo', vertudoController.renderVertudo);
 router.get('/perfumes', perfumesController.renderPerfumes);
 router.get('/cabelos', cabelosController.renderCabelos);

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('./include/head.ejs',{pagina:"produtos"}) %>
+<body>
+    <main>
+        <h1>Listagem de Produtos</h1>
+        <section class="container__produtos">
+          <article class="header">
+            <span>#</span>
+            <span>Nome</span>
+            <span>Preço</span>
+            <span>Estoque</span>
+            <span>Ações</span>
+          </article>
+
+          <article class="body"> 
+            <!-- Retorna a lista de produtos do json -->
+            <% produtos.forEach(produto => { %> 
+              <section class="content">
+                <span><%= produto.id %></span>
+                <span><%= produto.nome %></span>
+                <span><%= produto.preco %></span>
+                <span><%= produto.estoque %></span>
+                <span>
+                  <a href="/produtos/editar/2346">Editar</a>
+                  <a href="/produtos/excluir/2346">Excluir</a>
+                </span>
+              </section>
+            <% }); %>
+          </article>
+        </section>
+    </main>
+
+    <footer>
+    <!-- <%- include('./include/footer.ejs') %> -->
+    </footer>
+</body>
+</html>

@@ -13,7 +13,7 @@ const ProdutoController = {
             }
             //await, espere até ele funcionar  
             await ProdutoModel.cadastrar(newProduto);
-            // return res.redirect ('/');
+            return res.redirect ('/');
             return res.json({ message: 'Produto cadastrado com sucesso!' });
 
             //Retorno ao usuário
@@ -27,6 +27,16 @@ const ProdutoController = {
     async produtos (req, res){
         try {
             const produtos = await ProdutoModel.produtos();
+            res.render('produtos', { produtos});
+            // return res.json(produtos);
+        } catch (error) {
+            console.error('Erro ao obter produtos:', error);
+            return res.json({ message: 'Erro ao obter produtos' });
+        }
+    },
+    async index (req, res){
+        try {
+            const produtos = await ProdutoModel.produtos();
             res.render('index', { produtos});
             // return res.json(produtos);
         } catch (error) {
@@ -34,7 +44,6 @@ const ProdutoController = {
             return res.json({ message: 'Erro ao obter produtos' });
         }
     }
-
 }
 
 module.exports = ProdutoController;
