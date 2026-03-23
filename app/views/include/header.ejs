@@ -155,42 +155,38 @@
 
 <!-- Container principal do login -->
 <section id="modal-perfil" class="modal-perfil">
-
-
-
   <button id="fechar-perfil" class="fechar-btn">&times;</button>
 
   <main class="login-container">
+    <img src="assets/imagen/imagem_Logo/logo1000x500.jpg" alt="">
+      <h2>Bem-vinda ao TrueBeauty</h2>
+      <p>
+        Aqui você pode acompanhar todos os detalhes dos seus pedidos e ficar ainda mais conectada com a gente. É super simples:
+      </p>
+      <p class="info">
+        - É o seu primeiro acesso? <a href="cadastro">Crie sua conta</a> <br>
+      </p>
 
-  <img src="assets/imagen/imagem_Logo/logo1000x500.jpg" alt="">
-    <h2>Bem-vinda ao TrueBeauty</h2>
-    <p>
-      Aqui você pode acompanhar todos os detalhes dos seus pedidos e ficar ainda mais conectada com a gente. É super simples:
-    </p>
-    <p class="info">
-      - É o seu primeiro acesso? <a href="cadastro">Crie sua conta</a> <br>
-    </p>
+      <h3 id="login-title">Fazer login</h3>
 
-    <h3 id="login-title">Fazer login</h3>
+      <section class="social-login">
+    
+        <button class="google">
+          <img src="assets/imagem/imagem_Logo/google.png" alt="Google">
+          Continuar com o Google
+        </button>
 
-    <section class="social-login">
-   
-      <button class="google">
-        <img src="assets/imagem/imagem_Logo/google.png" alt="Google">
-        Continuar com o Google
-      </button>
+      </section>
 
-    </section>
+      <p class="divider">OU</p>
 
-    <p class="divider">OU</p>
-
-    <form id="form-perfil" class="form-login">
-      <input type="email" id="email" name="email" placeholder="E-mail" required>
-      <input type="password" id="senha" name="senha" placeholder="Senha" required>
-      <a href="#" class="forgot">Esqueceu a senha?</a>
-      <button type="submit" class="btn-login">FAZER LOGIN</button>
-      <button type="button" class="btn-cadastro">CRIAR CONTA</button>
-    </form>
+      <form id="form-perfil" class="form-login">
+        <input type="email" id="email" name="email" placeholder="E-mail" required>
+        <input type="password" id="senha" name="senha" placeholder="Senha" required>
+        <a href="#" class="forgot">Esqueceu a senha?</a>
+        <button type="submit" class="btn-login">FAZER LOGIN</button>
+        <button type="button" class="btn-cadastro">CRIAR CONTA</button>
+      </form>
 
   </main>
 </section>
@@ -198,7 +194,7 @@
 
 <!-- Js Perfil -->
 <script>
-  const btnAbrirPerfil = document.querySelector('.user-icon');
+const btnAbrirPerfil = document.querySelector('.user-icon');
 const modalPerfil = document.getElementById('modal-perfil');
 const overlayPerfil = document.getElementById('overlay-perfil');
 const btnFecharPerfil = document.getElementById('fechar-perfil');
@@ -218,12 +214,44 @@ btnFecharPerfil.addEventListener('click', fecharPerfil);
 overlayPerfil.addEventListener('click', fecharPerfil);
 
 // Opcional: prevenir submit do formulário para teste
-document.getElementById('form-perfil').addEventListener('submit', e => {
-  e.preventDefault();
-  alert('Formulário enviado! Email: ' + e.target.email.value);
-  fecharPerfil();
-});
+// document.getElementById('form-perfil').addEventListener('submit', e => {
+//   e.preventDefault();
+//   alert('Formulário enviado! Email: ' + e.target.email.value);
+//   fecharPerfil();
+// });
+</script>
 
+ <!-- Validação login -->
+<script>
+addEventListener('DOMContentLoaded', () => {
+  const form = document.getElementById('form-perfil');
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const email = form.email.value;
+    const senha = form.senha.value;
+
+    try {
+      const response = await fetch('/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, senha })
+      });
+      const resultado = await response.json();
+      if (resultado.sucesso) {
+        alert('Login bem-sucedido!');
+        window.location.href = resultado.redirectUrl;
+        
+      } else {
+        alert('Email ou senha incorretos. Tente novamente.');
+      
+      }
+  
+    } catch (error) {
+      console.error('Erro ao fazer login:', error);
+      alert('Ocorreu um erro. Tente novamente mais tarde.');
+    }
+  });
+});
 </script>
 <!-- Fim perfil -->
 

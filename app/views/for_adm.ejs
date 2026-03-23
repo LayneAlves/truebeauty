@@ -1,4 +1,6 @@
-<%- include('include/head.ejs') %>
+<head>
+ <%- include('./include/head.ejs',{pagina:"for_adm"}) %>
+</head>
 
 <body class="admin-body">
 
@@ -8,12 +10,12 @@
 <h2>HOME</h2>
 
 <ul>
-<li>Dashboard</li>
-<li>Produtos</li>
-<li>Pedidos</li>
-<li>Clientes</li>
-<li>Relatórios</li>
-<li>Configurações</li>
+<li><a href="/dashboard">Dashboard</a></li>
+<li><a href="/produtos">Produtos</a></li>
+<li><a href="/pedidos">Pedidos</a></li>
+<li><a href="/clientes">Clientes</a></li>
+<li><a href="/relatorios">Relatórios</a></li>
+<li><a href="/configuracoes">Configurações</a></li>
 <li>Logout</li>
 </ul>
 

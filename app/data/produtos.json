@@ -3,18 +3,32 @@
     "id": 1,
     "nome": "batom",
     "preco": "25,00",
-    "descricao": "vermelho neon"
+    "descricao": "vermelho neon",
+    "estoque" : "10",
+    "imagem": "/img/perfume.jpg"
   },
   {
     "id": 2,
     "nome": "base",
     "preco": "50,00",
-    "descricao": "cor clara"
+    "descricao": "cor clara",
+    "estoque" : "10",
+    "imagem": "/img/perfume.jpg"
   },
   {
     "id": 3,
     "nome": "pó compacto",
     "preco": "30,00",
-    "descricao": "cor média"
+    "descricao": "cor média",
+    "estoque" : "10",
+    "imagem": "/img/perfume.jpg"
+  },
+  {
+    "id" : 4,
+    "nome": "blush",
+    "preco": "15,00",
+    "descricao": "cor clara",
+    "estoque" : "10",
+    "imagem": "/img/perfume.jpg"
   }
 ]
