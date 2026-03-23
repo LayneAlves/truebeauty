@@ -81,4 +81,7 @@ router.post('/cadastro', UserController.cadastrar);
 router.post('/cadastro-produto', ProdutoController.cadastrar);
 router.get('/produtos', ProdutoController.produtos);
 
+// Rotas de login
+router.post('/login', UserController.login);
+
 module.exports = router;
