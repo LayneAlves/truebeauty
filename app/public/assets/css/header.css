@@ -588,6 +588,13 @@
   gap: 15px;
 }
 
+/* Bairro + Cidade + Estado: três colunas, sendo o estado mais curto */
+.bairro-cidade-estado {
+  display: grid;
+  grid-template-columns: 1fr 1fr 80px; /* bairro | cidade | estado (estreito) */
+  gap: 15px;
+}
+
 /* remover as setinhas dos campos number (Chrome, Edge, Safari) */
 input[type="number"]::-webkit-outer-spin-button,
 input[type="number"]::-webkit-inner-spin-button {
