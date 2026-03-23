@@ -33,7 +33,7 @@ const batomController = require('../controllers/batomController');
 
 
 // ROUTER
-router.get('/', ProdutoController.produtos);
+router.get('/', ProdutoController.index);
 router.get('/vertudo', vertudoController.renderVertudo);
 router.get('/perfumes', perfumesController.renderPerfumes);
 router.get('/cabelos', cabelosController.renderCabelos);
@@ -80,5 +80,8 @@ router.post('/cadastro', UserController.cadastrar);
 // router.get('/cadastro-produto', ProdutoController.renderCadastro) CRIAR PAGINA DE CADASTRO DE PRODUTO
 router.post('/cadastro-produto', ProdutoController.cadastrar);
 router.get('/produtos', ProdutoController.produtos);
+
+// Rotas de login
+router.post('/login', UserController.login);
 
 module.exports = router;

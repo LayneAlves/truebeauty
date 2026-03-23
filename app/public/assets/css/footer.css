@@ -2,9 +2,9 @@
   width: 100%;
   background-color: #770003;
   color: white;
-  padding: 16px 0;
+  padding: 32px ;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   row-gap: 8px; 
 }
@@ -14,11 +14,11 @@
   position: relative;
 }
 
-#footer-content {
+/* #footer-content {
   display: flex;
   flex-direction: row;
  justify-content: space-between;
-  width: 100%;
+  width: 75%;
   padding: 0 40px;
   column-gap: 32px;
   flex-wrap: wrap;
@@ -26,11 +26,12 @@
   text-align: left;
   padding: 40px 0 16px 40px;
  
-}
+} */
 
 .footer nav {
+  padding: 16px;
   display: flex;
-  gap: 64px;
+  gap: 32px;
 }
 
 .footer ul {
@@ -48,11 +49,16 @@
   color: white;
 }
 
+
 #icons {
   display: flex;
-  margin-top: 32px;
-  justify-content: center;
-  width: 100%;
+  /* margin: end; */
+  justify-content: end;
+  width: 75%;
+  padding: 0 0 0 250px;
+  flex-direction: column;
+  gap: 16px;
+  right: 80px;
 }
 
 #redessociais {
@@ -64,10 +70,16 @@
 }
 
 #redessociais li a svg {
+
   fill: white;
   transition: 0.3s;
 }
 
 #redessociais li a:hover svg {
   fill: #4f0103; 
+}
+
+#icons img{
+  width: 50%;
+  display: flex;
 }

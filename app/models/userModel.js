@@ -18,7 +18,12 @@ const UserModel = {
        
         users.push(newUser);
         fs.writeFileSync(filePath, JSON.stringify(users, null, 2), 'utf8');
-    }
+    },
+    pesquisar(email){
+        const users = this.users();
+        return users.find(user => user.email === email);
+        
+    },
 }
 
 module.exports = UserModel;
