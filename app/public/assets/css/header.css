@@ -728,8 +728,8 @@ input:focus {
 .login-container > img {
   display: block;
   margin: 0 auto 20px;
-  width: 120px; /* controla o tamanho REAL */
-  height: auto;
+  width: 200px;
+  transform: scale(1.5);
 }
 
 .modal-perfil.ativo {
@@ -774,7 +774,7 @@ input:focus {
 }
 
 .login-container a {
-  color: #8B0000;
+  color: #ffffff;
   text-decoration: none;
 }
 
@@ -816,17 +816,27 @@ button {
 }
 
 .google img {
-  width: 30px;
+  width: 33px;
   height: 30px;
   right: 100%;
 }
 
 
 .divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  color: #777;
   margin: 20px 0;
-  font-size: 13px;
-  color: #999;
-  text-align: center;
+}
+
+.divider::before,
+.divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: #ccc;
 }
 
 .form-login {
@@ -854,7 +864,7 @@ input {
   font-size: 13px;
   text-align: right;
   display: block;
-  color: #8B0000;
+  color: #fff7f7;
   margin-bottom: 10px;
 }
 
@@ -871,11 +881,25 @@ input {
 }
 .btn-cadastro {
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-  color: #8B0000;
+  color: #ffffff;
   border-radius: 10px;
   font-weight: bold;
   padding: 15px;
 }
+
+.btn-cadastro {
+  background-color: #8B0000;
+  color: #fff;
+  border-radius: 10px;
+  font-weight: bold;
+  padding: 15px;
+}
+
+.btn-cadastro:hover {
+  background-color: #ff0000;
+}
+
+
 
 /* Fim perfil  */
 
