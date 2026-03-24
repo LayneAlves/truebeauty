@@ -26,8 +26,24 @@ const UserController = {
             titulo: 'Cadastro de Usuário',
             baseUrl: req.app.locals.baseUrl
         });
+    },
+    async login(req, res) {
+        try {
+            const { email, senha } = req.body;
+            const user = await UserModel.pesquisar(email);
+            if (!user) {
+                return res.status(401).send('Email não encontrado');
+            }if (user.senha !== senha) {
+                return res.status(401).send('Senha incorreta');
+            }
+            return res.json({ message: 'Login bem-sucedido', user, redirectUrl: '/produtos' , sucesso: true});   
+
+        }catch (error) {
+            console.error('Erro ao fazer login:', error);
+            res.status(500).send('Erro ao fazer login');
+        }
+    },
     }
-}
 
 module.exports = UserController;
 

@@ -39,15 +39,19 @@
 
         <div class="form-group cep">
           <label>CEP</label>
-          <input type="number" required>
+          <!-- Usar type="text" para preservar zeros à esquerda e permitir hífen -->
+          <input type="text" id="cep" maxlength="9" pattern="\d{5}-?\d{3}" required>
         </div>
       </div>
+
+
 
       <!-- Endereço + Número -->
       <div class="form-row endereco-numero">
         <div class="form-group">
           <label>Endereço</label>
-          <input type="text" required>
+          <!-- id 'rua' esperado pelo script de ViaCEP -->
+          <input type="text" id="rua" required>
         </div>
 
         <div class="form-group numero">
@@ -62,16 +66,24 @@
         <input type="text">
       </div>
 
-      <!-- Bairro + Cidade -->
-      <div class="form-row">
+      <!-- Bairro + Cidade + Estado -->
+      <div class="form-row bairro-cidade-estado">
         <div class="form-group">
           <label>Bairro</label>
-          <input type="text" required>
+          <!-- id 'bairro' esperado pelo script de ViaCEP -->
+          <input type="text" id="bairro" required>
         </div>
 
         <div class="form-group">
           <label>Cidade</label>
-          <input type="text" required>
+          <!-- id 'cidade' esperado pelo script de ViaCEP -->
+          <input type="text" id="cidade" required>
+        </div>
+
+        <div class="form-group">
+          <label>Estado</label>
+          <!-- id 'estado' esperado pelo script de ViaCEP -->
+          <input type="text" id="estado" maxlength="2" required>
         </div>
       </div>
 
@@ -170,5 +182,7 @@
       new CheckoutPagina();
     });
   </script>
+  <!-- caminho correto para o arquivo dentro de app/public -->
+  <script src="/assets/js/viacep.js"></script>
 </body>
 </html>

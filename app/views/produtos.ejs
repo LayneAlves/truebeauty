@@ -4,10 +4,14 @@
 <%- include('./include/head.ejs',{pagina:"produtos"}) %>
 <body>
     <main>
-        <h1>Listagem de Produtos</h1>
+        <section class="topo">
+          <h1>Listagem de Produtos</h1>
+          <a href="/produtos/novo" class="botao_novo">+ Novo Produto</a>
+        </section>
         <section class="container__produtos">
-          <article class="header">
+          <article class="titulos_header">
             <span>#</span>
+            <span>Imagem</span>
             <span>Nome</span>
             <span>Preço</span>
             <span>Estoque</span>
@@ -19,17 +23,19 @@
             <% produtos.forEach(produto => { %> 
               <section class="content">
                 <span><%= produto.id %></span>
+                <span><img src="<%= produto.imagem || '/img/default.png' %>" class="img-produto"></span>
                 <span><%= produto.nome %></span>
                 <span><%= produto.preco %></span>
                 <span><%= produto.estoque %></span>
                 <span>
-                  <a href="/produtos/editar/2346">Editar</a>
-                  <a href="/produtos/excluir/2346">Excluir</a>
+                 <a href="/produtos/editar/<%= produto.id %>" class="btn-editar">Editar</a>
+                <a href="/produtos/excluir/<%= produto.id %>" class="btn-excluir">Excluir</a>
                 </span>
               </section>
             <% }); %>
           </article>
         </section>
+        
     </main>
 
     <footer>
