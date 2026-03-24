@@ -780,13 +780,13 @@ banner rotativo */
 }
 
 h3 {
-  color: rgba(0, 0, 0, 0.675);
+  color: #4f0103;
   font-size: 18px;
   margin-bottom: 3%;
 }
 
 .preco {
-  color: #4f0103;
+  color: rgba(0, 0, 0, 0.675);
   font-weight: bold;
   font-size: 16px;
   padding-left: 18px;
@@ -808,12 +808,11 @@ button {
 .dica-make h2 {
   font-size: 2em;
   color: transparent;
-  background-image: linear-gradient(90deg, #FF0000, #CC0000, #990000, #ff0000);
+  background-image: linear-gradient(90deg, #8B0000 );
   background-size: 200%;
   background-clip: text;
   -webkit-background-clip: text;
   font-family: 'Poppins', sans-serif;
-  animation: cobrinha 3s linear infinite;
   transition: transform 0.3s;
 }
 
