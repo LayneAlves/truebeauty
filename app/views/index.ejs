@@ -111,7 +111,7 @@
     </section>
 
     <!-- Perfume -->
-    <!-- <section>
+    <section>
       <header>
         <img src="assets/imagem/imagens_perfumes/uomini.webp" alt="">
       </header>
@@ -123,9 +123,9 @@
         </p>
         <a href="#" class="card-button">Comprar</a>
       </article>
-    </section> -->
+    </section>
 
-    <!-- <section>
+    <section>
       <header>
         <img src="assets/imagem/imagens_cuidados_pessoais/cremeCorporal.webp" alt="">
       </header>
@@ -137,9 +137,9 @@
         </p>
         <a href="#" class="card-button">Comprar</a>
       </article>
-    </section> -->
+    </section>
 
-    <!-- <section>
+    <section>
       <header>
         <img src="assets/imagem/imagens_cuidados_pessoais/sabonte.jfif" alt="">
       </header>
@@ -151,10 +151,10 @@
         </p>
         <a href="#" class="card-button">Comprar</a>
       </article>
-    </section> -->
+    </section>
 
     <!-- Corpo e Banho -->
-     <!-- <section>
+     <section>
       <header>
         <img src="assets/imagem/imagens_cuidados_pessoais/granado2.jfif" alt="">
       </header>
@@ -166,10 +166,10 @@
         </p>
         <a href="#" class="card-button">Comprar</a>
       </article>
-    </section> -->
+    </section>
 
     <!-- Perfume -->
-    <!-- <section>
+    <section>
       <header>
         <img src="assets/imagem/imagens_perfumes/bodySplash_VitoriaS.jpg" alt="">
       </header>
@@ -181,9 +181,9 @@
         </p>
         <a href="#" class="card-button">Comprar</a>
       </article>
-    </section> -->
+    </section>
 
-    <!-- <section>
+    <section>
       <header>
         <img src="assets/imagem/imagens_cuidados_pessoais/oleopaixao.webp" alt="">
       </header>
@@ -195,7 +195,7 @@
         </p>
         <a href="#" class="card-button">Comprar</a>
       </article>
-    </section> -->
+    </section>
   </section>
 
 
@@ -267,6 +267,41 @@
 </div>
 
     <!-- Fim da seção -->
+
+    <!-- NAVBAR MOBILE -->
+<section class="mbl_navbar">
+
+  <!-- MENU -->
+  <section class="mbl_nav_item" id="mbl_btn_menu">
+    <img src="assets/imagem/icons/menu.png" alt="">
+    <p>Menu</p>
+  </section>
+
+  <!-- BUSCA -->
+  <section class="mbl_nav_item" id="mbl_btn_search">
+    <img src="assets/imagem/icons/lupa.png" alt="">
+    <p>Buscar</p>
+  </section>
+
+  <!-- CARRINHO (DESTAQUE CENTRAL) -->
+  <section class="mbl_nav_item mbl_nav_cart" id="mbl_btn_cart">
+    <img src="assets/imagem/icons/sacola.png" alt="">
+    <p>Carrinho</p>
+  </section>
+
+  <!-- PERFIL -->
+  <section class="mbl_nav_item" id="mbl_btn_user">
+    <img src="assets/imagem/icons/perfil.png" alt="">
+    <p>Perfil</p>
+  </section>
+
+  <!-- MENU EXTRA (opcional pode usar mesmo menu) -->
+  <section class="mbl_nav_item" id="mbl_btn_menu2">
+    <img src="assets/imagem/icons/menu.png" alt="">
+    <p>Mais</p>
+  </section>
+
+</section> 
 </main>
 
     <!-- FOOTER -->
@@ -319,6 +354,33 @@ function scrollCards(direction) {
     container.scrollBy({ left: scrollAmount, behavior: 'smooth' });
   }
 }
+</script>
+
+ <!-- NAVBAR MOBILE  -->
+<script>
+  // MENU
+  document.getElementById('mbl_btn_menu').addEventListener('click', () => {
+    document.getElementById('menu-hamburguer').click();
+  });
+
+  document.getElementById('mbl_btn_menu2').addEventListener('click', () => {
+    document.getElementById('menu-hamburguer').click();
+  });
+
+  // BUSCA
+  document.getElementById('mbl_btn_search').addEventListener('click', () => {
+    document.querySelector('.search-icon img').click();
+  });
+
+  // PERFIL
+  document.getElementById('mbl_btn_user').addEventListener('click', () => {
+    document.querySelector('.user-icon').click();
+  });
+
+  // CARRINHO
+  document.getElementById('mbl_btn_cart').addEventListener('click', () => {
+    document.querySelector('.cart-icon').click();
+  });
 </script>
 </body>
 
