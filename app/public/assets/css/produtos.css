@@ -24,7 +24,7 @@ body{
         .container__produtos{
             display: flex;
             flex-direction: column;
-            --grid-column: 60px 80px 1fr 1fr 1fr 1fr;
+            --grid-column: 60px 80px 1fr 1fr 1fr 1fr 1fr;
             /* margin-top: 100px; */
             /* padding: 20px; */
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);

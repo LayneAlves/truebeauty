@@ -13,6 +13,7 @@
             <span>#</span>
             <span>Imagem</span>
             <span>Nome</span>
+            <span>Categoria</span>
             <span>Preço</span>
             <span>Estoque</span>
             <span>Ações</span>
@@ -25,6 +26,7 @@
                 <span><%= produto.id %></span>
                 <span><img src="<%= produto.imagem || '/img/default.png' %>" class="img-produto"></span>
                 <span><%= produto.nome %></span>
+                <span><%= produto.categoria %></span>
                 <span><%= produto.preco %></span>
                 <span><%= produto.estoque %></span>
                 <span>
@@ -35,11 +37,55 @@
             <% }); %>
           </article>
         </section>
+        <section>
+          <form action="" id="novo-produto-form">
+              <input type="text" name="nome" placeholder="Nome do Produto">
+              <input type="text" name="preco" placeholder="Preço">
+              <input type="text" name="descricao" placeholder="Descrição">
+              <input type="text" name="estoque" placeholder="Estoque">
+              <select name="categoria" id="categoria">
+                <option value="">Selecione uma categoria</option>
+                <option value="cabelo">Cabelo</option>
+                <option value="corpo">Corpo</option>
+                <option value="banho">Banho</option>
+                <option value="perfume">Perfume</option>
+                <option value="rosto">Rosto</option>
+                <option value="maquiagem">Maquiagem</option>
+              Rosto</option>
+              </select>
+              <input type="file" name="imagem" id="imagem">
+              <button type="submit">Adicionar Produto</button>
+          </form>
+        </section>
         
     </main>
 
     <footer>
-    <!-- <%- include('./include/footer.ejs') %> -->
+     <%- include('./include/footer.ejs') %> 
     </footer>
+    <script> 
+      addEventListener('DOMContentLoaded', () => {
+        const form = document.querySelector('#novo-produto-form');
+        form.addEventListener('submit', async (e) => {
+          e.preventDefault();
+          const formData = new FormData(form);
+          try {
+            const response = await fetch('/produtos/novo', {
+              method: 'POST',
+              body: formData
+            });
+            if (response.ok) {
+              alert('Produto adicionado com sucesso!');
+              window.location.reload();
+            } else {
+              alert('Erro ao adicionar produto.');
+            }
+          } catch (error) {
+            console.error('Erro:', error);
+            alert('Erro ao adicionar produto.');
+          }
+        });
+      });
+    </script>
 </body>
 </html>
