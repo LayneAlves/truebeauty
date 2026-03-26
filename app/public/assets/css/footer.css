@@ -1,10 +1,19 @@
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+footer {
+  background: #770003; /* sua cor */
+}
 .footer {
   width: 100%;
-  background-color: #770003;
+  /* background-color: #770003; */
   color: white;
   padding: 16px 0;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  justify-content: space-between;
   align-items: center;
   row-gap: 8px; 
 }
@@ -34,6 +43,16 @@
   gap: 64px;
 }
 
+#prf{
+  margin-left: clamp(15rem, 30vw, 21.25rem); /*equivalente a 340px so que mais responsivel*/
+  flex: 1.5;
+}
+
+#inf{
+  flex: 1.5;
+  padding-left: clamp(5rem, 10vw, 6.25rem); /*equivalente a 100px so que mais responsivel*/
+}
+
 .footer ul {
   list-style: none;
   padding: 0;
@@ -53,12 +72,13 @@
 #icons {
   display: flex;
   /* margin: end; */
-  justify-content: end;
-  width: 75%;
-  padding: 0 0 0 250px;
+  align-items: center;
+  width: 70%;
+  padding-left: clamp(2rem, 5vw, 3.125rem); /*equivale a 50px so que mais responsivel*/
   flex-direction: column;
   gap: 16px;
-  right: 80px;
+  /* right: 80px; */
+  flex: 2;
 }
 
 #redessociais {
@@ -80,6 +100,7 @@
 }
 
 #icons img{
-  width: 50%;
+  max-width: 40%;
+  height: auto;
   display: flex;
 }
