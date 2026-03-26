@@ -25,7 +25,7 @@
   justify-content: space-between;
   padding: 0 20px;
   width: 100%;
-  height: 100px;
+  height: 100%;
 }
 
 .header nav a {
@@ -328,6 +328,7 @@
 @media (min-width: 991px) {
   .header nav {
     position: relative;
+   
   }
 
   .header nav>ul {
@@ -721,8 +722,8 @@ input:focus {
 .login-container > img {
   display: block;
   margin: 0 auto 20px;
-  width: 200px;
-  transform: scale(1.5);
+  width: 120px; /* controla o tamanho REAL */
+  height: auto;
 }
 
 .modal-perfil.ativo {
@@ -767,7 +768,7 @@ input:focus {
 }
 
 .login-container a {
-  color: #ffffff;
+  color: #8B0000;
   text-decoration: none;
 }
 
@@ -809,27 +810,17 @@ h3 {
 }
 
 .google img {
-  width: 33px;
+  width: 30px;
   height: 30px;
   right: 100%;
 }
 
 
 .divider {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  color: #777;
   margin: 20px 0;
-}
-
-.divider::before,
-.divider::after {
-  content: "";
-  flex: 1;
-  height: 1px;
-  background: #ccc;
+  font-size: 13px;
+  color: #999;
+  text-align: center;
 }
 
 .form-login {
@@ -857,7 +848,7 @@ input {
   font-size: 13px;
   text-align: right;
   display: block;
-  color: #fff7f7;
+  color: #8B0000;
   margin-bottom: 10px;
 }
 
