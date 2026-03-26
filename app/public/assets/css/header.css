@@ -588,13 +588,6 @@
   gap: 15px;
 }
 
-/* Bairro + Cidade + Estado: três colunas, sendo o estado mais curto */
-.bairro-cidade-estado {
-  display: grid;
-  grid-template-columns: 1fr 1fr 80px; /* bairro | cidade | estado (estreito) */
-  gap: 15px;
-}
-
 /* remover as setinhas dos campos number (Chrome, Edge, Safari) */
 input[type="number"]::-webkit-outer-spin-button,
 input[type="number"]::-webkit-inner-spin-button {
@@ -789,7 +782,7 @@ h3 {
   gap: 10px;
 }
 
-button {
+.login-container button {
   padding: 12px;
   border: 1px solid #ccc;
   border-radius: 4px;
@@ -879,27 +872,6 @@ input {
 .btn-login:hover {
   background-color: #ff0000;
 }
-.btn-cadastro {
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-  color: #ffffff;
-  border-radius: 10px;
-  font-weight: bold;
-  padding: 15px;
-}
-
-.btn-cadastro {
-  background-color: #8B0000;
-  color: #fff;
-  border-radius: 10px;
-  font-weight: bold;
-  padding: 15px;
-}
-
-.btn-cadastro:hover {
-  background-color: #ff0000;
-}
-
-
 
 /* Fim perfil  */
 
@@ -968,5 +940,62 @@ input {
    align-items: center;
   }
 }
+
+/* ============================================================
+   1. ESTILO PADRÃO (Aplica-se à Tela de Cadastro e outros)
+   ============================================================ */
+.btn-cadastro {
+  display: block;
+  width: 100%;
+  padding: 15px;
+  background-color: #8B0000; /* Fundo vermelho sólido */
+  color: #ffffff !important;  /* Texto branco */
+  border: none;
+  border-radius: 10px;
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+  text-align: center;
+  transition: background-color 0.3s ease; /* Animação suave de cor */
+  text-decoration: none;
+}
+
+/* Efeito de passar o mouse no botão PADRÃO (Tela de Cadastro) */
+.btn-cadastro:hover {
+  background-color: #ff0000; /* Muda para um vermelho mais vivo */
+}
+
+/* Garante que o link dentro do botão padrão seja branco */
+.btn-cadastro a {
+  color: #ffffff !important;
+  text-decoration: none;
+}
+
+
+/* ============================================================
+   2. ESTILO EXCLUSIVO DO MODAL (Não afeta a Tela de Cadastro)
+   ============================================================ */
+/* O prefixo ".modal-perfil" isola estas regras apenas para o modal */
+.modal-perfil .btn-cadastro {
+  background-color: #ffffff !important; /* Fundo sempre branco */
+  color: #8B0000 !important;           /* Texto sempre vermelho */
+  border: 2px solid #8B0000 !important; /* Borda vermelha fina */
+  transition: none !important;           /* REMOVE totalmente a animação */
+  box-shadow: none !important;           /* Remove sombras se houver */
+}
+
+/* Remove qualquer efeito visual de "hover" no botão do MODAL */
+.modal-perfil .btn-cadastro:hover {
+  background-color: #ffffff !important; /* Mantém fundo branco ao passar mouse */
+  color: #8B0000 !important;           /* Mantém texto vermelho ao passar mouse */
+  cursor: pointer;
+}
+
+/* Garante que o link dentro do botão DO MODAL seja vermelho */
+.modal-perfil .btn-cadastro a {
+  color: #8B0000 !important;
+  text-decoration: none;
+}
+
 
 /*FIM O MENU HABURGUER*/
