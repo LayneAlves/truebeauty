@@ -804,17 +804,15 @@ button {
 
 .dica-make h2 {
   font-size: 2em;
-  color: transparent;
-  background-image: linear-gradient(90deg, #FF0000, #CC0000, #990000, #ff0000);
+  color: #8B0000; 
   background-size: 200%;
   background-clip: text;
-  -webkit-background-clip: text;
+  /* -webkit-background-clip: text; */
   font-family: 'Poppins', sans-serif;
-  animation: cobrinha 3s linear infinite;
-  transition: transform 0.3s;
+  
 }
 
-@keyframes cobrinha {
+/* @keyframes cobrinha {
   0% {
     background-position: 0%;
   }
@@ -822,11 +820,11 @@ button {
   100% {
     background-position: 200%;
   }
-}
+} */
 
-.dica-make h2:hover {
+/* .dica-make h2:hover {
   transform: scale(1.05);
-}
+} */
 
 
 
