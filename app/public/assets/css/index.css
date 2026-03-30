@@ -414,7 +414,8 @@ main {
 }
 
 img {
-  width: 100%;
+   max-width: 100%;
+  height: auto; /* IMPORTANTE: mude de 100% para auto */
   display: block;
 }
 
@@ -804,15 +805,17 @@ button {
 
 .dica-make h2 {
   font-size: 2em;
-  color: #8B0000; 
+  color: transparent;
+  background-image: linear-gradient(90deg, #FF0000, #CC0000, #990000, #ff0000);
   background-size: 200%;
   background-clip: text;
-  /* -webkit-background-clip: text; */
+  -webkit-background-clip: text;
   font-family: 'Poppins', sans-serif;
-  
+  animation: cobrinha 3s linear infinite;
+  transition: transform 0.3s;
 }
 
-/* @keyframes cobrinha {
+@keyframes cobrinha {
   0% {
     background-position: 0%;
   }
@@ -820,11 +823,11 @@ button {
   100% {
     background-position: 200%;
   }
-} */
+}
 
-/* .dica-make h2:hover {
+.dica-make h2:hover {
   transform: scale(1.05);
-} */
+}
 
 
 
@@ -990,4 +993,23 @@ body {
   .mbl_navbar {
     display: none;
   }
+}
+/* AJUSTE PARA NÃO CORTAR A LOGO */
+.logo-modal-login {
+    width: 250px !important;    
+    height: auto !important;
+    display: block !important;
+    
+    /* Mudei de -110px para -60px para parar de cortar em cima */
+    /* Mudei de -40px para -20px para o texto não subir tanto */
+    margin: -60px auto -20px auto !important; 
+    
+    position: relative !important;
+    z-index: 10;
+}
+
+/* Garante que o texto "Bem-vindo" não tenha espaço extra no topo */
+.login-container h2 {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
 }
