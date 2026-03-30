@@ -1,6 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const filePath = path.join(__dirname, '../data/produtos.json');
+const caminho = path.join(__dirname, '../data/produtos.json');
 
 const ProdutoModel = {
     salvar(dados){
@@ -18,7 +19,10 @@ const ProdutoModel = {
        
         produtos.push(newProduto);
         fs.writeFileSync(filePath, JSON.stringify(produtos, null, 2), 'utf8');
-    }
+    },
+    salvar(produtos) {
+        fs.writeFileSync(caminho, JSON.stringify(produtos, null, 2));
+    },
 }
 
 module.exports = ProdutoModel;

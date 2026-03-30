@@ -1,6 +1,7 @@
 const ProdutoModel = require('../models/produtoModel');
 const { processarImagem } = require('../middleware/imagemUpload');
 
+
 const ProdutoController = {
     async cadastrar(req, res){
         try {
@@ -55,7 +56,7 @@ const ProdutoController = {
                 produtosPorCategoria.push(produto);
             }
 
-            // 🔥 trava em 5 categorias
+            // trava em 6 categorias
             if (produtosPorCategoria.length === 6) break;
         }
 
@@ -65,6 +66,47 @@ const ProdutoController = {
             console.error('Erro ao obter produtos:', error);
             return res.json({ message: 'Erro ao obter produtos' });
         }
+    },
+    async editarProduto(req, res){
+    const id = parseInt(req.params.id);
+    const produtos = await ProdutoModel.produtos();
+
+    const produto = produtos.find(p => p.id === id);
+
+    res.render('editarProduto', { produto });
+    },
+
+    async atualizarProduto(req, res){
+        const id = parseInt(req.params.id);
+        const produtos = await ProdutoModel.produtos();
+
+        const index = produtos.findIndex(p => p.id === id);
+
+        if (index !== -1) {
+            produtos[index] = {
+                ...produtos[index],
+                nome: req.body.nome,
+                preco: req.body.preco,
+                descricao: req.body.descricao,
+                estoque: req.body.estoque,
+                categoria: req.body.categoria
+            };
+
+            await ProdutoModel.salvar(produtos); // ⚠️ precisa existir
+        }
+
+        res.redirect('/produtos');
+    },
+
+    async excluirProduto(req, res){
+        const id = parseInt(req.params.id);
+        const produtos = await ProdutoModel.produtos();
+
+        const novosProdutos = produtos.filter(p => p.id !== id);
+
+        await ProdutoModel.salvar(novosProdutos); // ⚠️ precisa existir
+
+        res.redirect('/produtos');
     }
 }
 

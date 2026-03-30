@@ -81,7 +81,8 @@ router.post('/cadastro', UserController.cadastrar);
 router.post('/cadastro-produto', ProdutoController.cadastrar);
 router.get('/produtos', ProdutoController.produtos);
 router.post('/produtos/novo', imagemUpload.single('imagem'), ProdutoController.cadastrar);
-
+// router.get('/produtos/editar/:id', ProdutoController.editarProduto);
+// router.post('/produtos/editar/:id', ProdutoController.atualizarProduto);
 
 // Rotas de login
 router.post('/login', UserController.login);
