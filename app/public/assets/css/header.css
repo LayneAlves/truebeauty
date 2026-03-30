@@ -814,7 +814,7 @@ h3 {
 }
 
 .google img {
-  width: 30px;
+  width: 35px;
   height: 30px;
   right: 100%;
 }
@@ -883,6 +883,7 @@ input {
 
 .menu-item {
   display: flex;
+  align-items: center;
 }
 
 .submenu-toggle {

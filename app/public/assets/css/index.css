@@ -27,7 +27,8 @@ main {
 }
 
 img {
-  width: 100%;
+   max-width: 100%;
+  height: auto; /* IMPORTANTE: mude de 100% para auto */
   display: block;
 }
 
@@ -993,4 +994,23 @@ body {
   .mbl_navbar {
     display: none;
   }
+}
+/* AJUSTE PARA NÃO CORTAR A LOGO */
+.logo-modal-login {
+    width: 250px !important;    
+    height: auto !important;
+    display: block !important;
+    
+    /* Mudei de -110px para -60px para parar de cortar em cima */
+    /* Mudei de -40px para -20px para o texto não subir tanto */
+    margin: -60px auto -20px auto !important; 
+    
+    position: relative !important;
+    z-index: 10;
+}
+
+/* Garante que o texto "Bem-vindo" não tenha espaço extra no topo */
+.login-container h2 {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
 }
