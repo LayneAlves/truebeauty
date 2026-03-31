@@ -523,7 +523,7 @@
 /* Fim sacola */
 
 /* Checkout */
-.page-header {
+/* .page-header {
   text-align: center;
   padding: 40px 20px;
   background: linear-gradient(135deg, #8B0000 0%, #8B0000 100%);
@@ -575,40 +575,40 @@
 }
 
 /* padrão (bairro + cidade) */
-.form-row {
+/* .form-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 15px;
-}
+} */
 
 /* telefone igual bairro + CEP maior */
-.telefone-cep {
+/* .telefone-cep {
   display: grid;
-  grid-template-columns: 1fr 200px; /* telefone grande, CEP médio */
+  grid-template-columns: 1fr 200px; telefone grande, CEP médio
   gap: 15px;
-}
+} */
 
 /*endereço grande + número pequeno */
-.endereco-numero {
+/* .endereco-numero {
   display: grid;
   grid-template-columns: 1fr 300px;
   gap: 15px;
-}
+} */
 
 /* remover as setinhas dos campos number (Chrome, Edge, Safari) */
-input[type="number"]::-webkit-outer-spin-button,
+/* input[type="number"]::-webkit-outer-spin-button,
 input[type="number"]::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
-}
+} */
 
 /* foco */
-input:focus {
+/* input:focus {
   border-color: #8B0000;
   outline: none;
-}
+} */
 
-.itens-resumo {
+/* .itens-resumo {
   margin-bottom: 20px;
 }
 
@@ -622,9 +622,9 @@ input:focus {
 
 .item-resumo:last-child {
   border-bottom: none;
-}
+} */
 
-.item-resumo img {
+/* .item-resumo img {
   width: 40px;
   height: 40px;
   object-fit: contain;
@@ -639,9 +639,9 @@ input:focus {
 .item-preco-resumo {
   font-weight: bold;
   color: #8B0000;
-}
+} */
 
-.total-pedido {
+/* .total-pedido {
   padding: 20px 0;
   border-top: 2px solid #8B0000;
   margin: 20px 0;
@@ -680,7 +680,7 @@ input:focus {
   .form-row {
     grid-template-columns: 1fr;
   }
-}
+} */ 
 
 /* Fim do chekout */
 
