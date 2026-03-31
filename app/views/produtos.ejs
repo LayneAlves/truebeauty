@@ -2,68 +2,209 @@
 <html lang="en">
 
 <%- include('./include/head.ejs',{pagina:"produtos"}) %>
-<body>
-    <main>
-        <section class="topo">
-          <h1>Listagem de Produtos</h1>
-          <a href="/produtos/novo" class="botao_novo">+ Novo Produto</a>
-        </section>
-        <section class="container__produtos">
-          <article class="titulos_header">
-            <span>#</span>
-            <span>Imagem</span>
-            <span>Nome</span>
-            <span>Categoria</span>
-            <span>Preço</span>
-            <span>Estoque</span>
-            <span>Ações</span>
-          </article>
 
-          <article class="body"> 
-            <!-- Retorna a lista de produtos do json -->
-            <% produtos.forEach(produto => { %> 
-              <section class="content">
-                <span><%= produto.id %></span>
-                <span><img src="<%= produto.imagem || '/img/default.png' %>" class="img-produto"></span>
-                <span><%= produto.nome %></span>
-                <span><%= produto.categoria %></span>
-                <span><%= produto.preco %></span>
-                <span><%= produto.estoque %></span>
-                <span>
-                 <a href="/produtos/editar/<%= produto.id %>" class="btn-editar">Editar</a>
-                <a href="/produtos/excluir/<%= produto.id %>" class="btn-excluir">Excluir</a>
-                </span>
-              </section>
+  <body>
+    <main>
+      <section class="topo">
+        <h1>Listagem de Produtos</h1>
+        <button class="botao_novo" onclick="abrirModalNovo()">+ Novo Produto</button>
+      </section>
+      <section class="container__produtos">
+        <article class="titulos_header">
+          <span>#</span>
+          <span>Imagem</span>
+          <span>Nome</span>
+          <span>Categoria</span>
+          <span>Preço</span>
+          <span>Estoque</span>
+          <span>Ações</span>
+        </article>
+
+        <article class="body">
+          <!-- Retorna a lista de produtos do json -->
+          <% produtos.forEach(produto=> { %>
+            <section class="content">
+              <span>
+                <%= produto.id %>
+              </span>
+              <span><img src="<%= produto.imagem || '/img/default.png' %>" class="img-produto"></span>
+              <span>
+                <%= produto.nome %>
+              </span>
+              <span>
+                <%= produto.categoria %>
+              </span>
+              <span>
+                <%= produto.preco %>
+              </span>
+              <span>
+                <%= produto.estoque %>
+              </span>
+              <span>
+               <button class="btn-editar" onclick="abrirModalEditar('<%= produto.id %>', 
+               '<%= produto.nome %>', 
+               '<%= produto.categoria %>', 
+               '<%= produto.preco %>', 
+               '<%= produto.estoque %>',
+               '<%= produto.imagem %>')">
+                Editar
+              </button>
+                <form action="/produtos/excluir/<%= produto.id %>" method="POST" style="display:inline;"
+                  onsubmit="return confirm('Tem certeza que deseja excluir?')">
+                  <button type="submit" class="btn-excluir">Excluir</button>
+                </form>
+              </span>
+            </section>
             <% }); %>
-          </article>
-        </section>
-        <section>
-          <form action="" id="novo-produto-form">
-              <input type="text" name="nome" placeholder="Nome do Produto">
-              <input type="text" name="preco" placeholder="Preço">
-              <input type="text" name="descricao" placeholder="Descrição">
-              <input type="text" name="estoque" placeholder="Estoque">
-              <select name="categoria" id="categoria">
-                <option value="">Selecione uma categoria</option>
-                <option value="cabelo">Cabelo</option>
-                <option value="corpo">Corpo</option>
-                <option value="banho">Banho</option>
-                <option value="perfume">Perfume</option>
-                <option value="rosto">Rosto</option>
-                <option value="maquiagem">Maquiagem</option>
-              Rosto</option>
-              </select>
-              <input type="file" name="imagem" id="imagem">
-              <button type="submit">Adicionar Produto</button>
+        </article>
+      </section>
+
+
+      <!-- Modal para adicionar novo produto -->
+      <section id="modal" class="modal-overlay">
+        <section class="modal">
+          <span class="fechar" onclick="fecharModal()">×</span>
+
+          <section class="modal-header">
+            <h2>CADASTRAR NOVO PRODUTO COSMÉTICO</h2>
+          </section>
+
+          <form id="novo-produto-form">
+
+            <section class="grid">
+              <section class="form-left">
+                <section class="linha">
+                  <input type="text" name="nome" placeholder="Nome do Produto" required>
+                  <input type="text" name="preco" placeholder="Preço" required>
+                </section>
+
+                <textarea name="descricao" placeholder="Descrição"></textarea>
+                <input type="text" name="marca" placeholder="Fabricante / Marca">
+
+                <section class="linha">
+                  <select name="categoria">
+                    <option value="">Categoria</option>
+                    <option value="cabelo">Cabelo</option>
+                    <option value="corpo">Corpo</option>
+                    <option value="banho">Banho</option>
+                    <option value="perfume">Perfume</option>
+                    <option value="rosto">Rosto</option>
+                    <option value="maquiagem">Maquiagem</option>
+                  </select>
+
+                  <input type="text" name="estoque" placeholder="Estoque">
+                </section>
+
+              </section>
+
+              <section class="form-right">
+                <label class="upload-box">
+                  <input type="file" name="imagem" hidden>
+                  <span>⬆️</span>
+                  <p>Clique para enviar imagem</p>
+                </label>
+              </section>
+
+            </section>
+
+            <section class="botoes">
+              <button type="button" onclick="fecharModal()" class="cancelar">Cancelar</button>
+              <button type="submit" class="salvar">Adicionar Produto</button>
+            </section>
+
           </form>
         </section>
-        
+      </section>
+
+      <!-- Modal para editar produto -->
+
+    <section id="overlayEditar" class="modal-overlay" style="display: none;">
+      <div id="modalEditar" class="ep-modal-container" style="display: none;">
+        <div class="ep-modal-header">
+          <h2 class="ep-modal-title">Editar Produto</h2>
+          <span class="ep-modal-close-icon">&times;</span>
+        </div>
+
+    
+        <div class="ep-modal-content">
+          <form id="ep-product-form">
+            <div class="ep-form-fields-wrapper">
+              <div class="ep-form-row">
+                <div class="ep-input-field ep-field-full">
+                  <label>Nome do Produto</label>
+                  <input type="text" class="ep-input-text" value="Camisa Polo Masculina Azul">
+                  <small class="ep-input-hint">Até 100 caracteres</small>
+                </div>
+              </div>
+
+              <div class="ep-form-row">
+                <div class="ep-input-field">
+                  <label>Preço (R$)</label>
+                  <input type="text" class="ep-input-text" value="R$ 149,90">
+                </div>
+                <div class="ep-input-field">
+                  <label>Estoque Mínimo</label>
+                  <input type="number" class="ep-input-text" value="50">
+                </div>
+              </div>
+
+              <div class="ep-form-row">
+                <div class="ep-input-field">
+                  <label>Quantidade em Estoque</label>
+                  <input type="number" class="ep-input-text" value="120">
+                </div>
+                <div class="ep-input-field">
+                  <label>SKU</label>
+                  <input type="text" class="ep-input-text" value="CPMA-BL-001">
+                </div>
+              </div>
+
+              <div class="ep-form-row">
+                <div class="ep-input-field ep-field-full">
+                  <label>Descrição do Produto</label>
+                  <textarea class="ep-input-textarea"
+                    rows="4">Camisa polo de algodão piquet de alta qualidade...</textarea>
+                </div>
+              </div>
+
+              <div class="ep-form-row">
+                <div class="ep-input-field">
+                  <label>Categoria</label>
+                  <select class="ep-input-select">
+                    <option>Moda Masculina > Camisetas</option>
+                    <option>Moda Masculina</option>
+                  </select>
+                </div>
+                <div class="ep-input-field">
+                  <label>Marca</label>
+                  <input type="text" class="ep-input-text" value="Nike">
+                </div>
+              </div>
+            </div>
+
+            <div class="ep-image-preview-column">
+              <div class="ep-image-display-box">
+                <img src="https://via.placeholder.com/200x250/800020/FFFFFF?text=Camisa+Polo" alt="Produto"
+                  class="ep-product-img">
+              </div>
+            </div>
+          </form>
+        </div>
+
+        <div class="ep-modal-actions">
+          <button type="submit" class="ep-btn-submit">Salvar Alterações</button>
+          <button type="button" class="ep-btn-dismiss">Cancelar</button>
+        </div>
+  
+      </div>
+    </section>  
     </main>
 
     <footer>
-     <%- include('./include/footer.ejs') %> 
+      <%# include('./include/footer.ejs') %>
     </footer>
-    <script> 
+    <script>
+      // cadastrar produto
       addEventListener('DOMContentLoaded', () => {
         const form = document.querySelector('#novo-produto-form');
         form.addEventListener('submit', async (e) => {
@@ -75,10 +216,9 @@
               body: formData
             });
             if (response.ok) {
-              alert('Produto adicionado com sucesso!');
+              alert('Produto adicionado com layne');
               window.location.reload();
-            } else {
-              alert('Erro ao adicionar produto.');
+              
             }
           } catch (error) {
             console.error('Erro:', error);
@@ -86,6 +226,144 @@
           }
         });
       });
+      // excluir produto
+      function confirmarExclusao() {
+        return confirm("Tem certeza que deseja excluir este produto?");
+      }
+      function abrirModal() {
+        document.getElementById('modal').style.display = 'flex';
+      }
+
+      function fecharModal() {
+        document.getElementById('modal').style.display = 'none';
+      }
+
+      // preview da imagem antes de enviar:
+      const inputImagem = document.querySelector('input[name="imagem"]');
+      const uploadBox = document.querySelector('.upload-box');
+
+      inputImagem.addEventListener('change', () => {
+        const file = inputImagem.files[0];
+        if (file) {
+          const url = URL.createObjectURL(file);
+          uploadBox.style.background = `url(${url}) center/cover`;
+          uploadBox.innerHTML = '';
+        }
+      });
+      // Modal de edição
+// Usamos o DOMContentLoaded para garantir que o JS só rode após o HTML existir
+    document.addEventListener('DOMContentLoaded', () => {
+        
+        // --- 1. SELEÇÃO DE ELEMENTOS (Com segurança) ---
+        const formNovo = document.querySelector('#ep-product-form');
+        const inputImagem = document.querySelector('input[name="imagem"]');
+        const uploadBox = document.querySelector('.upload-box');
+        const btnFecharEdicao = document.querySelector('.ep-modal-close-icon');
+        const btnCancelarEdicao = document.querySelector('.ep-btn-dismiss');
+
+        // --- 2. PREVIEW DA IMAGEM (MODAL NOVO) ---
+        if (inputImagem && uploadBox) {
+            inputImagem.addEventListener('change', () => {
+                const file = inputImagem.files[0];
+                if (file) {
+                    const url = URL.createObjectURL(file);
+                    uploadBox.style.background = `url(${url}) center/cover`;
+                    uploadBox.innerHTML = '';
+                }
+            });
+        }
+
+        // --- 3. ENVIO DO FORMULÁRIO NOVO ---
+        if (formNovo) {
+            formNovo.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const formData = new FormData(formNovo);
+                try {
+                    const response = await fetch('/produtos/novo', {
+                        method: 'POST',
+                        body: formData
+                    });
+                    if (response.ok) {
+                        alert('Produto adicionado com sucesso!');
+                        window.location.reload();
+                    } else {
+                        alert('Erro ao adicionar produto.');
+                    }
+                } catch (error) {
+                    console.error('Erro:', error);
+                    alert('Erro ao adicionar produto.');
+                }
+            });
+        }
+
+        // --- 4. EVENTOS DE FECHAR MODAL DE EDIÇÃO ---
+        if (btnFecharEdicao) btnFecharEdicao.onclick = fecharModalEditar;
+        if (btnCancelarEdicao) btnCancelarEdicao.onclick = fecharModalEditar;
+    });
+
+    // --- 5. FUNÇÕES GLOBAIS (Devem ficar fora do DOMContentLoaded para o onclick do HTML achar) ---
+
+    function abrirModalNovo() {
+        const m = document.getElementById('modal');
+        if(m) m.style.display = 'flex';
+    }
+
+    function fecharModalNovo() {
+        const m = document.getElementById('modal');
+        if(m) m.style.display = 'none';
+    }
+
+      function abrirModalEditar(id, nome, categoria, preco, estoque, imagemUrl) {
+      //OVERLAY
+      const overlay = document.getElementById("overlayEditar");
+      if(overlay) overlay.style.display = "flex"; // Usamos flex para centralizar o modal filho
+
+      const modalEdicao = document.getElementById("modalEditar");
+      if (!modalEdicao) return;
+      const imgElement = modalEdicao.querySelector('.ep-product-img');
+      if (imgElement) {
+        // Se existir uma imagemUrl, usa ela. Se não, usa uma imagem padrão.
+        imgElement.src = imagemUrl && imagemUrl !== '' ? imagemUrl : '/img/default.png';
+    }
+
+        // Buscamos os campos dentro do modal de edição
+        const inputs = modalEdicao.querySelectorAll('.ep-input-text');
+        const selectCat = modalEdicao.querySelector('.ep-input-select');
+
+        // Preenchimento (Verifique a ordem dos seus inputs no HTML)
+        if(inputs[0]) inputs[0].value = nome;      // Nome
+        if(inputs[1]) inputs[1].value = preco;     // Preço
+        if(inputs[3]) inputs[3].value = estoque;   // Estoque
+        if(selectCat) selectCat.value = categoria;
+
+        // Configurações de exibição
+        modalEdicao.style.display = "block";
+        modalEdicao.style.position = "fixed";
+        modalEdicao.style.top = "50%";
+        modalEdicao.style.left = "50%";
+        modalEdicao.style.transform = "translate(-50%, -50%)";
+        modalEdicao.style.zIndex = "1001";
+    }
+
+    function fecharModalEditar() {
+    // ALTERADO: Escondemos o OVERLAY
+    const overlay = document.getElementById("overlayEditar");
+    if(overlay) overlay.style.display = "none";
+    }
+
+    function confirmarExclusao() {
+        return confirm("Tem certeza que deseja excluir este produto?");
+    }
+
+    // Fechar ao clicar fora
+    window.onclick = function (e) {
+        const modalNovo = document.getElementById('modal');
+        const modalEdicao = document.getElementById("modalEditar");
+        if (e.target == modalNovo) fecharModalNovo();
+        if (e.target == modalEdicao) fecharModalEditar();
+    }
+
     </script>
-</body>
+  </body>
+
 </html>
