@@ -14,6 +14,7 @@ body {
   color: #333;
   line-height: 1.6;
   overflow-x: hidden;
+  font-family: 'Lora', serif;
 }
 
 menu{
@@ -258,7 +259,7 @@ banner rotativo */
 .dica-make {
   text-align: center;
   padding: 4px 0;
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Lora', serif;
   background-color: #fff;
 }
 
@@ -423,7 +424,7 @@ button {
   background-size: 200%;
   background-clip: text;
   -webkit-background-clip: text;
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Lora', serif;
   animation: cobrinha 3s linear infinite;
   transition: transform 0.3s;
 }
@@ -963,8 +964,7 @@ font-weight:bold;
 .mbl_nav_item p {
   font-size: 11px;
   margin: 0;
-  
-  font-family: 'Arial', sans-serif; /* pode trocar pra sua fonte do projeto */
+   font-family: 'Lora', serif; /* pode trocar pra sua fonte do projeto */
 }
 
 

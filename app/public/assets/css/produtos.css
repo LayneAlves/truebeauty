@@ -398,3 +398,269 @@ body{
     cursor: pointer;
 }
 }
+
+/* layout da página cadastro produto */
+
+/* body {
+    margin: 0;
+    font-family: 'Lora', serif;
+    background: #f7f7f7;
+} */
+
+.cp-main-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1.5rem 1rem;
+}
+
+.cp-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.cp-title {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #8B0000;
+    margin-bottom: 0.5rem;
+}
+
+.cp-subtitle {
+    font-size: 1rem;
+    color: #666;
+}
+
+/* BOTÃO VOLTAR */
+.cp-back-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: #f8f9fa;
+    color: #555;
+    padding: 0.7rem 1.3rem;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    margin-bottom: 1.5rem;
+}
+
+.cp-back-btn:hover {
+    background: #8B0000;
+    color: white;
+    border-color: #8B0000;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(139, 0, 0, 0.2);
+}
+
+/* FORM CONTAINER */
+.cp-form-container {
+    background: #fafafa;
+    border-radius: 16px;
+    padding: 1.75rem;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+    border: 1px solid #f0f0f0;
+    max-height: 680px;
+    overflow-y: auto;
+}
+
+/* GRID PRINCIPAL 2 COLUNAS */
+.cp-form-grid {
+    display: grid;
+    grid-template-columns: 1fr 380px;
+    gap: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+/* GRID DE DOIS CAMPOS */
+.cp-dual-grid {
+    display: grid;
+    grid-template-columns: 150px 1fr;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    align-items: start;
+}
+
+/* FORM ELEMENTS */
+.cp-form-group {
+    margin-bottom: 0;
+}
+
+.cp-label {
+    display: block;
+    margin-bottom: 0.4rem;
+    font-weight: 500;
+    color: #8B0000;
+    font-size: 0.92rem;
+}
+
+.cp-input,
+.cp-textarea,
+.cp-select {
+    width: 100%;
+    padding: 0.85rem 1rem;
+    border: 2px solid #e8e8e8;
+    border-radius: 10px;
+    font-size: 0.95rem;
+    color: #333;
+    background: white;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+}
+
+.cp-input::placeholder,
+.cp-textarea::placeholder {
+    color: #999;
+}
+
+.cp-input:focus,
+.cp-textarea:focus,
+.cp-select:focus {
+    outline: none;
+    border-color: #8B0000;
+    box-shadow: 0 0 0 3px rgba(139, 0, 0, 0.1);
+    transform: translateY(-1px);
+}
+
+.cp-textarea {
+    min-height: 60px;
+    resize: vertical;
+    font-family: lora, serif;
+}
+
+/* UPLOAD */
+.cp-upload-area {
+    position: relative;
+    border: 2px dashed #d0d0d0;
+    border-radius: 12px;
+    padding: 1.5rem 1rem;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    height: 260px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.75rem;
+    overflow: hidden;
+}
+
+.cp-upload-area:hover {
+    border-color: #8B0000;
+    background: rgba(139, 0, 0, 0.02);
+}
+
+.cp-upload-icon {
+    font-size: 2.2rem;
+    color: #ccc;
+}
+
+.cp-upload-area:hover .cp-upload-icon {
+    color: #8B0000;
+}
+
+.cp-upload-text {
+    font-weight: 500;
+    color: #666;
+    font-size: 1rem;
+}
+
+.cp-upload-subtext {
+    color: #999;
+    font-size: 0.85rem;
+}
+
+.cp-image-preview {
+    width: 100%;
+    height: 140px;
+    position: absolute;
+    /* ocupa todo container */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+    border-radius: 8px;
+    margin-top: 0.75rem;
+    display: none;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* BOTÕES */
+.cp-form-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-end;
+    padding-top: 1.5rem;
+    border-top: 1px solid #eee;
+    grid-column: 1 / -1;
+}
+
+.cp-button {
+    padding: 0.9rem 1.8rem;
+    border-radius: 10px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    transition: all 0.3s ease;
+    min-height: 44px;
+    flex: 1;
+    max-width: 180px;
+}
+
+.cp-button-cancel {
+    background: white;
+    color: #666;
+    border: 2px solid #e0e0e0;
+}
+
+.cp-button-cancel:hover {
+    background: #f8f9fa;
+    border-color: #ccc;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.cp-button-primary {
+    background: #8B0000;
+    color: white;
+    box-shadow: 0 4px 12px rgba(139, 0, 0, 0.2);
+}
+
+.cp-button-primary:hover {
+    background: #a00000;
+    box-shadow: 0 6px 16px rgba(139, 0, 0, 0.3);
+}
+
+/* RESPONSIVO */
+@media (max-width:992px) {
+
+    .cp-form-grid,
+    .cp-dual-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+}
+
+@media (max-width:768px) {
+    .cp-main-container {
+        padding: 1rem 0.75rem;
+    }
+
+    .cp-form-container {
+        padding: 1.5rem;
+        max-height: none;
+    }
+
+    .cp-title {
+        font-size: 1.9rem;
+    }
+
+    .cp-form-actions {
+        flex-direction: column;
+    }
+}

@@ -51,5 +51,21 @@
     "imagem": "/assets/imagem/produtos/1774543569820-natura_homem_evolut.io.webp",
     "estoque": "100",
     "categoria": "perfume"
+  },
+  {
+    "id": 13,
+    "nome": "teste",
+    "preco": "10",
+    "descricao": "teste",
+    "estoque": "11",
+    "categoria": "maquiagem"
+  },
+  {
+    "id": 14,
+    "nome": "teste",
+    "preco": "1",
+    "descricao": "teste",
+    "estoque": "1",
+    "categoria": "maquiagem"
   }
 ]

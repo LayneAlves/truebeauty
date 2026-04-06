@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const UserController = require('../controllers/userController');
 const ProdutoController = require('../controllers/produtoController');
-const { imagemUpload} = require('../middleware/imagemUpload');
+const { imagemUpload } = require('../middleware/imagemUpload');
 
 
 // CONTROLLERS
@@ -78,11 +78,19 @@ router.get('/checkout', (req, res) => {
 router.get('/cadastro', UserController.renderCadastro);
 router.post('/cadastro', UserController.cadastrar);
 
-router.post('/cadastro-produto', ProdutoController.cadastrar);
+// Rotas de cadastro de produto
+// abre pagina
+router.get('/cadastroProduto', (req, res) => {
+    res.render('cadastroProduto');
+});
+
+
+// Rotas de produtos
 router.get('/produtos', ProdutoController.produtos);
 router.post('/produtos/novo', imagemUpload.single('imagem'), ProdutoController.cadastrar);
-// router.get('/produtos/editar/:id', ProdutoController.editarProduto);
-// router.post('/produtos/editar/:id', ProdutoController.atualizarProduto);
+
+// rota de excluir produto
+router.post('/produtos/excluir/:id', ProdutoController.excluirProduto);
 
 // Rotas de login
 router.post('/login', UserController.login);
