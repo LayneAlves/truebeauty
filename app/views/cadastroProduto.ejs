@@ -13,8 +13,7 @@
         </div>
 
         <div class="cp-form-container">
-            <form id="cp-product-form" method="POST" enctype="multipart/form-data" action="/produtos/novo">
-
+            <form id="cp-product-form" method="POST" action="/produtos/novo" enctype="multipart/form-data">            
                 <div class="cp-form-grid">
 
                     <div>
@@ -90,6 +89,30 @@
         </div>
 
     </main>
+
+    <!-- <script>
+        document.querySelector('#cp-product-form').addEventListener('submit', async function (e) {
+            e.preventDefault();
+            const form = e.target
+            const formData = new FormData(form);
+            try {
+                const response = await fetch('/produtos/novo', {
+                    method: 'POST',
+                    body: formData
+                });
+
+                if (response.ok) {
+                    alert('Produto cadastrado com sucesso!');
+                    window.location.href = '/produtos';
+                } else {
+                    alert('Erro ao cadastrar produto. Tente novamente.');
+                }
+            } catch (error) {
+                console.error('Erro:', error);
+                alert('Erro ao cadastrar produto. Tente novamente.');
+            }
+        });
+    </script> -->
 
     <script>
         /* UPLOAD IMAGE */
