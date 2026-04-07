@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <%- include('./include/head.ejs',{pagina:"produtos"}) %>
 
   <body>
@@ -11,8 +10,10 @@
           <button class="botao_novo">+ Novo Produto</button>
         </a>
       </section>
+
       <section class="container__produtos">
         <article class="titulos_header">
+          <span></span>
           <span>#</span>
           <span>Imagem</span>
           <span>Nome</span>
@@ -23,9 +24,9 @@
         </article>
 
         <article class="body">
-          <!-- Retorna a lista de produtos do json -->
           <% produtos.forEach(produto=> { %>
             <section class="content">
+              <span><input type="checkbox" class="select-produto" data-id="<%= produto.id %>"></span>
               <span>
                 <%= produto.id %>
               </span>
@@ -42,33 +43,91 @@
               <span>
                 <%= produto.estoque %>
               </span>
-              <span>
-                <a href="/produtos/editar/<%= produto.id %>">
-                  <button class="btn-editar">Editar</button>
-                </a>
+              <span class="acoes">
+                <!-- Ícone de lápis para editar -->
+                <button class="btn-editar-icone" onclick="abrirModal(this)" title="Editar"><img src="assets/imagem/icons/lapis.png" alt=""></button>
+
+                <!-- Ícone de lixeira mantém a função existente -->
                 <form action="/produtos/excluir/<%= produto.id %>" method="POST" style="display:inline;"
                   onsubmit="return confirm('Tem certeza que deseja excluir?')">
-                  <button type="submit" class="btn-excluir">Excluir</button>
+                  <button type="submit" class="btn-excluir-icone" title="Excluir"><img src="assets/imagem/icons/lixeira.png" alt=""></button>
                 </form>
               </span>
             </section>
             <% }); %>
         </article>
       </section>
-
-      </div>
-      </section>
     </main>
 
-    <footer>
-      <%# include('./include/footer.ejs') %>
-    </footer>
+    <!-- Modal Editar Produto -->
+    <div id="modal" class="ep-modal-container">
+      <div class="ep-modal-header">
+        <h2 class="ep-modal-title">Editar Produto</h2>
+        <span class="ep-modal-close-icon" onclick="fecharModal()">×</span>
+      </div>
+      <div class="ep-modal-content">
+        <form id="formEditarProduto" class="ep-product-form" method="POST" enctype="multipart/form-data">
+          <div class="ep-form-fields-wrapper">
+            <div class="ep-form-row">
+              <div class="ep-input-field">
+                <label class="ep-field-label">Nome</label>
+                <input type="text" id="editNome" name="nome" class="ep-input-text" required>
+              </div>
+              <div class="ep-input-field">
+                <label class="ep-field-label">Categoria</label>
+                <input type="text" id="editCategoria" name="categoria" class="ep-input-text" required>
+              </div>
+            </div>
+            <div class="ep-form-row">
+              <div class="ep-input-field">
+                <label class="ep-field-label">Preço</label>
+                <input type="number" id="editPreco" name="preco" class="ep-input-text" required>
+              </div>
+              <div class="ep-input-field">
+                <label class="ep-field-label">Estoque</label>
+                <input type="number" id="editEstoque" name="estoque" class="ep-input-text" required>
+              </div>
+            </div>
+          </div>
+          <div class="ep-image-preview-column">
+            <div class="ep-image-display-box">
+              <img id="editImagemPreview" class="ep-product-img" src="" alt="Preview">
+            </div>
+            <input type="file" name="imagem" id="editImagem" accept="image/*" style="margin-top: 10px;">
+          </div>
+          <div class="ep-modal-actions">
+            <button type="button" class="ep-btn-dismiss" onclick="fecharModal()">Cancelar</button>
+            <button type="submit" class="ep-btn-submit">Salvar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
     <script>
-      // excluir produto
-      function confirmarExclusao() {
-        return confirm("Tem certeza que deseja excluir este produto?");
-      }
-      function abrirModal() {
+      function abrirModal(botao) {
+        // Pega a linha inteira do botão
+        const linha = botao.closest('.content');
+        if (!linha) return;
+
+        // Pega todos os spans da linha
+        const spans = linha.querySelectorAll('span');
+
+        // Preenche o modal com os dados da linha
+        document.getElementById('editNome').value = spans[3].innerText;
+        document.getElementById('editCategoria').value = spans[4].innerText;
+        document.getElementById('editPreco').value = spans[5].innerText;
+        document.getElementById('editEstoque').value = spans[6].innerText;
+
+        // Preenche a imagem
+        const img = linha.querySelector('img');
+        document.getElementById('editImagemPreview').src = img ? img.src : '/img/default.png';
+
+        // Ajusta a action do form com o id do produto
+        const produtoId = botao.closest('.content').querySelector('.select-produto').dataset.id;
+        const form = document.getElementById('formEditarProduto');
+        form.action = `/produtos/editar/${produtoId}`;
+
+        // Mostra o modal
         document.getElementById('modal').style.display = 'flex';
       }
 
@@ -76,8 +135,13 @@
         document.getElementById('modal').style.display = 'none';
       }
 
-
+      // Seleção de todos produtos
+      const selectAllCheckbox = document.getElementById('selectAll');
+      selectAllCheckbox.addEventListener('change', () => {
+        document.querySelectorAll('.select-produto').forEach(cb => cb.checked = selectAllCheckbox.checked);
+      });
     </script>
+
   </body>
 
 </html>

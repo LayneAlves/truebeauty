@@ -2,63 +2,63 @@ const express = require('express');
 const router = express.Router();
 const UserController = require('../controllers/userController');
 const ProdutoController = require('../controllers/produtoController');
-const { imagemUpload } = require('../middleware/imagemUpload');
+const { imageUpload } = require('../middleware/imageUpload');
 
 
 // CONTROLLERS
 const indexController = require('../controllers/indexController');
 const vertudoController = require('../controllers/vertudoController');
-const perfumesController = require('../controllers/perfumesController');
-const cabelosController = require('../controllers/cabelosController');
-const cuidados_pessoaisController = require('../controllers/cuidados_pessoaisController');
-const perfumes_femininoController = require('../controllers/perfumes_femininoController');
-const maquiagemController = require('../controllers/maquiagemController');
-const skin_careController = require('../controllers/skin_careController');
-const hidratacaoController = require('../controllers/hidratacaoController');
-const nutricaoController = require('../controllers/nutricaoController');
-const reconstrucaoController = require('../controllers/reconstrucaoController');
-const perfumes_masculinoController = require('../controllers/perfumes_masculinoController');
-const perfumes_infantilController = require('../controllers/perfumes_infantilController');
-const body_splashController = require('../controllers/body_splashController');
-const rostoController = require('../controllers/rostoController');
-const olhosController = require('../controllers/olhosControllers');
-const labiosController = require('../controllers/labiosController');
-const depilacaoController = require('../controllers/depilacaoController');
-const higieneIntimaController = require('../controllers/higieneIntimaController');
-const protetorSolarController = require('../controllers/protetorSolarController');
-const kitBarbaController = require('../controllers/kitBarbaController');
-const primerController = require('../controllers/primerController');
-const corretivoController = require('../controllers/corretivoController');
-const poController = require('../controllers/poController');
-const batomController = require('../controllers/batomController');
+// const perfumesController = require('../controllers/perfumesController');
+// const cabelosController = require('../controllers/cabelosController');
+// const cuidados_pessoaisController = require('../controllers/cuidados_pessoaisController');
+// const perfumes_femininoController = require('../controllers/perfumes_femininoController');
+// const maquiagemController = require('../controllers/maquiagemController');
+// const skin_careController = require('../controllers/skin_careController');
+// const hidratacaoController = require('../controllers/hidratacaoController');
+// const nutricaoController = require('../controllers/nutricaoController');
+// const reconstrucaoController = require('../controllers/reconstrucaoController');
+// const perfumes_masculinoController = require('../controllers/perfumes_masculinoController');
+// const perfumes_infantilController = require('../controllers/perfumes_infantilController');
+// const body_splashController = require('../controllers/body_splashController');
+// const rostoController = require('../controllers/rostoController');
+// const olhosController = require('../controllers/olhosControllers');
+// const labiosController = require('../controllers/labiosController');
+// const depilacaoController = require('../controllers/depilacaoController');
+// const higieneIntimaController = require('../controllers/higieneIntimaController');
+// const protetorSolarController = require('../controllers/protetorSolarController');
+// const kitBarbaController = require('../controllers/kitBarbaController');
+// const primerController = require('../controllers/primerController');
+// const corretivoController = require('../controllers/corretivoController');
+// const poController = require('../controllers/poController');
+// const batomController = require('../controllers/batomController');
 
 
 // ROUTER
 router.get('/', ProdutoController.index);
 router.get('/vertudo', vertudoController.renderVertudo);
-router.get('/perfumes', perfumesController.renderPerfumes);
-router.get('/cabelos', cabelosController.renderCabelos);
-router.get('/cuidados_pessoais', cuidados_pessoaisController.renderCuidados_pessoais);
-router.get('/perfumes_feminino', perfumes_femininoController.renderPerfumes_feminino);
-router.get('/maquiagem', maquiagemController.renderMaquiagem);
-router.get('/skin_care', skin_careController.renderSkin_care);
-router.get('/hidratacao', hidratacaoController.renderHidratacao);
-router.get('/nutricao', nutricaoController.renderNutricao);
-router.get('/reconstrucao', reconstrucaoController.renderReconstrucao);
-router.get('/perfumes_masculino', perfumes_masculinoController.renderPerfumes_masculino);
-router.get('/perfumes_infantil', perfumes_infantilController.renderPerfumes_infantil);
-router.get('/body_splash', body_splashController.renderBody_splash);
-router.get('/rosto', rostoController.renderRosto);
-router.get('/olhos', olhosController.renderOlhos);
-router.get('/labios', labiosController.renderLabios);
-router.get('/depilacao', depilacaoController.renderDepilacao);
-router.get('/higieneIntima', higieneIntimaController.renderHigieneIntima);
-router.get('/protetorSolar', protetorSolarController.renderProtetorSolar);
-router.get('/kitBarba', kitBarbaController.renderKitBarba);
-router.get('/primer', primerController.renderPrimer);
-router.get('/corretivo', corretivoController.renderCorretivo);
-router.get('/po', poController.renderPo);
-router.get('/batom', batomController.renderBatom);
+// router.get('/perfumes', perfumesController.renderPerfumes);
+// router.get('/cabelos', cabelosController.renderCabelos);
+// router.get('/cuidados_pessoais', cuidados_pessoaisController.renderCuidados_pessoais);
+// router.get('/perfumes_feminino', perfumes_femininoController.renderPerfumes_feminino);
+// router.get('/maquiagem', maquiagemController.renderMaquiagem);
+// router.get('/skin_care', skin_careController.renderSkin_care);
+// router.get('/hidratacao', hidratacaoController.renderHidratacao);
+// router.get('/nutricao', nutricaoController.renderNutricao);
+// router.get('/reconstrucao', reconstrucaoController.renderReconstrucao);
+// router.get('/perfumes_masculino', perfumes_masculinoController.renderPerfumes_masculino);
+// router.get('/perfumes_infantil', perfumes_infantilController.renderPerfumes_infantil);
+// router.get('/body_splash', body_splashController.renderBody_splash);
+// router.get('/rosto', rostoController.renderRosto);
+// router.get('/olhos', olhosController.renderOlhos);
+// router.get('/labios', labiosController.renderLabios);
+// router.get('/depilacao', depilacaoController.renderDepilacao);
+// router.get('/higieneIntima', higieneIntimaController.renderHigieneIntima);
+// router.get('/protetorSolar', protetorSolarController.renderProtetorSolar);
+// router.get('/kitBarba', kitBarbaController.renderKitBarba);
+// router.get('/primer', primerController.renderPrimer);
+// router.get('/corretivo', corretivoController.renderCorretivo);
+// router.get('/po', poController.renderPo);
+// router.get('/batom', batomController.renderBatom);
 
 const for_admController = require('../controllers/for_edmController');
 
@@ -79,15 +79,13 @@ router.get('/cadastro', UserController.renderCadastro);
 router.post('/cadastro', UserController.cadastrar);
 
 // Rotas de cadastro de produto
-// abre pagina
 router.get('/cadastroProduto', (req, res) => {
     res.render('cadastroProduto');
 });
 
-
 // Rotas de produtos
 router.get('/produtos', ProdutoController.produtos);
-router.post('/produtos/novo', imagemUpload.single('imagem'), ProdutoController.cadastrar);
+router.post('/produtos/novo', imageUpload.single('imagem'), ProdutoController.cadastrar);
 
 // rota de excluir produto
 router.post('/produtos/excluir/:id', ProdutoController.excluirProduto);

@@ -1,5 +1,5 @@
 const ProdutoModel = require('../models/produtoModel');
-const { processarImagem } = require('../middleware/imagemUpload');
+const { processImage } = require('../middleware/imageUpload');
 
 
 const ProdutoController = {
@@ -7,10 +7,8 @@ const ProdutoController = {
         try {
             //Recebe os dados do formulario
             const { nome, preco, descricao, estoque, categoria } = req.body;
-            let imagem = null;
-            if (req.file) {
-                imagem = req.file.filename; // ou req.file.path dependendo do seu setup
-            }
+            let imagem = await processImage(req.file, "produtos");
+            imagem = "/assets/imagem/produtos/" + imagem;
 
             //Cria um novo produto
             const newProduto = {
@@ -23,9 +21,13 @@ const ProdutoController = {
                 categoria
             }
 
+            console.log('Novo produto:', newProduto);
+
             //await, espere até ele funcionar  
             await ProdutoModel.cadastrar(newProduto);
-            return res.redirect('/produtos'); // Redireciona para a página de produtos após o cadastro
+            res.render('produtos', {
+                produtos: await ProdutoModel.produtos()
+            }); // Redireciona para a página de produtos após o cadastro
 
             //Retorno ao usuário
         } catch (error) {
@@ -38,7 +40,6 @@ const ProdutoController = {
         try {
             const produtos = await ProdutoModel.produtos();
             res.render('produtos', { produtos });
-            // return res.json(produtos);
         } catch (error) {
             console.error('Erro ao obter produtos:', error);
             return res.json({ message: 'Erro ao obter produtos' });
