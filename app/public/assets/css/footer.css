@@ -5,6 +5,7 @@ html, body {
 
 footer {
   background: #770003; /* sua cor */
+  height: auto;
 }
 .footer {
   width: 100%;
@@ -16,6 +17,7 @@ footer {
   justify-content: space-between;
   align-items: center;
   row-gap: 8px; 
+  /* height: auto; */
 }
 
 .footer > img {
@@ -31,13 +33,13 @@ footer {
 }
 
 #prf{
-  margin-left: clamp(15rem, 30vw, 21.25rem); /*equivalente a 340px so que mais responsivel*/
+  margin-left: clamp(3rem, 11vw, 21.25rem); /*equivalente a 340px so que mais responsivel*/
   flex: 1.5;
 }
 
 #inf{
   flex: 1.5;
-  padding-left: clamp(5rem, 10vw, 6.25rem); /*equivalente a 100px so que mais responsivel*/
+  padding-left: clamp(1rem, 4vw, 6.25rem); /*equivalente a 100px so que mais responsivel*/
 }
 
 .footer ul {
