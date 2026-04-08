@@ -586,13 +586,54 @@ button {
   }
 
   #redessociais {
-    column-gap: 20px;
-    margin-top: 30px;
+    column-gap: 5px;
+    margin-top: 16px;
+    margin-bottom: 30%;
 
   }
 
   .footer {
     padding-top: 30px;
+    column-gap: 8px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  #prf{
+    margin-left: clamp(0rem, 6vw, 12.25rem);
+  }
+
+  #inf{
+    padding-right: clamp(2rem, 3vw, 6.25rem);
+  }
+
+  #prf, #inf{
+    /* width: 45%; */
+  }
+
+  #icons {
+  /* display: flex; */
+  /* margin: end; */
+  align-items: center;
+  width: 70%;
+  padding-left: clamp(0rem, 1vw, 3.125rem); /*equivale a 50px so que mais responsivel*/
+  /* flex-direction: column; */
+  gap: 16px;
+  /* right: 80px; */
+  flex: 2;
+}
+
+#icons, img{
+  /* margin-top: 20px; */
+  width: 100%;
+}
+
+#icons img{
+  max-width: 60%;
+}
+
+  .footer nav {
+    padding: 0;
   }
 
 
