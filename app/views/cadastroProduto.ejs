@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('./include/head.ejs',{pagina:"produtos"}) %>
+<body>
+
+    <main class="cp-main-container">
+
+        <div class="cp-header">
+            <a href="/produtos" class="cp-back-btn">← Voltar</a>
+            <h1 class="cp-title">Cadastrar Novo Produto</h1>
+            <p class="cp-subtitle">Adicione um novo item ao catálogo</p>
+        </div>
+
+        <div class="cp-form-container">
+            <form id="cp-product-form" method="POST" action="/produtos/novo" enctype="multipart/form-data">            
+                <div class="cp-form-grid">
+
+                    <div>
+                        <!-- Nome -->
+                        <div class="cp-form-group">
+                            <label class="cp-label" for="cp-nome">Nome do produto *</label>
+                            <input type="text" id="cp-nome" name="nome" class="cp-input"
+                                placeholder="Ex: Sérum Hidratante Facial" required>
+                        </div>
+
+                        <!-- Preço (menor) + Descrição (maior) -->
+                        <div class="cp-dual-grid">
+                            <div class="cp-form-group">
+                                <label class="cp-label" for="cp-preco">Preço (R$)*</label>
+                                <input type="number" id="cp-preco" name="preco" class="cp-input" step="0.01" min="0"
+                                    placeholder="0.00" required autocomplete="off" autocorrect="off"
+                                    autocapitalize="off" spellcheck="false">
+                            </div>
+                            <div class="cp-form-group">
+                                <label class="cp-label" for="cp-descricao">Descrição</label>
+                                <textarea id="cp-descricao" name="descricao" class="cp-textarea"
+                                    placeholder="Características e benefícios..."></textarea>
+                            </div>
+                        </div>
+
+                        <!-- Categoria + Estoque -->
+                        <div class="cp-dual-grid">
+                            <div class="cp-form-group">
+                                <label class="cp-label" for="cp-categoria">Categoria *</label>
+                                <select id="cp-categoria" name="categoria" class="cp-select" required>
+                                    <option value="">Selecione...</option>
+                                    <option value="cabelo">Cabelo</option>
+                                    <option value="corpo">Corpo</option>
+                                    <option value="banho">Banho</option>
+                                    <option value="perfume">Perfume</option>
+                                    <option value="rosto">Rosto</option>
+                                    <option value="maquiagem">Maquiagem</option>
+                                </select>
+                            </div>
+                            <div class="cp-form-group">
+                                <label class="cp-label" for="cp-estoque">Estoque *</label>
+                                <input type="number" id="cp-estoque" name="estoque" class="cp-input" min="0"
+                                    placeholder="0" required>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Upload -->
+                    <div>
+                        <div class="cp-form-group">
+                            <label class="cp-label">Imagem do produto *</label>
+                            <div class="cp-upload-area" id="cp-upload-area">
+                                <div class="cp-upload-icon">🖼️</div>
+                                <div class="cp-upload-text">Clique para enviar</div>
+                                <div class="cp-upload-subtext">JPG, PNG, WebP (máx. 5MB)</div>
+                                <img id="cp-image-preview" class="cp-image-preview" alt="Preview">
+                                <input type="file" id="cp-image-input" name="imagem" accept="image/*"
+                                    style="display:none;" required>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Botões -->
+                <div class="cp-form-actions">
+                    <button type="button" class="cp-button cp-button-cancel" onclick="cpResetForm()">Cancelar</button>
+                    <button type="submit" class="cp-button cp-button-primary">Salvar Produto</button>
+                </div>
+
+            </form>
+        </div>
+
+    </main>
+
+    <!-- <script>
+        document.querySelector('#cp-product-form').addEventListener('submit', async function (e) {
+            e.preventDefault();
+            const form = e.target
+            const formData = new FormData(form);
+            try {
+                const response = await fetch('/produtos/novo', {
+                    method: 'POST',
+                    body: formData
+                });
+
+                if (response.ok) {
+                    alert('Produto cadastrado com sucesso!');
+                    window.location.href = '/produtos';
+                } else {
+                    alert('Erro ao cadastrar produto. Tente novamente.');
+                }
+            } catch (error) {
+                console.error('Erro:', error);
+                alert('Erro ao cadastrar produto. Tente novamente.');
+            }
+        });
+    </script> -->
+
+    <script>
+        /* UPLOAD IMAGE */
+        const cpUploadArea = document.getElementById('cp-upload-area');
+        const cpImageInput = document.getElementById('cp-image-input');
+        const cpImagePreview = document.getElementById('cp-image-preview');
+        const cpProductForm = document.getElementById('cp-product-form');
+
+        cpUploadArea.addEventListener('click', () => cpImageInput.click());
+
+        ['dragover', 'dragenter'].forEach(event => {
+            cpUploadArea.addEventListener(event, e => { e.preventDefault(); cpUploadArea.style.borderColor = '#8B0000'; });
+        });
+
+        ['dragleave', 'drop'].forEach(event => {
+            cpUploadArea.addEventListener(event, e => {
+                e.preventDefault();
+                cpUploadArea.style.borderColor = '#d0d0d0';
+                if (e.type === 'drop' && e.dataTransfer.files[0]) {
+                    cpImageInput.files = e.dataTransfer.files;
+                    cpPreviewImage(e.dataTransfer.files[0]);
+                }
+            });
+        });
+
+        cpImageInput.addEventListener('change', e => { if (e.target.files[0]) cpPreviewImage(e.target.files[0]); });
+
+        function cpPreviewImage(file) {
+            if (!['image/jpeg', 'image/jpg', 'image/png', 'image/webp'].includes(file.type)) {
+                alert('Use JPG, PNG ou WebP'); return;
+            }
+            const reader = new FileReader();
+            reader.onload = e => {
+                cpImagePreview.src = e.target.result;
+                cpImagePreview.style.display = 'block';
+                cpUploadArea.querySelectorAll('.cp-upload-icon,.cp-upload-text,.cp-upload-subtext').forEach(el => el.style.opacity = '0');
+            };
+            reader.readAsDataURL(file);
+        }
+
+        function cpResetForm() {
+            cpProductForm.reset();
+            cpImagePreview.style.display = 'none';
+            cpUploadArea.querySelectorAll('.cp-upload-icon,.cp-upload-text,.cp-upload-subtext').forEach(el => el.style.opacity = '1');
+        }
+
+        cpProductForm.addEventListener('submit', e => {
+            const required = ['cp-nome', 'cp-preco', 'cp-categoria', 'cp-estoque'];
+            const allFilled = required.every(id => document.getElementById(id).value.trim());
+            if (!allFilled || !cpImageInput.files[0]) {
+                e.preventDefault();
+                alert('Preencha todos os campos obrigatórios (*)');
+            }
+        });
+    </script>
+
+</body>
+
+</html>

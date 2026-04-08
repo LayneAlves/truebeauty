@@ -1,0 +1,146 @@
+<div id="modal-produto" class="modal">
+  <section class="modal-body">
+
+    <div class="modal-header">
+      <span class="ep-modal-close-icon" onclick="fecharModal()">×</span>
+      <img src="assets/imagem/icons/icone_editar_produto.png" alt="">
+      <!-- <div> -->
+      <h2 class="title">Editar Produto</h2>
+      <!-- </div> -->
+    </div>
+
+    <div class="content">
+      <form id="formEditarProduto" class="tb-form" method="POST" enctype="multipart/form-data">
+
+        <!-- LADO ESQUERDO (FORM) -->
+        <section>
+          <div class="tb-field">
+            <label class="tb-label">Nome</label>
+            <input type="text" id="editNome" name="nome" class="tb-input" required>
+          </div>
+
+          <div class="tb-field">
+            <label class="tb-label">Categoria</label>
+            <input type="text" id="editCategoria" name="categoria" class="tb-input" required>
+          </div>
+
+          <div class="tb-field">
+            <label class="tb-label">Preço</label>
+            <input type="number" id="editPreco" name="preco" class="tb-input" required>
+          </div>
+
+          <div class="tb-field">
+            <label class="tb-label">Estoque</label>
+            <input type="number" id="editEstoque" name="estoque" class="tb-input" required>
+          </div>
+
+          <div class="tb-field">
+            <label class="tb-label">Descrição</label>
+            <input type="text" id="editDescricao" name="descricao" class="tb-input" required>
+          </div>
+        </section>
+
+        <!-- LADO DIREITO (IMAGEM) -->
+        <div class="tb-image-side">
+          <label for="editImagem" class="tb-image-upload">
+            <div class="tb-image-box">
+              <img id="editImagemPreview" class="tb-image-preview" src="">
+
+              <div class="tb-image-placeholder">
+                <span class="tb-image-icon">🖼️</span>
+                <p>Adicionar imagem</p>
+              </div>
+            </div>
+          </label>
+
+          <input type="file" id="editImagem" name="imagem" hidden>
+        </div>
+
+        <!-- BOTÕES -->
+        <div class="ep-modal-actions">
+          <button type="button" class="tb-button-secondary" onclick="fecharModal()">Cancelar</button>
+          <button type="submit" class="tb-button-primary">Salvar</button>
+        </div>
+
+      </form>
+    </div>
+
+  </section>
+</div>
+
+<!-- <script>
+document.addEventListener('DOMContentLoaded', () => {
+
+  const modal = document.getElementById('modal-produto');
+  const btnFechar = document.querySelector('.ep-modal-close-icon');
+  const btnCancelar = document.getElementById('btnCancelar');
+  const inputImagem = document.getElementById('editImagem');
+  const previewImagem = document.getElementById('editImagemPreview');
+  const form = document.getElementById('formEditarProduto');
+
+  // 🔥 FECHAR NO X
+  btnFechar.addEventListener('click', () => {
+    modal.style.display = 'none';
+  });
+
+  // 🔥 CANCELAR COM CONFIRMAÇÃO
+  btnCancelar.addEventListener('click', () => {
+    const confirmar = confirm('Tem certeza que deseja cancelar?');
+
+    if (confirmar) {
+      modal.style.display = 'none';
+    }
+  });
+
+  // 🔥 PREVIEW AO TROCAR IMAGEM
+  inputImagem.addEventListener('change', () => {
+    const file = inputImagem.files[0];
+
+    if (file) {
+      const url = URL.createObjectURL(file);
+      previewImagem.src = url;
+    }
+  });
+
+  // 🔥 ABRIR MODAL COM DADOS DO PRODUTO
+  window.abrirModal = (produto) => {
+
+    document.getElementById('editNome').value = produto.nome;
+    document.getElementById('editCategoria').value = produto.categoria;
+    document.getElementById('editPreco').value = produto.preco;
+    document.getElementById('editEstoque').value = produto.estoque;
+    document.getElementById('editDescricao').value = produto.descricao;
+
+    // 👇 IMAGEM JÁ CARREGADA
+    previewImagem.src = `/assets/imagem/produtos/${produto.imagem}`;
+
+    modal.style.display = 'flex';
+  };
+
+  // 🔥 SUBMIT (SALVAR)
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const formData = new FormData(form);
+
+    try {
+      const response = await fetch('/produtos/editar', {
+        method: 'POST',
+        body: formData
+      });
+
+      if (response.ok) {
+        alert('Produto atualizado com sucesso!');
+        window.location.reload();
+      } else {
+        alert('Erro ao atualizar produto');
+      }
+
+    } catch (erro) {
+      console.error(erro);
+      alert('Erro na requisição');
+    }
+  });
+
+});
+</script> -->

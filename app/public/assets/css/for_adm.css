@@ -8,29 +8,6 @@ margin:0;
 }
 
 
-/* MENU */
-
-.menu{
-background:#e9e9e9;
-padding:20px;
-height:100vh;
-}
-
-.menu h2{
-margin-bottom:20px;
-}
-
-.menu ul{
-list-style:none;
-padding:0;
-}
-
-.menu li{
-margin:18px 0;
-cursor:pointer;
-color:#333;
-}
-
 
 /* CONTEÚDO */
 

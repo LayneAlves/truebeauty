@@ -3,6 +3,447 @@
 @import url('./card.css');
 @import url('./vertudo.css');
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #fff;
+  color: #333;
+  line-height: 1.6;
+  overflow-x: hidden;
+  font-family: 'Lora', serif;
+}
+
+menu{
+  font-size: 18px;
+}
+
+main {
+ width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+img {
+   max-width: 100%;
+  height: auto; /* IMPORTANTE: mude de 100% para auto */
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* HEADER */
+
+.icon-btn {
+  font-size: 26px;
+  /* Aumenta tamanho dos ícones */
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #333;
+  transition: color 0.3s ease;
+}
+
+/* BANNER PRINCIPAL */
+.main-banner img {
+  width: 100%;
+  margin: auto;
+  position: relative;
+  border-radius: 12px;
+  margin-top: 180px;
+}
+
+/* CATEGORIAS */
+
+.categories-carousel {
+  display: flex;
+  margin: 7%;
+  gap: 20px;
+}
+
+.categories-carousel section {
+  width: 60%;
+  height: 400px;
+  border-radius: 20px;
+  font-weight: 500;
+  text-align: center;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+/* IMAGEM (AGORA VAI NO ::before) */
+.categories-carousel section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: transform 0.6s ease;
+  z-index: 0;
+}
+
+/* OVERLAY ESCURO SUAVE */
+.categories-carousel section::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.25);
+  transition: background 0.4s ease;
+  z-index: 1;
+}
+
+/* ZOOM NA IMAGEM */
+.categories-carousel section:hover::before {
+  transform: scale(1.1);
+}
+
+/* ESCURECE UM POUCO MAIS NO HOVER */
+.categories-carousel section:hover::after {
+  background: rgba(0, 0, 0, 0.4);
+}
+
+/* TEXTO */
+.categories-carousel section h2 {
+  color: #FFFFFF;
+  position: absolute;
+  bottom: 48px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+}
+
+/* BOTÃO */
+.categories-carousel section a {
+  color: black;
+  background-color: rgba(255, 255, 255, 0.85);
+  width: 100px;
+  height: 24px;
+  line-height: 24px;
+  border-radius: 10px;
+  position: absolute;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  transition: .3s;
+}
+
+.categories-carousel section a:hover {
+  background-color: #8b0000;
+  color: #FFFFFF;
+}
+
+/* IMAGENS DAS CATEGORIAS (AGORA NO ::before) */
+
+.categories-carousel section.cabelo::before {
+  background-image: url("https://i.pinimg.com/originals/3e/e1/d4/3ee1d4f8c52fc7637a257facd61423b3.jpg");
+}
+
+.categories-carousel section.corpo::before {
+  background-image: url("https://img.freepik.com/fotos-premium/rosto-de-mulher-negra-e-creme-hidratante-para-beleza-da-pele-ou-cosmeticos-contra-um-fundo-de-estudio-cinza-retrato-de-mulher-africana-feliz-com-sorriso-para-locao-creme-hidratante-ou-produto-facial_590464-170930.jpg");
+}
+
+.categories-carousel section.banho::before {
+  background-image: url("https://img.freepik.com/fotos-premium/esta-lavagem-do-corpo-me-deixa-com-uma-sensacao-fresca-que-permanece-foto-de-estudio-de-uma-jovem-tomando-banho-contra-um-fundo-azul_590464-62358.jpg");
+}
+
+.categories-carousel section.perfume::before {
+  background-image: url("https://www.makeupatelier.com.br/wp-content/uploads/2022/04/mulher-passando-perfume.jpg");
+}
+
+.categories-carousel section.rosto::before {
+  background-image: url("https://img.freepik.com/fotos-premium/retrato-sereno-de-uma-mulher-de-beleza-natural_1365064-5523.jpg");
+}
+
+/* camada que escurece */
+.banho .overlay {
+  position: absolute;
+  inset: 0;
+  /* cobre tudo */
+  background: rgba(0, 0, 0, 0.35);
+  /* preto com transparência */
+}
+
+/* garante que título e botão fiquem por cima */
+.banho h2,
+.banho a {
+  position: relative;
+  z-index: 1;
+}
+
+/* 
+banner rotativo */
+.custom-carousel {
+  width: 90%;
+  height: 400%;
+  /* max-width: 700px; */
+  margin: 0px auto;
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.6s cubic-bezier(.77, 0, .18, 1);
+  width: 141%;
+}
+
+.carousel-track img {
+  width: 73%;
+  height: 100%;
+  object-fit: cover;
+  /* ou 'contain' se quiser que tudo da imagem apareça */
+  flex-shrink: 0;
+
+}
+
+.carousel-dots {
+  position: absolute;
+  bottom: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+}
+
+.carousel-dots .dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #fff;
+  opacity: 0.6;
+  cursor: pointer;
+  transition: opacity 0.3s;
+  border: 2px solid #8B0000;
+}
+
+.carousel-dots .dot.active {
+  opacity: 1;
+  background: #8B0000;
+}
+
+/* ...existing code... */
+
+/* DESCRIÇÃO + BOTÃO */
+.description {
+  text-align: center;
+  padding: 16px;
+  margin: 0px;
+}
+
+
+.description h3 {
+  font-size: 13px;
+}
+
+
+/* Seção produtos */
+
+.dica-make {
+  text-align: center;
+  padding: 4px 0;
+  font-family: 'Lora', serif;
+  background-color: #fff;
+}
+
+.dica-make h2 {
+  color: #8B0000;
+  font-size: 2em;
+  margin-bottom: 40px;
+}
+
+.carousel-wrapper {
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.scroll-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #8B0000;
+  color: white;
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 18px;
+  cursor: pointer;
+  z-index: 10;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.scroll-arrow:hover {
+  background: #A52A2A;
+  transform: translateY(-50%) scale(1.1);
+}
+
+.scroll-arrow:first-child {
+  left: 10px;
+}
+
+.scroll-arrow:last-child {
+  right: 10px;
+}
+
+.cards-container {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 20px;
+  padding: 14px 64px 50px;
+  width: 100%;
+  overflow-x: auto;
+  scrollbar-width: none;
+  margin: 0 auto;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+.cards-container::-webkit-scrollbar {
+  display: none;
+}
+
+
+
+.card-destaque {
+  position: relative;
+  width: 350px;
+  flex: 0 0 350px;
+  height: 500px;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s;
+  background-color: #923636;
+}
+
+.card:hover {
+  transform: scale(1.03);
+}
+
+/* imagem grande de fundo */
+.img-fundo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+
+}
+
+/* imagem do produto sobreposta */
+.img-produto {
+  position: absolute;
+  left: 14%;
+  top: 15px;
+  transform: translateX(-50%);
+  width: 74px;
+  height: auto;
+  z-index: 2;
+  display: flex;
+}
+
+/* bloco das infos abaixo do produto */
+.maisvendidos {
+  font-size: 70%;
+  background-color: white;
+  position: absolute;
+  bottom: 8px;
+  left: 50%;
+  right: 20px;
+  transform: translateX(-50%);
+  text-align: center;
+  z-index: 3;
+  width: 80%;
+  flex-direction: column;
+  border-radius: 8px;
+}
+
+.maisvendidos button {
+  border-radius: 8px;
+  width: 100px;
+  height: 20px;
+  /* margin-left: 20px; */
+  margin-left: 0;
+
+
+}
+
+.maisvendidos h3 {
+  margin-top: 5%;
+  font-size: 16px;
+  /* padding-left: 18px; */
+  padding-left: 6px;
+}
+
+h3 {
+  color: rgba(0, 0, 0, 0.675);
+  font-size: 18px;
+  margin-bottom: 3%;
+}
+
+.preco {
+  color: #4f0103;
+  font-weight: bold;
+  font-size: 16px;
+  /* padding-left: 18px; */
+padding-left: 5px;
+}
+
+button {
+  background: #8B0000;
+  color: #fff;
+  padding: 4px;
+  margin-bottom: 3%;
+  cursor: pointer;
+  font-size: 1.0em;
+  font-weight: bold;
+}
+
+/* Efeito h2 */
+
+.dica-make h2 {
+  font-size: 2em;
+  color: transparent;
+  background-image: linear-gradient(90deg, #FF0000, #CC0000, #990000, #ff0000);
+  background-size: 200%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  font-family: 'Lora', serif;
+  animation: cobrinha 3s linear infinite;
+  transition: transform 0.3s;
+}
+
+@keyframes cobrinha {
+  0% {
+    background-position: 0%;
+  }
+
+  100% {
+    background-position: 200%;
+  }
+}
+
+.dica-make h2:hover {
+  transform: scale(1.05);
+}
 
 /* CELULAR */
 @media (max-width: 480px) {
@@ -99,6 +540,7 @@
 
   .header nav>ul:nth-of-type(1) {
     max-width: 45%;
+    
   }
 
   .logo>img {
@@ -389,540 +831,6 @@
 
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: 'Arial', sans-serif;
-  background: #fff;
-  color: #333;
-  line-height: 1.6;
-  overflow-x: hidden;
-}
-
-menu{
-  font-size: 18px;
-}
-
-main {
- width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-img {
-  width: 100%;
-  display: block;
-}
-
-a {
-  text-decoration: none;
-  color: inherit;
-}
-
-button {
-  background: none;
-  border: none;
-  cursor: pointer;
-}
-
-/* HEADER */
-
-.icon-btn {
-  font-size: 26px;
-  /* Aumenta tamanho dos ícones */
-  background: none;
-  border: none;
-  cursor: pointer;
-  color: #333;
-  transition: color 0.3s ease;
-}
-
-/* BANNER PRINCIPAL */
-.main-banner img {
-  width: 100%;
-  margin: auto;
-  position: relative;
-  border-radius: 12px;
-  margin-top: 180px;
-}
-
-/* CATEGORIAS */
-
-.categories-carousel {
-  display: flex;
-  margin: 7%;
-  gap: 20px;
-}
-
-.categories-carousel section {
-  width: 60%;
-  height: 400px;
-  border-radius: 20px;
-  font-weight: 500;
-  text-align: center;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-  cursor: pointer;
-  position: relative;
-  overflow: hidden;
-}
-
-/* IMAGEM (AGORA VAI NO ::before) */
-.categories-carousel section::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  transition: transform 0.6s ease;
-  z-index: 0;
-}
-
-/* OVERLAY ESCURO SUAVE */
-.categories-carousel section::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.25);
-  transition: background 0.4s ease;
-  z-index: 1;
-}
-
-/* ZOOM NA IMAGEM */
-.categories-carousel section:hover::before {
-  transform: scale(1.1);
-}
-
-/* ESCURECE UM POUCO MAIS NO HOVER */
-.categories-carousel section:hover::after {
-  background: rgba(0, 0, 0, 0.4);
-}
-
-/* TEXTO */
-.categories-carousel section h2 {
-  color: #FFFFFF;
-  position: absolute;
-  bottom: 48px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 2;
-}
-
-/* BOTÃO */
-.categories-carousel section a {
-  color: black;
-  background-color: rgba(255, 255, 255, 0.85);
-  width: 100px;
-  height: 24px;
-  line-height: 24px;
-  border-radius: 10px;
-  position: absolute;
-  bottom: 16px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 2;
-  transition: .3s;
-}
-
-.categories-carousel section a:hover {
-  background-color: #8b0000;
-  color: #FFFFFF;
-}
-
-/* IMAGENS DAS CATEGORIAS (AGORA NO ::before) */
-
-.categories-carousel section.cabelo::before {
-  background-image: url("https://i.pinimg.com/originals/3e/e1/d4/3ee1d4f8c52fc7637a257facd61423b3.jpg");
-}
-
-.categories-carousel section.corpo::before {
-  background-image: url("https://img.freepik.com/fotos-premium/rosto-de-mulher-negra-e-creme-hidratante-para-beleza-da-pele-ou-cosmeticos-contra-um-fundo-de-estudio-cinza-retrato-de-mulher-africana-feliz-com-sorriso-para-locao-creme-hidratante-ou-produto-facial_590464-170930.jpg");
-}
-
-.categories-carousel section.banho::before {
-  background-image: url("https://img.freepik.com/fotos-premium/esta-lavagem-do-corpo-me-deixa-com-uma-sensacao-fresca-que-permanece-foto-de-estudio-de-uma-jovem-tomando-banho-contra-um-fundo-azul_590464-62358.jpg");
-}
-
-.categories-carousel section.perfume::before {
-  background-image: url("https://www.makeupatelier.com.br/wp-content/uploads/2022/04/mulher-passando-perfume.jpg");
-}
-
-.categories-carousel section.rosto::before {
-  background-image: url("https://img.freepik.com/fotos-premium/retrato-sereno-de-uma-mulher-de-beleza-natural_1365064-5523.jpg");
-}
-
-/* camada que escurece */
-.banho .overlay {
-  position: absolute;
-  inset: 0;
-  /* cobre tudo */
-  background: rgba(0, 0, 0, 0.35);
-  /* preto com transparência */
-}
-
-/* garante que título e botão fiquem por cima */
-.banho h2,
-.banho a {
-  position: relative;
-  z-index: 1;
-}
-
-/* 
-banner rotativo */
-.custom-carousel {
-  width: 90%;
-  height: 400%;
-  /* max-width: 700px; */
-  margin: 0px auto;
-  position: relative;
-  overflow: hidden;
-  border-radius: 12px;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
-}
-
-.carousel-track {
-  display: flex;
-  transition: transform 0.6s cubic-bezier(.77, 0, .18, 1);
-  width: 141%;
-}
-
-.carousel-track img {
-  width: 73%;
-  height: 100%;
-  object-fit: cover;
-  /* ou 'contain' se quiser que tudo da imagem apareça */
-  flex-shrink: 0;
-
-}
-
-.carousel-dots {
-  position: absolute;
-  bottom: 18px;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  gap: 10px;
-}
-
-.carousel-dots .dot {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  background: #fff;
-  opacity: 0.6;
-  cursor: pointer;
-  transition: opacity 0.3s;
-  border: 2px solid #8B0000;
-}
-
-.carousel-dots .dot.active {
-  opacity: 1;
-  background: #8B0000;
-}
-
-/* ...existing code... */
-
-/* DESCRIÇÃO + BOTÃO */
-.description {
-  text-align: center;
-  padding: 16px;
-  margin: 0px;
-}
-
-
-.description h3 {
-  font-size: 13px;
-}
-
-
-/* Seção produtos */
-
-.dica-make {
-  text-align: center;
-  padding: 4px 0;
-  font-family: 'Poppins', sans-serif;
-  background-color: #fff;
-}
-
-.dica-make h2 {
-  color: #8B0000;
-  font-size: 2em;
-  margin-bottom: 40px;
-}
-
-.carousel-wrapper {
-  position: relative;
-  width: 100%;
-  margin: 0 auto;
-}
-
-.scroll-arrow {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: #8B0000;
-  color: white;
-  border: none;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  font-size: 18px;
-  cursor: pointer;
-  z-index: 10;
-  transition: all 0.3s ease;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-}
-
-.scroll-arrow:hover {
-  background: #A52A2A;
-  transform: translateY(-50%) scale(1.1);
-}
-
-.scroll-arrow:first-child {
-  left: 10px;
-}
-
-.scroll-arrow:last-child {
-  right: 10px;
-}
-
-.cards-container {
-  display: flex;
-  flex-wrap: nowrap;
-  gap: 20px;
-  padding: 14px 64px 50px;
-  width: 100%;
-  overflow-x: auto;
-  scrollbar-width: none;
-  margin: 0 auto;
-  box-sizing: border-box;
-  scroll-behavior: smooth;
-}
-
-.cards-container::-webkit-scrollbar {
-  display: none;
-}
-
-
-
-.card-destaque {
-  position: relative;
-  width: 350px;
-  flex: 0 0 350px;
-  height: 500px;
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-  transition: transform 0.3s;
-  background-color: #923636;
-}
-
-.card:hover {
-  transform: scale(1.03);
-}
-
-/* imagem grande de fundo */
-.img-fundo {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-
-}
-
-/* imagem do produto sobreposta */
-.img-produto {
-  position: absolute;
-  left: 14%;
-  top: 15px;
-  transform: translateX(-50%);
-  width: 74px;
-  height: auto;
-  z-index: 2;
-  display: flex;
-}
-
-/* bloco das infos abaixo do produto */
-.maisvendidos {
-  font-size: 70%;
-  background-color: white;
-  position: absolute;
-  bottom: 8px;
-  left: 50%;
-  right: 20px;
-  transform: translateX(-50%);
-  text-align: center;
-  z-index: 3;
-  width: 80%;
-  flex-direction: column;
-  border-radius: 8px;
-}
-
-.maisvendidos button {
-  border-radius: 8px;
-  width: 100px;
-  height: 20px;
-  margin-left: 20px;
-
-
-}
-
-.maisvendidos h3 {
-  margin-top: 5%;
-  font-size: 16px;
-  padding-left: 18px;
-}
-
-h3 {
-  color: rgba(0, 0, 0, 0.675);
-  font-size: 18px;
-  margin-bottom: 3%;
-}
-
-.preco {
-  color: #4f0103;
-  font-weight: bold;
-  font-size: 16px;
-  padding-left: 18px;
-
-}
-
-button {
-  background: #8B0000;
-  color: #fff;
-  padding: 4px;
-  margin-bottom: 3%;
-  cursor: pointer;
-  font-size: 1.0em;
-  font-weight: bold;
-}
-
-/* Efeito h2 */
-
-.dica-make h2 {
-  font-size: 2em;
-  color: #8B0000; 
-  background-size: 200%;
-  background-clip: text;
-  /* -webkit-background-clip: text; */
-  font-family: 'Poppins', sans-serif;
-  
-}
-
-/* @keyframes cobrinha {
-  0% {
-    background-position: 0%;
-  }
-
-  100% {
-    background-position: 200%;
-  }
-} */
-
-/* .dica-make h2:hover {
-  transform: scale(1.05);
-} */
-
-
-
-.admin-body{
-display:grid;
-grid-template-columns:220px 1fr;
-height:100vh;
-font-family:Arial;
-background:#f5f5f5;
-margin:0;
-}
-
-/* MENU */
-
-.menu{
-background:#e9e9e9;
-padding:20px;
-height:100vh;
-}
-
-.menu ul{
-list-style:none;
-padding:0;
-}
-
-.menu li{
-margin:35px 0;
-cursor:pointer;
-}
-
-/* DASHBOARD */
-
-.dashboard{
-padding:30px;
-
-display:grid;
-grid-template-rows:auto auto 1fr;
-gap:25px;
-}
-
-/* CARDS */
-
-.cards{
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:20px;
-}
-
-.card{
-background:#d9d9d9;
-padding:25px;
-border-radius:15px;
-text-align:center;
-box-shadow:0 3px 8px rgba(0,0,0,0.1);
-}
-
-.card p{
-font-size:20px;
-font-weight:bold;
-}
-
-/* TABELA */
-
-.tabela{
-background:#e5e5e5;
-padding:15px;
-border-radius:12px;
-}
-
-table{
-width:100%;
-border-collapse:collapse;
-background:white;
-}
-
-th,td{
-padding:12px;
-text-align:center;
-border-bottom:1px solid #ccc;
-}
-
-/* STATUS */
-
-.pendente{
-color:#f1b400;
-font-weight:bold;
-}
-
-.recusado{
-color:#e53935;
-font-weight:bold;
-}
-
-.entregue{
-color:#2e7d32;
-font-weight:bold;
-}
-
 /* NAVBAR MOBILE */
 .mbl_navbar {
   position: fixed;
@@ -961,8 +869,9 @@ font-weight:bold;
 .mbl_nav_item p {
   font-size: 11px;
   margin: 0;
-  font-family: 'Arial', sans-serif; /* pode trocar pra sua fonte do projeto */
+   font-family: 'Lora', serif; /* pode trocar pra sua fonte do projeto */
 }
+
 
 /* CARRINHO CENTRAL ESTILO ML */
 .mbl_nav_cart {
@@ -990,4 +899,23 @@ body {
   .mbl_navbar {
     display: none;
   }
+}
+/* AJUSTE PARA NÃO CORTAR A LOGO */
+.logo-modal-login {
+    width: 250px !important;    
+    height: auto !important;
+    display: block !important;
+    
+    /* Mudei de -110px para -60px para parar de cortar em cima */
+    /* Mudei de -40px para -20px para o texto não subir tanto */
+    margin: -60px auto -20px auto !important; 
+    
+    position: relative !important;
+    z-index: 10;
+}
+
+/* Garante que o texto "Bem-vindo" não tenha espaço extra no topo */
+.login-container h2 {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
 }

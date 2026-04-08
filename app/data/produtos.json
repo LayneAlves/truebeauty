@@ -1,21 +1,12 @@
 [
   {
     "id": 1,
-    "nome": "Creme",
-    "preco": "250,00",
-    "descricao": "Depilatório",
-    "imagem": "/assets/imagem/produtos/1774477924515-71uLphbHakL._AC_UL600_SR600,600_.webp",
+    "nome": "Creme rosto",
+    "preco": "300.00",
+    "descricao": "ROSA",
+    "imagem": "/assets/imagem/produtos/1775601386140-gel_modelador_sobrancelha.webp",
     "estoque": "50",
     "categoria": "rosto"
-  },
-  {
-    "id": 2,
-    "nome": "perfume",
-    "preco": "250,00",
-    "descricao": "Depilatório",
-    "imagem": "/assets/imagem/produtos/1774478819525-glamourSecrets.webp",
-    "estoque": "50",
-    "categoria": "perfume"
   },
   {
     "id": 3,
@@ -54,12 +45,21 @@
     "categoria": "corpo"
   },
   {
-    "id": 7,
-    "nome": "Açai",
+    "id": 8,
+    "nome": "perfume",
     "preco": "250,00",
-    "descricao": "Depilatório",
-    "imagem": "/assets/imagem/produtos/1774480712057-espuma_de_barbear_carvaoAtivado.webp",
-    "estoque": "50",
+    "descricao": "rosto",
+    "imagem": "/assets/imagem/produtos/1774543569820-natura_homem_evolut.io.webp",
+    "estoque": "100",
     "categoria": "perfume"
+  },
+  {
+    "id": 15,
+    "nome": "esponja",
+    "preco": "10",
+    "descricao": "10",
+    "imagem": "/assets/imagem/produtos/1775523448255-esponja_base_corretivo.webp",
+    "estoque": "10",
+    "categoria": "maquiagem"
   }
 ]

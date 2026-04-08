@@ -1,91 +1,182 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="pt-br">
 <%- include('./include/head.ejs',{pagina:"produtos"}) %>
-<body>
-    <main>
-        <section class="topo">
-          <h1>Listagem de Produtos</h1>
-          <a href="/produtos/novo" class="botao_novo">+ Novo Produto</a>
-        </section>
-        <section class="container__produtos">
-          <article class="titulos_header">
-            <span>#</span>
-            <span>Imagem</span>
-            <span>Nome</span>
-            <span>Categoria</span>
-            <span>Preço</span>
-            <span>Estoque</span>
-            <span>Ações</span>
-          </article>
 
-          <article class="body"> 
-            <!-- Retorna a lista de produtos do json -->
-            <% produtos.forEach(produto => { %> 
-              <section class="content">
-                <span><%= produto.id %></span>
-                <span><img src="<%= produto.imagem || '/img/default.png' %>" class="img-produto"></span>
-                <span><%= produto.nome %></span>
-                <span><%= produto.categoria %></span>
-                <span><%= produto.preco %></span>
-                <span><%= produto.estoque %></span>
-                <span>
-                 <a href="/produtos/editar/<%= produto.id %>" class="btn-editar">Editar</a>
-                <a href="/produtos/excluir/<%= produto.id %>" class="btn-excluir">Excluir</a>
-                </span>
-              </section>
+
+  <body>
+    <%- include('./include/menu/menu.ejs') %>
+    <main>
+      <section class="topo">
+        <h1>Listagem de Produtos</h1>
+        <a href="/cadastroProduto">
+          <button class="botao_novo">+ Novo Produto</button>
+        </a>
+      </section>
+
+      <section class="container__produtos">
+        <article class="titulos_header">
+          <span></span>
+          <span>#</span>
+          <span>Imagem</span>
+          <span>Nome</span>
+          <span>Categoria</span>
+          <span>Preço</span>
+          <span>Estoque</span>
+          <span>Ações</span>
+        </article>
+
+        <article class="body">
+          <% produtos.forEach(produto=> { %>
+            <section class="content">
+              <span><input type="checkbox" class="select-produto" data-id="<%= produto.id %>"></span>
+              <span>
+                <%= produto.id %>
+              </span>
+              <span><img src="<%= produto.imagem || '/img/default.png' %>" class="img-produto"></span>
+              <span>
+                <%= produto.nome %>
+              </span>
+              <span>
+                <%= produto.categoria %>
+              </span>
+              <span>
+                <%= produto.preco %>
+              </span>
+              <span>
+                <%= produto.estoque %>
+              </span>
+              <span class="acoes">
+                <!-- Ícone de lápis para editar -->
+                <button type="button" class="btn-editar-icone" onclick="abrirModal(this)" data-id="<%= produto.id %>"
+                  data-imagem="<%= produto.imagem || '/img/default.png' %>" title="Editar">
+                  <i class="fa-solid fa-pencil" style="color: #8B0000"></i>
+                </button>
+
+                <!-- Ícone de lixeira mantém a função existente -->
+                <form action="/produtos/excluir/<%= produto.id %>" method="POST" style="display:inline;"
+                  onsubmit="return confirm('Tem certeza que deseja excluir?')">
+                  <button type="submit" class="btn-excluir-icone" title="Excluir"><i class="fa-solid fa-trash-can" style="color: #8B0000"></i></button>
+                </form>
+              </span>
+            </section>
             <% }); %>
-          </article>
-        </section>
-        <section>
-          <form action="" id="novo-produto-form">
-              <input type="text" name="nome" placeholder="Nome do Produto">
-              <input type="text" name="preco" placeholder="Preço">
-              <input type="text" name="descricao" placeholder="Descrição">
-              <input type="text" name="estoque" placeholder="Estoque">
-              <select name="categoria" id="categoria">
-                <option value="">Selecione uma categoria</option>
-                <option value="cabelo">Cabelo</option>
-                <option value="corpo">Corpo</option>
-                <option value="banho">Banho</option>
-                <option value="perfume">Perfume</option>
-                <option value="rosto">Rosto</option>
-                <option value="maquiagem">Maquiagem</option>
-              Rosto</option>
-              </select>
-              <input type="file" name="imagem" id="imagem">
-              <button type="submit">Adicionar Produto</button>
-          </form>
-        </section>
-        
+        </article>
+      </section>
     </main>
 
-    <footer>
-     <%- include('./include/footer.ejs') %> 
-    </footer>
-    <script> 
-      addEventListener('DOMContentLoaded', () => {
-        const form = document.querySelector('#novo-produto-form');
-        form.addEventListener('submit', async (e) => {
-          e.preventDefault();
-          const formData = new FormData(form);
+    <!-- Modal Editar Produto -->
+    <%- include('./include/modais/produto.ejs') %>
+
+      <script>
+        // 🎯 FUNÇÃO PRINCIPAL: ABRIR MODAL
+        function abrirModal(botao) {
           try {
-            const response = await fetch('/produtos/novo', {
-              method: 'POST',
-              body: formData
-            });
-            if (response.ok) {
-              alert('Produto adicionado com sucesso!');
-              window.location.reload();
+            // 1. Localiza a linha do produto
+            const linha = botao.closest('.content');
+            if (!linha) throw new Error("Linha do produto não encontrada.");
+
+            // 2. Referências do Modal
+            const form = document.getElementById('formEditarProduto');
+
+            // 3. Captura os dados
+            const produtoId = botao.getAttribute('data-id');
+            const caminhoImagem = botao.getAttribute('data-imagem');
+            const spans = linha.querySelectorAll('span');
+
+            console.log("Editando Produto ID:", produtoId);
+            console.log("Caminho da Imagem capturado:", caminhoImagem);
+
+            // 4. Preenche os campos de texto (limpando espaços extras)
+            document.getElementById('editNome').value = spans[3].innerText.trim();
+            document.getElementById('editCategoria').value = spans[4].innerText.trim();
+            document.getElementById('editPreco').value = spans[5].innerText.trim();
+            document.getElementById('editEstoque').value = spans[6].innerText.trim();
+
+            // 5. Lógica da Imagem
+            const preview = document.getElementById('editImagemPreview');
+            const imageBox = preview.closest('.tb-image-box'); // Pega o container da imagem
+
+
+
+            if (preview) {
+              // Adicionamos um timestamp no final para evitar que o navegador use uma imagem antiga do cache
+              const timestamp = new Date().getTime();
+              const urlFinal = caminhoImagem + (caminhoImagem.includes('?') ? '&' : '?') + 't=' + timestamp;
+              if (imageBox) {
+                imageBox.classList.add('has-image');
+              }
+
+              preview.src = urlFinal;
+              console.log("SRC atribuído ao preview:", preview.src);
+
+              preview.onerror = function () {
+                console.error("Falha ao carregar a imagem no caminho:", this.src);
+                this.src = '/img/default.png'; // Caminho da sua imagem padrão
+              };
             } else {
-              alert('Erro ao adicionar produto.');
+              console.error("ERRO: O elemento com ID 'editImagemPreview' não foi encontrado no DOM. Verifique o arquivo do modal.");
             }
-          } catch (error) {
-            console.error('Erro:', error);
-            alert('Erro ao adicionar produto.');
+            // Identifica o botão de escolher arquivo, a área de visualização e o quadro da imagem
+            const inputArquivo = document.getElementById('editImagemInput');
+            const previewImagem = document.getElementById('editImagemPreview');
+
+            if (inputArquivo) {
+              // Quando você seleciona uma nova foto, essa função começa a trabalhar
+              inputArquivo.addEventListener('change', function () {
+                const arquivo = this.files[0]; // Pega o arquivo que você escolheu
+
+                if (arquivo) {
+                  const leitor = new FileReader(); // Cria um "leitor" para processar o arquivo
+
+                  // O que acontece assim que o "leitor" termina de ler a foto:
+                  leitor.onload = function (e) {
+                    // Coloca a foto escolhida no lugar da foto antiga no modal
+                    previewImagem.src = e.target.result;
+
+                    // Ativa o visual do CSS para mostrar a foto e esconder o texto de fundo
+                    imageBox.classList.add('has-image');
+                  }
+
+                  // Manda o leitor ler a foto selecionada
+                  leitor.readAsDataURL(arquivo);
+                }
+              });
+            }
+
+            // 6. Configura o formulário e abre o modal
+            if (form) form.action = `/produtos/editar/${produtoId}`;
+            document.getElementById('modal-produto').style.display = 'flex';
+
+          } catch (erro) {
+            console.error("Erro ao abrir modal:", erro);
           }
+        }
+
+        // ❌ FUNÇÕES DE FECHAMENTO
+        function fecharModal() {
+          document.getElementById('modal-produto').style.display = 'none';
+        }
+
+        // Eventos de clique
+        document.addEventListener('DOMContentLoaded', () => {
+          document.querySelector('.ep-modal-close-icon')?.addEventListener('click', fecharModal);
+
+          document.getElementById('btnCancelar')?.addEventListener('click', () => {
+            if (confirm('Tem certeza que deseja cancelar?')) {
+              fecharModal();
+            }
+          });
+
+          // Select All
+          document.getElementById('selectAll')?.addEventListener('change', function () {
+            document.querySelectorAll('.select-produto').forEach(cb => {
+              cb.checked = this.checked;
+            });
+          });
         });
-      });
-    </script>
-</body>
+      </script>
+
+
+  </body>
+
 </html>
