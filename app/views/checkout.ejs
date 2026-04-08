@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 
+
 <%- include('./include/head.ejs',{pagina:"checkout"}) %>
 
 <body>
@@ -21,26 +22,26 @@
       <!-- Nome -->
       <div class="form-group">
         <label>Nome Completo</label>
-        <input type="text" required>
+       <input placeholder="Nome Completo" type="text" id="nomecompleto" required>
       </div>
 
       <!-- Email -->
       <div class="form-group">
         <label>Email</label>
-        <input type="email" required>
+        <input placeholder="Email" type="text" id="email" required>
       </div>
 
       <!-- Telefone + CEP -->
       <div class="form-row telefone-cep">
         <div class="form-group">
           <label>Telefone</label>
-          <input type="number" required>
+          <input placeholder="Telefone" type="text" id="telefone" required>
         </div>
 
         <div class="form-group cep">
           <label>CEP</label>
           <!-- Usar type="text" para preservar zeros à esquerda e permitir hífen -->
-          <input type="text" id="cep" maxlength="9" pattern="\d{5}-?\d{3}" required>
+          <input placeholder="CEP"  type="text" id="cep" maxlength="9" pattern="\d{5}-?\d{3}" required>
         </div>
       </div>
 
@@ -51,19 +52,19 @@
         <div class="form-group">
           <label>Endereço</label>
           <!-- id 'rua' esperado pelo script de ViaCEP -->
-          <input type="text" id="rua" required>
+          <input placeholder="Rua" type="text" id="rua" required>
         </div>
 
         <div class="form-group numero">
           <label>Número</label>
-          <input type="number" required>
+          <input placeholder="Número"  type="number" required>
         </div>
       </div>
 
       <!-- Complemento -->
       <div class="form-group">
         <label>Complemento</label>
-        <input type="text">
+        <input placeholder="Complemento" type="text">
       </div>
 
       <!-- Bairro + Cidade + Estado -->
@@ -71,19 +72,19 @@
         <div class="form-group">
           <label>Bairro</label>
           <!-- id 'bairro' esperado pelo script de ViaCEP -->
-          <input type="text" id="bairro" required>
+          <input  placeholder="Bairro" type="text" id="bairro" required>
         </div>
 
         <div class="form-group">
           <label>Cidade</label>
           <!-- id 'cidade' esperado pelo script de ViaCEP -->
-          <input type="text" id="cidade" required>
+          <input placeholder="Cidade" type="text" id="cidade" required>
         </div>
 
         <div class="form-group">
           <label>Estado</label>
           <!-- id 'estado' esperado pelo script de ViaCEP -->
-          <input type="text" id="estado" maxlength="2" required>
+          <input placeholder="Estado" type="text" id="estado" maxlength="2" required>
         </div>
       </div>
 
@@ -182,6 +183,56 @@
       new CheckoutPagina();
     });
   </script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+
+    // TELEFONE
+    const telefone = document.getElementById('telefone');
+
+    if (telefone) {
+      telefone.addEventListener('input', function (e) {
+        let valor = e.target.value.replace(/\D/g, '');
+
+         if (valor.length === 0) {
+          e.target.value = '';
+          return;
+
+          }
+        if (valor.length > 11) valor = valor.slice(0, 11);
+
+        if (valor.length > 10) {
+          valor = valor.replace(/^(\d{2})(\d{5})(\d{4})$/, '($1) $2-$3');
+        } else if (valor.length > 6) {
+          valor = valor.replace(/^(\d{2})(\d{4})(\d+)/, '($1) $2-$3');
+        } else if (valor.length > 2) {
+          valor = valor.replace(/^(\d{2})(\d+)/, '($1) $2');
+        } else {
+          valor = valor.replace(/^(\d*)/, '($1');
+        }
+
+        e.target.value = valor;
+      });
+    }
+
+    // CEP
+    const cep = document.getElementById('cep');
+
+    if (cep) {
+      cep.addEventListener('input', function (e) {
+        let valor = e.target.value.replace(/\D/g, '');
+
+        if (valor.length > 8) valor = valor.slice(0, 8);
+
+        valor = valor.replace(/^(\d{5})(\d)/, '$1-$2');
+
+        e.target.value = valor;
+      });
+    }
+
+  });
+</script>
+
   <!-- caminho correto para o arquivo dentro de app/public -->
   <script src="/assets/js/viacep.js"></script>
 </body>
