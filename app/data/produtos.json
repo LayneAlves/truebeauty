@@ -1,9 +1,10 @@
 [
   {
     "id": 1,
-    "nome": "Creme",
+    "nome": "Creme rosto",
     "preco": "300.00",
-    "imagem": "/assets/imagem/produtos/1774477924515-71uLphbHakL._AC_UL600_SR600,600_.webp",
+    "descricao": "ROSA",
+    "imagem": "/assets/imagem/produtos/1775601386140-gel_modelador_sobrancelha.webp",
     "estoque": "50",
     "categoria": "rosto"
   },
@@ -53,19 +54,12 @@
     "categoria": "perfume"
   },
   {
-    "id": 13,
-    "nome": "teste",
+    "id": 15,
+    "nome": "esponja",
     "preco": "10",
-    "descricao": "teste",
-    "estoque": "11",
-    "categoria": "maquiagem"
-  },
-  {
-    "id": 14,
-    "nome": "teste",
-    "preco": "1",
-    "descricao": "teste",
-    "estoque": "1",
+    "descricao": "10",
+    "imagem": "/assets/imagem/produtos/1775523448255-esponja_base_corretivo.webp",
+    "estoque": "10",
     "categoria": "maquiagem"
   }
 ]

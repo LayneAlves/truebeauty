@@ -1,127 +1,114 @@
-<head>
- <%- include('./include/head.ejs',{pagina:"for_adm"}) %>
-</head>
+<!DOCTYPE html>
+<html lang="pt-br">
+<%- include('./include/head.ejs',{pagina:"for_adm"}) %>
 
-<body class="admin-body">
-
-<!-- MENU LATERAL -->
-<nav class="menu">
-
-<h2>HOME</h2>
-
-<ul>
-<li><a href="/dashboard">Dashboard</a></li>
-<li><a href="/produtos">Produtos</a></li>
-<li><a href="/pedidos">Pedidos</a></li>
-<li><a href="/clientes">Clientes</a></li>
-<li><a href="/relatorios">Relatórios</a></li>
-<li><a href="/configuracoes">Configurações</a></li>
-<li>Logout</li>
-</ul>
-
-</nav>
+    <body class="admin-body">
 
 
-<!-- CONTEÚDO -->
-<main class="dashboard">
+        <%- include('./include/menu/menu.ejs') %>
 
-<header class="titulo">
-<h1>Dashboard</h1>
-</header>
+            <!-- CONTEÚDO -->
+            <main class="dashboard">
 
-
-<!-- CARDS -->
-<section class="cards">
-
-<article class="card">
-<h3>Vendas Totais do Mês</h3>
-<p>R$2563,90</p>
-</article>
-
-<article class="card">
-<h3>Despesas Totais do Mês</h3>
-<p>R$263,85</p>
-</article>
-
-<article class="card">
-<h3>Renda Líquida do Mês</h3>
-<p>R$1200,35</p>
-</article>
-
-</section>
+                <header class="titulo">
+                    <h1>Dashboard</h1>
+                </header>
 
 
-<!-- TABELA -->
-<section class="tabela">
+                <!-- CARDS -->
+                <section class="cards">
 
-<table>
+                    <article class="card">
+                        <h3>Vendas Totais do Mês</h3>
+                        <p>R$2563,90</p>
+                    </article>
 
-<thead>
-<tr>
-<th>Nome do Produto</th>
-<th>Número do Produto</th>
-<th>Pagamento</th>
-<th>Status</th>
-</tr>
-</thead>
+                    <article class="card">
+                        <h3>Despesas Totais do Mês</h3>
+                        <p>R$263,85</p>
+                    </article>
 
-<tbody>
+                    <article class="card">
+                        <h3>Renda Líquida do Mês</h3>
+                        <p>R$1200,35</p>
+                    </article>
 
-<tr>
-<td>Kérastase</td>
-<td>2536</td>
-<td>Pago</td>
-<td class="pendente">Pendente</td>
-</tr>
+                </section>
 
-<tr>
-<td>L'Oréal Professionnel</td>
-<td>1254</td>
-<td>Reembolso</td>
-<td class="recusado">Recusado</td>
-</tr>
 
-<tr>
-<td>TRUSS Professional</td>
-<td>7586</td>
-<td>Pago</td>
-<td class="entregue">Entregue</td>
-</tr>
+                <!-- TABELA -->
+                <section class="tabela">
 
-<tr>
-<td>Redken</td>
-<td>5424</td>
-<td>Pago</td>
-<td class="pendente">Pendente</td>
-</tr>
+                    <table>
 
-<tr>
-<td>Bio Extratus</td>
-<td>3542</td>
-<td>Pago</td>
-<td class="entregue">Entregue</td>
-</tr>
+                        <thead>
+                            <tr>
+                                <th>Nome do Produto</th>
+                                <th>Número do Produto</th>
+                                <th>Pagamento</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
 
-<tr>
-<td>Lola Cosmetics</td>
-<td>7542</td>
-<td>Reembolso</td>
-<td class="entregue">Entregue</td>
-</tr>
+                        <tbody>
 
-<tr>
-<td>Haskell</td>
-<td>1245</td>
-<td>Pago</td>
-<td class="pendente">Pendente</td>
-</tr>
+                            <tr>
+                                <td>Kérastase</td>
+                                <td>2536</td>
+                                <td>Pago</td>
+                                <td class="pendente">Pendente</td>
+                            </tr>
 
-</tbody>
+                            <tr>
+                                <td>L'Oréal Professionnel</td>
+                                <td>1254</td>
+                                <td>Reembolso</td>
+                                <td class="recusado">Recusado</td>
+                            </tr>
 
-</table>
+                            <tr>
+                                <td>TRUSS Professional</td>
+                                <td>7586</td>
+                                <td>Pago</td>
+                                <td class="entregue">Entregue</td>
+                            </tr>
 
-</section>
+                            <tr>
+                                <td>Redken</td>
+                                <td>5424</td>
+                                <td>Pago</td>
+                                <td class="pendente">Pendente</td>
+                            </tr>
 
-</main>
+                            <tr>
+                                <td>Bio Extratus</td>
+                                <td>3542</td>
+                                <td>Pago</td>
+                                <td class="entregue">Entregue</td>
+                            </tr>
 
-</body>
+                            <tr>
+                                <td>Lola Cosmetics</td>
+                                <td>7542</td>
+                                <td>Reembolso</td>
+                                <td class="entregue">Entregue</td>
+                            </tr>
+
+                            <tr>
+                                <td>Haskell</td>
+                                <td>1245</td>
+                                <td>Pago</td>
+                                <td class="pendente">Pendente</td>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </section>
+
+            </main>
+
+    </body>
+
+</html>

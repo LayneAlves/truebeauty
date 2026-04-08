@@ -23,19 +23,6 @@ footer {
   position: relative;
 }
 
-/* #footer-content {
-  display: flex;
-  flex-direction: row;
- justify-content: space-between;
-  width: 75%;
-  padding: 0 40px;
-  column-gap: 32px;
-  flex-wrap: wrap;
-  max-width: 1000px;
-  text-align: left;
-  padding: 40px 0 16px 40px;
- 
-} */
 
 .footer nav {
   padding: 16px;

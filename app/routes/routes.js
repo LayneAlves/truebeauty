@@ -90,6 +90,10 @@ router.post('/produtos/novo', imageUpload.single('imagem'), ProdutoController.ca
 // rota de excluir produto
 router.post('/produtos/excluir/:id', ProdutoController.excluirProduto);
 
+//Rotas de salvar produto editado
+router.post('/produtos/editar/:id', imageUpload.single('imagem'), ProdutoController.editarProduto);
+
+
 // Rotas de login
 router.post('/login', UserController.login);
 

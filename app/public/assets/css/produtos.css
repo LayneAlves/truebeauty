@@ -1,4 +1,11 @@
 body {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    height: 100vh;
+    font-family: Arial;
+    background: #f5f5f5;
+    margin: 0;
+
     main {
         position: relative;
         display: flex;
@@ -15,7 +22,7 @@ body {
             }
 
             .botao_novo {
-                background: #2ecc71;
+                background: #8B0000;
                 color: white;
                 padding: 10px 15px;
                 border-radius: 8px;
@@ -30,16 +37,20 @@ body {
             --grid-column: 40px 60px 80px 1fr 1fr 1fr 1fr 1fr;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
             margin: 20px;
+            width: 1000px;
+            background-color: #ffffff;
+
 
 
             .titulos_header {
-                background-color: gray;
+                border: 2px dotted #8B0000;
                 display: grid;
                 grid-template-columns: var(--grid-column);
                 /* grid-template-rows: 48px; */
                 align-items: center;
                 padding: 12px 20px;
             }
+
 
             .body {
                 .content {
@@ -50,6 +61,7 @@ body {
                     border-bottom: 1px solid rgba(128, 128, 128, 0.479);
                     padding: 12px 20px;
                 }
+
             }
 
             .img-produto {
@@ -86,205 +98,253 @@ body {
         cursor: pointer;
     }
 
-/* modal editar */
 
-/* Importação de fonte similar à da interface */
-@import url('https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;600&display=swap');
+    /* Importação de fonte similar à da interface */
+    @import url('https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;600&display=swap');
 
-:root {
-    --marsala: #1a1c2c; /* Cor escura do botão na foto (ajuste para #70161e se preferir o vinho) */
-    --border-color: #d1d5db;
-    --bg-light: #f9fafb;
-    --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-/* Container do Modal (Overlay) */
-.ep-modal-container {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) scale(0.95);
-    background: #fff;
-    width: 90%;
-    max-width: 750px;
-    max-height: 90vh;
-    border-radius: 12px;
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-    z-index: 1000;
-    display: none;
-    flex-direction: column;
-    overflow: hidden;
-    animation: fadeIn 0.3s ease forwards;
-}
-
-@keyframes fadeIn {
-    to { transform: translate(-50%, -50%) scale(1); opacity: 1; }
-}
-
-/* Cabeçalho */
-.ep-modal-header {
-    padding: 20px 30px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 1px solid #f0f0f0;
-}
-
-.ep-modal-title {
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: #111827;
-    margin: 0;
-}
-
-.ep-modal-close-icon {
-    font-size: 28px;
-    cursor: pointer;
-    color: #9ca3af;
-    transition: color 0.2s;
-}
-
-.ep-modal-close-icon:hover {
-    color: #ef4444;
-}
-
-/* Conteúdo e Formulário */
-.ep-modal-content {
-    padding: 30px;
-    overflow-y: auto;
-}
-
-.ep-product-form {
-    display: grid;
-    grid-template-columns: 1fr 220px; /* Campos à esquerda, imagem à direita */
-    gap: 30px;
-}
-
-/* Organização de Colunas de Inputs */
-.ep-form-fields-wrapper {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-.ep-form-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr; /* Duas colunas por linha */
-    gap: 15px;
-}
-
-/* Estilo dos Campos */
-.ep-input-field {
-    display: flex;
-    flex-direction: column;
-}
-
-.ep-field-label {
-    font-size: 14px;
-    font-weight: 500;
-    color: #4b5563;
-    margin-bottom: 6px;
-}
-
-.ep-input-text, .ep-input-select {
-    padding: 10px 12px;
-    border: 1px solid var(--border-color);
-    border-radius: 8px;
-    font-size: 14px;
-    outline: none;
-    transition: border-color 0.2s, box-shadow 0.2s;
-}
-
-.ep-input-text:focus {
-    border-color: var(--marsala);
-    box-shadow: 0 0 0 3px rgba(112, 22, 30, 0.1);
-}
-
-/* Área de Imagem (Direita) */
-.ep-image-preview-column {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.ep-image-display-box {
-    width: 100%;
-    height: 200px;
-    background-color: var(--bg-light);
-    background-image: radial-gradient(#d1d5db 0.5px, transparent 0.5px); /* Efeito grid suave */
-    background-size: 10px 10px;
-    border: 2px dashed var(--border-color);
-    border-radius: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-    cursor: pointer;
-}
-
-.ep-product-img {
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: contain;
-}
-
-/* Botões no Rodapé */
-.ep-modal-actions {
-    grid-column: span 2; /* Ocupa as duas colunas do formulário */
-    display: flex;
-    justify-content: flex-end;
-    gap: 12px;
-    margin-top: 20px;
-    padding-top: 20px;
-    border-top: 1px solid #f0f0f0;
-}
-
-.ep-btn-submit {
-    background-color: #0f172a; /* Azul escuro/Marsala da imagem */
-    color: white;
-    padding: 10px 24px;
-    border: none;
-    border-radius: 8px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: opacity 0.2s;
-}
-
-.ep-btn-submit:hover {
-    opacity: 0.9;
-}
-
-.ep-btn-dismiss {
-    background-color: #fff;
-    color: #4b5563;
-    padding: 10px 24px;
-    border: 1px solid var(--border-color);
-    border-radius: 8px;
-    font-weight: 600;
-    cursor: pointer;
-}
-
-.ep-btn-dismiss:hover {
-    background-color: #f3f4f6;
-}
-
-/* Responsividade */
-@media (max-width: 650px) {
-    .ep-product-form {
-        grid-template-columns: 1fr;
+    :root {
+        --marsala: #1a1c2c;
+        /* Cor escura do botão na foto (ajuste para #70161e se preferir o vinho) */
+        --border-color: #d1d5db;
+        --bg-light: #f9fafb;
+        --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
-    .ep-modal-actions {
-        grid-column: span 1;
+
+
+    /* MODAL (ESTRUTURA) */
+    #modal-produto {
+        display: none;
+    }
+
+    .modal {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+
+        display: flex;
         justify-content: center;
-    }
-}
+        align-items: center;
+        z-index: 1000;
 
-/* Checkbox */
-.select-produto, #selectAll {
-  width: 16px;
-  height: 16px;
-  cursor: pointer;
-}
+        .modal-body {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+
+            width: 100%;
+            max-width: 768px;
+            max-height: 100vh;
+
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            margin: auto;
+
+
+            .modal-header {
+                display: flex;
+                flex-direction: column;
+                margin-bottom: 20px;
+
+                span {
+                    margin-left: auto;
+                }
+
+                img {
+                    width: 50px;
+                    height: 50px;
+                    margin: 0 auto;
+                }
+
+
+
+                .title {
+                    font-size: 1.5rem;
+                    font-weight: 600;
+                    color: var(--marsala);
+                    margin: 0 auto;
+                }
+
+                .ep-modal-close-icon {
+                    font-size: 1.5rem;
+                    cursor: pointer;
+                    color: #999;
+                    transition: color 0.3s ease;
+
+                    &:hover {
+                        color: #333;
+                    }
+                }
+            }
+
+            .content {
+                .ep-image-preview-column {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                    height: 100%;
+                }
+
+                .ep-image-display-box {
+                    width: 100%;
+                    height: 150px;
+                    border: 1px solid #ddd;
+                    border-radius: 8px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+
+                .ep-product-img {
+                    max-width: 100%;
+                    max-height: 100%;
+                    object-fit: contain;
+                }
+
+                .ep-modal-actions {
+                    grid-column: span 2;
+                    display: flex;
+                    justify-content: center;
+                    gap: 10px;
+                    margin-top: 30px;
+                }
+
+            }
+
+        }
+
+    }
+
+    /* GLOBAL FORM (TB) */
+
+    .tb-form {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+
+        section {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .tb-field {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+        }
+
+        .tb-label {
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+
+        .tb-input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+
+            &:focus {
+                border-color: #8B0000;
+                outline: none;
+            }
+        }
+
+        .tb-image-upload {
+            display: block;
+            cursor: pointer;
+        }
+
+        .tb-image-box {
+            width: 90%;
+            height: 370px;
+
+            border: 2px dashed #ccc;
+            border-radius: 10px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 20px;
+
+            position: relative;
+            overflow: hidden;
+
+            transition: 0.3s;
+
+            &:hover {
+                border-color: #8B0000;
+                background: rgba(139, 0, 0, 0.05);
+            }
+        }
+
+        /* imagem carregada */
+        .tb-image-preview {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: none;
+        }
+
+        /* placeholder */
+        .tb-image-placeholder {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+
+            color: #999;
+            font-size: 14px;
+
+            pointer-events: none;
+
+            .tb-image-icon {
+                font-size: 28px;
+            }
+        }
+
+        /* quando tiver imagem */
+        .tb-image-box.has-image {
+            border-style: solid;
+
+            .tb-image-preview {
+                display: block;
+            }
+
+            .tb-image-placeholder {
+                display: none;
+            }
+        }
+    }
+
+    /* BOTÕES GLOBAIS */
+    .tb-button-primary {
+        padding: 10px 16px;
+        background: #8B0000;
+        color: white;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+
+        &:hover {
+            background: #a00000;
+        }
+    }
+
+    .tb-button-secondary {
+        padding: 10px 16px;
+        background: #ccc;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+
+        &:hover {
+            background: #bbb;
+        }
+    }
 }
 
 /* layout da página cadastro produto */

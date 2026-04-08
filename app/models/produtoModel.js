@@ -20,7 +20,25 @@ const ProdutoModel = {
     salvar(produtos) {
         fs.writeFileSync(filePath, JSON.stringify(produtos, null, 2), 'utf8');
     },
+    async atualizar(id, dadosAtualizados) {
+        // 1. Pega a lista completa de produtos do arquivo JSON
+        const produtos = this.produtos();
 
+        // 2. Encontra a posição (índice) do produto que tem o ID que queremos editar
+        const index = produtos.findIndex(p => p.id === id);
+
+        // 3. Se o produto existir (índice diferente de -1)
+        if (index !== -1) {
+            // Substitui o produto antigo pelo novo pacote de dados
+            produtos[index] = dadosAtualizados;
+
+            // 4. Grava a lista atualizada de volta no arquivo produtos.json
+            this.salvar(produtos);
+            return produtos[index];
+        } else {
+            throw new Error('Produto não encontrado para atualização.');
+        }
+    },
     async excluir(id) {
         const produtos = this.produtos(); // pega os produtos atuais
         const novosProdutos = produtos.filter(p => p.id !== id);
