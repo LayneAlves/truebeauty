@@ -36,10 +36,26 @@ const ProdutoController = {
         }
 
     },
-    async produtos(req, res) {
+    async produtos(req, res, next) {
         try {
             const produtos = await ProdutoModel.produtos();
-            res.render('produtos', { produtos });
+            res.locals.produtos = await produtos;
+            next();
+            // res.render('produtos', { produtos });
+
+        } catch (error) {
+            console.error('Erro ao obter produtos:', error);
+            return res.json({ message: 'Erro ao obter produtos' });
+        }
+    },
+    async buscar(req, res, next) {
+        const query = req.query.categoria || '';
+        try {
+            const produtos = await ProdutoModel.buscar(query, 'categoria');
+            res.locals.produtos = await produtos;
+            next();
+            
+
         } catch (error) {
             console.error('Erro ao obter produtos:', error);
             return res.json({ message: 'Erro ao obter produtos' });

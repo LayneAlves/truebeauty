@@ -35,30 +35,15 @@ const vertudoController = require('../controllers/vertudoController');
 
 // ROUTER
 router.get('/', ProdutoController.index);
-router.get('/vertudo', vertudoController.renderVertudo);
-// router.get('/perfumes', perfumesController.renderPerfumes);
-// router.get('/cabelos', cabelosController.renderCabelos);
-// router.get('/cuidados_pessoais', cuidados_pessoaisController.renderCuidados_pessoais);
-// router.get('/perfumes_feminino', perfumes_femininoController.renderPerfumes_feminino);
-// router.get('/maquiagem', maquiagemController.renderMaquiagem);
-// router.get('/skin_care', skin_careController.renderSkin_care);
-// router.get('/hidratacao', hidratacaoController.renderHidratacao);
-// router.get('/nutricao', nutricaoController.renderNutricao);
-// router.get('/reconstrucao', reconstrucaoController.renderReconstrucao);
-// router.get('/perfumes_masculino', perfumes_masculinoController.renderPerfumes_masculino);
-// router.get('/perfumes_infantil', perfumes_infantilController.renderPerfumes_infantil);
-// router.get('/body_splash', body_splashController.renderBody_splash);
-// router.get('/rosto', rostoController.renderRosto);
-// router.get('/olhos', olhosController.renderOlhos);
-// router.get('/labios', labiosController.renderLabios);
-// router.get('/depilacao', depilacaoController.renderDepilacao);
-// router.get('/higieneIntima', higieneIntimaController.renderHigieneIntima);
-// router.get('/protetorSolar', protetorSolarController.renderProtetorSolar);
-// router.get('/kitBarba', kitBarbaController.renderKitBarba);
-// router.get('/primer', primerController.renderPrimer);
-// router.get('/corretivo', corretivoController.renderCorretivo);
-// router.get('/po', poController.renderPo);
-// router.get('/batom', batomController.renderBatom);
+
+router.get('/vertudo', ProdutoController.produtos, (req, res) => {
+    res.render('vertudo');
+});
+
+router.get('/categoria', ProdutoController.buscar, (req, res) => {
+    res.render('categoria');
+});
+
 
 const for_admController = require('../controllers/for_edmController');
 
@@ -84,7 +69,11 @@ router.get('/cadastroProduto', (req, res) => {
 });
 
 // Rotas de produtos
-router.get('/produtos', ProdutoController.produtos);
+router.get('/produtos', ProdutoController.produtos, (req, res, next) => {
+    res.render('produtos');
+});
+
+// Rotas de editar produto
 router.post('/produtos/novo', imageUpload.single('imagem'), ProdutoController.cadastrar);
 
 // rota de excluir produto

@@ -103,8 +103,11 @@
  
  /* Estilo do botão do card */
  .card-button {
-   display: inline-block;         /* exibe como bloco inline */
-   padding: 10px 20px;            /* espaçamento interno */
+   display:flex;
+   align-items: center;
+   justify-content: center;
+   width: 100% ;
+   padding: 10px 8px;         /* espaçamento interno */
    background-color: #8B0000	;     /* fundo laranja */
    color: white;                  /* texto branco */
    text-decoration: none;         /* remove sublinhado */

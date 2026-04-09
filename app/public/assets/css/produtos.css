@@ -43,7 +43,7 @@ body {
 
 
             .titulos_header {
-                border: 2px dotted #8B0000;
+                border: 2px solid #8B0000;
                 display: grid;
                 grid-template-columns: var(--grid-column);
                 /* grid-template-rows: 48px; */

@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 
-<%- include('./include/head.ejs') %>
+  <%- include('./include/head.ejs',{pagina:"categoria"}) %>
+  <link rel="stylesheet" href="/assets/css/card.css" />
+</head>
 <body>
     <%- include('./include/header.ejs') %>
 
-    <main style="margin-top: 90px;">
-            <section class="card-container">
+    <main>
+      <section class="card-container">
     <!-- Cabelo -->
      <% produtos.forEach(produto => { %>  
       <section>
@@ -24,9 +26,10 @@
       </section>
       <% }) %>
   </section>
+           
     </main>
 
-    <!-- FOOTER -->
+  <!-- FOOTER -->
   <%- include('./include/footer.ejs') %>
 
 </body>

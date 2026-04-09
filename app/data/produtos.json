@@ -6,7 +6,7 @@
     "descricao": "ROSA",
     "imagem": "/assets/imagem/produtos/1775601386140-gel_modelador_sobrancelha.webp",
     "estoque": "50",
-    "categoria": "rosto"
+    "categoria": "cuidados_pessoais"
   },
   {
     "id": 3,
@@ -15,7 +15,7 @@
     "descricao": "Depilatório",
     "imagem": "/assets/imagem/produtos/1774478989166-Batom_LÃ­quido_ruby_rose.webp",
     "estoque": "50",
-    "categoria": "maquiagem"
+    "categoria": "maquiagens"
   },
   {
     "id": 4,
@@ -33,7 +33,7 @@
     "descricao": "cabelo",
     "imagem": "/assets/imagem/produtos/1774480256027-kitEudoraRoxo.webp",
     "estoque": "100",
-    "categoria": "cabelo"
+    "categoria": "cabelos"
   },
   {
     "id": 6,
@@ -42,7 +42,7 @@
     "descricao": "corpo",
     "imagem": "/assets/imagem/produtos/1774480310907-oleopaixao.webp",
     "estoque": "100",
-    "categoria": "corpo"
+    "categoria": "cuidados_pessoais"
   },
   {
     "id": 8,
@@ -51,7 +51,7 @@
     "descricao": "rosto",
     "imagem": "/assets/imagem/produtos/1774543569820-natura_homem_evolut.io.webp",
     "estoque": "100",
-    "categoria": "perfume"
+    "categoria": "perfumes"
   },
   {
     "id": 15,
@@ -60,6 +60,105 @@
     "descricao": "10",
     "imagem": "/assets/imagem/produtos/1775523448255-esponja_base_corretivo.webp",
     "estoque": "10",
-    "categoria": "maquiagem"
+    "categoria": "maquiagens"
+  },
+  {
+    "id": 16,
+    "nome": "Perfume",
+    "preco": "10",
+    "descricao": "10",
+    "imagem": "/assets/imagem/produtos/1775692987556-glamourSecrets.webp",
+    "estoque": "10",
+    "categoria": "perfumes"
+  },
+  {
+    "id": 17,
+    "nome": "Kit Cabelo",
+    "preco": "10",
+    "descricao": "10",
+    "imagem": "/assets/imagem/produtos/1775694127287-widi-care-juba-kit-leave-in-mascara-geleia-shampoo.webp",
+    "estoque": "10",
+    "categoria": "cabelos"
+  },
+  {
+    "id": 18,
+    "nome": "Perfume",
+    "preco": "10",
+    "descricao": "10",
+    "imagem": "/assets/imagem/produtos/1775692987556-glamourSecrets.webp",
+    "estoque": "10",
+    "categoria": "perfumes"
+  },
+  {
+    "id": 19,
+    "nome": "Perfume",
+    "preco": "10",
+    "descricao": "10",
+    "imagem": "/assets/imagem/produtos/1775692987556-glamourSecrets.webp",
+    "estoque": "10",
+    "categoria": "perfumes"
+  },
+  {
+    "id": 20,
+    "nome": "Perfume",
+    "preco": "10",
+    "descricao": "10",
+    "imagem": "/assets/imagem/produtos/1775692987556-glamourSecrets.webp",
+    "estoque": "10",
+    "categoria": "perfumes"
+  },
+  {
+    "id": 21,
+    "nome": "Creme Corporal",
+    "preco": "20,00",
+    "descricao": "Natura",
+    "imagem": "/assets/imagem/produtos/1775697036236-cremeCorporal.webp",
+    "estoque": "10",
+    "categoria": "cuidados_pessoais"
+  },
+  {
+    "id": 22,
+    "nome": "gel da limpeza ",
+    "preco": "20,00",
+    "descricao": "principia",
+    "imagem": "/assets/imagem/produtos/1775697085926-gel_de_limpeza_principia.webp",
+    "estoque": "10",
+    "categoria": "cuidados_pessoais"
+  },
+  {
+    "id": 23,
+    "nome": "esfoliante ",
+    "preco": "20,00",
+    "descricao": "granado",
+    "imagem": "/assets/imagem/produtos/1775697142690-granado.webp",
+    "estoque": "10",
+    "categoria": "cuidados_pessoais"
+  },
+  {
+    "id": 24,
+    "nome": "Protetor Solar",
+    "preco": "20,00",
+    "descricao": "active",
+    "imagem": "/assets/imagem/produtos/1775697245739-protetor_solar_cores.webp",
+    "estoque": "10",
+    "categoria": "cuidados_pessoais"
+  },
+  {
+    "id": 25,
+    "nome": "Base Boca Rosa",
+    "preco": "20,00",
+    "descricao": "Cor 4",
+    "imagem": "/assets/imagem/produtos/1775697811734-base_boca_rosa.webp",
+    "estoque": "10",
+    "categoria": "maquiagens"
+  },
+  {
+    "id": 26,
+    "nome": "Creme de rosto",
+    "preco": "20,00",
+    "descricao": "creamy",
+    "imagem": "/assets/imagem/produtos/1775698016770-16344540.webp",
+    "estoque": "10",
+    "categoria": "skin_care"
   }
 ]

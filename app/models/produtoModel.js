@@ -10,6 +10,14 @@ const ProdutoModel = {
         const produtos = JSON.parse(data);
         return produtos;
     },
+    buscar(categoria, campo) {
+        const data = fs.readFileSync(filePath, 'utf8');
+        const produtos = JSON.parse(data);
+
+        if (campo == "categoria") {
+            return produtos.filter(produto => produto.categoria === categoria);
+        } 
+    },
 
     cadastrar(newProduto) {
         const produtos = this.produtos();
