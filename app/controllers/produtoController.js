@@ -48,13 +48,14 @@ const ProdutoController = {
             return res.json({ message: 'Erro ao obter produtos' });
         }
     },
+
     async buscar(req, res, next) {
         const query = req.query.categoria || '';
         try {
             const produtos = await ProdutoModel.buscar(query, 'categoria');
             res.locals.produtos = await produtos;
             next();
-            
+
 
         } catch (error) {
             console.error('Erro ao obter produtos:', error);

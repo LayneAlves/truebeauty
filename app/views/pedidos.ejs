@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<%- include('./include/head.ejs',{pagina:"pedidos"}) %>
+    <link rel="stylesheet" href="/css/pedidos.css">
+    </head>
+
+
+    <body>
+        <%- include('./include/menu/menu.ejs') %>
+            <main>
+                <section class="topo">
+                    <h1>Listagem de Produtos</h1>
+
+
+                </section>
+
+                <section class="container__pedidos">
+                    <article class="titulos_header">
+                        <span></span>
+                        <span>#</span>
+                        <span>Cliente</span>
+                        <span>Data</span>
+                        <span>Total</span>
+                        <span>Status</span>
+                        <span>Pagamento</span>
+                        <span>Ações</span>
+                    </article>
+
+                    <article class="body">
+                        <% pedidos.forEach(pedido=> { %>
+                            <section class="content">
+                                <span><input type="checkbox" class="select-produto" data-id="<%= pedido.id %>"></span>
+
+                                <span>
+                                    <%= pedido.id %>
+                                </span>
+
+                                <span>
+                                    <%= pedido.cliente_nome %>
+                                </span>
+
+                                <span>
+                                    <%= new Date(pedido.data).toLocaleDateString('pt-BR') %>
+                                </span>
+
+                                <span>R$ <%= pedido.total %></span>
+
+                                <span class="status-<%= pedido.status.toLowerCase() %>">
+                                    <%= pedido.status %>
+                                </span>
+
+                                <span>
+                                    <%= pedido.pagamento %>
+                                </span>
+
+                                <span class="acoes">
+                                    <button type="button" class="btn-visualizar" onclick="verPedido(this)"
+                                        data-id="<%= pedido.id %>">
+                                        <i class="fa-solid fa-eye" style="color: #8B0000;"></i> </button>
+
+                                    <form action="/pedidos/excluir/<%= pedido.id %>" method="POST"
+                                        style="display:inline;">
+                                        <button type="submit" class="btn-excluir-icone">
+                                            <i class="fa-solid fa-trash-can" style="color: #8B0000;"></i>
+                                        </button>
+                                    </form>
+
+                            </section>
+                            <% }); %>
+                    </article>
+                </section>
+            </main>
+
+
+
+            <script>
+
+            </script>
+
+
+    </body>
+
+</html>
