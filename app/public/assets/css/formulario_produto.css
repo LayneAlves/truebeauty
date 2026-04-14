@@ -1,0 +1,215 @@
+.container__formulario-produto {
+    background: #fafafa;
+    border-radius: 16px;
+    padding: 1.75rem;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+    border: 1px solid #f0f0f0;
+    max-height: 80vh;
+    height: auto;
+    overflow-y: auto;
+
+    form {
+        .cp-form-grid {
+            display: grid;
+            grid-template-columns: 1fr 380px;
+            gap: 2rem;
+            margin-bottom: 1.5rem;
+
+            .conteudo {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 16px;
+
+                .cp-form-group:nth-of-type(1),
+                .cp-form-group:nth-of-type(5) {
+                    grid-column: span 2;
+                }
+
+                .cp-form-group {
+                    margin-bottom: 0;
+                    display: grid;
+
+                    .cp-label {
+                        display: block;
+                        margin-bottom: 0.4rem;
+                        font-weight: 500;
+                        color: #8B0000;
+                        font-size: 0.92rem;
+                    }
+
+                    .cp-input,
+                    .cp-textarea,
+                    .cp-select {
+                        width: 100%;
+                        padding: 0.85rem 1rem;
+                        border: 2px solid #e8e8e8;
+                        border-radius: 10px;
+                        font-size: 0.95rem;
+                        color: #333;
+                        box-shadow: 0 0 0 1px rgba(139, 0, 0, 0.1);
+                        background: white;
+                        transition: all 0.3s ease;
+                        box-sizing: border-box;
+                    }
+
+                    .cp-input::placeholder,
+                    .cp-textarea::placeholder {
+                        color: #999;
+                    }
+
+                    .cp-input:focus,
+                    .cp-textarea:focus,
+                    .cp-select:focus {
+                        outline: none;
+                        border-color: #8B0000;
+                        box-shadow: 0 0 0 3px rgba(139, 0, 0, 0.1);
+                        transform: translateY(-1px);
+                    }
+
+                    .cp-textarea {
+                        min-height: 60px;
+                        resize: vertical;
+                        font-family: lora, serif;
+                    }
+
+                    .cp-upload-area {
+                        position: relative;
+                        border: 2px dashed #d0d0d0;
+                        border-radius: 12px;
+                        padding: 1.5rem 1rem;
+                        text-align: center;
+                        cursor: pointer;
+                        transition: all 0.3s ease;
+                        height: 260px;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        align-items: center;
+                        gap: 0.75rem;
+                        overflow: hidden;
+
+                        &:hover {
+                            border-color: #8B0000;
+                            background: rgba(139, 0, 0, 0.02);
+                        }
+
+                        .cp-upload-icon {
+                            font-size: 2.2rem;
+                            color: #ccc;
+                        }
+
+                        &:hover .cp-upload-icon {
+                            color: #8B0000;
+                        }
+
+                        .cp-upload-text {
+                            font-weight: 500;
+                            color: #666;
+                            font-size: 1rem;
+                        }
+
+                        .cp-upload-subtext {
+                            color: #999;
+                            font-size: 0.85rem;
+                        }
+
+                        .cp-image-preview {
+                            width: 100%;
+                            height: 140px;
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            width: 100%;
+                            height: 100%;
+                            object-fit: contain;
+                            object-position: center;
+                            border-radius: 8px;
+                            margin-top: 0.75rem;
+                            display: none;
+                            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+                        }
+                    }
+
+
+
+                }
+            }
+
+            .container__imagem {
+                .cp-form-group {
+                    margin-bottom: 0;
+                    display: grid;
+
+                    .cp-label {
+                        display: block;
+                        margin-bottom: 0.4rem;
+                        font-weight: 500;
+                        color: #8B0000;
+                        font-size: 0.92rem;
+                    }
+
+                    .cp-upload-area {
+                        position: relative;
+                        border: 2px dashed #d0d0d0;
+                        border-radius: 12px;
+                        padding: 1.5rem 1rem;
+                        text-align: center;
+                        cursor: pointer;
+                        transition: all 0.3s ease;
+                        height: 260px;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        align-items: center;
+                        gap: 0.75rem;
+                        overflow: hidden;
+
+                        &:hover {
+                            border-color: #8B0000;
+                            background: rgba(139, 0, 0, 0.02);
+                        }
+
+                        .cp-upload-icon {
+                            font-size: 2.2rem;
+                            color: #ccc;
+                        }
+
+                        &:hover .cp-upload-icon {
+                            color: #8B0000;
+                        }
+
+                        .cp-upload-text {
+                            font-weight: 500;
+                            color: #666;
+                            font-size: 1rem;
+                        }
+
+                        .cp-upload-subtext {
+                            color: #999;
+                            font-size: 0.85rem;
+                        }
+
+                        .cp-image-preview {
+                            width: 100%;
+                            height: 140px;
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            width: 100%;
+                            height: 100%;
+                            object-fit: contain;
+                            object-position: center;
+                            border-radius: 8px;
+                            margin-top: 0.75rem;
+                            display: none;
+                            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+                        }
+                    }
+
+
+
+                }
+            }
+        }
+    }
+}

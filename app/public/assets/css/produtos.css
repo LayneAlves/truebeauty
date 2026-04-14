@@ -11,6 +11,7 @@ body {
         display: flex;
         flex-direction: column;
 
+
         >.topo {
             display: flex;
             justify-content: space-between;
@@ -36,7 +37,7 @@ body {
             flex-direction: column;
             --grid-column: 40px 60px 80px 1fr 1fr 1fr 1fr 1fr;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-            margin: 20px;
+            margin: 20px auto;
             width: 1000px;
             background-color: #ffffff;
 
@@ -398,36 +399,43 @@ body {
 }
 
 /* FORM CONTAINER */
-.cp-form-container {
+/* .cp-form-container {
     background: #fafafa;
     border-radius: 16px;
     padding: 1.75rem;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
     border: 1px solid #f0f0f0;
-    max-height: 680px;
+    max-height: 80vh;
+    height: auto;
     overflow-y: auto;
-}
+} */
 
 /* GRID PRINCIPAL 2 COLUNAS */
-.cp-form-grid {
+/* .cp-form-grid {
     display: grid;
     grid-template-columns: 1fr 380px;
     gap: 2rem;
     margin-bottom: 1.5rem;
-}
 
-/* GRID DE DOIS CAMPOS */
-.cp-dual-grid {
-    display: grid;
-    grid-template-columns: 150px 1fr;
-    gap: 1rem;
-    margin-bottom: 1.5rem;
-    align-items: start;
-}
+    .conteudo {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+
+        .cp-form-group:nth-of-type(1),
+        .cp-form-group:nth-of-type(5) {
+            grid-column: span 2;
+        }
+    }
+} */
+
+
 
 /* FORM ELEMENTS */
-.cp-form-group {
+/* .cp-form-group {
     margin-bottom: 0;
+    display: grid;
+
 }
 
 .cp-label {
@@ -436,8 +444,8 @@ body {
     font-weight: 500;
     color: #8B0000;
     font-size: 0.92rem;
-}
-
+} */
+/* 
 .cp-input,
 .cp-textarea,
 .cp-select {
@@ -447,6 +455,7 @@ body {
     border-radius: 10px;
     font-size: 0.95rem;
     color: #333;
+    box-shadow: 0 0 0 1px rgba(139, 0, 0, 0.1);
     background: white;
     transition: all 0.3s ease;
     box-sizing: border-box;
@@ -470,10 +479,10 @@ body {
     min-height: 60px;
     resize: vertical;
     font-family: lora, serif;
-}
+} */
 
 /* UPLOAD */
-.cp-upload-area {
+/* .cp-upload-area {
     position: relative;
     border: 2px dashed #d0d0d0;
     border-radius: 12px;
@@ -502,9 +511,9 @@ body {
 
 .cp-upload-area:hover .cp-upload-icon {
     color: #8B0000;
-}
+} */
 
-.cp-upload-text {
+/* .cp-upload-text {
     font-weight: 500;
     color: #666;
     font-size: 1rem;
@@ -519,7 +528,6 @@ body {
     width: 100%;
     height: 140px;
     position: absolute;
-    /* ocupa todo container */
     top: 0;
     left: 0;
     width: 100%;
@@ -530,7 +538,7 @@ body {
     margin-top: 0.75rem;
     display: none;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-}
+} */
 
 /* BOTÕES */
 .cp-form-actions {
