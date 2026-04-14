@@ -24,7 +24,7 @@
           <li><a href="categoria?categoria=cuidados_pessoais">Cuidados Pessoais</a></li>
         </ul>
       </li>
-    
+
       <!-- Perfumes -->
       <li>
         <div class="menu-item">
@@ -40,7 +40,7 @@
           <li><a href="body_splash">Body Splash</a></li>
         </ul>
       </li>
-    
+
       <!-- Cabelos -->
       <li>
         <div class="menu-item">
@@ -55,7 +55,7 @@
           <li><a href="reconstrucao">Reconstrução</a></li>
         </ul>
       </li>
-    
+
       <!-- Cuidados Pessoais -->
       <li>
         <div class="menu-item">
@@ -71,7 +71,7 @@
           <li><a href="kitBarba">Kit de Barbear</a></li>
         </ul>
       </li>
-    
+
       <!-- Maquiagem -->
       <li>
         <div class="menu-item">
@@ -90,7 +90,7 @@
           <li><a href="olho">Olho</a></li>
         </ul>
       </li>
-    
+
       <!-- Skin Care -->
       <li>
         <div class="menu-item">
@@ -116,20 +116,20 @@
     <div id="overlay-pesquisa" class="overlay-pesquisa"></div>
 
 
-    
+
 
     <a href="/" class="logo">
       <img src="assets/imagem/imagem_Logo/logo1000x500.jpg" alt="True Beauty">
-    </a> 
-  
+    </a>
+
     <button class="icon-btn user-icon">
       <img src="assets/imagem/icons/perfil.png" alt="perfil">
     </button>
 
     <button class="icon-btn cart-icon">
       <img src="assets/imagem/icons/sacola.png" alt="carrinho-de-compras">
-     
-  
+
+
     </button>
   </nav>
 </header>
@@ -158,28 +158,26 @@
 <section id="modal-perfil" class="modal-perfil">
   <button id="fechar-perfil" class="fechar-btn">&times;</button>
 
-  <main class="login-container">
-
-
-    <!-- Procure este bloco aqui no seu HTML -->
-<main class="login-container">
-  <img src="assets/imagem/imagem_Logo/Logo2.png" class="logo-modal-login" alt="Logo">
-  <h2>Bem-vindo(a)</h2>
+  <!-- Procure este bloco aqui no seu HTML -->
+  <section class="login-container">
+    <img src="assets/imagem/imagem_Logo/Logo2.png" class="logo-modal-login" alt="Logo">
+    <h2>Bem-vindo(a)</h2>
 
     <p>
-      Aqui você pode acompanhar todos os detalhes dos seus pedidos e ficar ainda mais conectada com a gente. É super simples:
+      Aqui você pode acompanhar todos os detalhes dos seus pedidos e ficar ainda mais conectada com a gente. É super
+      simples:
     </p>
-  
-      <h3 id="login-title">Fazer login</h3>
 
-      <section class="social-login">
-    
-        <button class="google">
-          <img src="assets/imagem/imagem_Logo/google.png" alt="Google">
-          Continuar com o Google
-        </button>
+    <h3 id="login-title">Fazer login</h3>
 
-      </section>
+    <section class="social-login">
+
+      <button class="google">
+        <img src="assets/imagem/imagem_Logo/google.png" alt="Google">
+        Continuar com o Google
+      </button>
+
+    </section>
 
     <p class="divider">OU</p>
 
@@ -189,71 +187,71 @@
       <a href="#" class="forgot">Esqueceu a senha?</a>
       <button type="submit" class="btn-login">Fazer login</button>
       <button type="button" class="btn-cadastro"><a href="cadastro">Crie sua conta</a></button>
-  
 
-   
-  </main>
+
+
+  </section>
 </section>
 
 
 <!-- Js Perfil -->
 <script>
-const btnAbrirPerfil = document.querySelector('.user-icon');
-const modalPerfil = document.getElementById('modal-perfil');
-const overlayPerfil = document.getElementById('overlay-perfil');
-const btnFecharPerfil = document.getElementById('fechar-perfil');
+  const btnAbrirPerfil = document.querySelector('.user-icon');
+  const modalPerfil = document.getElementById('modal-perfil');
+  const overlayPerfil = document.getElementById('overlay-perfil');
+  const btnFecharPerfil = document.getElementById('fechar-perfil');
 
-function abrirPerfil() {
-  modalPerfil.classList.add('ativo');
-  overlayPerfil.classList.add('ativo');
-  // Bloqueia o scroll do corpo da página
-  document.body.style.overflow = 'hidden';
-}
+  function abrirPerfil() {
+    modalPerfil.classList.add('ativo');
+    overlayPerfil.classList.add('ativo');
+    // Bloqueia o scroll do corpo da página
+    document.body.style.overflow = 'hidden';
+  }
 
-function fecharPerfil() {
-  modalPerfil.classList.remove('ativo');
-  overlayPerfil.classList.remove('ativo');
-  // Devolve o scroll ao fechar
-  document.body.style.overflow = 'auto';
-}
+  function fecharPerfil() {
+    modalPerfil.classList.remove('ativo');
+    overlayPerfil.classList.remove('ativo');
+    // Devolve o scroll ao fechar
+    document.body.style.overflow = 'auto';
+  }
 
-btnAbrirPerfil.addEventListener('click', abrirPerfil);
-btnFecharPerfil.addEventListener('click', fecharPerfil);
-overlayPerfil.addEventListener('click', fecharPerfil);
+  btnAbrirPerfil.addEventListener('click', abrirPerfil);
+  btnFecharPerfil.addEventListener('click', fecharPerfil);
+  overlayPerfil.addEventListener('click', fecharPerfil);
 
 </script>
 
- <!-- Validação login -->
+<!-- Validação login -->
 <script>
-addEventListener('DOMContentLoaded', () => {
-  const form = document.getElementById('form-perfil');
-  form.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    const email = form.email.value;
-    const senha = form.senha.value;
+  addEventListener('DOMContentLoaded', () => {
+    const form = document.getElementById('form-perfil');
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const email = form.email.value;
+      const senha = form.senha.value;
 
-    try {
-      const response = await fetch('/login', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, senha })
-      });
-      const resultado = await response.json();
-      if (resultado.sucesso) {
-        alert('Login bem-sucedido!');
-        window.location.href = resultado.redirectUrl;
-        
-      } else {
-        alert('Email ou senha incorretos. Tente novamente.');
-      
+      try {
+        const response = await fetch('/login', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email, senha })
+        });
+        const resultado = await response.json();
+        if (resultado.sucesso) {
+          alert('Login bem-sucedido!');
+          window.location.href = resultado.redirectUrl;
+
+        } else {
+          alert('Email ou senha incorretos. Tente novamente.');
+
+        }
+
+      } catch (error) {
+        console.error('Erro ao fazer login:', error);
+        alert('Ocorreu um erro. Tente novamente mais tarde.');
       }
-  
-    } catch (error) {
-      console.error('Erro ao fazer login:', error);
-      alert('Ocorreu um erro. Tente novamente mais tarde.');
-    }
+    });
   });
-});
 </script>
 <!-- Fim perfil -->
 
@@ -276,7 +274,7 @@ addEventListener('DOMContentLoaded', () => {
     sideMenu.classList.remove('open');
     overlay.classList.remove('active');
   });
-// Fim do menu hamb
+  // Fim do menu hamb
 </script>
 
 <!-- JS DO MENU HAMBURGUER-->
@@ -367,4 +365,3 @@ addEventListener('DOMContentLoaded', () => {
     }
   });
 </script>
-
