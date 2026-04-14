@@ -135,7 +135,7 @@
   height: 40px !important;
   display: block;
   pointer-events: none;
-
+  width: 180px;
 }
 
 .user-icon {
@@ -175,12 +175,28 @@
 }
 
 @media (max-width: 768px) {
+
+  .checkout-container {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    margin-top: 40px;
+  }
+
   .header nav {
     padding: 0 10px;
   }
 
-  .logo {
-    font-size: 18px;
+    .logo-login {
+  display: block;
+  margin: 0 auto 10px; /*  diminui o espaço embaixo */
+  width: 200px;        /*  aumenta aqui */
+  height: auto;
+  }
+
+}
+
+    .logo { 
+  font-size: 18px;
   }
 
   .icon-btn {
@@ -202,7 +218,7 @@
   .search-input.active {
     background-color: #999;
   }
-}
+
 
 .header nav>label {
   display: none;
@@ -549,12 +565,12 @@
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.20);
 }
 
-.formulario-checkout h3,
+/* .formulario-checkout h3,
 .resumo-pedido h3 {
   margin-top: 0;
   color: #8B0000;
   margin-bottom: 25px;
-}
+} */
 
 .form-group {
   margin-bottom: 20px;
@@ -670,17 +686,9 @@ input:focus {
   background: #ff0000;
 }
 
-@media (max-width: 768px) {
-  .checkout-container {
-    grid-template-columns: 1fr;
-    gap: 20px;
-    margin-top: 40px;
-  }
-
   .form-row {
     grid-template-columns: 1fr;
   }
-}
 
 /* Fim do chekout */
 
@@ -725,11 +733,12 @@ input:focus {
   z-index: 1001;
 }
 
-.login-container > img {
+.logo-login {
+  width: 151px; /* tamanho base menor */
   display: block;
-  margin: 0 auto 20px;
-  width: 120px; /* controla o tamanho REAL */
-  height: auto;
+  margin: 0 auto 10px;
+  transform: scale(2.4); /* cresce sem empurrar */
+  transform-origin: center;
 }
 
 .modal-perfil.ativo {
@@ -813,12 +822,40 @@ h3 {
   color: #444;
   font-weight: 500;
   transition: background-color 0.3s ease;
+  margin-top: 30px;
 }
 
 .google img {
   width: 35px;
   height: 30px;
   right: 100%;
+}
+
+
+.ou{
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin: 20px 0;
+  color: #999;
+gap: 25px;
+}
+
+.ou::before,
+.ou::after{
+  content:"";
+  flex: 1;
+  height: 1px;
+  background: #ccc;
+}
+
+.ou::before{
+  margin: right 15px;
+}
+
+.ou::after{
+margin-left: 15px;
+
 }
 
 
