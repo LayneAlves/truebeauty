@@ -1,0 +1,35 @@
+[
+    {
+    "id": 1,
+    "cliente_nome": "Lay",
+    "data": "2026-04-13",
+    "total": 150,
+    "status": "pago",
+    "pagamento": "pix"
+  },
+  {
+    "id": 2,
+    "cliente_nome": "Elisa",
+    "data": "2026-04-13",
+    "total": 150,
+    "status": "pago",
+    "pagamento": "pix"
+  },
+  {
+    "id": 3,
+    "cliente_nome": "Joao",
+    "data": "2026-04-13",
+    "total": 150,
+    "status": "pago",
+    "pagamento": "pix"
+  },
+  {
+    "id": 4,
+    "cliente_nome": "Maria",
+    "data": "2026-04-13",
+    "total": 150,
+    "status": "pago",
+    "pagamento": "pix"
+  }
+  
+]

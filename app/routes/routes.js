@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const UserController = require('../controllers/userController');
 const ProdutoController = require('../controllers/produtoController');
+const PedidoController = require('../controllers/pedidoController');
 const { imageUpload } = require('../middleware/imageUpload');
 
 
@@ -72,6 +73,8 @@ router.get('/cadastroProduto', (req, res) => {
 router.get('/produtos', ProdutoController.produtos, (req, res, next) => {
     res.render('produtos');
 });
+// Rotas de pedidos
+router.get('/pedidos', PedidoController.listarPedidos);
 
 // Rotas de editar produto
 router.post('/produtos/novo', imageUpload.single('imagem'), ProdutoController.cadastrar);
