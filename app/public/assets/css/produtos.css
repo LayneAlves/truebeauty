@@ -10,6 +10,10 @@ body {
         position: relative;
         display: flex;
         flex-direction: column;
+        grid-column-start: 2;
+        align-items: center;
+        padding: 32px;
+        gap: 22px;
 
 
         >.topo {
@@ -17,6 +21,8 @@ body {
             justify-content: space-between;
             align-items: center;
             padding: 0 20px;
+            width: 100%;
+            
 
             h1 {
                 font-family: 'Poppins', sans-serif;
@@ -31,7 +37,7 @@ body {
                 font-weight: bold;
                 width: 150px;
                 height: 45px;
-                margin-left: 1200px;
+                /* margin-left: 1200px; */
             }
         }
 
@@ -40,7 +46,7 @@ body {
             flex-direction: column;
             --grid-column: 40px 60px 80px 1fr 1fr 1fr 1fr 1fr;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-            margin-left: 470px;
+            /* margin-left: 470px; */
             margin-top: -70px;
             width: 1000px;
             
@@ -66,15 +72,21 @@ body {
                     align-items: center;
                     border-bottom: 1px solid rgba(128, 128, 128, 0.479);
                     padding: 12px 20px;
+                
+                    .imagem {
+                        position: relative;
+                        width: 40px;
+                        height: 40px;
+                        overflow: hidden;
+                        
+                        .img-produto {
+                            position: relative;
+                            width: 100%;
+                            height: 100%;
+                            object-fit: cover;
+                        }
+                    }
                 }
-
-            }
-
-            .img-produto {
-                width: 40px;
-                height: 40px;
-                object-fit: cover;
-                border-radius: 6px;
             }
 
             .btn-editar-icone,
@@ -371,7 +383,7 @@ body {
     font-weight: 700;
     color: #8B0000;
     margin-bottom: 0.5rem;
-    margin-left: 760px;
+    
 }
 
 .cp-subtitle {
@@ -394,7 +406,7 @@ body {
     font-size: 0.9rem;
     transition: all 0.3s ease;
     margin-bottom: 1.5rem;
-    margin-left: 760px;
+    /* margin-left: 760px; */
 }
 
 .cp-back-btn:hover {

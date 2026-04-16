@@ -1,14 +1,14 @@
 /* MENU */
 
 .menu {
-    background: #8B0000;
+    background: #770002;
     padding: 20px;
     height: 100vh;
 
     position: fixed;
     top: 0;
     left: 0;
-    width: 250px; 
+    width: 290px; 
     z-index: 1000;
     
 }
@@ -33,7 +33,7 @@
 
     img {
         width: 28px;
-        aspect-ratio: 1/1;
+        /* aspect-ratio: 1/1; */
     }
     a{
         text-decoration: none;
@@ -50,7 +50,7 @@
     img{
         object-fit: cover;
         width: 100%;
-        aspect-ratio: 16/9;
-        filter: invert(1);
+        /* aspect-ratio: 16/9; */
+        /* filter: invert(1); */
     }
 }

@@ -606,24 +606,19 @@ button {
     padding-right: clamp(2rem, 3vw, 6.25rem);
   }
 
-  #prf, #inf{
-    /* width: 45%; */
-  }
+  /* #prf, #inf{
+     width: 45%; 
+  } */
 
   #icons {
-  /* display: flex; */
-  /* margin: end; */
   align-items: center;
   width: 70%;
-  padding-left: clamp(0rem, 1vw, 3.125rem); /*equivale a 50px so que mais responsivel*/
-  /* flex-direction: column; */
+  padding-left: clamp(0rem, 1vw, 3.125rem); 
   gap: 16px;
-  /* right: 80px; */
   flex: 2;
 }
 
 #icons, img{
-  /* margin-top: 20px; */
   width: 100%;
 }
 
