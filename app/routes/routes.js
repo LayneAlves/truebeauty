@@ -90,3 +90,20 @@ router.post('/produtos/editar/:id', imageUpload.single('imagem'), ProdutoControl
 router.post('/login', UserController.login);
 
 module.exports = router;
+
+//Rotas do navbar 
+
+// PERFIL
+router.get('/perfil', (req, res) => {
+  res.render('perfil');
+});
+
+// CARRINHO
+router.get('/carrinho', (req, res) => {
+  res.render('carrinho');
+});
+
+// BUSCA
+router.get('/busca', (req, res) => {
+  res.render('busca');
+});
