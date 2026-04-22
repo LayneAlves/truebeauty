@@ -3,6 +3,7 @@ const router = express.Router();
 const UserController = require('../controllers/userController');
 const ProdutoController = require('../controllers/produtoController');
 const PedidoController = require('../controllers/pedidoController');
+const bannerController = require('../controllers/bannerController');
 const { imageUpload } = require('../middleware/imageUpload');
 
 
@@ -88,6 +89,12 @@ router.post('/produtos/excluir/:id', ProdutoController.excluirProduto);
 
 //Rotas de salvar produto editado
 router.post('/produtos/editar/:id', imageUpload.single('imagem'), ProdutoController.editarProduto);
+
+//Rotas Cadastrar banner
+router.get('/banners', bannerController.listar);
+router.post('/banners/novo', imageUpload.single('imagem'), bannerController.cadastrarbanner, bannerController.listar, (req, res) => {
+    res.render('banners');
+});
 
 
 // Rotas de login

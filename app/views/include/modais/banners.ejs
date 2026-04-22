@@ -1,0 +1,51 @@
+<div id="modal-banners" class="modal">
+  <section class="modal-body">
+
+    <div class="modal-header">
+      <span class="ep-modal-close-icon" onclick="fecharModal()">×</span>
+      <img src="assets/imagem/icons/icone_editar_produto.png" alt="">
+      <!-- <div> -->
+      <h2 class="title">Editar Produto</h2>
+      <!-- </div> -->
+    </div>
+
+    <div class="content">
+      <form id="formNovoBanner" class="tb-form" method="POST" enctype="multipart/form-data">
+        
+        <!-- LADO ESQUERDO (FORM) -->
+        <section>
+          <div class="tb-field">
+            <label class="tb-label">Titulo</label>
+            <input type="text" id="editNome" name="titulo
+            " class="tb-input" required>
+          </div>
+        </section>
+
+        <!-- LADO DIREITO (IMAGEM) -->
+        <div class="tb-image-side">
+          <label for="editImagem" class="tb-image-upload">
+            <div class="tb-image-box">
+              <img id="editImagemPreview" class="tb-image-preview" src="">
+
+              <div class="tb-image-placeholder">
+                <span class="tb-image-icon">🖼️</span>
+                <p>Adicionar imagem</p>
+              </div>
+            </div>
+          </label>
+
+          <input type="file" id="editImagem" name="imagem" hidden>
+        </div>
+
+        <!-- BOTÕES -->
+        <div class="ep-modal-actions">
+          <button type="button" class="tb-button-secondary" onclick="fecharModal()">Cancelar</button>
+          <button type="submit" class="tb-button-primary">Salvar</button>
+        </div>
+
+      </form>
+    </div>
+
+  </section>
+</div>
+

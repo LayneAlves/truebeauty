@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<%- include('./include/head.ejs',{pagina:"banners"}) %>
+
+  <body>
+    <%- include('./include/menu/menu.ejs') %>
+      <main>
+        <section class="topo">
+            <button class="botao_novo"  onclick="abrirModal()">+ Novo Banner</button>
+        </section>
+
+        <section class="container__produtos">
+          <article class="titulos_header">
+            <span></span>
+            <span>#</span>
+            <span>Imagem</span>
+            <span>Nome do Banner</span>
+            <span>Status</span>
+            <span>Ações</span>
+          </article>
+
+          <article class="body">
+            <% banners.forEach(banner=> { %>
+              <section class="content">
+                <span><input type="checkbox" class="select-produto" data-id="<%= banner.id %>"></span>
+                <span>
+                  <%= banner.id %>
+                </span>
+                <span class="imagem">
+                  <img src="<%= banner.imagem %>" class="img-produto">
+                </span>
+                <span>
+                  <%= banner.titulo %>
+                </span>
+                <span>
+                  <%= banner.status ? 'Ativo' : 'Inativo' %>
+                </span>
+
+                <span class="acoes">
+                  <!-- Botão Editar -->
+                  <button type="button" class="btn-editar-icone" onclick="abrirModal(this)" data-id="<%= banner.id %>"
+                    data-nome="<%= banner.nome %>" title="Editar">
+                    <i class="fa-solid fa-pencil" style="color: #8B0000"></i>
+                  </button>
+
+                  <!-- Botão Excluir -->
+                  <form action="/banners/excluir/<%= banner.id %>" method="POST" style="display:inline;"
+                    onsubmit="return confirm('Deseja remover este banner?')">
+                    <button type="submit" class="btn-excluir-icone" title="Excluir">
+                      <i class="fa-solid fa-trash-can" style="color: #8B0000"></i>
+                    </button>
+                  </form>
+                </span>
+              </section>
+              <% }); %>
+          </article>
+        </section>
+      </main>
+      <%- include('./include/modais/banners.ejs') %>
+        <script>
+          function abrirModal(botao) {
+            try {
+              // 2. Referências do Modal
+              const form = document.getElementById('formNovoBanner');
+
+              // 5. Lógica da Imagem
+              const preview = document.getElementById('editImagemPreview');
+              const imageBox = preview.closest('.tb-image-box'); // Pega o container da imagem
+
+
+              if (preview) {
+                const timestamp = new Date().getTime();
+                if (imageBox) {
+                  imageBox.classList.add('has-image');
+                }
+
+                preview.onerror = function () {
+                  console.error("Falha ao carregar a imagem no caminho:", this.src);
+                  this.src = '/img/default.png'; // Caminho da sua imagem padrão
+                };
+              } else {
+                console.error("ERRO: O elemento com ID 'editImagemPreview' não foi encontrado no DOM. Verifique o arquivo do modal.");
+              }
+              // Identifica o botão de escolher arquivo, a área de visualização e o quadro da imagem
+              const inputArquivo = document.getElementById('editImagemInput');
+              const previewImagem = document.getElementById('editImagemPreview');
+
+              if (inputArquivo) {
+                // Quando você seleciona uma nova foto, essa função começa a trabalhar
+                inputArquivo.addEventListener('change', function () {
+                  const arquivo = this.files[0]; // Pega o arquivo que você escolheu
+
+                  if (arquivo) {
+                    const leitor = new FileReader(); // Cria um "leitor" para processar o arquivo
+
+                    // O que acontece assim que o "leitor" termina de ler a foto:
+                    leitor.onload = function (e) {
+                      // Coloca a foto escolhida no lugar da foto antiga no modal
+                      previewImagem.src = e.target.result;
+
+                      // Ativa o visual do CSS para mostrar a foto e esconder o texto de fundo
+                      imageBox.classList.add('has-image');
+                    }
+
+                    // Manda o leitor ler a foto selecionada
+                    leitor.readAsDataURL(arquivo);
+                  }
+                });
+              }
+
+              // 6. Configura o formulário e abre o modal
+              if (form) form.action = `/banners/novo`;
+              document.getElementById('modal-banners').style.display = 'flex';
+
+            } catch (erro) {
+              console.error("Erro ao abrir modal:", erro);
+            }
+          }
+
+          // ❌ FUNÇÕES DE FECHAMENTO
+          function fecharModal() {
+            document.getElementById('modal-banners').style.display = 'none';
+          }
+
+          // Eventos de clique
+          document.addEventListener('DOMContentLoaded', () => {
+            document.querySelector('.ep-modal-close-icon')?.addEventListener('click', fecharModal);
+
+            document.getElementById('btnCancelar')?.addEventListener('click', () => {
+              if (confirm('Tem certeza que deseja cancelar?')) {
+                fecharModal();
+              }
+            });
+
+            // Select All
+            document.getElementById('selectAll')?.addEventListener('change', function () {
+              document.querySelectorAll('.select-banners').forEach(cb => {
+                cb.checked = this.checked;
+              });
+            });
+          });
+        </script>
+
+  </body>
+
+</html>
