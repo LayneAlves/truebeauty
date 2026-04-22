@@ -73,8 +73,12 @@ router.get('/cadastroProduto', (req, res) => {
 router.get('/produtos', ProdutoController.produtos, (req, res, next) => {
     res.render('produtos');
 });
+
 // Rotas de pedidos
 router.get('/pedidos', PedidoController.listarPedidos);
+
+// Rotas de clientes
+router.get('/clientes', UserController.users);
 
 // Rotas de editar produto
 router.post('/produtos/novo', imageUpload.single('imagem'), ProdutoController.cadastrar);

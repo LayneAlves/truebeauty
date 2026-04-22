@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<%- include('./include/head.ejs',{pagina:"clientes"}) %>
+    <!-- <link rel="stylesheet" href="/css/clientes.css"> -->
+    </head>
+
+
+    <body>
+        <%- include('./include/menu/menu.ejs') %>
+            <main>
+                <section class="topo">
+                    <h1>Listagem de Clientes</h1>
+                </section>
+
+                <section class="container__pedidos">
+                    <article class="titulos_header">
+                        
+                        <span>#</span>
+                        <span></span>
+                        <span>Nome</span>
+                        <span>Email</span>
+                        <span>Status</span>
+                    </article>
+
+                    <article class="body">
+                        <% clientes.forEach(cliente=> { %>
+                            <section class="content">
+                                <!-- <span><input type="checkbox" class="select-produto" data-id="<%= cliente.id %>"></span> -->
+
+                                <span>
+                                    <%= cliente.id %>
+                                </span>
+
+                                <span>
+                                    <img src="/<%= cliente.imagem %>" alt="Foto de <%= cliente.nome %>"
+                                        style="width: 50px; height: auto; clip-path: circle();">
+                                </span>
+
+
+                                <span>
+                                    <%= cliente.nome%>
+                                </span>
+
+                                <span>
+                                    <%= cliente.email %>
+                                </span>
+
+                                <span class="status <%= cliente.status.toLowerCase() %>">
+                                    <%= cliente.status %>
+                                </span>
+                            </section>
+                            <% }); %>
+                    </article>
+                </section>
+
+                <aside>
+                    <section class="header__aside">
+                        <section class="titulo">
+                            <h2 class="cor-preto">Rafaela Barros</h2>
+                            <i class="fa-solid fa-ellipsis"></i>
+                        </section>
+
+                    </section>
+
+                    <section class="content">
+                        <section class="imagem">
+                            <img src="https://img.freepik.com/vetores-premium/avatar-da-mulher-sorridente_937492-6135.jpg?semt=ais_hybrid&w=740&q=80"
+                                alt="">
+                        </section>
+                        <section>
+                            <h2>Sobre mim</h2>
+                            <p class="cor-cinza">Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium, facilis.</p>
+                        </section>
+                    </section>
+
+                    <section class="dados">
+                        <ul>
+                            <li>
+                                <span>
+                                    <h3 class="cor-preto">Nome</h3>
+                                </span>
+                                <p class="cor-cinza">Rafaela Barros</p>
+                            </li>
+                            <li>
+                                <span>
+                                    <h3 class="cor-preto">Email</h3>
+                                </span>
+                                <p class="cor-cinza">rafaela@gmail.com</p>
+                            </li>
+                            <li>
+                                <span>
+                                    <h3 class="cor-preto">Celular</h3>
+                                </span>
+                                <p class="cor-cinza">(11)95204-2536</p>
+                            </li>
+                            <li>
+                                <span>
+                                    <h3 class="cor-preto">Status</h3>
+                                </span>
+                                <p class="cor-cinza">Ativo</p>
+                            </li>
+                        </ul>
+
+                    </section>
+
+                    <section class="atividades">
+                        <h3 class="cor-preto">Atividade</h3>
+
+                        <section class="conteudo">
+                            <section class="dot">
+                                <span></span>
+                            </section>
+                            <section>
+                                <strong>Entrada</strong>
+                                <p class="cor-cinza">Cliente criou a conta</p>
+                            </section>
+
+                            <p>15/04/2026</p>
+                        </section>
+                        <section class="conteudo">
+                            <section class="dot">
+                                <span></span>
+                            </section>
+                            <section>
+                                <strong>Pedido nº 1147 recebido</strong>
+                                <p class="cor-cinza">Aguardando confirmação de pagamento para separar os produtos</p>
+                            </section>
+
+                            <p>20/04/2026</p>
+                        </section>
+                        <section class="conteudo">
+                            <section class="dot">
+                                <span></span>
+                            </section>
+                            <section>
+                                <strong>Carrinho abandonado</strong>
+                                <p class="cor-cinza">O cliente não finalizou o pedido de Forever Liss, FOR86, Desmaia Cabelo, 350g.</p>
+                            </section>
+
+                            <p>21/04/2026</p>
+                        </section>
+                        <section class="conteudo">
+                            <section class="dot">
+                                <span></span>
+                            </section>
+                            <section>
+                                <strong>Pedido em rota de entrega</strong>
+                                <p class="cor-cinza">O produto foi enviado e está a caminho do endereço cadastrado.</p>
+                            </section>
+
+                            <p>22/04/2026</p>
+                        </section>
+
+                    </section>
+                </aside>
+            </main>
+
+    </body>
+
+</html>

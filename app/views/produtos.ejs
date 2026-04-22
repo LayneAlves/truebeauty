@@ -32,7 +32,9 @@
               <span>
                 <%= produto.id %>
               </span>
-              <span><img src="<%= produto.imagem || '/img/default.png' %>" class="img-produto"></span>
+              <span class="imagem">
+                <img src="<%= produto.imagem || '/img/default.png' %>" class="img-produto">
+              </span>
               <span>
                 <%= produto.nome %>
               </span>

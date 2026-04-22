@@ -689,10 +689,6 @@ input[type="number"]::-webkit-inner-spin-button {
   .form-row {
     grid-template-columns: 1fr;
   }
-<<<<<<< HEAD
-=======
-} */ 
->>>>>>> ed58044b161ad932d962f715204257926114503c
 
 /* Fim do chekout */
 
@@ -892,7 +888,7 @@ input {
 
 
 .forgot {
-  font-size: 13px;
+  font-size: 18px;
   text-align: right;
   display: block;
   color: #8B0000;

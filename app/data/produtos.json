@@ -160,5 +160,14 @@
     "imagem": "/assets/imagem/produtos/1775698016770-16344540.webp",
     "estoque": "10",
     "categoria": "skin_care"
+  },
+  {
+    "id": 27,
+    "nome": "teste",
+    "preco": "10",
+    "descricao": "10",
+    "imagem": "/assets/imagem/produtos/1776381930133-inoar-meu-cacho-meu-crush.webp",
+    "estoque": "10",
+    "categoria": "cuidados_pessoais"
   }
 ]
