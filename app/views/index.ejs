@@ -184,11 +184,12 @@
    <img src="assets/imagem/icons/perfil.png" alt="">
     <p>Perfil</p>
   </section>
-  <!-- FILTRO -->
+  <!-- FILTRO
   <section class="mbl_nav_item" id="mbl_btn_menu2">
     <img src="assets/imagem/icons/filtro.png" alt="">
     <p>Filtro</p>
-  </section>
+  </section> -->
+
 </section> 
 </main>
 
@@ -244,35 +245,33 @@ function scrollCards(direction) {
 }
 </script>
 
- <!-- NAVBAR MOBILE  -->
+  <!-- NAVBAR MOBILE  -->
 <script>
- // MENU (se for abrir menu, pode manter se for funcional)
-document.getElementById('mbl_btn_menu')?.addEventListener('click', () => {
-  document.getElementById('menu-toggle')?.click();
-});
-
-// BUSCA
+  // MENU
+  document.getElementById('mbl_btn_menu').addEventListener('click', () => {
+    document.getElementById('menu-hamburguer').click();
+  });
+ 
+  document.getElementById('mbl_btn_menu2').addEventListener('click', () => {
+    document.getElementById('menu-hamburguer').click();
+  });
+ 
+  // BUSCA
 document.getElementById('mbl_btn_search').addEventListener('click', (e) => {
-  e.stopPropagation();
-  lupaBtnImg.click();
+e.stopPropagation();
+lupaBtnImg.click();
 });
-
   // PERFIL
   document.getElementById('mbl_btn_user').addEventListener('click', () => {
     document.querySelector('.user-icon').click();
   });
-
-// CARRINHO
-document.getElementById('mbl_btn_cart')?.addEventListener('click', () => {
-  document.getElementById('sacola-lateral').classList.add('open');
-  document.getElementById('overlay-sacola').classList.add('active');
-});
-
-//INICIO 
-document.getElementById('mbl_btn_home')?.addEventListener('click', () => {
-  window.location.href = "/";
-});
+ 
+  // CARRINHO
+  document.getElementById('mbl_btn_cart').addEventListener('click', () => {
+    document.querySelector('.cart-icon').click();
+  });
 </script>
 </body>
-
+ 
 </html>
+ 
