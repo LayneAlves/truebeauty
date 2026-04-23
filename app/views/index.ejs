@@ -162,9 +162,10 @@
     <p>Menu</p>
   </section>
 
-  <!-- BUSCA -->
+  <!-- BUSCAR -->
+   
   <section class="mbl_nav_item" id="mbl_btn_search">
-    <img src="assets/imagem/icons/lupa.png" alt="">
+    <img src="assets/imagem/icons/lupa.png" alt="lupa">
     <p>Buscar</p>
   </section>
 
@@ -252,17 +253,13 @@ function scrollCards(direction) {
     document.getElementById('menu-hamburguer').click();
   });
  
-  document.getElementById('mbl_btn_menu2').addEventListener('click', () => {
-    document.getElementById('menu-hamburguer').click();
-  });
- 
   // BUSCA
 document.getElementById('mbl_btn_search').addEventListener('click', (e) => {
 e.stopPropagation();
 lupaBtnImg.click();
 });
   // PERFIL
-  document.getElementById('mbl_btn_user').addEventListener('click', () => {
+  document.getElementById('mbl_btn_menu2').addEventListener('click', () => {
     document.querySelector('.user-icon').click();
   });
  
@@ -270,6 +267,11 @@ lupaBtnImg.click();
   document.getElementById('mbl_btn_cart').addEventListener('click', () => {
     document.querySelector('.cart-icon').click();
   });
+
+  // INICIO
+  document.getElementById('mbl_btn_user').addEventListener('click', () => {
+  document.querySelector('.logo').click(); // ajuste o seletor
+});
 </script>
 </body>
  

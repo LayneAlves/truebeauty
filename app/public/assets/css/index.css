@@ -547,12 +547,12 @@ button {
   }
 
   /*MENU HAMBUGUER*/
-  .bootstrap::before {
+  /* .bootstrap::before {
     content: "▶";
     transition: transform 0.3s;
     cursor: pointer;
     margin: 20px;
-  }
+  } */
 
   /*QUANDO O BOTAO É CLICADO*/
   .bootstrap::before:active {
@@ -798,6 +798,7 @@ button {
   .icon-btn img {
     min-width: 30px;
     min-height: 30px;
+    opacity: 0.0;
   }
 
   .search-icon:hover .search-input {
