@@ -65,42 +65,43 @@ addEventListener('DOMContentLoaded', () => {
 <div id="overlay" class="overlay"></div>
 
 
-  const menuToggle = document.getElementById('menu-toggle');
-  const sideMenu = document.getElementById('side-menu');
-  const overlay = document.getElementById('overlay');
+  // const menuToggle = document.getElementById('menu-toggle');
+  // const sideMenu = document.getElementById('side-menu');
+  // const overlay = document.getElementById('overlay');
 
-  menuToggle.addEventListener('click', () => {
-    sideMenu.classList.toggle('open');
-    overlay.classList.toggle('active');
-  });
+  
+  //   menuToggle.addEventListener('click', () => {
+  //   sideMenu.classList.toggle('open');
+  //   overlay.classList.toggle('active');
+  // });
 
-  overlay.addEventListener('click', () => {
-    sideMenu.classList.remove('open');
-    overlay.classList.remove('active');
-  });
+  // overlay.addEventListener('click', () => {
+  //   sideMenu.classList.remove('open');
+  //   overlay.classList.remove('active');
+  // });
 // Fim do menu hamb
 
 
 // <!-- JS DO MENU HAMBURGUER-->
 
-  document.querySelectorAll('.submenu-toggle').forEach(button => {
-    button.addEventListener('click', () => {
-      const target = document.querySelector(button.dataset.target);
-      const expanded = button.getAttribute('aria-expanded') === 'true';
+  // document.querySelectorAll('.submenu-toggle').forEach(button => {
+  //   button.addEventListener('click', () => {
+  //     const target = document.querySelector(button.dataset.target);
+  //     const expanded = button.getAttribute('aria-expanded') === 'true';
 
-      // fecha todos os outros submenus primeiro
-      document.querySelectorAll('.submenu').forEach(sub => {
-        if (sub !== target) sub.classList.remove('show');
-      });
-      document.querySelectorAll('.submenu-toggle').forEach(btn => {
-        if (btn !== button) btn.setAttribute('aria-expanded', 'false');
-      });
+  //     // fecha todos os outros submenus primeiro
+  //     document.querySelectorAll('.submenu').forEach(sub => {
+  //       if (sub !== target) sub.classList.remove('show');
+  //     });
+  //     document.querySelectorAll('.submenu-toggle').forEach(btn => {
+  //       if (btn !== button) btn.setAttribute('aria-expanded', 'false');
+  //     });
 
-      // alterna o submenu clicado
-      button.setAttribute('aria-expanded', !expanded);
-      target.classList.toggle('show', !expanded);
-    });
-  });
+  //     // alterna o submenu clicado
+  //     button.setAttribute('aria-expanded', !expanded);
+  //     target.classList.toggle('show', !expanded);
+  //   });
+  // });
 
 
 

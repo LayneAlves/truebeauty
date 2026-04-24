@@ -2,14 +2,14 @@
   {
     "id": 1,
     "nome": "Rafaela Barros",
-    "imagem" : "assets/imagem/icons/avatar.avif",
+    "imagem": "assets/imagem/icons/avatar.avif",
     "email": "rafaela@gmail.com",
     "senha": "Layne@2026",
     "status": "ativo"
   },
   {
     "id": 2,
-    "imagem" : "assets/imagem/icons/avatarHomem.png",
+    "imagem": "assets/imagem/icons/avatarHomem.png",
     "nome": "Carlos Alberto",
     "email": "carlos@gmail.com",
     "senha": "123445",
@@ -17,10 +17,16 @@
   },
   {
     "id": 3,
-    "imagem" : "assets/imagem/icons/avatarMulher.avif",
+    "imagem": "assets/imagem/icons/avatarMulher.avif",
     "nome": "Marcelina",
     "email": "ana1007@gmail.com",
     "senha": "123455",
     "status": "excluido"
+  },
+  {
+    "id": 4,
+    "nome": "Layne Alves da Silva",
+    "email": "layne.silva1007@gmail.com",
+    "senha": "Teste123@"
   }
 ]

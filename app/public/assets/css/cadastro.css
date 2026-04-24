@@ -1,153 +1,160 @@
-.cadastro-section{
-    max-width:500px;
-    margin:80px auto;
+.cadastro-section {
+    max-width: 500px;
+    margin: 80px auto;
     margin-top: 229px;
 }
 
-.cadastro-form{
-    background:white;
-    padding:40px;
-    border-radius:10px;
-    box-shadow:0 10px 30px rgba(0,0,0,0.08);
+.cadastro-form {
+    background: white;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
 }
 
-h1{
-    text-align:center;
-    margin-bottom:35px;
-    color:#333;
+h1 {
+    text-align: center;
+    margin-bottom: 35px;
+    color: #333;
 }
 
 /* CONTAINER INPUT */
 
-.form-group{
-    position:relative;
-    margin-bottom:28px;
+.form-group {
+    position: relative;
+    margin-bottom: 28px;
 }
 
 /* INPUT */
 
-.form-group input{
-    width:100%;
-    padding:16px 14px;
-    border:1px solid #ddd;
-    border-radius:6px;
-    font-size:15px;
-    outline:none;
-    background:white;
-    transition:0.25s;
+.form-group input {
+    width: 100%;
+    padding: 16px 14px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 15px;
+    outline: none;
+    background: white;
+    transition: 0.25s;
+
+    &.valid {
+        border: 1px solid #2ecc71;
+    }
+
+    &.invalid {
+        border: 1px solid #e74c3c
+    }
 }
 
 /* PLACEHOLDER */
 
-.form-group input::placeholder{
-    color:#8B0000;
-    opacity:0.7;
+.form-group input::placeholder {
+    color: #8B0000;
+    opacity: 0.7;
 }
 
 /* LABEL FLUTUANTE */
 
-.form-group label{
-    position:absolute;
-    left:12px;
-    top:14px;
-    background:white;
-    padding:0 6px;
-    font-size:14px;
-    color:#8B0000;
-    transition:0.25s;
-    pointer-events:none;
+.form-group label {
+    position: absolute;
+    left: 12px;
+    top: 14px;
+    background: white;
+    padding: 0 6px;
+    font-size: 14px;
+    color: #8B0000;
+    transition: 0.25s;
+    pointer-events: none;
 }
 
 /* LABEL SOBE */
 
-.form-group input:focus + label,
-.form-group input:not(:placeholder-shown) + label{
-    top:-8px;
-    font-size:12px;
-    color:#8B0000;
+.form-group input:focus+label,
+.form-group input:not(:placeholder-shown)+label {
+    top: -8px;
+    font-size: 12px;
+    color: #8B0000;
 }
 
 /* BORDA FOCUS */
 
-.form-group input:focus{
-    border-color:#8B0000;
+.form-group input:focus {
+    border-color: #8B0000;
 }
 
 /* ESTADOS */
 
-.input-valido{
-    border-color:#39ff8c !important;
+.input-valido {
+    border-color: #39ff8c !important
 }
 
-.input-invalido{
-    border-color:#e74c3c !important;
+.input-invalido {
+    border-color: #e74c3c !important;
 }
 
 /* ERROS */
 
-span{
-    font-size:12px;
+span {
+    font-size: 12px;
 }
 
 /* REQUISITOS SENHA */
 
-#senha-requisitos{
-    list-style:none;
-    padding:0;
-    margin-top:10px;
+#senha-requisitos {
+    list-style: none;
+    padding: 0;
+    margin-top: 10px;
 }
 
-#senha-requisitos li{
-    font-size:12px;
-    margin-bottom:4px;
-}
-
-.input-valido{
-    border:2px solid #2ecc71 !important;
-}
-
-.input-invalido{
-    border:2px solid #e74c3c !important;
-}
 #senha-requisitos li {
-color: red;
-transition: color .2s;
+    font-size: 12px;
+    margin-bottom: 4px;
 }
 
-#senha-requisitos li.valid {
-color: #2ecc71;
+.input-valido {
+    border: 2px solid #2ecc71 !important;
 }
 
-#senha-requisitos li.invalid {
-color: #e74c3c;
+.input-invalido {
+    border: 2px solid #e74c3c !important;
 }
 
-/* ESCONDER E ATIVAR OS REQUISITOS DE SENHA */
-#senha-requisitos{
-display:none;
-margin-top:8px;
-font-size:14px;
-}
+#senha-requisitos li {
 
-#senha-requisitos.ativo{
-display:block;
-}
+    &.valid {
+        color: #2ecc71;
+    }
 
-/* BOTÃO */
+    &.invalid {
+        color: #e74c3c;
+    }
 
-.btn-cadastro{
-    width:100%;
-    padding:14px;
-    background:#8B0000;
-    color:white;
-    border:none;
-    border-radius:6px;
-    font-size:15px;
-    font-weight:600;
-    cursor:pointer;
-    margin-top:10px;
-}
+    /* ESCONDER E ATIVAR OS REQUISITOS DE SENHA */
+    #senha-requisitos {
+        display: none;
+        margin-top: 8px;
+        font-size: 14px;
+    }
 
-.btn-cadastro:hover{
-    background:#a50000;
+    #senha-requisitos.ativo {
+        display: block;
+    }
+
+    /* BOTÃO */
+
+    .btn-cadastro {
+        width: 100%;
+        padding: 14px;
+        background: #8B0000;
+        color: white;
+        border: none;
+        border-radius: 6px;
+        font-size: 15px;
+        font-weight: 600;
+        cursor: pointer;
+        margin-top: 10px;
+    }
+
+    .btn-cadastro:hover {
+        background: #a50000;
+    }
 }
