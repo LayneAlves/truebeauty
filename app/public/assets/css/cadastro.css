@@ -83,13 +83,13 @@ h1 {
 
 /* ESTADOS */
 
-.input-valido {
+/* .input-valido {
     border-color: #39ff8c !important
 }
 
 .input-invalido {
     border-color: #e74c3c !important;
-}
+} */
 
 /* ERROS */
 
@@ -110,23 +110,23 @@ span {
     margin-bottom: 4px;
 }
 
-.input-valido {
+/* .input-valido {
     border: 2px solid #2ecc71 !important;
 }
 
 .input-invalido {
     border: 2px solid #e74c3c !important;
-}
+} */
 
 #senha-requisitos li {
-
-    &.valid {
-        color: #2ecc71;
-    }
-
-    &.invalid {
-        color: #e74c3c;
-    }
+    
+        &.valid {
+            color: #2ecc71;
+        }
+    
+        &.invalid {
+            color: #e74c3c;
+        }
 
     /* ESCONDER E ATIVAR OS REQUISITOS DE SENHA */
     #senha-requisitos {

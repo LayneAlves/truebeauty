@@ -35,6 +35,7 @@
 .form-group {
   margin-bottom: 20px;
   width: 100%;
+
 }
 
 .form-group label {
@@ -99,6 +100,14 @@ input:focus {
   border-color: #8B0000;
   outline: none;
 }
+
+    .valid {
+      border: 1px solid #2ecc71 !important;
+    }
+
+    .invalid {
+      border:1px solid #e74c3c !important;
+    }
 
 .itens-resumo {
   margin-bottom: 20px;
@@ -174,7 +183,7 @@ input:focus {
     margin-bottom: 35px;
   }
 
-  .form-group-cep label{
+  .form-group-cep label {
     margin-bottom: 5px;
   }
 
@@ -182,7 +191,7 @@ input:focus {
     margin-bottom: 35px;
   }
 
-  
+
   .form-group-cidade input {
     padding: 16px 40% 12px 12px;
     margin-bottom: 10px;
