@@ -1,36 +1,40 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-
-  <%- include('./include/head.ejs',{pagina:"categoria"}) %>
-  <link rel="stylesheet" href="/assets/css/card.css" />
+<%- include('./include/head.ejs',{pagina:"categoria"}) %>
+<link rel="stylesheet" href="/assets/css/card.css" />
 </head>
-<body>
+
+  <body>
     <%- include('./include/header.ejs') %>
 
-    <main>
-      <section class="card-container">
-    <!-- Cabelo -->
-     <% produtos.forEach(produto => { %>  
-      <section>
-        <header>
-          <img src="<%=produto.imagem%>" alt="<%=produto.nome%>" loading="lazy">
-        </header>
-        <article>
-          <h2 class="card-title"><%=produto.nome%></h2>
-          <p class="card-text"><%=produto.descricao%></p>
-          <p class="card-price">
-             <span class="currency">R$</span> <%=produto.preco%>
-          </p>
-          <a href="#" class="card-button">Comprar</a>
-        </article>
-      </section>
-      <% }) %>
-  </section>
-           
-    </main>
+      <main>
+        <section class="card-container">
+          <!-- Cabelo -->
+          <% produtos.forEach(produto=> { %>
+            <section>
+              <header>
+                <img src="<%=produto.imagem%>" alt="<%=produto.nome%>" loading="lazy">
+              </header>
+              <article>
+                <h2 class="card-title">
+                  <%=produto.nome%>
+                </h2>
+                <p class="card-text">
+                  <%=produto.descricao%>
+                </p>
+                <p class="card-price">
+                  <span class="currency">R$</span>
+                  <%=produto.preco%>
+                </p>
+                <a href="#" class="card-button">Comprar</a>
+              </article>
+            </section>
+            <% }) %>
+        </section>
 
-  <!-- FOOTER -->
-  <%- include('./include/footer.ejs') %>
+      </main>
 
-</body>
-</html>
+      <!-- FOOTER -->
+      <%- include('./include/footer.ejs') %>
+
+  </body>
+
+  </html>

@@ -1,9 +1,5 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-
-
 <%- include('./include/head.ejs',{pagina:"checkout"}) %>
-  </head>
+</head>
 
   <body>
     <%- include('./include/header.ejs') %>
@@ -50,8 +46,7 @@
 
                 <div class="form-group-cep">
                   <label>CEP</label>
-                  <input placeholder="CEP" type="text" name="cep" id="cep" maxlength="9"
-                    required>
+                  <input placeholder="CEP" type="text" name="cep" id="cep" maxlength="9" required>
                   <span id="cep-error" style="color:red; display:none;">
                     CEP inválido.
                   </span>
@@ -136,7 +131,7 @@
       <%- include('./include/footer.ejs') %>
 
 
-
+      <!-- Checkout -->
         <script>
           class CheckoutPagina {
             constructor() {
@@ -211,6 +206,7 @@
           });
         </script>
 
+      <!-- Mascara -->
         <script>
           document.addEventListener('DOMContentLoaded', () => {
 
@@ -260,7 +256,6 @@
           });
         </script>
 
-        <!-- caminho correto para o arquivo dentro de app/public -->
         <script src="/assets/js/viacep.js"></script>
         <script src="/assets/js/validacoes.js"></script>
 

@@ -1,78 +1,76 @@
-<!DOCTYPE html>
-<html lang="en">
-
-    <%- include('./include/head.ejs',{pagina:"produtos"}) %>
+<%- include('./include/head.ejs',{pagina:"produtos"}) %>
     <link rel="stylesheet" href="/assets/css/formulario_produto.css">
 </head>
-<body>
-    <%- include('./include/menu/menu.ejs') %>
-    <main class="cp-main-container">
 
-        <div class="cp-header">
-            <a href="/produtos" class="cp-back-btn">← Voltar</a>
-            <h1 class="cp-title">Cadastrar Novo Produto</h1>
-            <p class="cp-subtitle">Adicione um novo item ao catálogo</p>
-        </div>
+    <body>
+        <%- include('./include/menu/menu.ejs') %>
+            <main class="cp-main-container">
 
-        <%- include('./include/formulario_produto.ejs') %>
+                <div class="cp-header">
+                    <a href="/produtos" class="cp-back-btn">← Voltar</a>
+                    <h1 class="cp-title">Cadastrar Novo Produto</h1>
+                    <p class="cp-subtitle">Adicione um novo item ao catálogo</p>
+                </div>
 
-    </main>
+                <%- include('./include/formulario_produto.ejs') %>
 
-    <script>
-        /* UPLOAD IMAGE */
-        const cpUploadArea = document.getElementById('cp-upload-area');
-        const cpImageInput = document.getElementById('cp-image-input');
-        const cpImagePreview = document.getElementById('cp-image-preview');
-        const cpProductForm = document.getElementById('cp-product-form');
+            </main>
 
-        cpUploadArea.addEventListener('click', () => cpImageInput.click());
+            <script>
+                /* UPLOAD IMAGE */
+                const cpUploadArea = document.getElementById('cp-upload-area');
+                const cpImageInput = document.getElementById('cp-image-input');
+                const cpImagePreview = document.getElementById('cp-image-preview');
+                const cpProductForm = document.getElementById('cp-product-form');
 
-        ['dragover', 'dragenter'].forEach(event => {
-            cpUploadArea.addEventListener(event, e => { e.preventDefault(); cpUploadArea.style.borderColor = '#8B0000'; });
-        });
+                cpUploadArea.addEventListener('click', () => cpImageInput.click());
 
-        ['dragleave', 'drop'].forEach(event => {
-            cpUploadArea.addEventListener(event, e => {
-                e.preventDefault();
-                cpUploadArea.style.borderColor = '#d0d0d0';
-                if (e.type === 'drop' && e.dataTransfer.files[0]) {
-                    cpImageInput.files = e.dataTransfer.files;
-                    cpPreviewImage(e.dataTransfer.files[0]);
+                ['dragover', 'dragenter'].forEach(event => {
+                    cpUploadArea.addEventListener(event, e => { e.preventDefault(); cpUploadArea.style.borderColor = '#8B0000'; });
+                });
+
+                ['dragleave', 'drop'].forEach(event => {
+                    cpUploadArea.addEventListener(event, e => {
+                        e.preventDefault();
+                        cpUploadArea.style.borderColor = '#d0d0d0';
+                        if (e.type === 'drop' && e.dataTransfer.files[0]) {
+                            cpImageInput.files = e.dataTransfer.files;
+                            cpPreviewImage(e.dataTransfer.files[0]);
+                        }
+                    });
+                });
+
+                cpImageInput.addEventListener('change', e => { if (e.target.files[0]) cpPreviewImage(e.target.files[0]); });
+
+                function cpPreviewImage(file) {
+                    if (!['image/jpeg', 'image/jpg', 'image/png', 'image/webp'].includes(file.type)) {
+                        alert('Use JPG, PNG ou WebP'); return;
+                    }
+                    const reader = new FileReader();
+                    reader.onload = e => {
+                        cpImagePreview.src = e.target.result;
+                        cpImagePreview.style.display = 'block';
+                        cpUploadArea.querySelectorAll('.cp-upload-icon,.cp-upload-text,.cp-upload-subtext').forEach(el => el.style.opacity = '0');
+                    };
+                    reader.readAsDataURL(file);
                 }
-            });
-        });
 
-        cpImageInput.addEventListener('change', e => { if (e.target.files[0]) cpPreviewImage(e.target.files[0]); });
+                function cpResetForm() {
+                    cpProductForm.reset();
+                    cpImagePreview.style.display = 'none';
+                    cpUploadArea.querySelectorAll('.cp-upload-icon,.cp-upload-text,.cp-upload-subtext').forEach(el => el.style.opacity = '1');
+                }
 
-        function cpPreviewImage(file) {
-            if (!['image/jpeg', 'image/jpg', 'image/png', 'image/webp'].includes(file.type)) {
-                alert('Use JPG, PNG ou WebP'); return;
-            }
-            const reader = new FileReader();
-            reader.onload = e => {
-                cpImagePreview.src = e.target.result;
-                cpImagePreview.style.display = 'block';
-                cpUploadArea.querySelectorAll('.cp-upload-icon,.cp-upload-text,.cp-upload-subtext').forEach(el => el.style.opacity = '0');
-            };
-            reader.readAsDataURL(file);
-        }
+                cpProductForm.addEventListener('submit', e => {
+                    const required = ['cp-nome', 'cp-preco', 'cp-categoria', 'cp-estoque'];
+                    const allFilled = required.every(id => document.getElementById(id).value.trim());
+                    if (!allFilled || !cpImageInput.files[0]) {
+                        e.preventDefault();
+                        alert('Preencha todos os campos obrigatórios (*)');
+                    }
+                });
+            </script>
 
-        function cpResetForm() {
-            cpProductForm.reset();
-            cpImagePreview.style.display = 'none';
-            cpUploadArea.querySelectorAll('.cp-upload-icon,.cp-upload-text,.cp-upload-subtext').forEach(el => el.style.opacity = '1');
-        }
-
-        cpProductForm.addEventListener('submit', e => {
-            const required = ['cp-nome', 'cp-preco', 'cp-categoria', 'cp-estoque'];
-            const allFilled = required.every(id => document.getElementById(id).value.trim());
-            if (!allFilled || !cpImageInput.files[0]) {
-                e.preventDefault();
-                alert('Preencha todos os campos obrigatórios (*)');
-            }
-        });
-    </script>
-
-</body>
+    </body>
 
 </html>

@@ -2,278 +2,290 @@
 <html lang="pt-br">
 
 <!-- HEAD -->
-  <%- include('./include/head.ejs',{pagina:"index"}) %>
-</head>
-<body>
-  
-  <!-- HEADER -->
-   <%- include('./include/header.ejs') %>
-  
-   <main>
-  <!-- BANNER PRINCIPAL -->
-  <section class="main-banner">
-    <img src="assets/imagem/imagem_maquiagem/banner_pascoa.jpg" alt="Banner principal" >
-  </section>
+<%- include('./include/head.ejs',{pagina:"index"}) %>
+  </head>
 
-  <!-- CARROSSEL DE CATEGORIAS -->
-  <section class="categories-carousel">
-      <section class="cabelo">
-        <h2>Cabelo</h2>
-        <a href="#">Veja Mais</a>
-      </section>
+  <body>
 
-      <section class="corpo">
-        <h2>Pele</h2>
-        <a href="#">Veja Mais</a>
-      </section>
+    <!-- HEADER -->
+    <%- include('./include/header.ejs') %>
 
-      <section class="banho">
-        
-        <h2>Banho</h2>
-        <a href="#">Veja Mais</a>
-      </section>
+      <main>
+        <!-- BANNER PRINCIPAL -->
+        <section class="main-banner">
+          <img src="assets/imagem/imagem_maquiagem/banner_pascoa.jpg" alt="Banner principal">
+        </section>
 
-      <section class="perfume">
-        <h2>Perfume</h2>
-        <a href="#">Veja Mais</a>
-      </section>
+        <!-- CARROSSEL DE CATEGORIAS -->
+        <section class="categories-carousel">
+          <section class="cabelo">
+            <h2>Cabelo</h2>
+            <a href="#">Veja Mais</a>
+          </section>
 
-      <section class="rosto">
-        <h2>Cuidados</h2>
-        <a href="#">Veja Mais</a>
-      </section>
-  </section>
+          <section class="corpo">
+            <h2>Pele</h2>
+            <a href="#">Veja Mais</a>
+          </section>
 
-  <!-- BANNER ROTATIVO -->
-  <section class="custom-carousel">
-    <div class="carousel-track">
-      <img src="assets/imagem/icons/Caju (1).png" alt="Banner 1">
-      <img src="assets/imagem/icons/sabonete.png" alt="Banner 2">
-      <img src="assets/imagem/icons/perfume segredos.png" alt="Banner 3">
-    </div>
-    <div class="carousel-dots">
-      <span class="dot active"></span>
-      <span class="dot"></span>
-      <span class="dot"></span>
-    </div>
-  </section>
+          <section class="banho">
 
-  <!-- DESCRIÇÃO + BOTÃO -->
-  <section class="description">
-    <h3>Descubra a verdadeira beleza com nossos produtos.</h3>
-    <!-- <a href="pagina.html" class="button">Conheça</a> -->
-  </section>
+            <h2>Banho</h2>
+            <a href="#">Veja Mais</a>
+          </section>
 
-  <!-- CARROSSEL DE PRODUTOS -->
-  <section class="card-container">
-    <!-- Cabelo -->
-     <% produtos.forEach(produto => { %>  
-      <section>
-        <header>
-          <img src="<%=produto.imagem%>" alt="<%=produto.nome%>">
-        </header>
-        <article>
-          <h2 class="card-title"><%=produto.nome%></h2>
-          <p class="card-text"><%=produto.descricao%></p>
-          <p class="card-price">
-             <span class="currency">R$</span> <%=produto.preco%>
-          </p>
-          <a href="#" class="card-button">Comprar</a>
-        </article>
-      </section>
-      <% }) %>
-  </section>
+          <section class="perfume">
+            <h2>Perfume</h2>
+            <a href="#">Veja Mais</a>
+          </section>
 
-    <!-- Seção de destaque -->
-<div class="dica-make">
-  <h2>Mais Vendidos</h2>
-</div>
-<div class="carousel-wrapper">
-  <button type="button" class="scroll-arrow left" onclick="scrollCards('left')">‹</button>
-  <div class="cards-container">
+          <section class="rosto">
+            <h2>Cuidados</h2>
+            <a href="#">Veja Mais</a>
+          </section>
+        </section>
 
-  <!-- Produto 1 -->
-  <div class="card-destaque">
-    <img class="img-fundo" src="assets/imagem/imagens_skin_care/emilia_clarke_1.webp" alt="Modelo com maquiagem">
-    <div class="maisvendidos">
-      <h3>Clinique iD</h3>
-      <!-- <img class="img-produto" src="assets/imagem/imagens_skin_care/clinique_id.jpg" alt="Produto 1"> -->
-      <p class="preco">R$ 20,90</p>
-      <button>Comprar</button>
-    </div>
-  </div>
+        <!-- BANNER ROTATIVO -->
+        <section class="custom-carousel">
+          <div class="carousel-track">
+            <img src="assets/imagem/icons/Caju (1).png" alt="Banner 1">
+            <img src="assets/imagem/icons/sabonete.png" alt="Banner 2">
+            <img src="assets/imagem/icons/perfume segredos.png" alt="Banner 3">
+          </div>
+          <div class="carousel-dots">
+            <span class="dot active"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+          </div>
+        </section>
 
-  <!-- Produto 2 -->
-  <div class="card-destaque">
-    <img class="img-fundo" src="assets/imagem/imagens_Cabelos/propagandaCachos.webp" alt="Modelo com maquiagem">
-    <div class="maisvendidos">
-      <h3>Salon Line</h3>
-      <!-- <img class="img-produto" src="assets/imagem/imagens_Cabelos/salonLine_coco.jpg" alt="Produto 2"> -->
-      <p class="preco">R$ 30,90</p>
-      <button>Comprar</button>
-    </div>
-  </div>
+        <!-- DESCRIÇÃO + BOTÃO -->
+        <section class="description">
+          <h3>Descubra a verdadeira beleza com nossos produtos.</h3>
+          <!-- <a href="pagina.html" class="button">Conheça</a> -->
+        </section>
 
-  <!-- Produto 3 -->
-  <div class="card-destaque">
-    <img class="img-fundo" src="assets/imagem/imagens_Perfumes/propagandaMalbec.jpg" alt="Modelo com maquiagem">
-    <div class="maisvendidos">
-      <h3>Malbec</h3>
-      <!-- <img class="img-produto" src="assets/imagem/imagem_perfume_masculino/malbecMarrom.webp" alt="Produto 3"> -->
-      <p class="preco">R$ 125,00</p>
-      <button>Comprar</button>
-    </div>
-  </div>
+        <!-- CARROSSEL DE PRODUTOS -->
+        <section class="card-container">
+          <!-- Cabelo -->
+          <% produtos.forEach(produto=> { %>
+            <section>
+              <header>
+                <img src="<%=produto.imagem%>" alt="<%=produto.nome%>">
+              </header>
+              <article>
+                <h2 class="card-title">
+                  <%=produto.nome%>
+                </h2>
+                <p class="card-text">
+                  <%=produto.descricao%>
+                </p>
+                <p class="card-price">
+                  <span class="currency">R$</span>
+                  <%=produto.preco%>
+                </p>
+                <a href="#" class="card-button">Comprar</a>
+              </article>
+            </section>
+            <% }) %>
+        </section>
 
-  <!-- Produto 4 -->
-  <div class="card-destaque">
-    <img class="img-fundo" src="assets/imagem/imagem_maquiagem/propagandaMaquiagem.jpg" alt="Modelo com perfume">
-    <div class="maisvendidos">
-      <h3>Dior</h3>
-      <!-- <img class="img-produto" src="assets/imagem/imagem_maquiagem/baseDior.jpg" alt="Produto 4"> -->
-      <p class="preco">R$ 150,90</p>
-      <button>Comprar</button>
-    </div>
-  </div>
+        <!-- Seção de destaque -->
+        <div class="dica-make">
+          <h2>Mais Vendidos</h2>
+        </div>
+        <div class="carousel-wrapper">
+          <button type="button" class="scroll-arrow left" onclick="scrollCards('left')">‹</button>
+          <div class="cards-container">
 
-  <!-- Produto 5 -->
-  <div class="card-destaque">
-    <img class="img-fundo" src="assets/imagem/imagens_Cabelos/jadePicon.jpg" alt="Modelo com creme">
-    <div class="maisvendidos">
-      <h3>Eudora</h3>
-      <!-- <img class="img-produto" src="assets/imagem/imagens_Cabelos/kitEudoraRoxo.webp" alt="Produto 5"> -->
-      <p class="preco">R$ 140,00</p>
-      <button>Comprar</button>
-    </div>
-  </div>
+            <!-- Produto 1 -->
+            <div class="card-destaque">
+              <img class="img-fundo" src="assets/imagem/imagens_skin_care/emilia_clarke_1.webp"
+                alt="Modelo com maquiagem">
+              <div class="maisvendidos">
+                <h3>Clinique iD</h3>
+                <!-- <img class="img-produto" src="assets/imagem/imagens_skin_care/clinique_id.jpg" alt="Produto 1"> -->
+                <p class="preco">R$ 20,90</p>
+                <button>Comprar</button>
+              </div>
+            </div>
 
-  </div>
-  <button type="button" class="scroll-arrow right" onclick="scrollCards('right')">›</button>
-</div>
+            <!-- Produto 2 -->
+            <div class="card-destaque">
+              <img class="img-fundo" src="assets/imagem/imagens_Cabelos/propagandaCachos.webp"
+                alt="Modelo com maquiagem">
+              <div class="maisvendidos">
+                <h3>Salon Line</h3>
+                <!-- <img class="img-produto" src="assets/imagem/imagens_Cabelos/salonLine_coco.jpg" alt="Produto 2"> -->
+                <p class="preco">R$ 30,90</p>
+                <button>Comprar</button>
+              </div>
+            </div>
 
-    <!-- Fim da seção -->
+            <!-- Produto 3 -->
+            <div class="card-destaque">
+              <img class="img-fundo" src="assets/imagem/imagens_Perfumes/propagandaMalbec.jpg"
+                alt="Modelo com maquiagem">
+              <div class="maisvendidos">
+                <h3>Malbec</h3>
+                <!-- <img class="img-produto" src="assets/imagem/imagem_perfume_masculino/malbecMarrom.webp" alt="Produto 3"> -->
+                <p class="preco">R$ 125,00</p>
+                <button>Comprar</button>
+              </div>
+            </div>
 
-    <!-- NAVBAR MOBILE -->
-<section class="mbl_navbar">
+            <!-- Produto 4 -->
+            <div class="card-destaque">
+              <img class="img-fundo" src="assets/imagem/imagem_maquiagem/propagandaMaquiagem.jpg"
+                alt="Modelo com perfume">
+              <div class="maisvendidos">
+                <h3>Dior</h3>
+                <!-- <img class="img-produto" src="assets/imagem/imagem_maquiagem/baseDior.jpg" alt="Produto 4"> -->
+                <p class="preco">R$ 150,90</p>
+                <button>Comprar</button>
+              </div>
+            </div>
 
-  <!-- MENU -->
-  <section class="mbl_nav_item" id="mbl_btn_menu">
-    <img src="assets/imagem/icons/menu.png" alt="">
-    <p>Menu</p>
-  </section>
+            <!-- Produto 5 -->
+            <div class="card-destaque">
+              <img class="img-fundo" src="assets/imagem/imagens_Cabelos/jadePicon.jpg" alt="Modelo com creme">
+              <div class="maisvendidos">
+                <h3>Eudora</h3>
+                <!-- <img class="img-produto" src="assets/imagem/imagens_Cabelos/kitEudoraRoxo.webp" alt="Produto 5"> -->
+                <p class="preco">R$ 140,00</p>
+                <button>Comprar</button>
+              </div>
+            </div>
 
-  <!-- BUSCAR -->
-   
-  <section class="mbl_nav_item" id="mbl_btn_search">
-    <img src="assets/imagem/icons/lupa.png" alt="lupa">
-    <p>Buscar</p>
-  </section>
+          </div>
+          <button type="button" class="scroll-arrow right" onclick="scrollCards('right')">›</button>
+        </div>
 
-  <!-- CARRINHO (DESTAQUE CENTRAL) -->
-  <section class="mbl_nav_item mbl_nav_cart" id="mbl_btn_cart">
-    <img src="assets/imagem/icons/sacola.png" alt="">
-    <p>Sacola</p>
-  </section>
+        <!-- Fim da seção -->
 
-  <!-- INICIO -->
-  <section class="mbl_nav_item" id="mbl_btn_user">
-    <img src="assets/imagem/icons/home3.png" alt="">
-    <p>Inicio</p>
-  </section>
-  <!-- PERFIL -->
-  <section class="mbl_nav_item" id="mbl_btn_menu2">
-   <img src="assets/imagem/icons/perfil.png" alt="">
-    <p>Perfil</p>
-  </section>
-  <!-- FILTRO
-  <section class="mbl_nav_item" id="mbl_btn_menu2">
-    <img src="assets/imagem/icons/filtro.png" alt="">
-    <p>Filtro</p>
-  </section> -->
+        <!-- NAVBAR MOBILE -->
+        <section class="mbl_navbar">
 
-</section> 
-</main>
-
-    <!-- FOOTER -->
-    <%- include('./include/footer.ejs') %>
-
-    <script>
-      const track = document.querySelector('.carousel-track');
-      const dots = document.querySelectorAll('.carousel-dots .dot');
-      const slides = track.children;
-      let current = 0;
-
-      function goToSlide(idx) {
-        track.style.transform = `translateX(-${idx * 73}%)`;
-        dots.forEach(dot => dot.classList.remove('active'));
-        dots[idx].classList.add('active');
-        current = idx;
-      }
-
-      dots.forEach((dot, idx) => {
-        dot.addEventListener('click', () => goToSlide(idx));
-      });
-
-      setInterval(() => {
-        let next = (current + 1) % slides.length;
-        goToSlide(next);
-      }, 3000);
-
-      goToSlide(0);
+          <!-- INICIO -->
+          <section class="mbl_nav_item" id="mbl_btn_user">
+            <img src="assets/imagem/icons/home3.png" alt="">
+            <p>Inicio</p>
+          </section>
 
 
-    </script>
+          <!-- BUSCAR -->
 
-<script>
-// Seção de destaque
-const botoes = document.querySelectorAll(".card button");
-  botoes.forEach(botao => {
-  botao.addEventListener("click", () => {
-    alert("Produto adicionado à sacola!");
-  });
-});
+          <section class="mbl_nav_item" id="mbl_btn_search">
+            <img src="assets/imagem/icons/lupa.png" alt="lupa">
+            <p>Buscar</p>
+          </section>
 
-// Função para rolar o carrossel
-function scrollCards(direction) {
-  const container = document.querySelector('.cards-container');
-  const scrollAmount = 370; // largura do card + gap
-  
-  if (direction === 'left') {
-    container.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
-  } else {
-    container.scrollBy({ left: scrollAmount, behavior: 'smooth' });
-  }
-}
-</script>
+          <!-- CARRINHO (DESTAQUE CENTRAL) -->
+          <section class="mbl_nav_item mbl_nav_cart" id="mbl_btn_cart">
+            <img src="assets/imagem/icons/sacola.png" alt="">
+            <p>Sacola</p>
+          </section>
 
-  <!-- NAVBAR MOBILE  -->
-<script>
-  // MENU
-  document.getElementById('mbl_btn_menu').addEventListener('click', () => {
-    document.getElementById('menu-hamburguer').click();
-  });
- 
-  // BUSCA
-document.getElementById('mbl_btn_search').addEventListener('click', (e) => {
-e.stopPropagation();
-lupaBtnImg.click();
-});
-  // PERFIL
-  document.getElementById('mbl_btn_menu2').addEventListener('click', () => {
-    document.querySelector('.user-icon').click();
-  });
- 
-  // CARRINHO
-  document.getElementById('mbl_btn_cart').addEventListener('click', () => {
-    document.querySelector('.cart-icon').click();
-  });
+          <!-- PERFIL -->
+          <section class="mbl_nav_item" id="mbl_btn_menu2">
+            <img src="assets/imagem/icons/perfil.png" alt="">
+            <p>Perfil</p>
+          </section>
+          <!-- FILTRO -->
+          <!-- <section class="mbl_nav_item" id="mbl_btn_menu2">
+            <img src="assets/imagem/icons/filtro.png" alt="">
+            <p>Filtro</p>
+          </section> -->
+          
+          <!-- MENU -->
+          <section class="mbl_nav_item" id="mbl_btn_menu">
+            <img src="assets/imagem/icons/menu.png" alt="">
+            <p>Menu</p>
+          </section>
 
-  // INICIO
-  document.getElementById('mbl_btn_user').addEventListener('click', () => {
-  document.querySelector('.logo').click(); // ajuste o seletor
-});
-</script>
-</body>
- 
+        </section>
+      </main>
+
+      <!-- FOOTER -->
+      <%- include('./include/footer.ejs') %>
+
+        <!-- Banner Carrocel -->
+        <script>
+          const track = document.querySelector('.carousel-track');
+          const dots = document.querySelectorAll('.carousel-dots .dot');
+          const slides = track.children;
+          let current = 0;
+
+          function goToSlide(idx) {
+            track.style.transform = `translateX(-${idx * 73}%)`;
+            dots.forEach(dot => dot.classList.remove('active'));
+            dots[idx].classList.add('active');
+            current = idx;
+          }
+
+          dots.forEach((dot, idx) => {
+            dot.addEventListener('click', () => goToSlide(idx));
+          });
+
+          setInterval(() => {
+            let next = (current + 1) % slides.length;
+            goToSlide(next);
+          }, 3000);
+
+          goToSlide(0);
+
+
+        </script>
+
+        <!-- Seção de Mais Vendidos -->
+        <script>
+          const botoes = document.querySelectorAll(".card button");
+          botoes.forEach(botao => {
+            botao.addEventListener("click", () => {
+              alert("Produto adicionado à sacola!");
+            });
+          });
+
+          // Função para rolar o carrossel
+          function scrollCards(direction) {
+            const container = document.querySelector('.cards-container');
+            const scrollAmount = 370; // largura do card + gap
+
+            if (direction === 'left') {
+              container.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+            } else {
+              container.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+            }
+          }
+        </script>
+
+        <!-- NAVBAR MOBILE  -->
+        <script>
+          // MENU
+          document.getElementById('mbl_btn_menu').addEventListener('click', () => {
+            document.getElementById('menu-hamburguer').click();
+          });
+
+          // BUSCA
+          document.getElementById('mbl_btn_search').addEventListener('click', (e) => {
+            e.stopPropagation();
+            lupaBtnImg.click();
+          });
+          // PERFIL
+          document.getElementById('mbl_btn_menu2').addEventListener('click', () => {
+            document.querySelector('.user-icon').click();
+          });
+
+          // CARRINHO
+          document.getElementById('mbl_btn_cart').addEventListener('click', () => {
+            document.querySelector('.cart-icon').click();
+          });
+
+          // INICIO
+          document.getElementById('mbl_btn_user').addEventListener('click', () => {
+            document.querySelector('.logo').click(); // ajuste o seletor
+          });
+        </script>
+  </body>
+
 </html>
- 
