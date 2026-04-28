@@ -1,160 +1,54 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-
 <%- include('./include/head.ejs', {pagina:"cadastro"}) %>
 </head>
 
-<%- include('./include/header.ejs') %>
+  <%- include('./include/header.ejs') %>
 
-<main>
-<section class="cadastro-section">
+    <main>
+      <section class="cadastro-section">
 
-<h1>Crie sua conta</h1>
+        <h1>Crie sua conta</h1>
 
+        <form action="/cadastro" method="post" class="cadastro-form">
 
-<form action="/cadastro" method="post" class="cadastro-form">
+          <div class="form-group">
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome" name="nome" placeholder=" " required>
+            <span id="nome-error" style="color:red; display:none;">
+              Nome deve ter pelo menos 3 caracteres.
+            </span>
+          </div>
 
-<div class="form-group">
-  <label for="nome">Nome:</label>
-  <input type="text" id="nome" name="nome" placeholder=" " required>
-  <span id="nome-error" style="color:red; display:none;">
-  Nome deve ter pelo menos 3 caracteres.
-  </span>
-</div>
+          <div class="form-group">
+            <label for="emailTeste">Email:</label>
+            <input type="email" id="emailTeste" name="email" placeholder=" " required>
+            <span id="email-error" style="color:red; display:none;">
+              Email inválido.
+            </span>
+          </div>
 
-<div class="form-group">
-  <label for="emailTeste">Email:</label>
-  <input type="email" id="emailTeste" name="email" placeholder=" " required>
-  <span id="email-error" style="color:red; display:none;">
-  Email inválido.
-  </span>
-</div>
+          <div class="form-group">
+            <input type="password" id="senha" name="senha" placeholder=" " required>
+            <label for="senha">Senha:</label>
 
-<div class="form-group">
-  <input type="password" id="senha" name="senha" placeholder=" " required>
-  <label for="senha">Senha:</label>
+            <ul id="senha-requisitos">
+              <li id="req-length" class="invalid">Pelo menos 8 caracteres</li>
+              <li id="req-case" class="invalid">Uma letra maiúscula e uma minúscula</li>
+              <li id="req-number" class="invalid">Pelo menos um número</li>
+              <li id="req-special" class="invalid">Pelo menos um caractere especial</li>
+            </ul>
 
-<ul id="senha-requisitos">
-<li id="req-length" class="invalid">Pelo menos 8 caracteres</li>
-<li id="req-case" class="invalid">Uma letra maiúscula e uma minúscula</li>
-<li id="req-number" class="invalid">Pelo menos um número</li>
-<li id="req-special" class="invalid">Pelo menos um caractere especial</li>
-</ul>
+          </div>
 
-</div>
+          <button type="submit" class="btn-cadastro">Cadastrar</button>
 
-<button type="submit" class="btn-cadastro">Cadastrar</button>
+        </form>
+      </section>
+    </main>
 
-</form>
-</section>
-</main>
+    <!-- FOOTER -->
+    <%- include('./include/footer.ejs') %>
+    <script src="/assets/js/validacoes.js"></script>
 
-<!-- FOOTER -->
-<%- include('./include/footer.ejs') %>
-<script src="/assets/js/validacoes.js"></script>
+  </body>
 
-<!-- <script>
-const validacao = () => {
-  // Executa somente após o DOM estar carregado
-  document.addEventListener("DOMContentLoaded", function () {
-    const form = document.querySelector(".cadastro-form")
-    if (!form) return
-
-    const inputNome = querySelector("#nome")
-    const inputEmail = querySelector("#email")
-    const inputSenha = querySelector("#senha")
-    const listaRequisitos = querySelector("#senha-requisitos")
-
-    const nomeError = querySelector("#nome-error")
-    const emailError = querySelector("#email-error")
-
-    const senhaRequisitos = {
-      length: querySelector("#req-length"),
-      case: querySelector("#req-case"),
-      number: querySelector("#req-number"),
-      special: querySelector("#req-special"),
-    }
-
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-
-
-    const marcarValido = (input) => {
-      if (!input) return
-      input.classList.remove("input-invalido")
-      input.classList.add("input-valido")
-    }
-
-    const marcarInvalido = (input) => {
-      if (!input) return
-      input.classList.remove("input-valido")
-      input.classList.add("input-invalido")
-    }
-
-    const setDisplay = (el, show) => {
-      if (!el) return
-      el.style.display = show ? "" : "none"
-    }
-
-    if (inputNome) {
-      inputNome.addEventListener("input", () => {
-        const valido = inputNome.value.trim().length >= 3
-        setDisplay(nomeError, !valido)
-        valido ? marcarValido(inputNome) : marcarInvalido(inputNome)
-      })
-    }
-
-    if (inputEmail) {
-      inputEmail.addEventListener("input", () => {
-        const valor = inputEmail.value.trim()
-        const valido = emailRegex.test(valor)
-        setDisplay(emailError, !valido)
-        valido ? marcarValido(inputEmail) : marcarInvalido(inputEmail)
-      })
-    }
-
-    if (inputSenha) {
-      inputSenha.addEventListener("input", () => {
-        const valor = inputSenha.value
-      // ATIVAR REQUISIÇÕES DE SENHA
-      if(valor.length > 0){
-      listaRequisitos.classList.add("ativo")
-      }else{
-      listaRequisitos.classList.remove("ativo")
-      }
-        const lengthOk = valor.length >= 8
-        const caseOk = /[A-Z]/.test(valor) && /[a-z]/.test(valor)
-        const numberOk = /\d/.test(valor)
-        const specialOk = /[~!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?]/.test(valor)
-
-        if (senhaRequisitos.length) {
-          senhaRequisitos.length.classList.toggle("valid", lengthOk)
-          senhaRequisitos.length.classList.toggle("invalid", !lengthOk)
-        }
-
-        if (senhaRequisitos.case) {
-          senhaRequisitos.case.classList.toggle("valid", caseOk)
-          senhaRequisitos.case.classList.toggle("invalid", !caseOk)
-        }
-
-        if (senhaRequisitos.number) {
-          senhaRequisitos.number.classList.toggle("valid", numberOk)
-          senhaRequisitos.number.classList.toggle("invalid", !numberOk)
-        }
-
-        if (senhaRequisitos.special) {
-          senhaRequisitos.special.classList.toggle("valid", specialOk)
-          senhaRequisitos.special.classList.toggle("invalid", !specialOk)
-        }
-
-        const senhaValida = lengthOk && caseOk && numberOk && specialOk
-        senhaValida ? marcarValido(inputSenha) : marcarInvalido(inputSenha)
-      })
-    }
-  })
-}
-
-validacao();
-</script> -->
-
-</body>
 </html>

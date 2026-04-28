@@ -1,45 +1,40 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-
-<!-- HEAD -->
-  <%- include('./include/head.ejs', {pagina:"vertudo"}) %>
-  <link rel="stylesheet" href="/assets/css/card.css" />
-
+<%- include('./include/head.ejs', {pagina:"vertudo"}) %>
+<link rel="stylesheet" href="/assets/css/card.css" />
 </head>
 
   <body data-page="vertudo">
     <!-- HEADER -->
     <%- include('./include/header.ejs') %>
 
-      <main>
+    <main>
 
-        <section class="card-container">
-          <!-- Cabelo -->
-          <% produtos.forEach(produto=> { %>
-            <section>
-              <header>
-                <img src="<%=produto.imagem%>" alt="<%=produto.nome%>">
-              </header>
-              <article>
-                <h2 class="card-title">
-                  <%=produto.nome%>
-                </h2>
-                <p class="card-text">
-                  <%=produto.descricao%>
-                </p>
-                <p class="card-price">
-                  <span class="currency">R$</span>
-                  <%=produto.preco%>
-                </p>
-                <a href="#" class="card-button">Comprar</a>
-              </article>
-            </section>
-            <% }) %>
-        </section>
-      </main>
+      <section class="card-container">
+        <!-- Cabelo -->
+        <% produtos.forEach(produto=> { %>
+          <section>
+            <header>
+              <img src="<%=produto.imagem%>" alt="<%=produto.nome%>">
+            </header>
+            <article>
+              <h2 class="card-title">
+                <%=produto.nome%>
+              </h2>
+              <p class="card-text">
+                <%=produto.descricao%>
+              </p>
+              <p class="card-price">
+                <span class="currency">R$</span>
+                <%=produto.preco%>
+              </p>
+              <a href="#" class="card-button">Comprar</a>
+            </article>
+          </section>
+          <% }) %>
+      </section>
+    </main>
 
       <!-- FOOTER -->
-      <%- include('./include/footer.ejs') %>
+    <%- include('./include/footer.ejs') %>
 
   </body>
 
