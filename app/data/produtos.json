@@ -6,7 +6,8 @@
     "descricao": "ROSA",
     "imagem": "/assets/imagem/produtos/1775601386140-gel_modelador_sobrancelha.webp",
     "estoque": "50",
-    "categoria": "cuidados_pessoais"
+    "categoria": "cuidados-pessoais", 
+    "subcategoria": "rosto"
   },
   {
     "id": 3,
@@ -15,7 +16,8 @@
     "descricao": "Depilatório",
     "imagem": "/assets/imagem/produtos/1774478989166-Batom_LÃ­quido_ruby_rose.webp",
     "estoque": "50",
-    "categoria": "maquiagens"
+    "categoria": "maquiagens", 
+    "subcategoria": "batom"
   },
   {
     "id": 4,
@@ -24,7 +26,8 @@
     "descricao": "rosto",
     "imagem": "/assets/imagem/produtos/1774479032928-gel_de_limpeza_principia.webp",
     "estoque": "50",
-    "categoria": "banho"
+    "categoria": "skin-care", 
+    "subcategoria": "rosto"
   },
   {
     "id": 5,
@@ -33,7 +36,8 @@
     "descricao": "cabelo",
     "imagem": "/assets/imagem/produtos/1774480256027-kitEudoraRoxo.webp",
     "estoque": "100",
-    "categoria": "cabelos"
+    "categoria": "cabelos", 
+    "subcategoria": "hidratacao"
   },
   {
     "id": 6,
@@ -42,7 +46,8 @@
     "descricao": "corpo",
     "imagem": "/assets/imagem/produtos/1774480310907-oleopaixao.webp",
     "estoque": "100",
-    "categoria": "cuidados_pessoais"
+    "categoria": "cuidados-pessoais", 
+    "subcategoria": ""
   },
   {
     "id": 8,
@@ -51,7 +56,8 @@
     "descricao": "rosto",
     "imagem": "/assets/imagem/produtos/1774543569820-natura_homem_evolut.io.webp",
     "estoque": "100",
-    "categoria": "perfumes"
+    "categoria": "perfumes", 
+    "subcategoria": "perfume-masculino"
   },
   {
     "id": 15,
@@ -60,7 +66,8 @@
     "descricao": "10",
     "imagem": "/assets/imagem/produtos/1775523448255-esponja_base_corretivo.webp",
     "estoque": "10",
-    "categoria": "maquiagens"
+    "categoria": "maquiagens", 
+    "subcategoria": ""
   },
   {
     "id": 16,
@@ -69,7 +76,8 @@
     "descricao": "10",
     "imagem": "/assets/imagem/produtos/1775692987556-glamourSecrets.webp",
     "estoque": "10",
-    "categoria": "perfumes"
+    "categoria": "perfumes", 
+    "subcategoria": "perfume-feminino"
   },
   {
     "id": 17,
@@ -78,7 +86,8 @@
     "descricao": "10",
     "imagem": "/assets/imagem/produtos/1775694127287-widi-care-juba-kit-leave-in-mascara-geleia-shampoo.webp",
     "estoque": "10",
-    "categoria": "cabelos"
+    "categoria": "cabelos", 
+    "subcategoria": ""
   },
   {
     "id": 18,
@@ -87,7 +96,8 @@
     "descricao": "10",
     "imagem": "/assets/imagem/produtos/1775692987556-glamourSecrets.webp",
     "estoque": "10",
-    "categoria": "perfumes"
+    "categoria": "perfumes", 
+    "subcategoria": "perfume-feminino"
   },
   {
     "id": 19,
@@ -96,7 +106,8 @@
     "descricao": "10",
     "imagem": "/assets/imagem/produtos/1775692987556-glamourSecrets.webp",
     "estoque": "10",
-    "categoria": "perfumes"
+    "categoria": "perfumes", 
+    "subcategoria": "perfume-feminino"
   },
   {
     "id": 20,
@@ -105,7 +116,8 @@
     "descricao": "10",
     "imagem": "/assets/imagem/produtos/1775692987556-glamourSecrets.webp",
     "estoque": "10",
-    "categoria": "perfumes"
+    "categoria": "perfumes", 
+    "subcategoria": "perfume-feminino"
   },
   {
     "id": 21,
@@ -114,7 +126,8 @@
     "descricao": "Natura",
     "imagem": "/assets/imagem/produtos/1775697036236-cremeCorporal.webp",
     "estoque": "10",
-    "categoria": "cuidados_pessoais"
+    "categoria": "cuidados-pessoais", 
+    "subcategoria": ""
   },
   {
     "id": 22,
@@ -123,7 +136,8 @@
     "descricao": "principia",
     "imagem": "/assets/imagem/produtos/1775697085926-gel_de_limpeza_principia.webp",
     "estoque": "10",
-    "categoria": "cuidados_pessoais"
+    "categoria": "cuidados-pessoais", 
+    "subcategoria": ""
   },
   {
     "id": 23,
@@ -132,7 +146,8 @@
     "descricao": "granado",
     "imagem": "/assets/imagem/produtos/1775697142690-granado.webp",
     "estoque": "10",
-    "categoria": "cuidados_pessoais"
+    "categoria": "cuidados-pessoais", 
+    "subcategoria": ""
   },
   {
     "id": 24,
@@ -141,7 +156,8 @@
     "descricao": "active",
     "imagem": "/assets/imagem/produtos/1775697245739-protetor_solar_cores.webp",
     "estoque": "10",
-    "categoria": "cuidados_pessoais"
+    "categoria": "cuidados-pessoais", 
+    "subcategoria": ""
   },
   {
     "id": 25,
@@ -150,7 +166,8 @@
     "descricao": "Cor 4",
     "imagem": "/assets/imagem/produtos/1775697811734-base_boca_rosa.webp",
     "estoque": "10",
-    "categoria": "maquiagens"
+    "categoria": "maquiagens", 
+    "subcategoria": ""
   },
   {
     "id": 26,
@@ -159,7 +176,8 @@
     "descricao": "creamy",
     "imagem": "/assets/imagem/produtos/1775698016770-16344540.webp",
     "estoque": "10",
-    "categoria": "skin_care"
+    "categoria": "skin-care", 
+    "subcategoria": ""
   },
   {
     "id": 27,
@@ -168,7 +186,8 @@
     "descricao": "10",
     "imagem": "/assets/imagem/produtos/1776381930133-inoar-meu-cacho-meu-crush.webp",
     "estoque": "10",
-    "categoria": "cuidados_pessoais"
+    "categoria": "cuidados-pessoais", 
+    "subcategoria": ""
   },
   {
     "id": 28,
@@ -177,6 +196,1707 @@
     "descricao": "10",
     "imagem": "/assets/imagem/produtos/1776471282252-vf_golden.webp",
     "estoque": "10",
-    "categoria": "perfumes_feminino"
+    "categoria": "perfumes-feminino", 
+    "subcategoria": ""
+  },
+   {
+    "id": 29,
+    "nome": "212 Vip Rose",
+    "preco": "539.90",
+    "descricao": "80ml Carolina Herrera",
+    "imagem": "/assets/imagem/imagem_perfume_masculino/aire.webp",
+    "estoque": "50",
+    "categoria": "perfume",
+    "subcategoria": "perfume-masculino"
+  },
+  {
+    "id": 30,
+    "nome": "Body Splash",
+    "preco": "70.98",
+    "descricao": "250ml Vitoria Secret",
+    "imagem": "/assets/imagem/imagem_perfume_masculino/Arbo_Puro_Boticario.jpg",
+    "estoque": "50",
+    "categoria": "perfume",
+    "subcategoria": "perfume-masculino"
+  },
+  {
+    "id": 31,
+    "nome": "Invictus",
+    "preco": "389.99",
+    "descricao": "120ml Paco Rabanne Eau De Toilette Masculino",
+    "imagem": "/assets/imagem/imagens_Perfumes/Invictus_paco_rabanne.webp",
+    "estoque": "50",
+    "categoria": "perfume",
+    "subcategoria": "perfume-masculino"
+  },
+  {
+    "id": 32,
+    "nome": "1 Million",
+    "preco": "439.63",
+    "descricao": "120ml Masculino Eau de Toilette",
+    "imagem": "/assets/imagem/imagens_perfumes/paco_rabanne.webp",
+    "estoque": "50",
+    "categoria": "perfume",
+    "subcategoria": "perfume-masculino"
+  },
+  {
+    "id": 33,
+    "nome": "Uomini",
+    "preco": "194.90",
+    "descricao": "Desodorante Colônia OBoticário 100ml",
+    "imagem": "/assets/imagem/imagens_perfumes/uomini.webp",
+    "estoque": "50",
+    "categoria": "perfume",
+    "subcategoria": "perfume-masculino"
+  },
+  {
+    "id": 34,
+    "nome": "Insensatez",
+    "preco": "159.90",
+    "descricao": "Desodorante Colônia OBoticário 100ml",
+    "imagem": "/assets/imagem/imagens_Perfumes/insensatez_oboticario.jpg",
+    "estoque": "50",
+    "categoria": "perfume",
+    "subcategoria": "perfume-masculino"
+  },
+  {
+    "id": 35,
+    "nome": "Kaiak",
+    "preco": "111.50",
+    "descricao": "Kaiak Mascolino 100ml",
+    "imagem": "/assets/imagem/imagem_perfume_masculino/kaiak.jpeg",
+    "estoque": "50",
+    "categoria": "perfume",
+    "subcategoria": "perfume-masculino"
+  },
+  {
+    "id": 36,
+    "nome": "Coffee Man Addictive",
+    "preco": "109.00",
+    "descricao": "colonia 100 ml",
+    "imagem": "/assets/imagem/imagem_perfume_masculino/coffee_man_addictive.jpg",
+    "estoque": "50",
+    "categoria": "perfume",
+    "subcategoria": "perfume-masculino"
+  },
+  {
+    "id": 37,
+    "nome": "Naturé Mocinhos",
+    "preco": "78.90",
+    "descricao": "100ml",
+    "imagem": "/assets/imagem/imagens_perfumes_infantil/naturé_mocinhos.webp",
+    "estoque": "50",
+    "categoria": "perfume",
+    "subcategoria": "perfume-infantil"
+  },
+  {
+    "id": 38,
+    "nome": "Naturé Mocinhas",
+    "preco": "79.90",
+    "descricao": "100ml",
+    "imagem": "/assets/imagem/imagens_perfumes_infantil/naturé_mocinhas.jpg",
+    "estoque": "50",
+    "categoria": "perfume",
+    "subcategoria": "perfume-infantil"
+  },
+  {
+    "id": 39,
+    "nome": "Naturé",
+    "preco": "42.30",
+    "descricao": "100ml",
+    "imagem": "/assets/imagem/imagens_perfumes_infantil/naturé_corre_corre.jpg",
+    "estoque": "50",
+    "categoria": "perfume",
+    "subcategoria": "perfume-infantil"
+  },
+  {
+    "id": 40,
+    "nome": "Ma Chérie OBoticário",
+    "preco": "149.90",
+    "descricao": "100ml",
+    "imagem": "/assets/imagem/imagens_perfumes_infantil/maChérie_boticario.webp",
+    "estoque": "50",
+    "categoria": "perfume",
+    "subcategoria": "perfume-infantil"
+  },
+  {
+    "id": 41,
+    "nome": "Colônia Johnson's Baby Lavanda",
+    "preco": "26.50",
+    "descricao": "200ml",
+    "imagem": "/assets/imagem/imagens_perfumes_infantil/johnson&johnson.webp",
+    "estoque": "50",
+    "categoria": "perfume",
+    "subcategoria": "perfume-infantil"
+  },
+  {
+    "id": 42,
+    "nome": "Colônia Granado Tradicional",
+    "preco": "69.90",
+    "descricao": "100ml",
+    "imagem": "/assets/imagem/imagens_perfumes_infantil/granado_colonia_bebe.webp",
+    "estoque": "50",
+    "categoria": "perfume",
+    "subcategoria": "perfume-infantil"
+  },
+  {
+    "id": 43,
+    "nome": "Colônia Infantil Baby Boti Nana Neném",
+    "preco": "93.90",
+    "descricao": "100ml",
+    "imagem": "/assets/imagem/imagens_perfumes_infantil/boti_nana_neném.webp",
+    "estoque": "50",
+    "categoria": "perfume",
+    "subcategoria": "perfume-infantil"
+  },
+  {
+    "id": 44,
+    "nome": "Colônia Mamãe e Bebê",
+    "preco": "105.90",
+    "descricao": "100ml",
+    "imagem": "/assets/imagem/imagens_perfumes_infantil/50289306-eau-de-toilette-mmbb-100ml-300x300.jpg",
+    "estoque": "50",
+    "categoria": "perfume",
+    "subcategoria": "perfume-infantil"
+  },
+  {
+    "id": 45,
+    "nome": "Humor Liberta",
+    "preco": "108.40",
+    "descricao": "75ml Natura",
+    "imagem": "/assets/imagem/imagens_reconstrucao/forever_liss_repair.png",
+    "estoque": "50",
+    "categoria": "cabelo",
+    "subcategoria": "hidratacao"
+  },
+  {
+    "id": 46,
+    "nome": "212 Vip Rose",
+    "preco": "539.90",
+    "descricao": "80ml Carolina Herrera",
+    "imagem": "/assets/imagem/imagens_hidratacao/forever_liss_banho_de_verniz.webp",
+    "estoque": "50",
+    "categoria": "cabelo",
+    "subcategoria": "hidratacao"
+  },
+  {
+    "id": 47,
+    "nome": "Body Splash",
+    "preco": "70.98",
+    "descricao": "250ml Vitoria Secret",
+    "imagem": "/assets/imagem/imagens_hidratacao/hidra_nutre.webp",
+    "estoque": "50",
+    "categoria": "cabelo",
+    "subcategoria": "hidratacao"
+  },
+  {
+    "id": 48,
+    "nome": "Invictus",
+    "preco": "389.99",
+    "descricao": "120ml Paco Rabanne Eau De Toilette Masculino",
+    "imagem": "/assets/imagem/imagens_hidratacao/kit_adormece_cabelo.webp",
+    "estoque": "50",
+    "categoria": "cabelo",
+    "subcategoria": "hidratacao"
+  },
+  {
+    "id": 49,
+    "nome": "1 Million",
+    "preco": "439.63",
+    "descricao": "120ml Masculino Eau de Toilette",
+    "imagem": "/assets/imagem/imagens_hidratacao/kit_ahazo.jfif",
+    "estoque": "50",
+    "categoria": "cabelo",
+    "subcategoria": "hidratacao"
+  },
+  {
+    "id": 50,
+    "nome": "Uomini",
+    "preco": "194.90",
+    "descricao": "Desodorante Colônia OBoticário 100ml",
+    "imagem": "/assets/imagem/imagens_hidratacao/l'oreal_elseve.webp",
+    "estoque": "50",
+    "categoria": "cabelo",
+    "subcategoria": "hidratacao"
+  },
+  {
+    "id": 51,
+    "nome": "Insensatez",
+    "preco": "159.90",
+    "descricao": "Desodorante Colônia OBoticário 100ml",
+    "imagem": "/assets/imagem/imagens_hidratacao/pantene_3minuts_milagrosos_hidratação.webp",
+    "estoque": "50",
+    "categoria": "cabelo",
+    "subcategoria": "hidratacao"
+  },
+  {
+    "id": 52,
+    "nome": "Boti Baby",
+    "preco": "73.90",
+    "descricao": "Colônia do Sol 120ml",
+    "imagem": "/assets/imagem/imagens_hidratacao/kit_aneethun.png",
+    "estoque": "50",
+    "categoria": "cabelo",
+    "subcategoria": "hidratacao"
+  },
+  {
+    "id": 53,
+    "nome": "Essencial",
+    "preco": "167.00",
+    "descricao": "Oud Feminino 100 ml",
+    "imagem": "/assets/imagem/imagens_hidratacao/vult_cabelos.webp",
+    "estoque": "50",
+    "categoria": "cabelo",
+    "subcategoria": "hidratacao"
+  },
+  {
+    "id": 54,
+    "nome": "Boca Rosa By Payout - Base Mate",
+    "preco": "61.50",
+    "descricao": "30ml",
+    "imagem": "/assets/imagem/imagens_reconstrucao/forever_liss_repair.png",
+    "estoque": "50",
+    "categoria": "cabelo",
+    "subcategoria": "reconstrucao"
+  },
+  {
+    "id": 55,
+    "nome": "Corretivo Mari Maria Cover Up 02",
+    "preco": "49.90",
+    "descricao": "40ml",
+    "imagem": "/assets/imagem/imagens_reconstrucao/hobety_restore.jfif",
+    "estoque": "50",
+    "categoria": "cabelo",
+    "subcategoria": "reconstrucao"
+  },
+  {
+    "id": 56,
+    "nome": "Paleta Trio de Blush My Secret - Dalla",
+    "preco": "30.00",
+    "descricao": "10g",
+    "imagem": "/assets/imagem/imagens_reconstrucao/kint_haskell_benaneira.webp",
+    "estoque": "50",
+    "categoria": "cabelo",
+    "subcategoria": "reconstrucao"
+  },
+  {
+    "id": 57,
+    "nome": "Gel Modelador De Sobrancelhas Melu By Ruby Rose",
+    "preco": "28.99",
+    "descricao": "20g",
+    "imagem": "/assets/imagem/imagens_reconstrucao/kit_os_quimica.webp",
+    "estoque": "50",
+    "categoria": "cabelo",
+    "subcategoria": "reconstrucao"
+  },
+  {
+    "id": 58,
+    "nome": "Kit 4 Rímel à Prova Dágua The Colossal Volume e Curve Febella",
+    "preco": "49.97",
+    "descricao": "60ml",
+    "imagem": "/assets/imagem/imagens_reconstrucao/prohall_select_care_shampoo.webp",
+    "estoque": "50",
+    "categoria": "cabelo",
+    "subcategoria": "reconstrucao"
+  },
+  {
+    "id": 59,
+    "nome": "Makeup Brush Blush",
+    "preco": "49.90",
+    "descricao": "BR006",
+    "imagem": "/assets/imagem/imagens_reconstrucao/toda_toda_reconstrução.jfif",
+    "estoque": "50",
+    "categoria": "cabelo",
+    "subcategoria": "reconstrucao"
+  },
+  {
+    "id": 60,
+    "nome": "Pincel para Base e Corretivo",
+    "preco": "39.90",
+    "descricao": "BR002",
+    "imagem": "/assets/imagem/imagens_reconstrucao/treatment_amazon.webp",
+    "estoque": "50",
+    "categoria": "cabelo",
+    "subcategoria": "reconstrucao"
+  },
+  {
+    "id": 61,
+    "nome": "Pincel para Contorno",
+    "preco": "44.90",
+    "descricao": "BR004",
+    "imagem": "/assets/imagem/imagens_reconstrucao/wella_ultimate_repair.png",
+    "estoque": "50",
+    "categoria": "cabelo",
+    "subcategoria": "reconstrucao"
+  },
+  {
+    "id": 62,
+    "nome": "Esponja Corretivo / Base",
+    "preco": "11.25",
+    "descricao": "Sabrina Sato",
+    "imagem": "/assets/imagem/imagens_reconstrucao/bananeira_geo.jpg",
+    "estoque": "50",
+    "categoria": "cabelo",
+    "subcategoria": "reconstrucao"
+  },
+  {
+    "id": 63,
+    "nome": "Esponja e Pó Soltoy",
+    "preco": "10.99",
+    "descricao": "Niina Secrets",
+    "imagem": "/assets/imagem/imagens_reconstrucao/forever_liss_repair.png",
+    "estoque": "50",
+    "categoria": "cabelo",
+    "subcategoria": "reconstrucao"
+  },
+  {
+    "id": 64,
+    "nome": "Cera Depil Bella Micro-ondas Maracujá",
+    "preco": "30.00",
+    "descricao": "200g",
+    "imagem": "/assets/imagem/imagens_depilacao/ceraFria.webp",
+    "estoque": "50",
+    "categoria": "cuidados-pessoais",
+    "subcategoria": "depilacao"
+  },
+  {
+    "id": 65,
+    "nome": "Creme Depilatorio Depilbella Facial Petalas",
+    "preco": "14.79",
+    "descricao": "40G",
+    "imagem": "/assets/imagem/imagens_depilacao/cremeRosto.jfif",
+    "estoque": "50",
+    "categoria": "cuidados-pessoais",
+    "subcategoria": "depilacao"
+  },
+  {
+    "id": 66,
+    "nome": "Cera depilatória Hidrossolúvel",
+    "preco": "26.12",
+    "descricao": "600g - Algodão Doce",
+    "imagem": "/assets/imagem/imagens_depilacao/ceraFriaAlg_Doce.jfif",
+    "estoque": "50",
+    "categoria": "cuidados-pessoais",
+    "subcategoria": "depilacao"
+  },
+  {
+    "id": 67,
+    "nome": "Cera Depilatória Quente",
+    "preco": "39.90",
+    "descricao": "1kg - Camomila com Calêndula",
+    "imagem": "/assets/imagem/imagens_depilacao/ceraGrande.jfif",
+    "estoque": "50",
+    "categoria": "cuidados-pessoais",
+    "subcategoria": "depilacao"
+  },
+  {
+    "id": 68,
+    "nome": "Folhas Prontas Depilflax Para Depilação Corporal",
+    "preco": "24.50",
+    "descricao": "20F - Morango",
+    "imagem": "/assets/imagem/imagens_depilacao/folhasProntas.webp",
+    "estoque": "50",
+    "categoria": "cuidados-pessoais",
+    "subcategoria": "depilacao"
+  },
+  {
+    "id": 69,
+    "nome": "Gel Hidratante Calmante Depil Bella",
+    "preco": "44.99",
+    "descricao": "250g - Camomila",
+    "imagem": "/assets/imagem/imagens_depilacao/gelCalmante.jfif",
+    "estoque": "50",
+    "categoria": "cuidados-pessoais",
+    "subcategoria": "depilacao"
+  },
+  {
+    "id": 70,
+    "nome": "Loção Adstringente Hortelã",
+    "preco": "33.70",
+    "descricao": "500ml",
+    "imagem": "/assets/imagem/imagens_depilacao/oleoRemovedor.jfif",
+    "estoque": "50",
+    "categoria": "cuidados-pessoais",
+    "subcategoria": "depilacao"
+  },
+  {
+    "id": 71,
+    "nome": "Palito Depilação Zalike",
+    "preco": "10.99",
+    "descricao": "500un",
+    "imagem": "/assets/imagem/imagens_depilacao/palitos.jfif",
+    "estoque": "50",
+    "categoria": "cuidados-pessoais",
+    "subcategoria": "depilacao"
+  },
+  {
+    "id": 72,
+    "nome": "Depil Bella Lenço para Depilação",
+    "preco": "28.90",
+    "descricao": "100 Lenços Brancos",
+    "imagem": "/assets/imagem/imagens_depilacao/papelDep.jfif",
+    "estoque": "50",
+    "categoria": "cuidados-pessoais",
+    "subcategoria": "depilacao"
+  },
+  {
+    "id": 73,
+    "nome": "Loção Higienizante Pré Depilação Óleo Essencial Lavanda e Melaleuca",
+    "preco": "60.90",
+    "descricao": "500ml",
+    "imagem": "/assets/imagem/imagens_depilacao/preDep_higienizacao.jfif",
+    "estoque": "50",
+    "categoria": "cuidados-pessoais",
+    "subcategoria": "depilacao"
+  },
+  {
+    "id": 74,
+    "nome": "Nivea Sabonete Líquido Intimo Suave",
+    "preco": "20.19",
+    "descricao": "250ml",
+    "imagem": "/assets/imagem/imagens_Cuidados_Pessoais/nivea-sabonete-intimo.webp",
+    "estoque": "50",
+    "categoria": "cuidados-pessoais",
+    "subcategoria": "higiene-intima"
+  },
+  {
+    "id": 75,
+    "nome": "Cotton Toalhas Umedecidas",
+    "preco": "19.99",
+    "descricao": "16 Unidades",
+    "imagem": "/assets/imagem/imagens_higiene_intima/cotton_toalhas_umedecidas.jpeg",
+    "estoque": "50",
+    "categoria": "cuidados-pessoais",
+    "subcategoria": "higiene-intima"
+  },
+  {
+    "id": 76,
+    "nome": "Higi Intima Clareador",
+    "preco": "74.80",
+    "descricao": "50ml",
+    "imagem": "/assets/imagem/imagens_higiene_intima/higi_intima_clareador.png",
+    "estoque": "50",
+    "categoria": "cuidados-pessoais",
+    "subcategoria": "higiene-intima"
+  },
+  {
+    "id": 77,
+    "nome": "Protect Gel Higiene Intima Calameente",
+    "preco": "65.80",
+    "descricao": "60g",
+    "imagem": "/assets/imagem/imagens_higiene_intima/intima_protect_gel_higiene_intima_calmante.jpg",
+    "estoque": "50",
+    "categoria": "cuidados-pessoais",
+    "subcategoria": "higiene-intima"
+  },
+  {
+    "id": 78,
+    "nome": "Gel Lavant Intime Quotidien",
+    "preco": "44.59",
+    "descricao": "500g",
+    "imagem": "/assets/imagem/imagens_higiene_intima/intima_regulateur_gel_lavant_intime_quotidien.webp",
+    "estoque": "50",
+    "categoria": "cuidados-pessoais",
+    "subcategoria": "higiene-intima"
+  },
+  {
+    "id": 79,
+    "nome": "Mahair Intima",
+    "preco": "17.90",
+    "descricao": "200ml",
+    "imagem": "/assets/imagem/imagens_higiene_intima/mahair_intima.jpeg",
+    "estoque": "50",
+    "categoria": "cuidados-pessoais",
+    "subcategoria": "higiene-intima"
+  },
+  {
+    "id": 80,
+    "nome": "Nila Frescor & Hidratação",
+    "preco": "39.34",
+    "descricao": "150ml",
+    "imagem": "/assets/imagem/imagens_higiene_intima/Nila_frescor_&_hidratação.webp",
+    "estoque": "50",
+    "categoria": "cuidados-pessoais",
+    "subcategoria": "higiene-intima"
+  },
+  {
+    "id": 81,
+    "nome": "Nuaá Espuma de Igiene Intima Suave",
+    "preco": "35.50",
+    "descricao": "150ml",
+    "imagem": "/assets/imagem/imagens_higiene_intima/nuaa_espuma_de_higiene_intima_suave.webp",
+    "estoque": "50",
+    "categoria": "cuidados-pessoais",
+    "subcategoria": "higiene-intima"
+  },
+  {
+    "id": 82,
+    "nome": "Racco Intimo",
+    "preco": "37.99",
+    "descricao": "50ml",
+    "imagem": "/assets/imagem/imagens_higiene_intima/racco_intimo.webp",
+    "estoque": "50",
+    "categoria": "cuidados-pessoais",
+    "subcategoria": "higiene-intima"
+  },
+  {
+    "id": 83,
+    "nome": "Intimus Defesa Natural",
+    "preco": "8.94",
+    "descricao": "16 Unidades",
+    "imagem": "/assets/imagem/imagens_higiene_intima/intimus_defesa_natural.jpg",
+    "estoque": "50",
+    "categoria": "cuidados-pessoais",
+    "subcategoria": "higiene-intima"
+  },
+  {
+    "id": 84,
+    "nome": "Protetor Solar Facil L'Oreal",
+    "preco": "64.93",
+    "descricao": "40g",
+    "imagem": "/assets/imagem/imagens_protetor_solar/792160---Protetor-Solar-Facial_LOreal_Paris_Solar_Expertise_Antioleosidade.webp",
+    "estoque": "50",
+    "categoria": "cuidados-pessoais",
+    "subcategoria": "protetor-solar"
+  },
+  {
+    "id": 85,
+    "nome": "Protetor Solar Facial Anasol Toque Seco",
+    "preco": "32.00",
+    "descricao": "60g",
+    "imagem": "/assets/imagem/imagens_protetor_solar/anasol_fps_50_protetor_solar_facial.webp",
+    "estoque": "50",
+    "categoria": "cuidados-pessoais",
+    "subcategoria": "protetor-solar"
+  },
+  {
+    "id": 86,
+    "nome": "La Rocha Posay",
+    "preco": "65.95",
+    "descricao": "40g",
+    "imagem": "/assets/imagem/imagens_protetor_solar/la_roche_posay.webp",
+    "estoque": "50",
+    "categoria": "cuidados-pessoais",
+    "subcategoria": "protetor-solar"
+  },
+  {
+    "id": 87,
+    "nome": "Nivea Sun Facial Toque Seco",
+    "preco": "34.99",
+    "descricao": "40ml",
+    "imagem": "/assets/imagem/imagens_protetor_solar/protetor_solar_nivea_sun_facial_toque_seco.webp",
+    "estoque": "50",
+    "categoria": "cuidados-pessoais",
+    "subcategoria": "protetor-solar"
+  },
+  {
+    "id": 88,
+    "nome": "Protetor Solar Skinceuticals",
+    "preco": "159.00",
+    "descricao": "40g",
+    "imagem": "/assets/imagem/imagens_protetor_solar/Skinceuticals_Protetor_Solar_Facial_Blemish_Age_Uv_Defense_40g.webp",
+    "estoque": "50",
+    "categoria": "cuidados-pessoais",
+    "subcategoria": "protetor-solar"
+  },
+  {
+    "id": 89,
+    "nome": "Protetor Solar Corporal Cenoura & Broze",
+    "preco": "33.14",
+    "descricao": "110ml",
+    "imagem": "/assets/imagem/imagens_protetor_solar/protetor_solar_corporal_cenoura_bronze.jpg",
+    "estoque": "50",
+    "categoria": "cuidados-pessoais",
+    "subcategoria": "protetor-solar"
+  },
+  {
+    "id": 90,
+    "nome": "Nivea Sun Protect & Bronze",
+    "preco": "43.19",
+    "descricao": "125ml",
+    "imagem": "/assets/imagem/imagens_protetor_solar/nivea_sun_protect_&_bronze.jpg",
+    "estoque": "50",
+    "categoria": "cuidados-pessoais",
+    "subcategoria": "protetor-solar"
+  },
+  {
+    "id": 91,
+    "nome": "Mantecorp Skincare",
+    "preco": "99.90",
+    "descricao": "200ml",
+    "imagem": "/assets/imagem/imagens_protetor_solar/mantecorp_skincare.webp",
+    "estoque": "50",
+    "categoria": "cuidados-pessoais",
+    "subcategoria": "protetor-solar"
+  },
+  {
+    "id": 92,
+    "nome": "Protetor Solar Corporal Em Spray",
+    "preco": "69.99",
+    "descricao": "120ml",
+    "imagem": "/assets/imagem/imagens_protetor_solar/protetor_solar_corporal_em_spray.webp",
+    "estoque": "50",
+    "categoria": "cuidados-pessoais",
+    "subcategoria": "protetor-solar"
+  },
+  {
+    "id": 93,
+    "nome": "La Ooche Posay",
+    "preco": "89.90",
+    "descricao": "40g",
+    "imagem": "/assets/imagem/imagens_protetor_solar/la_roche_posay.webp",
+    "estoque": "50",
+    "categoria": "cuidados-pessoais",
+    "subcategoria": "protetor-solar"
+  },
+  {
+    "id": 94,
+    "nome": "Boca Rosa By Payout - Base Mate",
+    "preco": "61.50",
+    "descricao": "30ml",
+    "imagem": "/assets/imagem/imagem_maquiagem/base_boca_rosa.jpg",
+    "estoque": "50",
+    "categoria": "cuidados-pessoais",
+    "subcategoria": "kit-barba"
+  },
+  {
+    "id": 95,
+    "nome": "Corretivo Mari Maria Cover Up 02",
+    "preco": "49.90",
+    "descricao": "40ml",
+    "imagem": "/assets/imagem/imagem_maquiagem/mari_maria_corretivo.jpg",
+    "estoque": "50",
+    "categoria": "cuidados-pessoais",
+    "subcategoria": "kit-barba"
+  },
+  {
+    "id": 96,
+    "nome": "Paleta Trio de Blush My Secret - Dalla",
+    "preco": "30.00",
+    "descricao": "10g",
+    "imagem": "/assets/imagem/imagem_maquiagem/paleta_blush.jpg",
+    "estoque": "50",
+    "categoria": "cuidados-pessoais",
+    "subcategoria": "kit-barba"
+  },
+  {
+    "id": 97,
+    "nome": "Gel Modelador De Sobrancelhas Melu By Ruby Rose",
+    "preco": "28.99",
+    "descricao": "20g",
+    "imagem": "/assets/imagem/imagem_maquiagem/gel_modelador_sobrancelha.jpg",
+    "estoque": "50",
+    "categoria": "cuidados-pessoais",
+    "subcategoria": "kit-barba"
+  },
+  {
+    "id": 98,
+    "nome": "Kit 4 Rímel à Prova Dágua The Colossal Volume e Curve Febella",
+    "preco": "49.97",
+    "descricao": "60ml",
+    "imagem": "/assets/imagem/imagem_maquiagem/kit4_rimel.webp",
+    "estoque": "50",
+    "categoria": "cuidados-pessoais",
+    "subcategoria": "kit-barba"
+  },
+  {
+    "id": 99,
+    "nome": "Makeup Brush Blush",
+    "preco": "49.90",
+    "descricao": "BR006",
+    "imagem": "/assets/imagem/imagem_maquiagem/pincel_blush.webp",
+    "estoque": "50",
+    "categoria": "cuidados-pessoais",
+    "subcategoria": "kit-barba"
+  },
+  {
+    "id": 100,
+    "nome": "Pincel para Base e Corretivo",
+    "preco": "39.90",
+    "descricao": "BR002",
+    "imagem": "/assets/imagem/imagem_maquiagem/pincel_base_corretivo.jfif",
+    "estoque": "50",
+    "categoria": "cuidados-pessoais",
+    "subcategoria": "kit-barba"
+  },
+  {
+    "id": 101,
+    "nome": "Pincel para Contorno",
+    "preco": "44.90",
+    "descricao": "BR004",
+    "imagem": "/assets/imagem/imagem_maquiagem/pincel_contorno.jfif",
+    "estoque": "50",
+    "categoria": "cuidados-pessoais",
+    "subcategoria": "kit-barba"
+  },
+  {
+    "id": 102,
+    "nome": "Esponja Corretivo / Base",
+    "preco": "11.25",
+    "descricao": "Sabrina Sato",
+    "imagem": "/assets/imagem/imagem_maquiagem/esponja_base_corretivo.jpg",
+    "estoque": "50",
+    "categoria": "cuidados-pessoais",
+    "subcategoria": "kit-barba"
+  },
+  {
+    "id": 103,
+    "nome": "Esponja e Pó Soltoy",
+    "preco": "10.99",
+    "descricao": "Niina Secrets",
+    "imagem": "/assets/imagem/imagem_maquiagem/esponja_po_solto.jfif",
+    "estoque": "50",
+    "categoria": "cuidados-pessoais",
+    "subcategoria": "kit-barba"
+  },
+  {
+    "id": 104,
+    "nome": "Primer Ruby Rose Freels Mood",
+    "preco": "16.99",
+    "descricao": "30g",
+    "imagem": "/assets/imagem/imagem_maquiagem/prime_ruby_rose.webp",
+    "estoque": "50",
+    "categoria": "maquiagem",
+    "subcategoria": "primer"
+  },
+  {
+    "id": 105,
+    "nome": "Primer Koloss",
+    "preco": "35.90",
+    "descricao": "30g",
+    "imagem": "/assets/imagem/imagem_maquiagem/prime_koloss.jpg",
+    "estoque": "50",
+    "categoria": "maquiagem",
+    "subcategoria": "primer"
+  },
+  {
+    "id": 106,
+    "nome": "Primer BT Peach Skin",
+    "preco": "69.90",
+    "descricao": "40g",
+    "imagem": "/assets/imagem/imagem_maquiagem/prime_bruna_tavares.webp",
+    "estoque": "50",
+    "categoria": "maquiagem",
+    "subcategoria": "primer"
+  },
+  {
+    "id": 107,
+    "nome": "Primer Beyoung Glow",
+    "preco": "69.90",
+    "descricao": "30ml",
+    "imagem": "/assets/imagem/imagem_maquiagem/prime_beyoung.webp",
+    "estoque": "50",
+    "categoria": "maquiagem",
+    "subcategoria": "primer"
+  },
+  {
+    "id": 108,
+    "nome": "Haskell Se Curve",
+    "preco": "77.07",
+    "descricao": "300ml",
+    "imagem": "/assets/imagem/imagens_Cabelos/haskell_se_curve.avif",
+    "estoque": "50",
+    "categoria": "maquiagem",
+    "subcategoria": "primer"
+  },
+  {
+    "id": 109,
+    "nome": "Máscara de Tratamento Cavalo Forte Hidra",
+    "preco": "80.93",
+    "descricao": "120ml",
+    "imagem": "/assets/imagem/imagens_cabelos/mascCavaloForte.jpg",
+    "estoque": "50",
+    "categoria": "maquiagem",
+    "subcategoria": "base"
+  },
+  {
+    "id": 110,
+    "nome": "Haskell Pós Progressiva",
+    "preco": "146.85",
+    "descricao": "620ml + máscara",
+    "imagem": "/assets/imagem/imagens_Cabelos/Haskell_pós_progressiva.png",
+    "estoque": "50",
+    "categoria": "maquiagem",
+    "subcategoria": "base"
+  },
+  {
+    "id": 111,
+    "nome": "Hidrabell Cabelos Lisos",
+    "preco": "215.67",
+    "descricao": "620ml + máscara",
+    "imagem": "/assets/imagem/imagens_Cabelos/Hidrabell_cabelos_lisos.webp",
+    "estoque": "50",
+    "categoria": "maquiagem",
+    "subcategoria": "base"
+  },
+  {
+    "id": 112,
+    "nome": "Forever Liss Bye Bye Volume",
+    "preco": "52.99",
+    "descricao": "200ml",
+    "imagem": "/assets/imagem/imagens_Cabelos/Foreverldiss_Bye_Bye_Volume.webp",
+    "estoque": "50",
+    "categoria": "maquiagem",
+    "subcategoria": "base"
+  },
+  {
+    "id": 113,
+    "nome": "Shampoo Meu Liso Muito+Liso",
+    "preco": "24.50",
+    "descricao": "300ml",
+    "imagem": "/assets/imagem/imagens_Cabelos/Shampoo-Salon-Line-Meu-Liso-Sem-Sal-300ml.jpg",
+    "estoque": "50",
+    "categoria": "maquiagem",
+    "subcategoria": "base"
+  },
+  {
+    "id": 114,
+    "nome": "Siàge Revela Os Cachos",
+    "preco": "44.99",
+    "descricao": "100ml",
+    "imagem": "/assets/imagem/imagens_Cabelos/Siàge_revela_os_cachos.webp",
+    "estoque": "50",
+    "categoria": "maquiagem",
+    "subcategoria": "base"
+  },
+  {
+    "id": 115,
+    "nome": "Haskell Se Curve",
+    "preco": "77.07",
+    "descricao": "300ml",
+    "imagem": "/assets/imagem/imagens_Cabelos/haskell_se_curve.avif",
+    "estoque": "50",
+    "categoria": "maquiagem",
+    "subcategoria": "base"
+  },
+  {
+    "id": 116,
+    "nome": "Kit Widi Care Juba",
+    "preco": "156.66",
+    "descricao": "500ml + mácara",
+    "imagem": "/assets/imagem/imagens_Cabelos/widi-care-juba-kit-leave-in-mascara-geleia-shampoo.webp",
+    "estoque": "50",
+    "categoria": "maquiagem",
+    "subcategoria": "base"
+  },
+  {
+    "id": 117,
+    "nome": "Gelatina Verde super Definição",
+    "preco": "24.90",
+    "descricao": "550g",
+    "imagem": "/assets/imagem/imagens_Cabelos/Salon_line_gelatina.jpg",
+    "estoque": "50",
+    "categoria": "maquiagem",
+    "subcategoria": "base"
+  },
+  {
+    "id": 118,
+    "nome": "Inor Meu Cacho Meu Crush",
+    "preco": "60.90",
+    "descricao": "5000ml",
+    "imagem": "/assets/imagem/imagens_Cabelos/inoar-meu-cacho-meu-crush.webp",
+    "estoque": "50",
+    "categoria": "maquiagem",
+    "subcategoria": "base"
+  },
+  {
+    "id": 119,
+    "nome": "Máscara de Tratamento Cavalo Forte Hidra",
+    "preco": "80.93",
+    "descricao": "120ml",
+    "imagem": "/assets/imagem/imagens_cabelos/mascCavaloForte.jpg",
+    "estoque": "50",
+    "categoria": "maquiagem",
+    "subcategoria": "base"
+  },
+  {
+    "id": 120,
+    "nome": "Haskell Pós Progressiva",
+    "preco": "146.85",
+    "descricao": "620ml + máscara",
+    "imagem": "/assets/imagem/imagens_Cabelos/Haskell_pós_progressiva.png",
+    "estoque": "50",
+    "categoria": "maquiagem",
+    "subcategoria": "base"
+  },
+  {
+    "id": 121,
+    "nome": "Hidrabell Cabelos Lisos",
+    "preco": "215.67",
+    "descricao": "620ml + máscara",
+    "imagem": "/assets/imagem/imagens_Cabelos/Hidrabell_cabelos_lisos.webp",
+    "estoque": "50",
+    "categoria": "maquiagem",
+    "subcategoria": "base"
+  },
+  {
+    "id": 122,
+    "nome": "Forever Liss Bye Bye Volume",
+    "preco": "52.99",
+    "descricao": "200ml",
+    "imagem": "/assets/imagem/imagens_Cabelos/Foreverldiss_Bye_Bye_Volume.webp",
+    "estoque": "50",
+    "categoria": "maquiagem",
+    "subcategoria": "base"
+  },
+  {
+    "id": 123,
+    "nome": "Shampoo Meu Liso Muito+Liso",
+    "preco": "24.50",
+    "descricao": "300ml",
+    "imagem": "/assets/imagem/imagens_Cabelos/Shampoo-Salon-Line-Meu-Liso-Sem-Sal-300ml.jpg",
+    "estoque": "50",
+    "categoria": "maquiagem",
+    "subcategoria": "base"
+  },
+  {
+    "id": 124,
+    "nome": "Siàge Revela Os Cachos",
+    "preco": "44.99",
+    "descricao": "100ml",
+    "imagem": "/assets/imagem/imagens_Cabelos/Siàge_revela_os_cachos.webp",
+    "estoque": "50",
+    "categoria": "maquiagem",
+    "subcategoria": "base"
+  },
+  {
+    "id": 125,
+    "nome": "Haskell Se Curve",
+    "preco": "77.07",
+    "descricao": "300ml",
+    "imagem": "/assets/imagem/imagens_Cabelos/haskell_se_curve.avif",
+    "estoque": "50",
+    "categoria": "maquiagem",
+    "subcategoria": "base"
+  },
+  {
+    "id": 126,
+    "nome": "Kit Widi Care Juba",
+    "preco": "156.66",
+    "descricao": "500ml + mácara",
+    "imagem": "/assets/imagem/imagens_Cabelos/widi-care-juba-kit-leave-in-mascara-geleia-shampoo.webp",
+    "estoque": "50",
+    "categoria": "maquiagem",
+    "subcategoria": "base"
+  },
+  {
+    "id": 127,
+    "nome": "Gelatina Verde super Definição",
+    "preco": "24.90",
+    "descricao": "550g",
+    "imagem": "/assets/imagem/imagens_Cabelos/Salon_line_gelatina.jpg",
+    "estoque": "50",
+    "categoria": "maquiagem",
+    "subcategoria": "base"
+  },
+  {
+    "id": 128,
+    "nome": "Inor Meu Cacho Meu Crush",
+    "preco": "60.90",
+    "descricao": "5000ml",
+    "imagem": "/assets/imagem/imagens_Cabelos/inoar-meu-cacho-meu-crush.webp",
+    "estoque": "50",
+    "categoria": "maquiagem",
+    "subcategoria": "base"
+  },
+  {
+    "id": 129,
+    "nome": "Boticollection",
+    "preco": "149.90",
+    "descricao": "100ml",
+    "imagem": "/assets/imagem/imagens_perfuma_feminino/boticollection.webp",
+    "estoque": "50",
+    "categoria": "maquiagem",
+    "subcategoria": "corretivo"
+  },
+  {
+    "id": 130,
+    "nome": "212 Vip Rose",
+    "preco": "539.90",
+    "descricao": "80ml Carolina Herrera",
+    "imagem": "/assets/imagem/imagens_Perfumes/212_vip_rose.jpg",
+    "estoque": "50",
+    "categoria": "maquiagem",
+    "subcategoria": "corretivo"
+  },
+  {
+    "id": 131,
+    "nome": "Body Splash",
+    "preco": "70.98",
+    "descricao": "250ml Vitoria Secret",
+    "imagem": "/assets/imagem/imagens_Perfumes/bodySplash_VitoriaS.jpg",
+    "estoque": "50",
+    "categoria": "maquiagem",
+    "subcategoria": "corretivo"
+  },
+  {
+    "id": 132,
+    "nome": "Her Code",
+    "preco": "66.90",
+    "descricao": "50ml",
+    "imagem": "/assets/imagem/imagens_perfuma_feminino/her_code.webp",
+    "estoque": "50",
+    "categoria": "maquiagem",
+    "subcategoria": "corretivo"
+  },
+  {
+    "id": 133,
+    "nome": "Liz Intense",
+    "preco": "104.90",
+    "descricao": "100ml",
+    "imagem": "/assets/imagem/imagens_perfuma_feminino/liz_intense.webp",
+    "estoque": "50",
+    "categoria": "maquiagem",
+    "subcategoria": "corretivo"
+  },
+  {
+    "id": 134,
+    "nome": "Ruby Ametist",
+    "preco": "98.90",
+    "descricao": "100ml",
+    "imagem": "/assets/imagem/imagens_perfuma_feminino/ruby_ametist.jpg",
+    "estoque": "50",
+    "categoria": "maquiagem",
+    "subcategoria": "corretivo"
+  },
+  {
+    "id": 135,
+    "nome": "Insensatez",
+    "preco": "159.90",
+    "descricao": "Desodorante Colônia OBoticário 100ml",
+    "imagem": "/assets/imagem/imagens_Perfumes/insensatez_oboticario.jpg",
+    "estoque": "50",
+    "categoria": "maquiagem",
+    "subcategoria": "corretivo"
+  },
+  {
+    "id": 136,
+    "nome": "Vf Golden",
+    "preco": "42.90",
+    "descricao": "200ml",
+    "imagem": "/assets/imagem/imagens_perfuma_feminino/vf_golden.webp",
+    "estoque": "50",
+    "categoria": "maquiagem",
+    "subcategoria": "corretivo"
+  },
+  {
+    "id": 137,
+    "nome": "Essencial",
+    "preco": "167.00",
+    "descricao": "Oud Feminino 100 ml",
+    "imagem": "/assets/imagem/imagens_Perfumes/essencialOud.webp",
+    "estoque": "50",
+    "categoria": "maquiagem",
+    "subcategoria": "corretivo"
+  },
+  {
+    "id": 138,
+    "nome": "Far AWay",
+    "preco": "119.90",
+    "descricao": "Original Deo Parfum 50ml",
+    "imagem": "/assets/imagem/imagens_Perfumes/farWay.webp",
+    "estoque": "50",
+    "categoria": "maquiagem",
+    "subcategoria": "corretivo"
+  },
+  {
+    "id": 139,
+    "nome": "luna Intenso",
+    "preco": "108.15",
+    "descricao": "50ml",
+    "imagem": "/assets/imagem/imagens_Perfumes/lunaIntenso.webp",
+    "estoque": "50",
+    "categoria": "maquiagem",
+    "subcategoria": "corretivo"
+  },
+  {
+    "id": 140,
+    "nome": "Floratta Simple Love",
+    "preco": "159.90",
+    "descricao": "Desodorante Colônia 75ml",
+    "imagem": "/assets/imagem/imagens_Perfumes/florattaSimpleLove.webp",
+    "estoque": "50",
+    "categoria": "maquiagem",
+    "subcategoria": "corretivo"
+  },
+  {
+    "id": 141,
+    "nome": "Glamour Secrets Black",
+    "preco": "147.90",
+    "descricao": "Desodorante Colônia 75ml",
+    "imagem": "/assets/imagem/imagens_Perfumes/glamourSecrets.webp",
+    "estoque": "50",
+    "categoria": "maquiagem",
+    "subcategoria": "corretivo"
+  },
+  {
+    "id": 142,
+    "nome": "Máscara de Tratamento Cavalo Forte Hidra",
+    "preco": "80.93",
+    "descricao": "120ml",
+    "imagem": "/assets/imagem/imagens_cabelos/mascCavaloForte.jpg",
+    "estoque": "50",
+    "categoria": "maquiagem",
+    "subcategoria": "batom"
+  },
+  {
+    "id": 143,
+    "nome": "Haskell Pós Progressiva",
+    "preco": "146.85",
+    "descricao": "620ml + máscara",
+    "imagem": "/assets/imagem/imagens_Cabelos/Haskell_pós_progressiva.png",
+    "estoque": "50",
+    "categoria": "maquiagem",
+    "subcategoria": "batom"
+  },
+  {
+    "id": 144,
+    "nome": "Hidrabell Cabelos Lisos",
+    "preco": "215.67",
+    "descricao": "620ml + máscara",
+    "imagem": "/assets/imagem/imagens_Cabelos/Hidrabell_cabelos_lisos.webp",
+    "estoque": "50",
+    "categoria": "maquiagem",
+    "subcategoria": "batom"
+  },
+  {
+    "id": 145,
+    "nome": "Forever Liss Bye Bye Volume",
+    "preco": "52.99",
+    "descricao": "200ml",
+    "imagem": "/assets/imagem/imagens_Cabelos/Foreverldiss_Bye_Bye_Volume.webp",
+    "estoque": "50",
+    "categoria": "maquiagem",
+    "subcategoria": "batom"
+  },
+  {
+    "id": 146,
+    "nome": "Shampoo Meu Liso Muito+Liso",
+    "preco": "24.50",
+    "descricao": "300ml",
+    "imagem": "/assets/imagem/imagens_Cabelos/Shampoo-Salon-Line-Meu-Liso-Sem-Sal-300ml.jpg",
+    "estoque": "50",
+    "categoria": "maquiagem",
+    "subcategoria": "batom"
+  },
+  {
+    "id": 147,
+    "nome": "Siàge Revela Os Cachos",
+    "preco": "44.99",
+    "descricao": "100ml",
+    "imagem": "/assets/imagem/imagens_Cabelos/Siàge_revela_os_cachos.webp",
+    "estoque": "50",
+    "categoria": "maquiagem",
+    "subcategoria": "batom"
+  },
+  {
+    "id": 148,
+    "nome": "Haskell Se Curve",
+    "preco": "77.07",
+    "descricao": "300ml",
+    "imagem": "/assets/imagem/imagens_Cabelos/haskell_se_curve.avif",
+    "estoque": "50",
+    "categoria": "maquiagem",
+    "subcategoria": "batom"
+  },
+  {
+    "id": 149,
+    "nome": "Kit Widi Care Juba",
+    "preco": "156.66",
+    "descricao": "500ml + mácara",
+    "imagem": "/assets/imagem/imagens_Cabelos/widi-care-juba-kit-leave-in-mascara-geleia-shampoo.webp",
+    "estoque": "50",
+    "categoria": "maquiagem",
+    "subcategoria": "batom"
+  },
+  {
+    "id": 150,
+    "nome": "Gelatina Verde super Definição",
+    "preco": "24.90",
+    "descricao": "550g",
+    "imagem": "/assets/imagem/imagens_Cabelos/Salon_line_gelatina.jpg",
+    "estoque": "50",
+    "categoria": "maquiagem",
+    "subcategoria": "batom"
+  },
+  {
+    "id": 151,
+    "nome": "Inor Meu Cacho Meu Crush",
+    "preco": "60.90",
+    "descricao": "5000ml",
+    "imagem": "/assets/imagem/imagens_Cabelos/inoar-meu-cacho-meu-crush.webp",
+    "estoque": "50",
+    "categoria": "maquiagem",
+    "subcategoria": "batom"
+  },
+  {
+    "id": 152,
+    "nome": "Mascara para olhos Aloe Vera",
+    "preco": "39.99",
+    "descricao": "60unt 80g",
+    "imagem": "/assets/imagem/imagens_skin_care/51rM+XJUJPL._UF1000,1000_QL80_.jpg",
+    "estoque": "50",
+    "categoria": "maquiagem",
+    "subcategoria": "olho"
+  },
+  {
+    "id": 153,
+    "nome": "Gel Vitamina C BioAge",
+    "preco": "149.90",
+    "descricao": "15g",
+    "imagem": "/assets/imagem/imagens_skin_care/bio-excellence-c.webp",
+    "estoque": "50",
+    "categoria": "maquiagem",
+    "subcategoria": "olho"
+  },
+  {
+    "id": 154,
+    "nome": "Blancy Olhos Clareador",
+    "preco": "179.90",
+    "descricao": "15ml",
+    "imagem": "/assets/imagem/imagens_skin_care/7891142205346_0-20230529-193612.png",
+    "estoque": "50",
+    "categoria": "maquiagem",
+    "subcategoria": "olho"
+  },
+  {
+    "id": 155,
+    "nome": "Sérum renovador para olhos Centaphill",
+    "preco": "74.99",
+    "descricao": "48g",
+    "imagem": "/assets/imagem/imagens_skin_care/71uLphbHakL._AC_UL600_SR600,600_.jpg",
+    "estoque": "50",
+    "categoria": "maquiagem",
+    "subcategoria": "olho"
+  },
+  {
+    "id": 156,
+    "nome": "Kit 4 Rímel à Prova Dágua The Colossal Volume e Curve Febella",
+    "preco": "49.97",
+    "descricao": "60ml",
+    "imagem": "/assets/imagem/imagens_skin_care/258726-150-auto.webp",
+    "estoque": "50",
+    "categoria": "maquiagem",
+    "subcategoria": "olho"
+  },
+  {
+    "id": 157,
+    "nome": "Creme para olhos Creamy",
+    "preco": "129.90",
+    "descricao": "15g",
+    "imagem": "/assets/imagem/imagens_skin_care/258726-150-auto.webp",
+    "estoque": "50",
+    "categoria": "maquiagem",
+    "subcategoria": "olho"
+  },
+  {
+    "id": 158,
+    "nome": "Ácido Lático Creamy",
+    "preco": "59.90",
+    "descricao": "30ml",
+    "imagem": "/assets/imagem/imagens_skin_care/16344540.webp",
+    "estoque": "50",
+    "categoria": "maquiagem",
+    "subcategoria": "olho"
+  },
+  {
+    "id": 159,
+    "nome": "Creme para olhos Needs",
+    "preco": "51.90",
+    "descricao": "25g",
+    "imagem": "/assets/imagem/imagens_skin_care/image.webp",
+    "estoque": "50",
+    "categoria": "maquiagem",
+    "subcategoria": "olho"
+  },
+  {
+    "id": 160,
+    "nome": "Sérum Hidratante Care",
+    "preco": "65.25",
+    "descricao": "10ml",
+    "imagem": "/assets/imagem/imagens_skin_care/serum-hidratante-para-os-olhos-care-natural--1---1-.webp",
+    "estoque": "50",
+    "categoria": "maquiagem",
+    "subcategoria": "olho"
+  },
+  {
+    "id": 161,
+    "nome": "Esponja e Pó Soltoy",
+    "preco": "10.99",
+    "descricao": "Niina Secrets",
+    "imagem": "/assets/imagem/imagem_maquiagem/esponja_po_solto.jfif",
+    "estoque": "50",
+    "categoria": "maquiagem",
+    "subcategoria": "olho"
+  },
+  {
+    "id": 162,
+    "nome": "Principia",
+    "preco": "44.59",
+    "descricao": "Gel de Limpeza 350ml",
+    "imagem": "/assets/imagem/imagens_skin_care/principia_gel.webp",
+    "estoque": "50",
+    "categoria": "skin-care",
+    "subcategoria": "rosto"
+  },
+  {
+    "id": 163,
+    "nome": "Sérum Facil Creamy",
+    "preco": "85.98",
+    "descricao": "Vitamina C 30g",
+    "imagem": "/assets/imagem/imagens_skin_care/serum-facial-creamy-vitamina-c-20-1-.jpg.webp",
+    "estoque": "50",
+    "categoria": "skin-care",
+    "subcategoria": "rosto"
+  },
+  {
+    "id": 164,
+    "nome": "Principia Niacinamida",
+    "preco": "59.49",
+    "descricao": "Sérum Facil Niacinamida Principia 30ml",
+    "imagem": "/assets/imagem/imagens_skin_care/images.jfif",
+    "estoque": "50",
+    "categoria": "skin-care",
+    "subcategoria": "rosto"
+  },
+  {
+    "id": 165,
+    "nome": "Sérum Hidratante Neutrogena",
+    "preco": "86.59",
+    "descricao": "Hydro Boost 30ml",
+    "imagem": "/assets/imagem/imagens_skin_care/Serum_Hidratante_Neutrogena.webp",
+    "estoque": "50",
+    "categoria": "skin-care",
+    "subcategoria": "rosto"
+  },
+  {
+    "id": 166,
+    "nome": "CeraVe",
+    "preco": "38.55",
+    "descricao": "Creme Hidratante 50ml",
+    "imagem": "/assets/imagem/imagens_skin_care/Cerave.webp",
+    "estoque": "50",
+    "categoria": "skin-care",
+    "subcategoria": "rosto"
+  },
+  {
+    "id": 167,
+    "nome": "Ácido Lático Principia",
+    "preco": "49.99",
+    "descricao": "Ácido Lático Principia- Tônico",
+    "imagem": "/assets/imagem/imagens_skin_care/images (1).jfif",
+    "estoque": "50",
+    "categoria": "skin-care",
+    "subcategoria": "rosto"
+  },
+  {
+    "id": 168,
+    "nome": "Esfoliante Labotrat Pitaya",
+    "preco": "21.90",
+    "descricao": "Corpo e Rosto 150g",
+    "imagem": "/assets/imagem/imagens_skin_care/esfoliante_corpo_e_rosto_labotrat_pitaya.webp",
+    "estoque": "50",
+    "categoria": "skin-care",
+    "subcategoria": "rosto"
+  },
+  {
+    "id": 169,
+    "nome": "Darrow Actine",
+    "preco": "53.20",
+    "descricao": "Sabonet Liquido 400ml",
+    "imagem": "/assets/imagem/imagens_skin_care/Darrow_actine.webp",
+    "estoque": "50",
+    "categoria": "skin-care",
+    "subcategoria": "rosto"
+  },
+  {
+    "id": 170,
+    "nome": "Ácidos Hialurônicos Principia",
+    "preco": "44.95",
+    "descricao": "Vitamina B5 AH-2- Hidratante Antissinais 30ml",
+    "imagem": "/assets/imagem/imagens_skin_care/acido_hialuronico.jpg",
+    "estoque": "50",
+    "categoria": "skin-care",
+    "subcategoria": "rosto"
+  },
+  {
+    "id": 171,
+    "nome": "Ácido Glicólico Creamy",
+    "preco": "86.59",
+    "descricao": "Ácido Glicólico + Niacinamida 30g",
+    "imagem": "/assets/imagem/imagens_skin_care/glicolicocreamy.webp",
+    "estoque": "50",
+    "categoria": "skin-care",
+    "subcategoria": "rosto"
+  },
+  {
+    "id": 172,
+    "nome": "Kit cuidados dos labios Labotrtat",
+    "preco": "108.40",
+    "descricao": "1 gloss bloca volumosa - 2,5 | 1 esfoliante labial - 15g | 1 espuma limpeza labial - 50ml",
+    "imagem": "/assets/imagem/imagens_skin_care/antes-2025-07-09t144726152.webp",
+    "estoque": "50",
+    "categoria": "skin-care",
+    "subcategoria": "labios"
+  },
+  {
+    "id": 173,
+    "nome": "Mascara para labios KissNY",
+    "preco": "13.90",
+    "descricao": "1 Unidade 5g",
+    "imagem": "/assets/imagem/imagens_skin_care/Mascara-para-Labios-Kiss-NY---Magic-Gel-Mask---1Un.webp",
+    "estoque": "50",
+    "categoria": "skin-care",
+    "subcategoria": "labios"
+  },
+  {
+    "id": 174,
+    "nome": "Manteiga de cacau",
+    "preco": "4.98",
+    "descricao": "4,2g",
+    "imagem": "/assets/imagem/imagens_skin_care/7896173100011.png",
+    "estoque": "50",
+    "categoria": "skin-care",
+    "subcategoria": "labios"
+  },
+  {
+    "id": 175,
+    "nome": "Hidrante para labios Epidrat",
+    "preco": "59.99",
+    "descricao": "5,5g",
+    "imagem": "/assets/imagem/imagens_skin_care/7891142207678_EPIDRATLABIOS-STILL.png.jpg.webp",
+    "estoque": "50",
+    "categoria": "skin-care",
+    "subcategoria": "labios"
+  },
+  {
+    "id": 176,
+    "nome": "Esfoliante labial SmartGR",
+    "preco": "79.90",
+    "descricao": "15g",
+    "imagem": "/assets/imagem/imagens_skin_care/images (2).jfif",
+    "estoque": "50",
+    "categoria": "skin-care",
+    "subcategoria": "labios"
+  },
+  {
+    "id": 177,
+    "nome": "Esfoliante Labial Vegano Óleo de coco Oce'ane",
+    "preco": "39.90",
+    "descricao": "15g",
+    "imagem": "/assets/imagem/imagens_skin_care/esfoliante-labial-com-oleo-de-coco-oceane-4-you-lip-scrub -1-.webp",
+    "estoque": "50",
+    "categoria": "skin-care",
+    "subcategoria": "labios"
+  },
+  {
+    "id": 178,
+    "nome": "Creme Hidratante Labial Latte",
+    "preco": "39.90",
+    "descricao": "10g",
+    "imagem": "/assets/imagem/imagens_skin_care/12068602.webp",
+    "estoque": "50",
+    "categoria": "skin-care",
+    "subcategoria": "labios"
+  },
+  {
+    "id": 179,
+    "nome": "Smart Lips Care Esfoliante Labial de Cereja",
+    "preco": "89.90",
+    "descricao": "15g",
+    "imagem": "/assets/imagem/imagens_skin_care/a0f6b9ee-b15e-47e8-bf71-2e10f70fe5c3-tec5zbxawp.webp",
+    "estoque": "50",
+    "categoria": "skin-care",
+    "subcategoria": "labios"
+  },
+  {
+    "id": 180,
+    "nome": "Far AWay",
+    "preco": "119.90",
+    "descricao": "Original Deo Parfum 50ml",
+    "imagem": "/assets/imagem/imagens_Perfumes/farWay.webp",
+    "estoque": "50",
+    "categoria": "skin-care",
+    "subcategoria": "labios"
+  },
+  {
+    "id": 181,
+    "nome": "Boca Rosa By Payout - Base Mate",
+    "preco": "61.50",
+    "descricao": "30ml",
+    "imagem": "/assets/imagem/imagens_nutricao/advance_techniquer.webp",
+    "estoque": "50",
+    "categoria": "cabelo",
+    "subcategoria": "nutricao"
+  },
+  {
+    "id": 182,
+    "nome": "Corretivo Mari Maria Cover Up 02",
+    "preco": "49.90",
+    "descricao": "40ml",
+    "imagem": "/assets/imagem/imagens_nutricao/cadiveu.webp",
+    "estoque": "50",
+    "categoria": "cabelo",
+    "subcategoria": "nutricao"
+  },
+  {
+    "id": 183,
+    "nome": "Paleta Trio de Blush My Secret - Dalla",
+    "preco": "30.00",
+    "descricao": "10g",
+    "imagem": "/assets/imagem/imagens_nutricao/forca_vitamina.webp",
+    "estoque": "50",
+    "categoria": "cabelo",
+    "subcategoria": "nutricao"
+  },
+  {
+    "id": 184,
+    "nome": "Gel Modelador De Sobrancelhas Melu By Ruby Rose",
+    "preco": "28.99",
+    "descricao": "20g",
+    "imagem": "/assets/imagem/imagens_nutricao/kit_haskell_murumuru_para_hidratacao.avif",
+    "estoque": "50",
+    "categoria": "cabelo",
+    "subcategoria": "nutricao"
+  },
+  {
+    "id": 185,
+    "nome": "Kit 4 Rímel à Prova Dágua The Colossal Volume e Curve Febella",
+    "preco": "49.97",
+    "descricao": "60ml",
+    "imagem": "/assets/imagem/imagens_nutricao/mascara_mega_nutrition.webp",
+    "estoque": "50",
+    "categoria": "cabelo",
+    "subcategoria": "nutricao"
+  },
+  {
+    "id": 186,
+    "nome": "Makeup Brush Blush",
+    "preco": "49.90",
+    "descricao": "BR006",
+    "imagem": "/assets/imagem/imagens_nutricao/organic_shop.webp",
+    "estoque": "50",
+    "categoria": "cabelo",
+    "subcategoria": "nutricao"
+  },
+  {
+    "id": 187,
+    "nome": "Pincel para Base e Corretivo",
+    "preco": "39.90",
+    "descricao": "BR002",
+    "imagem": "/assets/imagem/imagens_nutricao/walory_blondi.webp",
+    "estoque": "50",
+    "categoria": "cabelo",
+    "subcategoria": "nutricao"
+  },
+  {
+    "id": 188,
+    "nome": "Pincel para Contorno",
+    "preco": "44.90",
+    "descricao": "BR004",
+    "imagem": "/assets/imagem/imagens_nutricao/eudora_siage.jpg",
+    "estoque": "50",
+    "categoria": "cabelo",
+    "subcategoria": "nutricao"
+  },
+  {
+    "id": 189,
+    "nome": "Esponja Corretivo / Base",
+    "preco": "11.25",
+    "descricao": "Sabrina Sato",
+    "imagem": "/assets/imagem/imagens_nutricao/cadiveu_vegan_repair.webp",
+    "estoque": "50",
+    "categoria": "cabelo",
+    "subcategoria": "nutricao"
+  },
+  {
+    "id": 190,
+    "nome": "Esponja e Pó Soltoy",
+    "preco": "10.99",
+    "descricao": "Niina Secrets",
+    "imagem": "/assets/imagem/imagens_nutricao/natura_lumina_shampoo.jpg",
+    "estoque": "50",
+    "categoria": "cabelo",
+    "subcategoria": "nutricao"
+  },
+  {
+    "id": 191,
+    "nome": "Morango & Leite Body Splash",
+    "preco": "78.89",
+    "descricao": "200ml",
+    "imagem": "/assets/imagem/imagens_body_splash/morango_leite_splash.webp",
+    "estoque": "50",
+    "categoria": "perfume",
+    "subcategoria": "body-splash"
+  },
+  {
+    "id": 192,
+    "nome": "Body Spray Imensi",
+    "preco": "41.90",
+    "descricao": "100ml",
+    "imagem": "/assets/imagem/imagens_body_splash/body_spray_imensi.webp",
+    "estoque": "50",
+    "categoria": "perfume",
+    "subcategoria": "body-splash"
+  },
+  {
+    "id": 193,
+    "nome": "Body Spray Club 6",
+    "preco": "41.90",
+    "descricao": "100ml",
+    "imagem": "/assets/imagem/imagens_body_splash/body_spray_club6.webp",
+    "estoque": "50",
+    "categoria": "perfume",
+    "subcategoria": "body-splash"
+  },
+  {
+    "id": 194,
+    "nome": "Body Splash Todo dia Macadâmia",
+    "preco": "56.99",
+    "descricao": "200ml",
+    "imagem": "/assets/imagem/imagens_body_splash/body_splash_todo_dia.jpg",
+    "estoque": "50",
+    "categoria": "perfume",
+    "subcategoria": "body-splash"
+  },
+  {
+    "id": 195,
+    "nome": "Body Splash Pure Seduction V&S",
+    "preco": "140.00",
+    "descricao": "250ml",
+    "imagem": "/assets/imagem/imagens_body_splash/body_splash_seduction.jpg",
+    "estoque": "50",
+    "categoria": "perfume",
+    "subcategoria": "body-splash"
+  },
+  {
+    "id": 196,
+    "nome": "Body Splash Nativa Spa Lilac",
+    "preco": "99.90",
+    "descricao": "200ml",
+    "imagem": "/assets/imagem/imagens_body_splash/body_splash_nativa_spa.webp",
+    "estoque": "50",
+    "categoria": "perfume",
+    "subcategoria": "body-splash"
+  },
+  {
+    "id": 197,
+    "nome": "Body Splash Infinity Crystal",
+    "preco": "55.98",
+    "descricao": "200ml",
+    "imagem": "/assets/imagem/imagens_body_splash/body_splash_Infinity_Crystal.png",
+    "estoque": "50",
+    "categoria": "perfume",
+    "subcategoria": "body-splash"
+  },
+  {
+    "id": 198,
+    "nome": "Body Splash Bloom",
+    "preco": "46.63",
+    "descricao": "200ml",
+    "imagem": "/assets/imagem/imagens_body_splash/BODY_SPLASH_BLUE_MIST.webp",
+    "estoque": "50",
+    "categoria": "perfume",
+    "subcategoria": "body-splash"
   }
 ]
