@@ -813,9 +813,7 @@ h3 {
   display: flex;
   align-items: center;
   justify-content: center;
-  /* centraliza tudo horizontalmente */
   gap: 10px;
-  /* espaço entre texto e imagem */
   background-color: #fff;
   border: 1px solid #ccc;
   border-radius: 10px;
@@ -875,13 +873,56 @@ margin-left: 15px;
 }
 
 input {
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 4px;
   border-radius: 10px;
 
+}
+.form-group input {
+    width: 100%;
+    padding: 16px 14px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 15px;
+    outline: none;
+    background: white;
+    transition: 0.25s;
+
+    &.valid {
+        border: 1px solid #2ecc71;
+    }
+
+    &.invalid {
+        border: 1px solid #e74c3c
+    }
+}
+
+.form-group {
+    position: relative;
+    margin-bottom: 28px;
+}
+
+.form-group label {
+    position: absolute;
+    left: 12px;
+    top: 14px;
+    background: white;
+    padding: 0 6px;
+    font-size: 14px;
+    color: #8B0000;
+    transition: 0.25s;
+    pointer-events: none;
+}
+
+/* LABEL SOBE */
+
+.form-group input:focus+label,
+.form-group input:not(:placeholder-shown)+label {
+    top: -8px;
+    font-size: 12px;
+    color: #8B0000;
 }
 
 #login-container[hidden] {
@@ -978,7 +1019,6 @@ input {
   }
 }
 
-/* 1. ESTILO PADRÃO (Aplica-se à Tela de Cadastro e outros) */
 .btn-cadastro {
   display: block;
   width: 100%;
@@ -995,20 +1035,15 @@ input {
   text-decoration: none;
 }
 
-/* Efeito de passar o mouse no botão PADRÃO (Tela de Cadastro) */
 .btn-cadastro:hover {
   background-color: #ff0000; 
 }
 
-/* Garante que o link dentro do botão padrão seja branco */
 .btn-cadastro a {
   color: #ffffff !important;
   text-decoration: none;
 }
 
-
-/* 2. ESTILO EXCLUSIVO DO MODAL (Não afeta a Tela de Cadastro) */
-/* O prefixo ".modal-perfil" isola estas regras apenas para o modal */
 .modal-perfil .btn-cadastro {
   background-color: #ffffff !important; 
   color: #8B0000 !important;          
@@ -1017,14 +1052,12 @@ input {
   box-shadow: none !important; 
 }
 
-/* Remove qualquer efeito visual de "hover" no botão do MODAL */
 .modal-perfil .btn-cadastro:hover {
   background-color: #ffffff !important; 
   color: #8B0000 !important;          
   cursor: pointer;
 }
 
-/* Garante que o link dentro do botão DO MODAL seja vermelho */
 .modal-perfil .btn-cadastro a {
   color: #8B0000 !important;
   text-decoration: none;

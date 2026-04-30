@@ -35,9 +35,18 @@ addEventListener("DOMContentLoaded", () => {
     // VALIDAÇÃO NOME
     fields.nome.forEach(field => {
         if (field) {
-            field.addEventListener("input", () => {
+
+            field.addEventListener("keypress", (e) => {
+                const valido = /^[a-zA-ZáàâãéèêíïóôõöúçñÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ\s]$/;
+                if (!valido.test(e.key)) {
+                    e.preventDefault();
+                }
+            });
+
+            field.addEventListener("input", (e) => {
                 let value = field.value.trim();
-                if (value.length >= 3) {
+
+                if (value.length >= 10 && value.includes(" ")) {
                     field.classList.remove("invalid");
                     field.classList.add("valid");
                     fields.nomeError.style.display = 'none';
@@ -81,7 +90,7 @@ addEventListener("DOMContentLoaded", () => {
                     field.classList.add("valid");
                     fields.telefoneError.style.display = 'none';
                 } else {
-                    
+
                     field.classList.remove("valid");
                     field.classList.add("invalid");
                     fields.telefoneError.style.display = 'flex';
@@ -106,7 +115,7 @@ addEventListener("DOMContentLoaded", () => {
             });
         }
     });
-    
+
     // VALIDAÇÃO ENDEREÇO 
     fields.endereco.forEach(field => {
         if (field) {
@@ -209,7 +218,7 @@ addEventListener("DOMContentLoaded", () => {
             });
         }
     });
-    
+
     fields.senha.forEach(field => {
         if (field) {
             field.addEventListener("input", () => {
@@ -253,6 +262,65 @@ addEventListener("DOMContentLoaded", () => {
         }
     });
 });
+
+
+// Validação de Login
+const formPerfil = document.querySelector("#form-perfil");
+const loginErrorMsg = document.querySelector("#login-error-msg");
+
+if (formPerfil) {
+    formPerfil.addEventListener("submit", async (e) => {
+        if (e.target.id === 'form-perfil')
+            e.preventDefault();
+
+        const formData = new FormData(e.target);
+        const emailInput = formData.get('email');
+        const senhaInput = formData.get('senha');
+
+        try {
+            const response = await fetch('/login', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ email: emailInput, senha: senhaInput })
+            });
+            const data = await response.json();
+
+            if (response.ok && data.sucesso) {
+                localStorage.setItem('usuarioNome', data.user.nome); //Armazena o nome do usuário 
+                window.location.href = data.redirectUrl; //Redireciona pra página com o nome dele no icone de perfil
+
+                if (loginErrorMsg) {
+                    loginErrorMsg.textContent = data.error || "Erro ao fazer login";
+                    loginErrorMsg.style.display = 'block';
+                } else {
+                    alert(data.error); //Acho que não preciso disso
+                }
+            }
+        } catch (error) {
+            console.error("Erro no fetch:", error);
+            alert("Não foi possível conectar ao servidor."); //Acho que não preciso disso
+        }
+    });
+}
+
+// --- Após efetuar o login, aparece o nome de quem logou ---
+const nome = localStorage.getItem('usuarioNome');
+const userIcon = document.querySelector(".user-icon");
+if (nome && userIcon) {
+    const primeiroNome = nome.split(' ')[0];
+    userIcon.innerHTML = `<span style="font-size:12px; font-weight:bold; font-family: 'Lora', serif;
+    ">Olá, ${primeiroNome}</span>`;
+
+    userIcon.addEventListener("click", (e) => {
+        e.preventDefault(); 
+
+        if (confirm("Deseja realmente sair da sua conta?")) {
+            localStorage.removeItem('usuarioNome'); // Apaga o nome da memória
+            window.location.reload(); // Recarrega a página (o ícone voltará ao normal)
+        }
+    });
+}
+
 
 
 

@@ -81,16 +81,6 @@ h1 {
     border-color: #8B0000;
 }
 
-/* ESTADOS */
-
-/* .input-valido {
-    border-color: #39ff8c !important
-}
-
-.input-invalido {
-    border-color: #e74c3c !important;
-} */
-
 /* ERROS */
 
 span {
@@ -110,13 +100,6 @@ span {
     margin-bottom: 4px;
 }
 
-/* .input-valido {
-    border: 2px solid #2ecc71 !important;
-}
-
-.input-invalido {
-    border: 2px solid #e74c3c !important;
-} */
 
 #senha-requisitos li {
     
