@@ -21,7 +21,7 @@ const UserModel = {
     },
     pesquisar(email){
         const users = this.users();
-        return users.find(user => user.email === email);
+        return users.find(user => user.email.toLowerCase() === email.toLowerCase().trim());
         
     },
 }

@@ -1,4 +1,5 @@
 const UserModel = require('../models/userModel');
+const bcrypt = require('bcrypt');
 
 const UserController = {
 
@@ -18,11 +19,23 @@ const UserController = {
         try {
             //Recebe os dados do formulario
             const { nome, email, senha } = req.body;
+            if (!nome >= 10 && !nome.includes(" ")) return console.log("Nome inválido");
+
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!email || !emailRegex.test(email)) return console.log("Email Inválido")
+
+            const caseOk = /[A-Z]/.test(senha) && /[a-z]/.test(senha)
+            const numberOk = /\d/.test(senha)
+            const specialOk = /[~!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?]/.test(senha)
+            if(!senha >= 8 && !caseOk && !numberOk && !specialOk) return console.log("Senha Inválida")
+
+            const senhaHash = await bcrypt.hash(senha, 10);
+
             const newUser = {
                 id: UserModel.users().reduce((maxId, user) => Math.max(maxId, user.id), 0) + 1,
                 nome,
                 email,
-                senha
+                senha : senhaHash
             }
             //await, espere até ele funcionar  
             await UserModel.cadastrar(newUser);
@@ -44,12 +57,17 @@ const UserController = {
         try {
             const { email, senha } = req.body;
             const user = await UserModel.pesquisar(email);
+            
             if (!user) {
-                return res.status(401).send('Email não encontrado');
-            } if (user.senha !== senha) {
-                return res.status(401).send('Senha incorreta');
+                return res.status(401).json('Email não encontrado');
+            } 
+            
+            // Compara a senha do usuário com a senha cadastrada, para fazer no login 
+            const senhaValida = await bcrypt.compare(senha, user.senha);
+            if (!senhaValida) {
+                return res.status(401).json('Senha incorreta');
             }
-            return res.json({ message: 'Login bem-sucedido', user, redirectUrl: '/produtos', sucesso: true });
+            return res.json({ message: 'Login bem-sucedido', user, redirectUrl: '/', sucesso: true });
 
         } catch (error) {
             console.error('Erro ao fazer login:', error);

@@ -119,7 +119,7 @@
     </a>
 
     <button class="icon-btn user-icon">
-      <!-- <img src="assets/imagem/icons/perfil.png" alt="perfil"> -->
+      <img src="assets/imagem/icons/perfil.png" alt="perfil">
     </button>
 
     <button class="icon-btn cart-icon">
@@ -173,9 +173,23 @@
 
     <p class="ou">OU</p>
 
+    <div id="login-error-msg" style="color: red; margin-bottom: 10px; font-size: 14px;"></div>
     <form id="form-perfil" class="form-login">
-      <input type="email" id="email" name="email" placeholder="E-mail" required>
-      <input type="password" id="senha" name="senha" placeholder="Senha" required>
+
+      <div class="form-group">
+        <input type="email" id="emailTeste" name="email" placeholder=" " required>
+        <label for="emailTeste">Email:</label>
+        <span id="email-error" style="color:red; display:none;">
+          Email inválido.
+        </span>
+      </div>
+
+      <div class="form-group">
+      <input type="password" id="senha" name="senha" placeholder=" " required>
+      <label for="senha">Senha:</label>
+      </div>
+      
+
       <a href="#" class="forgot">Esqueceu a senha?</a>
       <button type="submit" class="btn-login">Fazer login</button>
       <button type="button" class="btn-cadastro"><a href="cadastro">Crie sua conta</a></button>
@@ -185,4 +199,4 @@
 
 <!-- menu hamburguer -->
 <div id="overlay" class="overlay"></div>
-
+<script src="/assets/js/validacoes.js"></script>
