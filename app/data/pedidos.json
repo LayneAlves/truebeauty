@@ -4,32 +4,32 @@
     "cliente_nome": "Lay",
     "data": "2026-04-13",
     "total": 150,
-    "status": "pago",
-    "pagamento": "pix"
+    "status": "pendente",
+    "pagamento": "Débito"
   },
   {
     "id": 2,
     "cliente_nome": "Elisa",
     "data": "2026-04-13",
     "total": 150,
-    "status": "pago",
-    "pagamento": "pix"
+    "status": "entregue",
+    "pagamento": "Crédito"
   },
   {
     "id": 3,
     "cliente_nome": "Joao",
     "data": "2026-04-13",
     "total": 150,
-    "status": "pago",
-    "pagamento": "pix"
+    "status": "recusado",
+    "pagamento": "Débito"
   },
   {
     "id": 4,
     "cliente_nome": "Maria",
     "data": "2026-04-13",
     "total": 150,
-    "status": "pago",
-    "pagamento": "pix"
+    "status": "entregue",
+    "pagamento": "Débito"
   }
   
 ]

@@ -4,6 +4,7 @@
     "nome": "Sasiaria Castro",
     "email": "Sasi@gmail.com",
     "senha": "$2b$10$BlkTxr0pzBj/VMGU8dF7feS0vA0ZYfRUyzeT7JFUz6aJk7z73D/d6",
+    "imagem": "assets/imagem/icons/avatar.avif",
     "tipo": "admin"
   },
   {
@@ -11,13 +12,7 @@
     "nome": "Layne Silva",
     "email": "layne.silva1007@gmail.com",
     "senha": "$2b$10$DMJyuSaG9oAW28erNnuPPekrXjAbHNwb.aN1GpLXOjMJBWOErIlvm",
-    "tipo": "comum"
-  },
-  {
-    "id": 2,
-    "nome": "Layne Silva",
-    "email": "layne.silva1007@gmail.com",
-    "senha": "$2b$10$DMJyuSaG9oAW28erNnuPPekrXjAbHNwb.aN1GpLXOjMJBWOErIlvm",
+    "imagem": "assets/imagem/icons/avatarMulher.avif",
     "tipo": "comum"
   }
 ]
