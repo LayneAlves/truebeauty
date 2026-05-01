@@ -46,7 +46,6 @@ body {
             flex-direction: column;
             --grid-column: 40px 60px 80px 1fr 1fr 1fr 1fr 1fr;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-            /* margin-left: 470px; */
             margin-top: -70px;
             width: 1000px;
             

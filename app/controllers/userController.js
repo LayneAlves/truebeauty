@@ -1,5 +1,7 @@
 const UserModel = require('../models/userModel');
 const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
+const SECRET = 'SuaChaveSecretaSuperSegura';
 
 const UserController = {
 
@@ -9,7 +11,7 @@ const UserController = {
             res.render('clientes', {
                 clientes
             });
-            
+
         } catch (error) {
             console.log('Erro' + error)
         }
@@ -17,7 +19,6 @@ const UserController = {
 
     async cadastrar(req, res) {
         try {
-            //Recebe os dados do formulario
             const { nome, email, senha } = req.body;
             if (!nome >= 10 && !nome.includes(" ")) return console.log("Nome inválido");
 
@@ -27,7 +28,7 @@ const UserController = {
             const caseOk = /[A-Z]/.test(senha) && /[a-z]/.test(senha)
             const numberOk = /\d/.test(senha)
             const specialOk = /[~!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?]/.test(senha)
-            if(!senha >= 8 && !caseOk && !numberOk && !specialOk) return console.log("Senha Inválida")
+            if (!senha >= 8 && !caseOk && !numberOk && !specialOk) return console.log("Senha Inválida")
 
             const senhaHash = await bcrypt.hash(senha, 10);
 
@@ -35,12 +36,11 @@ const UserController = {
                 id: UserModel.users().reduce((maxId, user) => Math.max(maxId, user.id), 0) + 1,
                 nome,
                 email,
-                senha : senhaHash
+                senha: senhaHash,
+                tipo: "comum"
             }
-            //await, espere até ele funcionar  
             await UserModel.cadastrar(newUser);
             return res.redirect('/');
-            //Retorno ao usuário
         } catch (error) {
             console.error('Erro ao cadastrar usuário:', error);
             res.status(500).send('Erro ao cadastrar usuário');
@@ -57,17 +57,38 @@ const UserController = {
         try {
             const { email, senha } = req.body;
             const user = await UserModel.pesquisar(email);
-            
+
             if (!user) {
                 return res.status(401).json('Email não encontrado');
-            } 
-            
-            // Compara a senha do usuário com a senha cadastrada, para fazer no login 
+            }
+
             const senhaValida = await bcrypt.compare(senha, user.senha);
             if (!senhaValida) {
                 return res.status(401).json('Senha incorreta');
             }
-            return res.json({ message: 'Login bem-sucedido', user, redirectUrl: '/', sucesso: true });
+
+            
+            const token = jwt.sign(
+                { id: user.id, nome: user.nome, tipo: user.tipo },
+                SECRET,
+                { expiresIn: '1d' } // Expira em 1 dia
+            );
+
+            res.cookie('token', token, { httpOnly: true, maxAge: 86400000 });
+
+
+            let urlDestino = '/'; 
+            if (user.tipo === 'admin') {
+                urlDestino = '/for_adm'; 
+            }
+
+            return res.json({
+                sucesso: true,
+                nome: user.nome,
+                tipo: user.tipo,
+                redirectUrl: urlDestino 
+            });
+
 
         } catch (error) {
             console.error('Erro ao fazer login:', error);

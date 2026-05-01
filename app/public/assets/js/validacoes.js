@@ -264,62 +264,62 @@ addEventListener("DOMContentLoaded", () => {
 });
 
 
-// Validação de Login
-const formPerfil = document.querySelector("#form-perfil");
-const loginErrorMsg = document.querySelector("#login-error-msg");
+    // Validação de Login
+    const formPerfil = document.querySelector("#form-perfil");
+    const loginErrorMsg = document.querySelector("#login-error-msg");
 
-if (formPerfil) {
-    formPerfil.addEventListener("submit", async (e) => {
-        if (e.target.id === 'form-perfil')
-            e.preventDefault();
+    if (formPerfil) {
+        formPerfil.addEventListener("submit", async (e) => {
+            if (e.target.id === 'form-perfil')
+                e.preventDefault();
 
-        const formData = new FormData(e.target);
-        const emailInput = formData.get('email');
-        const senhaInput = formData.get('senha');
+            const formData = new FormData(e.target);
+            const emailInput = formData.get('email');
+            const senhaInput = formData.get('senha');
 
-        try {
-            const response = await fetch('/login', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ email: emailInput, senha: senhaInput })
-            });
-            const data = await response.json();
+            try {
+                const response = await fetch('/login', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email: emailInput, senha: senhaInput })
+                });
+                const data = await response.json();
 
-            if (response.ok && data.sucesso) {
-                localStorage.setItem('usuarioNome', data.user.nome); //Armazena o nome do usuário 
-                window.location.href = data.redirectUrl; //Redireciona pra página com o nome dele no icone de perfil
+                if (response.ok && data.sucesso) {
+                    localStorage.setItem('usuarioNome', data.nome); 
+                    window.location.href = data.redirectUrl; 
 
-                if (loginErrorMsg) {
-                    loginErrorMsg.textContent = data.error || "Erro ao fazer login";
-                    loginErrorMsg.style.display = 'block';
-                } else {
-                    alert(data.error); //Acho que não preciso disso
+                    if (loginErrorMsg) {
+                        loginErrorMsg.textContent = data.error || "Erro ao fazer login";
+                        loginErrorMsg.style.display = 'block';
+                    } else {
+                        alert(data.error); 
+                    }
                 }
+            } catch (error) {
+                console.error("Erro no fetch:", error);
+                alert("Não foi possível conectar ao servidor."); 
             }
-        } catch (error) {
-            console.error("Erro no fetch:", error);
-            alert("Não foi possível conectar ao servidor."); //Acho que não preciso disso
-        }
-    });
-}
+        });
+    }
 
-// --- Após efetuar o login, aparece o nome de quem logou ---
-const nome = localStorage.getItem('usuarioNome');
-const userIcon = document.querySelector(".user-icon");
-if (nome && userIcon) {
-    const primeiroNome = nome.split(' ')[0];
-    userIcon.innerHTML = `<span style="font-size:12px; font-weight:bold; font-family: 'Lora', serif;
-    ">Olá, ${primeiroNome}</span>`;
+    // --- Após efetuar o login, aparece o nome de quem logou ---
+    const nome = localStorage.getItem('usuarioNome');
+    const userIcon = document.querySelector(".user-icon");
+    if (nome && userIcon) {
+        const primeiroNome = nome.split(' ')[0];
+        userIcon.innerHTML = `<span style="font-size:12px; font-weight:bold; font-family: 'Lora', serif;
+        ">Olá, ${primeiroNome}</span>`;
 
-    userIcon.addEventListener("click", (e) => {
-        e.preventDefault(); 
+        userIcon.addEventListener("click", (e) => {
+            e.preventDefault(); 
 
-        if (confirm("Deseja realmente sair da sua conta?")) {
-            localStorage.removeItem('usuarioNome'); // Apaga o nome da memória
-            window.location.reload(); // Recarrega a página (o ícone voltará ao normal)
-        }
-    });
-}
+            if (confirm("Deseja realmente sair da sua conta?")) {
+                localStorage.removeItem('usuarioNome'); 
+                window.location.reload(); 
+            }
+        });
+    }
 
 
 

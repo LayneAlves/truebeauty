@@ -5,6 +5,7 @@ const ProdutoController = require('../controllers/produtoController');
 const PedidoController = require('../controllers/pedidoController');
 const bannerController = require('../controllers/bannerController');
 const { imageUpload } = require('../middleware/imageUpload');
+const auth = require('../middleware/authMiddleware');
 
 
 // CONTROLLERS
@@ -24,6 +25,13 @@ router.get('/categoria', ProdutoController.buscar, (req, res) => {
 });
 
 router.get('/for_adm', for_admController.renderfor_adm);
+
+router.get('/for_adm', auth.verificarLogado, auth.somenteAdmin, (req, res) => {    res.render('for_adm', { user: req.user }); 
+});
+
+router.get('/', auth.verificarLogado, (req, res) => {
+    res.render('index', { user: req.user });
+});
 
 
 // Rotas do carrinho
