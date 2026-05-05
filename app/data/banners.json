@@ -1,14 +1,8 @@
 [
   {
     "id": 1,
-    "titulo": "pascoa",
-    "imagem": "/assets/imagem/banners/banner_natal_01.avif",
-    "status": true
-  },
-  {
-    "id": 2,
-    "titulo": "natal",
-    "imagem": "/assets/imagem/banners/1776468162618-banner_natal_02.webp",
+    "titulo":"Dia Das Mães",
+    "imagem": "/assets/imagem/banners/dia-das-maes.webp",
     "status": true
   }
 ]
