@@ -1,11 +1,11 @@
 <header class="header">
   <nav>
     <input type="checkbox" name="" id="menu-hamburguer" hidden>
-    <!-- <label for="menu-hamburguer">
+    <label for="menu-hamburguer">
       <span></span>
       <span></span>
       <span></span>
-    </label> -->
+    </label>
 
     <ul class="menu-list">
       <!-- Ver Tudo -->
@@ -20,8 +20,8 @@
           <li><a href="categoria?categoria=perfumes">Perfumes</a></li>
           <li><a href="categoria?categoria=cabelos">Cabelo</a></li>
           <li><a href="categoria?categoria=maquiagens">Maquiagem</a></li>
-          <li><a href="categoria?categoria=skin-care">Skin Care</a></li>
-          <li><a href="categoria?categoria=cuidados-pessoais">Cuidados Pessoais</a></li>
+          <li><a href="categoria?categoria=skin_care">Skin Care</a></li>
+          <li><a href="categoria?categoria=cuidados_pessoais">Cuidados Pessoais</a></li>
         </ul>
       </li>
 
@@ -34,10 +34,10 @@
           </button>
         </div>
         <ul id="submenu-perfumes" class="submenu">
-          <li><a href="categoria?categoria=perfumes-feminino">Perfumes Feminino</a></li>
-          <li><a href="perfumes-masculino">Perfume Masculino</a></li>
-          <li><a href="perfumes-infantil">Perfume Infantil</a></li>
-          <li><a href="body-splash">Body Splash</a></li>
+          <li><a href="categoria?categoria=perfumes_feminino">Perfume Feminino</a></li>
+          <li><a href="categoria?categoria=perfumes_masculino">Perfume Masculino</a></li>
+          <li><a href="categoria?categoria=perfumes_infantil">Perfume Infantil</a></li>
+          <li><a href="categoria?categoria=body_splash">Body Splash</a></li>
         </ul>
       </li>
 
@@ -50,22 +50,22 @@
           </button>
         </div>
         <ul id="submenu-cabelos" class="submenu">
-          <li><a href="hidratacao">Hidratação</a></li>
-          <li><a href="nutricao">Nutrição</a></li>
-          <li><a href="reconstrucao">Reconstrução</a></li>
+          <li><a href="categoria?categoria=hidratacao">Hidratação</a></li> <!--deu erro-->
+          <li><a href="categoria?categoria=nutricao">Nutrição</a></li>
+          <li><a href="categoria?categoria=reconstrucao">Reconstrução</a></li>
         </ul>
       </li>
 
       <!-- Cuidados Pessoais -->
       <li>
         <div class="menu-item">
-          <a href="categoria?categoria=cuidados-pessoais"><span>Cuidados Pessoais</span></a>
+          <a href="categoria?categoria=cuidados_pessoais"><span>Cuidados Pessoais</span></a>
           <button class="submenu-toggle" data-target="#submenu-cuidados" aria-expanded="false">
             <span class="arrow"></span>
           </button>
         </div>
         <ul id="submenu-cuidados" class="submenu">
-          <li><a href="depilacao">Depilação</a></li>
+          <li><a href="categoria?categoria=cuidadospessoais&subcategoria=depilacao">Depilação</a></li>
           <li><a href="higieneIntima">Higiene Íntima</a></li>
           <li><a href="protetorSolar">Protetor Solar</a></li>
           <li><a href="kitBarba">Kit de Barbear</a></li>
@@ -94,7 +94,7 @@
       <!-- Skin Care -->
       <li>
         <div class="menu-item">
-          <a href="categoria?categoria=skin-care"><span>Skin Care</span></a>
+          <a href="categoria?categoria=skin_care"><span>Skin Care</span></a>
           <button class="submenu-toggle" data-target="#submenu-skin" aria-expanded="false">
             <span class="arrow"></span>
           </button>
@@ -107,6 +107,7 @@
       </li>
     </ul>
 
+
     <div class="icon-btn search-icon">
       <img src="assets/imagem/icons/lupa.png" alt="lupa">
       <input type="search" placeholder="Pesquisar..." class="search-input">
@@ -114,6 +115,10 @@
 
     <!-- Overlay para a pesquisa -->
     <div id="overlay-pesquisa" class="overlay-pesquisa"></div>
+
+
+
+
     <a href="/" class="logo">
       <img src="assets/imagem/imagem_Logo/logo1000x500.jpg" alt="True Beauty">
     </a>
@@ -123,7 +128,7 @@
     </button>
 
     <button class="icon-btn cart-icon">
-      <!-- <img src="assets/imagem/icons/sacola.png" alt="carrinho-de-compras"> -->
+      <img src="assets/imagem/icons/sacola.png" alt="carrinho-de-compras">
 
 
     </button>
@@ -141,6 +146,14 @@
   <button class="btn-finalizar">Finalizar compra</button>
 </aside>
 
+<<<<<<< HEAD
+=======
+<!-- Fim sacola -->
+
+
+
+<!--Perfil -->
+>>>>>>> 3812d2a (feat: cria subcategoria de produto na pagina for_adm)
 
 <section id="overlay-perfil" class="overlay-perfil"></section>
 
@@ -148,25 +161,55 @@
 <section id="modal-perfil" class="modal-perfil">
   <button id="fechar-perfil" class="fechar-btn">&times;</button>
 
+<<<<<<< HEAD
   <section class="login-container">
     <img src="assets/imagem/imagem_Logo/Logo2.png" class="logo-modal-login" alt="Logo">
     <h2>Bem-vindo(a)</h2>
+=======
+  <main class="login-container">
+>>>>>>> 3812d2a (feat: cria subcategoria de produto na pagina for_adm)
 
-    <p>
-      Aqui você pode acompanhar todos os detalhes dos seus pedidos e ficar ainda mais conectada com a gente. É super
-      simples:
-    </p>
 
-    <h3 id="login-title">Fazer login</h3>
 
-    <section class="social-login">
 
-      <button class="google">
-        <img src="assets/imagem/imagem_Logo/google.png" alt="Google">
-        Continuar com o Google
-      </button>
+    <!-- Procure este bloco aqui no seu HTML -->
+    <section class="login-container">
+      <img src="assets/imagem/imagem_Logo/Logo2.png" class="logo-modal-login" alt="Logo">
+      <h2>Bem-vindo(a)</h2>
+
+
+
+      <p>
+        Aqui você pode acompanhar todos os detalhes dos seus pedidos e ficar ainda mais conectada com a gente. É super
+        simples:
+      </p>
+
+      <!-- <h3 id="login-title">Fazer login</h3> -->
+
+      <h3 id="login-title">Fazer login</h3>
+
+      <section class="social-login">
+
+        <button class="google">
+          <img src="assets/imagem/imagem_Logo/google.png" alt="Google">
+          Continuar com o Google
+        </button>
+
+      </section>
+
+      <p class="ou">OU</p>
+
+      <form id="form-perfil" class="form-login">
+        <input type="email" id="email" name="email" placeholder="E-mail" required>
+        <input type="password" id="senha" name="senha" placeholder="Senha" required>
+        <a href="#" class="forgot">Esqueceu a senha?</a>
+        <button type="submit" class="btn-login">Fazer login</button>
+        <button type="button" class="btn-cadastro"><a href="cadastro">Crie sua conta</a></button>
+
+
 
     </section>
+<<<<<<< HEAD
 
     <p class="ou">OU</p>
 
@@ -192,8 +235,209 @@
       <button type="button" class="btn-cadastro"><a href="cadastro">Crie sua conta</a></button>
     </form>
   </section>
+=======
+>>>>>>> 3812d2a (feat: cria subcategoria de produto na pagina for_adm)
 </section>
+
+
+<!-- Js Perfil -->
+<script>
+  const btnAbrirPerfil = document.querySelector('.user-icon');
+  const modalPerfil = document.getElementById('modal-perfil');
+  const overlayPerfil = document.getElementById('overlay-perfil');
+  const btnFecharPerfil = document.getElementById('fechar-perfil');
+
+  function abrirPerfil() {
+    modalPerfil.classList.add('ativo');
+    overlayPerfil.classList.add('ativo');
+    // Bloqueia o scroll do corpo da página
+    document.body.style.overflow = 'hidden';
+  }
+
+  function fecharPerfil() {
+    modalPerfil.classList.remove('ativo');
+    overlayPerfil.classList.remove('ativo');
+    // Devolve o scroll ao fechar
+    document.body.style.overflow = 'auto';
+  }
+
+  btnAbrirPerfil.addEventListener('click', abrirPerfil);
+  btnFecharPerfil.addEventListener('click', fecharPerfil);
+  overlayPerfil.addEventListener('click', fecharPerfil);
+
+</script>
+
+<!-- Validação login -->
+<script>
+  addEventListener('DOMContentLoaded', () => {
+    const form = document.getElementById('form-perfil');
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const email = form.email.value;
+      const senha = form.senha.value;
+
+      try {
+        const response = await fetch('/login', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email, senha })
+        });
+        const resultado = await response.json();
+        if (resultado.sucesso) {
+          alert('Login bem-sucedido!');
+          window.location.href = resultado.redirectUrl;
+
+        } else {
+          alert('Email ou senha incorretos. Tente novamente.');
+
+        }
+
+      } catch (error) {
+        console.error('Erro ao fazer login:', error);
+        alert('Ocorreu um erro. Tente novamente mais tarde.');
+      }
+    });
+  });
+</script>
+<!-- Fim perfil -->
+
+
 
 <!-- menu hamburguer -->
 <div id="overlay" class="overlay"></div>
+<<<<<<< HEAD
 <script src="/assets/js/validacoes.js"></script>
+=======
+
+<script>
+  const menuToggle = document.getElementById('menu-toggle');
+  const sideMenu = document.getElementById('side-menu');
+  const overlay = document.getElementById('overlay');
+
+  menuToggle.addEventListener('click', () => {
+    sideMenu.classList.toggle('open');
+    overlay.classList.toggle('active');
+  });
+
+  overlay.addEventListener('click', () => {
+    sideMenu.classList.remove('open');
+    overlay.classList.remove('active');
+  });
+  // Fim do menu hamb
+</script>
+
+<!-- JS DO MENU HAMBURGUER-->
+<script>
+  document.querySelectorAll('.submenu-toggle').forEach(button => {
+    button.addEventListener('click', () => {
+      const target = document.querySelector(button.dataset.target);
+      const expanded = button.getAttribute('aria-expanded') === 'true';
+
+      // fecha todos os outros submenus primeiro
+      document.querySelectorAll('.submenu').forEach(sub => {
+        if (sub !== target) sub.classList.remove('show');
+      });
+      document.querySelectorAll('.submenu-toggle').forEach(btn => {
+        if (btn !== button) btn.setAttribute('aria-expanded', 'false');
+      });
+
+      // alterna o submenu clicado
+      button.setAttribute('aria-expanded', !expanded);
+      target.classList.toggle('show', !expanded);
+    });
+  });
+</script>
+
+
+
+
+
+<!--Pesquisa overlay-->
+<script>
+  const searchContainer = document.querySelector('.search-icon');
+  const lupaBtnImg = searchContainer.querySelector('img');
+  const searchInput = searchContainer.querySelector('.search-input');
+  const overlayPesquisa = document.getElementById('overlay-pesquisa');
+
+  let pesquisaAtiva = false;
+
+  function setPesquisaAtiva(ativo) {
+    pesquisaAtiva = ativo;
+
+    searchContainer.classList.toggle('active', ativo);
+    searchInput.classList.toggle('active', ativo);
+    overlayPesquisa.classList.toggle('ativo', ativo);
+
+    // Blur apenas no mobile/tablet
+    if (window.matchMedia('(max-width: 991px)').matches) {
+      document.body.classList.toggle('blurred', ativo);
+    } else {
+      document.body.classList.remove('blurred');
+    }
+
+    if (ativo) {
+      searchInput.focus();
+    } else {
+      searchInput.blur();
+    }
+  }
+
+  // Clique na lupa: alterna abrir/fechar
+  lupaBtnImg.addEventListener('click', (e) => {
+    e.stopPropagation(); // impede que o clique vá pro document
+    if (pesquisaAtiva) {
+      // Se já estiver ativa, fecha
+      setPesquisaAtiva(false);
+    } else {
+      // Se estiver fechada, abre
+      setPesquisaAtiva(true);
+    }
+  });
+
+  // Impede que cliques dentro da área da busca fechem o campo
+  searchContainer.addEventListener('click', (e) => {
+    e.stopPropagation();
+  });
+
+  // Clique fora: fecha
+  document.addEventListener('click', () => {
+    if (pesquisaAtiva) {
+      setPesquisaAtiva(false);
+    }
+  });
+
+
+  // Redimensionamento: garante que feche em telas grandes
+  window.addEventListener('resize', () => {
+    if (!window.matchMedia('(max-width: 991px)').matches) {
+      setPesquisaAtiva(false);
+    }
+  });
+ 
+  // Script subcategoria
+  const categoriaSelect = document.getElementById('cp-categoria');
+  const subcategoriaSelect = document.getElementById('cp-subcategoria');
+  const todasOptions = [...subcategoriaSelect.querySelectorAll('option[data-categoria]')];
+
+  function filtrarSubcategorias() {
+    const categoriaSelecionada = categoriaSelect.value;
+
+    if (categoriaSelecionada === '') {
+      // Nenhuma categoria: esconde tudo e desabilita
+      todasOptions.forEach(opt => opt.hidden = true);
+      subcategoriaSelect.disabled = true;
+    } else {
+      // Categoria selecionada: mostra só as opções dela e habilita
+      todasOptions.forEach(opt => {
+        opt.hidden = opt.dataset.categoria !== categoriaSelecionada;
+      });
+      subcategoriaSelect.disabled = false;
+    }
+
+    subcategoriaSelect.value = '';
+  }
+
+  filtrarSubcategorias();
+  categoriaSelect.addEventListener('change', filtrarSubcategorias);
+</script>
+>>>>>>> 3812d2a (feat: cria subcategoria de produto na pagina for_adm)
