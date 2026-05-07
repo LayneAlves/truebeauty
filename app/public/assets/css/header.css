@@ -33,6 +33,7 @@
   max-width: 1400px;
   margin: 0 auto;
   height: 100%;
+  box-shadow: 0px 2px 5px -1px #8B0000;
 }
 
 .header nav a {
@@ -125,7 +126,7 @@
 .logo {
   position: absolute;
   left: 50%;
-  margin-left: -100px;
+  margin-left: -85px;
   z-index: 5;
 
 
@@ -225,11 +226,6 @@
 }
 
 @media (max-width: 990px) {
-  .header nav>label {
-    display: flex;
-    margin: 8px;
-    row-gap: 5px;
-  }
   .header nav>ul>li:hover {
     margin:0;
     box-shadow: none;

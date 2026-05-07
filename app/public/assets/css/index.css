@@ -558,13 +558,10 @@ button {
     height: 28px !important;
   }
 
-  /*MENU HAMBUGUER*/
-  /* .bootstrap::before {
-    content: "▶";
-    transition: transform 0.3s;
-    cursor: pointer;
-    margin: 20px;
-  } */
+  .icon-btn {
+    display: none;
+  }
+
 
   /*QUANDO O BOTAO É CLICADO*/
   .bootstrap::before:active {
@@ -617,10 +614,6 @@ button {
   #inf {
     padding-right: clamp(2rem, 3vw, 6.25rem);
   }
-
-  /* #prf, #inf{
-     width: 45%; 
-  } */
 
   #icons {
     align-items: center;
@@ -719,7 +712,7 @@ button {
 
 
 /* TABLET */
-@media (min-width: 481px) and (max-width: 840px) {
+@media (min-width: 481px) and (max-width: 991px) {
 
   /*CARROSSEL DE CATEGORIAS */
   .categories-carousel {
@@ -798,6 +791,7 @@ button {
     font-size: 19px;
   }
 
+
   /*HEADER*/
 
   .header nav>ul:nth-of-type(1) {
@@ -811,7 +805,6 @@ button {
   .icon-btn img {
     min-width: 30px;
     min-height: 30px;
-    opacity: 0.0;
   }
 
   .search-icon:hover .search-input {
@@ -820,6 +813,14 @@ button {
     opacity: 1;
     font-size: 16px;
   }
+
+  .header nav>label {
+    display: flex;
+    margin: 8px;
+    row-gap: 5px;
+  }
+
+
 
   /*FOOTER*/
 
@@ -878,6 +879,12 @@ button {
 
 
 
+}
+
+@media (min-width: 992px) {
+  .carousel-wrapper--categorias .scroll-arrow {
+    display: none;
+  }
 }
 
 /* NAVBAR MOBILE */
