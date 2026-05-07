@@ -12,38 +12,42 @@
 
       <main>
         <!-- BANNER PRINCIPAL -->
-          <section class="main-banner">
-            <img src="assets/imagem/banners/dia-das-maes.webp" alt="Banner Dia das Mães">
-          </section>
+        <section class="main-banner">
+          <img src="assets/imagem/banners/dia-das-maes.webp" alt="Banner Dia das Mães">
+        </section>
 
         <!-- CARROSSEL DE CATEGORIAS -->
-        <section class="categories-carousel">
-          <section class="cabelo">
-            <h2>Cabelo</h2>
-            <a href="#">Veja Mais</a>
+        <!-- CARROSSEL DE CATEGORIAS -->
+        <div class="carousel-wrapper">
+          <button type="button" class="scroll-arrow left"
+            onclick="scrollCards('left', '.categories-carousel')">‹</button>
+
+          <section class="categories-carousel">
+            <section class="cabelo">
+              <h2>Cabelo</h2>
+              <a href="#">Veja Mais</a>
+            </section>
+            <section class="corpo">
+              <h2>Pele</h2>
+              <a href="#">Veja Mais</a>
+            </section>
+            <section class="banho">
+              <h2>Banho</h2>
+              <a href="#">Veja Mais</a>
+            </section>
+            <section class="perfume">
+              <h2>Perfume</h2>
+              <a href="#">Veja Mais</a>
+            </section>
+            <section class="rosto">
+              <h2>Cuidados</h2>
+              <a href="#">Veja Mais</a>
+            </section>
           </section>
 
-          <section class="corpo">
-            <h2>Pele</h2>
-            <a href="#">Veja Mais</a>
-          </section>
-
-          <section class="banho">
-
-            <h2>Banho</h2>
-            <a href="#">Veja Mais</a>
-          </section>
-
-          <section class="perfume">
-            <h2>Perfume</h2>
-            <a href="#">Veja Mais</a>
-          </section>
-
-          <section class="rosto">
-            <h2>Cuidados</h2>
-            <a href="#">Veja Mais</a>
-          </section>
-        </section>
+          <button type="button" class="scroll-arrow right"
+            onclick="scrollCards('right', '.categories-carousel')">›</button>
+        </div>
 
         <!-- BANNER ROTATIVO -->
         <section class="custom-carousel">
@@ -66,29 +70,34 @@
         </section>
 
         <!-- CARROSSEL DE PRODUTOS -->
-        <section class="card-container">
-          <!-- Cabelo -->
-          <% produtos.forEach(produto=> { %>
-            <section>
-              <header>
-                <img src="<%=produto.imagem%>" alt="<%=produto.nome%>">
-              </header>
-              <article>
-                <h2 class="card-title">
-                  <%=produto.nome%>
-                </h2>
-                <p class="card-text">
-                  <%=produto.descricao%>
-                </p>
-                <p class="card-price">
-                  <span class="currency">R$</span>
-                  <%=produto.preco%>
-                </p>
-                <a href="#" class="card-button">Comprar</a>
-              </article>
-            </section>
-            <% }) %>
-        </section>
+        <div class="carousel-wrapper">
+          <button type="button" class="scroll-arrow left" onclick="scrollCards('left', '.card-container')">‹</button>
+
+          <section class="card-container">
+            <% produtos.forEach(produto=> { %>
+              <section>
+                <header>
+                  <img src="<%=produto.imagem%>" alt="<%=produto.nome%>">
+                </header>
+                <article>
+                  <h2 class="card-title">
+                    <%=produto.nome%>
+                  </h2>
+                  <p class="card-text">
+                    <%=produto.descricao%>
+                  </p>
+                  <p class="card-price">
+                    <span class="currency">R$</span>
+                    <%=produto.preco%>
+                  </p>
+                  <a href="#" class="card-button">Comprar</a>
+                </article>
+              </section>
+              <% }) %>
+          </section>
+
+          <button type="button" class="scroll-arrow right" onclick="scrollCards('right', '.card-container')">›</button>
+        </div>
 
         <!-- Seção de destaque -->
         <div class="dica-make">
@@ -196,7 +205,7 @@
             <img src="assets/imagem/icons/filtro.png" alt="">
             <p>Filtro</p>
           </section> -->
-          
+
           <!-- MENU -->
           <section class="mbl_nav_item" id="mbl_btn_menu">
             <img src="assets/imagem/icons/menu.png" alt="">
@@ -246,10 +255,10 @@
             });
           });
 
-          // Função para rolar o carrossel
-          function scrollCards(direction) {
-            const container = document.querySelector('.cards-container');
-            const scrollAmount = 370; // largura do card + gap
+          // Função de seta para rolar TODOS os carrosséis 
+          function scrollCards(direction, selector = '.cards-container') {
+            const container = document.querySelector(selector);
+            const scrollAmount = 200;
 
             if (direction === 'left') {
               container.scrollBy({ left: -scrollAmount, behavior: 'smooth' });

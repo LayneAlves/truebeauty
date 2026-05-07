@@ -16,19 +16,20 @@ body {
   font-family: 'Lora', serif;
 }
 
-menu{
+menu {
   font-size: 18px;
 }
 
 main {
- width: 100%;
+  width: 100%;
   max-width: 1200px;
   margin: 0 auto;
 }
 
 img {
-   max-width: 100%;
-  height: auto; /* IMPORTANTE: mude de 100% para auto */
+  max-width: 100%;
+  height: auto;
+  /* IMPORTANTE: mude de 100% para auto */
   display: block;
 }
 
@@ -339,6 +340,17 @@ banner rotativo */
   transform: scale(1.03);
 }
 
+.cards-container,
+.categories-carousel {
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+
+.cards-container>*,
+.categories-carousel>* {
+  scroll-snap-align: start;
+}
+
 /* imagem grande de fundo */
 .img-fundo {
   width: 100%;
@@ -403,7 +415,7 @@ h3 {
   font-weight: bold;
   font-size: 16px;
   /* padding-left: 18px; */
-padding-left: 5px;
+  padding-left: 5px;
 }
 
 button {
@@ -539,7 +551,7 @@ button {
 
   .header nav>ul:nth-of-type(1) {
     max-width: 45%;
-    
+
   }
 
   .logo>img {
@@ -598,11 +610,11 @@ button {
     flex-wrap: wrap;
   }
 
-  #prf{
+  #prf {
     margin-left: clamp(0rem, 6vw, 12.25rem);
   }
 
-  #inf{
+  #inf {
     padding-right: clamp(2rem, 3vw, 6.25rem);
   }
 
@@ -611,20 +623,21 @@ button {
   } */
 
   #icons {
-  align-items: center;
-  width: 70%;
-  padding-left: clamp(0rem, 1vw, 3.125rem); 
-  gap: 16px;
-  flex: 2;
-}
+    align-items: center;
+    width: 70%;
+    padding-left: clamp(0rem, 1vw, 3.125rem);
+    gap: 16px;
+    flex: 2;
+  }
 
-#icons, img{
-  width: 100%;
-}
+  #icons,
+  img {
+    width: 100%;
+  }
 
-#icons img{
-  max-width: 60%;
-}
+  #icons img {
+    max-width: 60%;
+  }
 
   .footer nav {
     padding: 0;
@@ -682,12 +695,12 @@ button {
     padding: 35px 0;
   }
 
-  
-  .login-container p{
+
+  .login-container p {
     margin-bottom: 5%;
   }
 
-  .login-title{
+  .login-title {
     margin-bottom: 5%;
   }
 
@@ -758,7 +771,7 @@ button {
     height: 100%;
     background-position: center;
     object-fit: contain;
-    
+
   }
 
   .card-container section article {
@@ -880,7 +893,7 @@ button {
   align-items: center;
 
   padding: 10px 0;
-  box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
 
   z-index: 9999;
 }
@@ -905,7 +918,8 @@ button {
 .mbl_nav_item p {
   font-size: 11px;
   margin: 0;
-   font-family: 'Lora', serif; /* pode trocar pra sua fonte do projeto */
+  font-family: 'Lora', serif;
+  /* pode trocar pra sua fonte do projeto */
 }
 
 
@@ -918,7 +932,7 @@ button {
   padding: 10px;
   border-radius: 50%;
 
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 /* ÍCONE MAIOR */
@@ -930,28 +944,30 @@ button {
 body {
   padding-bottom: 80px;
 }
+
 /* só pra ESCONDER no desktop: */
 @media (min-width: 768px) {
   .mbl_navbar {
     display: none;
   }
 }
+
 /* AJUSTE PARA NÃO CORTAR A LOGO */
 .logo-modal-login {
-    width: 250px !important;    
-    height: auto !important;
-    display: block !important;
-    
-    /* Mudei de -110px para -60px para parar de cortar em cima */
-    /* Mudei de -40px para -20px para o texto não subir tanto */
-    margin: -60px auto -20px auto !important; 
-    
-    position: relative !important;
-    z-index: 10;
+  width: 250px !important;
+  height: auto !important;
+  display: block !important;
+
+  /* Mudei de -110px para -60px para parar de cortar em cima */
+  /* Mudei de -40px para -20px para o texto não subir tanto */
+  margin: -60px auto -20px auto !important;
+
+  position: relative !important;
+  z-index: 10;
 }
 
 /* Garante que o texto "Bem-vindo" não tenha espaço extra no topo */
 .login-container h2 {
-    margin-top: 0 !important;
-    padding-top: 0 !important;
+  margin-top: 0 !important;
+  padding-top: 0 !important;
 }

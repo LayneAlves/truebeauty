@@ -320,7 +320,6 @@
     opacity: 1;
     border-color: #8B0000;
     background-color: #fff;
-    box-shadow: 0 0 8px rgba(139, 0, 0, 0.45);
     z-index: 1001;
     /* acima do overlay */
   }
@@ -334,10 +333,6 @@
     /* opcional */
   }
 
-  
-  header {
-    box-shadow: 0 2px 4px #8B0000;
-  }
 
   .sacola-header{
     box-shadow: none;
