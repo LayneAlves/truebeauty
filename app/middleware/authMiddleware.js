@@ -1,5 +1,5 @@
 const jwt = require('jsonwebtoken');
-const SECRET = 'SuaChaveSecretaSuperSegura'; // Deve ser a mesma chave do Controller
+const SECRET = 'ChaveSecreta';
 
 const authMiddleware = {
     // Bloqueia quem não está logado
@@ -7,12 +7,12 @@ const authMiddleware = {
         const token = req.cookies.token;
 
         if (!token) {
-            return res.redirect('/login'); // Ou a rota da sua página de login
+            return res.redirect('/login');
         }
 
         try {
             const decoded = jwt.verify(token, SECRET);
-            req.user = decoded; // Salva id, nome e tipo para usar no EJS/Rotas
+            req.user = decoded;
             next();
         } catch (err) {
             res.clearCookie('token');
@@ -25,7 +25,7 @@ const authMiddleware = {
         if (req.user && req.user.tipo === 'admin') {
             next();
         } else {
-            res.status(403).send('Acesso negado: Esta área é exclusiva para administradores.');
+            res.status(403).send('Acesso negado: Você não é um administrador.');
         }
     }
 };

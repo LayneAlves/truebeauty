@@ -1,6 +1,6 @@
 <%- include('./include/head.ejs',{pagina:"produtos"}) %>
     <link rel="stylesheet" href="/assets/css/formulario_produto.css">
-</head>
+    </head>
 
     <body>
         <%- include('./include/menu/menu.ejs') %>
@@ -71,6 +71,34 @@
                 });
             </script>
 
+            <!-- subcategoria -->
+            <script>
+                const categoriaSelect = document.getElementById('cp-categoria');
+                const subcategoriaSelect = document.getElementById('cp-subcategoria');
+                const todasOptions = [...subcategoriaSelect.querySelectorAll('option[subcategoria]')];
+
+                function filtrarSubcategorias() {
+                    const categoriaSelecionada = categoriaSelect.value;
+
+                    if (categoriaSelecionada === '') {
+                        // Nenhuma categoria: esconde tudo e desabilita
+                        todasOptions.forEach(opt => opt.hidden = true);
+                        subcategoriaSelect.disabled = true;
+                    } else {
+                        // Categoria selecionada: mostra só as opções dela e habilita
+                        todasOptions.forEach(opt => {
+                            opt.hidden = opt.dataset.categoria !== categoriaSelecionada;
+                        });
+                        subcategoriaSelect.disabled = false;
+                    }
+
+                    subcategoriaSelect.value = '';
+                }
+
+                filtrarSubcategorias();
+                categoriaSelect.addEventListener('change', filtrarSubcategorias);
+            </script>
+
     </body>
 
-</html>
+    </html>

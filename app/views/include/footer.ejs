@@ -166,30 +166,3 @@
 
 </script>
 
-// Script subcategoria
-<script>
-  const categoriaSelect = document.getElementById('cp-categoria');
-  const subcategoriaSelect = document.getElementById('cp-subcategoria');
-  const todasOptions = [...subcategoriaSelect.querySelectorAll('option[data-categoria]')];
-
-  function filtrarSubcategorias() {
-    const categoriaSelecionada = categoriaSelect.value;
-
-    if (categoriaSelecionada === '') {
-      // Nenhuma categoria: esconde tudo e desabilita
-      todasOptions.forEach(opt => opt.hidden = true);
-      subcategoriaSelect.disabled = true;
-    } else {
-      // Categoria selecionada: mostra só as opções dela e habilita
-      todasOptions.forEach(opt => {
-        opt.hidden = opt.dataset.categoria !== categoriaSelecionada;
-      });
-      subcategoriaSelect.disabled = false;
-    }
-
-    subcategoriaSelect.value = '';
-  }
-
-  filtrarSubcategorias();
-  categoriaSelect.addEventListener('change', filtrarSubcategorias);
-</script>
