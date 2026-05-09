@@ -19,7 +19,7 @@ class Carrinho {
   // Adiciona produto ao carrinho
   adicionarItem(produto) {
     const itemExistente = this.itens.find(item => item.id === produto.id);
-    
+
     if (itemExistente) {
       itemExistente.quantidade += 1;
     } else {
@@ -31,7 +31,7 @@ class Carrinho {
         quantidade: 1
       });
     }
-    
+
     this.salvarCarrinho();
     this.atualizarSacola();
     this.abrirSacola();
@@ -76,12 +76,15 @@ class Carrinho {
   atualizarSacola() {
     const sacola = document.getElementById('sacola-lateral');
     const container = sacola.querySelector('.itens-container') || this.criarContainerItens(sacola);
-    
+    const btnFinalizar = document.querySelector('.btn-finalizar'); // ← adiciona essa linha
+
     container.innerHTML = '';
-    
+
     if (this.itens.length === 0) {
       container.innerHTML = '<p class="carrinho-vazio">Seu carrinho está vazio</p>';
+      btnFinalizar.style.display = 'none'; // ← esconde quando vazio
     } else {
+      btnFinalizar.style.display = 'block'; // ← mostra quando tem itens
       this.itens.forEach(item => {
         const itemElement = this.criarItemSacola(item);
         container.appendChild(itemElement);
@@ -95,7 +98,7 @@ class Carrinho {
   criarContainerItens(sacola) {
     const container = document.createElement('div');
     container.className = 'itens-container';
-    
+
     const btnFinalizar = sacola.querySelector('.btn-finalizar');
     sacola.insertBefore(container, btnFinalizar);
     return container;
@@ -177,7 +180,7 @@ class Carrinho {
     btnAbrirSacola.addEventListener('click', () => this.abrirSacola());
     btnFecharSacola.addEventListener('click', () => this.fecharSacola());
     overlay.addEventListener('click', () => this.fecharSacola());
-    
+
     btnFinalizar.addEventListener('click', () => {
       if (this.itens.length > 0) {
         window.location.href = '/checkout';
@@ -195,7 +198,7 @@ class Carrinho {
     document.addEventListener('click', (e) => {
       if (e.target.classList.contains('card-button') || e.target.textContent === 'Comprar') {
         e.preventDefault();
-        
+
         const card = e.target.closest('section') || e.target.closest('.card-destaque');
         if (!card) return;
 
@@ -210,7 +213,7 @@ class Carrinho {
     const img = card.querySelector('img');
     const titulo = card.querySelector('.card-title, h3');
     const preco = card.querySelector('.card-price, .preco');
-    
+
     return {
       id: Date.now() + Math.random(),
       nome: titulo ? titulo.textContent.trim() : 'Produto',

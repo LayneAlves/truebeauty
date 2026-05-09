@@ -19,7 +19,42 @@ body {
       grid-auto-flow: row;
       gap: 16px;
 
+      @media (max-width: 480px) {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+        padding: 10px;
+        margin: 20px auto;
+      }
+    }
+
+    .card-container section {
+      @media (max-width: 480px) {
+        width: 100%;
+        height: auto;
+        min-height: 280px;
+      }
+    }
+
+    .card-container section header {
+      @media (max-width: 480px) {
+        width: 100%;
+        height: 130px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+      }
+    }
+
+    .card-container section header img {
+      @media (max-width: 480px) {
+        width: auto;
+        height: 110px;
+        max-width: 90%;
+        object-fit: contain;
+        display: block;
+        margin: 0 auto;
+      }
     }
   }
 }
-
