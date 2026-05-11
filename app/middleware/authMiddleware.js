@@ -7,7 +7,8 @@ const authMiddleware = {
         const token = req.cookies.token;
 
         if (!token) {
-            return res.redirect('/login');
+            return res.redirect('/?erro=acesso_negado');
+            // return res.redirect('/login');
         }
 
         try {

@@ -63,20 +63,18 @@
     function abrirPerfil() {
         modalPerfil.classList.add('ativo');
         overlayPerfil.classList.add('ativo');
-        // Bloqueia o scroll do corpo da página
         document.body.style.overflow = 'hidden';
     }
 
     function fecharPerfil() {
         modalPerfil.classList.remove('ativo');
         overlayPerfil.classList.remove('ativo');
-        // Devolve o scroll ao fechar
         document.body.style.overflow = 'auto';
     }
 
     btnAbrirPerfil.addEventListener('click', abrirPerfil);
     btnFecharPerfil.addEventListener('click', fecharPerfil);
-    overlayPerfil.addEventListener('click', fecharPerfil);
+    // overlayPerfil.addEventListener('click', fecharPerfil);
 
 </script>
 

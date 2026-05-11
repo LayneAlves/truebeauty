@@ -23,11 +23,14 @@ router.get('/vertudo', ProdutoController.produtos, (req, res) => {
 router.get('/categoria', ProdutoController.buscar, (req, res) => {
     res.render('categoria');
 });
+// Rota da página de administração — exige login e perfil admin
+router.get('/for_adm', auth.verificarLogado, auth.somenteAdmin, for_admController.renderfor_adm);
 
-router.get('/for_adm', for_admController.renderfor_adm);
 
-router.get('/for_adm', auth.verificarLogado, auth.somenteAdmin, (req, res) => {    res.render('for_adm', { user: req.user }); 
-});
+// router.get('/for_adm', for_admController.renderfor_adm);
+
+// router.get('/for_adm', auth.verificarLogado, auth.somenteAdmin, (req, res) => {    res.render('for_adm', { user: req.user }); 
+// });
 
 router.get('/', auth.verificarLogado, (req, res) => {
     res.render('index', { user: req.user });

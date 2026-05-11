@@ -406,7 +406,7 @@ banner rotativo */
 
 h3 {
   color: rgba(0, 0, 0, 0.675);
-  font-size: 18px;
+  font-size: 15px;
   margin-bottom: 3%;
 }
 
@@ -427,8 +427,6 @@ button {
   font-size: 1.0em;
   font-weight: bold;
 }
-
-
 
 /* Efeito h2 */
 
@@ -526,7 +524,6 @@ button {
     height: 100%;
     background-position: center;
     object-fit: contain;
-    /* antes era cover, que cortava */
   }
 
   .card-container section article {
@@ -564,10 +561,7 @@ button {
     display: none;
   }
 
-  
 
-
-  /*QUANDO O BOTAO É CLICADO*/
   .bootstrap::before:active {
     transform: rotate(90deg);
   }
@@ -575,14 +569,6 @@ button {
   .header nav ul a {
     display: flex;
   }
-
-  .search-input.active {
-    z-index: 2000;
-  }
-
-
-
-
 
 
   /*FOOTER*/
@@ -694,8 +680,10 @@ button {
   }
 
   .modal-perfil {
-    max-width: 95%;
+    max-width: 100%;
+    width: 400px;
     padding: 35px 0;
+    
   }
 
 
@@ -969,14 +957,13 @@ body {
   }
 }
 
+
 /* AJUSTE PARA NÃO CORTAR A LOGO */
 .logo-modal-login {
   width: 250px !important;
   height: auto !important;
   display: block !important;
 
-  /* Mudei de -110px para -60px para parar de cortar em cima */
-  /* Mudei de -40px para -20px para o texto não subir tanto */
   margin: -60px auto -20px auto !important;
 
   position: relative !important;

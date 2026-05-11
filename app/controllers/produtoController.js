@@ -98,7 +98,7 @@ const ProdutoController = {
             const id = parseInt(req.params.id);
             const { nome, preco, descricao, estoque, categoria } = req.body;
 
-            // 1. Buscamos o produto atual para não perder a imagem antiga caso o usuário não troque
+           
             const produtos = await ProdutoModel.produtos();
             const produtoOriginal = produtos.find(p => p.id === id);
 
@@ -106,15 +106,13 @@ const ProdutoController = {
                 return res.status(404).json({ message: 'Produto não encontrado' });
             }
 
-            // 2. Lógica da Imagem: Se o usuário escolheu um arquivo novo, processamos. 
-            // Se não, mantemos a imagem que já estava lá.
+        
             let imagem = produtoOriginal.imagem;
             if (req.file) {
                 const novaImagem = await processImage(req.file, "produtos");
                 imagem = "/assets/imagem/produtos/" + novaImagem;
             }
 
-            // 3. Criamos o objeto com os dados atualizados
             const produtoAtualizado = {
                 id,
                 nome,
@@ -125,10 +123,8 @@ const ProdutoController = {
                 categoria
             };
 
-            // 4. Chamamos o Model para salvar as alterações
             await ProdutoModel.atualizar(id, produtoAtualizado);
 
-            // 5. Redireciona de volta para a lista de produtos
             res.redirect('/produtos');
 
         } catch (error) {

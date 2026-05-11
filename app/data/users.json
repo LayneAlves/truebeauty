@@ -9,10 +9,16 @@
   },
   {
     "id": 2,
-    "nome": "Layne Silva",
+    "nome": "Layne Alves da Silva",
     "email": "layne.silva1007@gmail.com",
-    "senha": "$2b$10$DMJyuSaG9oAW28erNnuPPekrXjAbHNwb.aN1GpLXOjMJBWOErIlvm",
-    "imagem": "assets/imagem/icons/avatarMulher.avif",
-    "tipo": "comum"
+    "senha": "$2b$10$18gP6wFebM1KXEwE9MWBWuJ38fVWje0ho0dLLRdTRIqnce61OjkBm",
+    "tipo": "admin"
+  },
+  {
+    "id": 3,
+    "nome": "Isabelle Monteiro",
+    "email": "isa@gmail.com",
+    "senha": "$2b$10$gKNghYWNLbsdZ2nm.cuV3uFDmFxsYARVqTipzjufaIqyKnxkjqvXO",
+    "tipo": "admin"
   }
 ]

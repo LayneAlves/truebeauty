@@ -1,5 +1,5 @@
 // VALIDAÇÃO NOME
-addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", () => {
     const fields = {
         nome: document.querySelectorAll("input[name='nome']"),
         nomeError: document.querySelector("#nome-error"),
@@ -264,62 +264,71 @@ addEventListener("DOMContentLoaded", () => {
 });
 
 
-    // Validação de Login
-    const formPerfil = document.querySelector("#form-perfil");
+// Validação de Login
+document.addEventListener("submit", async (e) => {
+    if (e.target.id !== 'form-perfil') return;
+    e.preventDefault();
+
     const loginErrorMsg = document.querySelector("#login-error-msg");
+    const formData = new FormData(e.target);
+    const emailInput = formData.get('email');
+    const senhaInput = formData.get('senha');
 
-    if (formPerfil) {
-        formPerfil.addEventListener("submit", async (e) => {
-            if (e.target.id === 'form-perfil')
-                e.preventDefault();
-
-            const formData = new FormData(e.target);
-            const emailInput = formData.get('email');
-            const senhaInput = formData.get('senha');
-
-            try {
-                const response = await fetch('/login', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ email: emailInput, senha: senhaInput })
-                });
-                const data = await response.json();
-
-                if (response.ok && data.sucesso) {
-                    localStorage.setItem('usuarioNome', data.nome); 
-                    window.location.href = data.redirectUrl; 
-
-                    if (loginErrorMsg) {
-                        loginErrorMsg.textContent = data.error || "Erro ao fazer login";
-                        loginErrorMsg.style.display = 'block';
-                    } else {
-                        alert(data.error); 
-                    }
-                }
-            } catch (error) {
-                console.error("Erro no fetch:", error);
-                alert("Não foi possível conectar ao servidor."); 
-            }
+    try {
+        const response = await fetch('/login', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email: emailInput, senha: senhaInput })
         });
-    }
+        const data = await response.json();
 
-    // --- Após efetuar o login, aparece o nome de quem logou ---
-    const nome = localStorage.getItem('usuarioNome');
-    const userIcon = document.querySelector(".user-icon");
+        if (response.ok && data.sucesso) {
+            localStorage.setItem('usuarioNome', data.nome);
+            window.location.href = data.redirectUrl;
+        } else {
+            if (loginErrorMsg) {
+                loginErrorMsg.textContent = data.error || "Email ou senha incorretos.";
+                loginErrorMsg.style.display = 'block';
+            }
+        }
+    } catch (error) {
+        console.error("Erro no fetch:", error);
+        alert("Não foi possível conectar ao servidor.");
+    }
+});
+
+// Mensagem de erro de acesso para pag de adm
+const params = new URLSearchParams(window.location.search);
+if (params.get('erro') === 'acesso_negado') {
+    alert('Acesso negado! Apenas administradores podem entrar nessa página.');
+}
+
+// --- Após efetuar o login, aparece o nome de quem logou ---
+const nome = localStorage.getItem('usuarioNome');
+
+    //desktop
+    const userIcon = document.querySelector(".user-icon");  
     if (nome && userIcon) {
         const primeiroNome = nome.split(' ')[0];
-        userIcon.innerHTML = `<span style="font-size:12px; font-weight:bold; font-family: 'Lora', serif;
-        ">Olá, ${primeiroNome}</span>`;
+        userIcon.innerHTML = `<span style="font-size:12px; font-weight:bold; font-family: 'Lora', serif; ">Olá, ${primeiroNome}</span>`;
 
-        userIcon.addEventListener("click", (e) => {
-            e.preventDefault(); 
+    // saudacoes no mobile, falta fazer no html e no css
+    // const mblSaudacao = document.getElementById('mbl_saudacao');
+    // const mblSaudacaoNome = document.getElementById('mbl_saudacao_nome');
+    // if (mblSaudacao && mblSaudacaoNome) {
+    //     mblSaudacaoNome.textContent = primeiroNome;
+    //     mblSaudacao.style.display = 'block';
+    // }
 
-            if (confirm("Deseja realmente sair da sua conta?")) {
-                localStorage.removeItem('usuarioNome'); 
-                window.location.reload(); 
-            }
-        });
-    }
+    userIcon.addEventListener("click", (e) => {
+        e.preventDefault();
+
+        if (confirm("Deseja realmente sair da sua conta?")) {
+            localStorage.removeItem('usuarioNome');
+            window.location.reload();
+        }
+    });
+}
 
 
 

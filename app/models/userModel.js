@@ -16,9 +16,6 @@ const UserModel = {
     cadastrar(newUser) {
         const users = this.users();
 
-        users.push(newUser);
-        fs.writeFileSync(filePath, JSON.stringify(users, null, 2), 'utf8');
-
         const usuarioComTipo = {
             ...newUser,
             tipo: newUser.tipo || "comum"

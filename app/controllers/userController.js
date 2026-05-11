@@ -1,7 +1,7 @@
 const UserModel = require('../models/userModel');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
-const SECRET = 'SuaChaveSecretaSuperSegura';
+const SECRET = 'ChaveSecreta';
 
 const UserController = {
 
@@ -31,7 +31,7 @@ const UserController = {
             if (!senha >= 8 && !caseOk && !numberOk && !specialOk) return console.log("Senha Inválida")
 
             const senhaHash = await bcrypt.hash(senha, 10);
-
+            
             const newUser = {
                 id: UserModel.users().reduce((maxId, user) => Math.max(maxId, user.id), 0) + 1,
                 nome,
