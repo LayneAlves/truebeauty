@@ -99,13 +99,13 @@
   outline: none;
 }
 
-.search-icon:hover .search-input {
+/* .search-icon:hover .search-input {
   width: 250px;
   padding: 0 12px;
   opacity: 1;
   font-size: 16px;
   z-index: 20;
-}
+} */
 
 .search-input:focus {
 
@@ -216,9 +216,9 @@
 }
 
 /* Quando o input estiver ativo (por exemplo, após clicar na lupa e mostrar) */
-.search-input.active {
+/* .search-input.active {
   background-color: #999;
-}
+} */
 
 
 
@@ -313,32 +313,47 @@
     pointer-events: all;
   }
 
+  .search-input {
+    position: fixed;
+    top: 17px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0 !important;
+    opacity: 0 !important;
+    height: 36px;
+    border-radius: 18px;
+    padding: 0 !important;
+    border: 1px solid #ddd;
+    z-index: 1100;
+    transition: all 0.3s ease;
+    pointer-events: none;
+  }
+
   .search-input.active {
-    width: 250px;
-    padding: 0 12px;
-    opacity: 1;
+    width: 60vw !important;
+    padding: 0 12px !important;
+    opacity: 1 !important;
     border-color: #8B0000;
     background-color: #fff;
-    z-index: 1001;
-    /* acima do overlay */
+    box-shadow: 0 2px 8px rgba(139, 0, 0, 0.3);
+    pointer-events: all;
   }
-
-  body.blurred> :not(header):not(#overlay-pesquisa) {
-    filter: blur(8px);
-    transition: filter 0.25s ease;
-    pointer-events: none;
-    /* opcional: evita interação no conteúdo borrado */
-    user-select: none;
-    /* opcional */
-  }
-
-
-  .sacola-header {
-    box-shadow: none;
-  }
-
-
 }
+
+body.blurred> :not(header):not(#overlay-pesquisa):not(#search-input-global) {
+  filter: blur(8px);
+  transition: filter 0.25s ease;
+  pointer-events: none;
+  user-select: none;
+}
+
+
+.sacola-header {
+  box-shadow: none;
+}
+
+
+
 
 
 
@@ -391,6 +406,43 @@
     height: 100%;
     transition: height 0.4s ease;
   }
+
+  .search-input.active {
+    width: 250px;
+    padding: 0 12px;
+    opacity: 1;
+    border-color: #8B0000;
+    background-color: #fff;
+    margin-left: 8px;
+  }
+
+  #search-input-global {
+    position: fixed;
+    top: 17px;
+    left: 8%;
+    width: 0;
+    opacity: 0;
+    height: 36px;
+    border-radius: 18px;
+    padding: 0;
+    border: 1px solid #ddd;
+    z-index: 1100;
+    transition: all 0.3s ease;
+    pointer-events: none;
+  }
+
+  #search-input-global.active {
+    width: 250px;
+    padding: 0 12px;
+    opacity: 1;
+    border-color: #8B0000;
+    background-color: #fff;
+    box-shadow: 0 2px 8px rgba(139, 0, 0, 0.3);
+    pointer-events: all;
+  }
+
+
+
 }
 
 /* Sacola */
