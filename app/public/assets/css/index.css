@@ -561,8 +561,6 @@ button {
     display: none;
   }
 
-<<<<<<< HEAD
-=======
   .search-icon {
     display: flex !important;
     opacity: 0 !important;
@@ -576,7 +574,6 @@ button {
   }
 
 
->>>>>>> 6fad804 (feat: adiciona barra de pesquisa no mobile)
 
   .bootstrap::before:active {
     transform: rotate(90deg);
