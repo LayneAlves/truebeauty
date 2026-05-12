@@ -15,6 +15,9 @@ const ProdutoModel = {
         const data = fs.readFileSync(filePath, 'utf8');
         const produtos = JSON.parse(data);
 
+        if (categoria == "todas") {
+            return produtos;
+        }
         if (campo == "categoria") {
             return produtos.filter(produto => produto.categoria === categoria);
         }

@@ -11,7 +11,7 @@
       <!-- Ver Tudo -->
       <li>
         <div class="menu-item">
-          <a href="/vertudo"><span>Ver Tudo</span></a>
+          <a href="categoria?categoria=todas"><span>Ver Tudo</span></a>
           <button class="submenu-toggle" data-target="#submenu-vertudo" aria-expanded="false">
             <span class="arrow"></span>
           </button>
@@ -121,10 +121,19 @@
     <a href="/" class="logo">
       <img src="assets/imagem/imagem_Logo/logo1000x500.jpg" alt="True Beauty">
     </a>
+    <div class="user-container">
+      <button type="button" class="icon-btn user-icon">
+        <img src="assets/imagem/icons/perfil.png" alt="perfil">
+        <span id="nome-usuario-display"
+          style="font-size:12px; font-weight:bold; font-family: 'Lora', serif; margin-left: 5px;"></span>
+      </button>
 
-    <button class="icon-btn user-icon">
-      <img src="assets/imagem/icons/perfil.png" alt="perfil">
-    </button>
+      <div id="user-menu" class="user-menu">
+        <a href="/minha-conta">MINHA CONTA</a>
+        <hr>
+        <button type="button" id="btn-sair">SAIR</button>
+      </div>
+    </div>
 
     <button class="icon-btn cart-icon">
       <img src="assets/imagem/icons/sacola.png" alt="carrinho-de-compras">
@@ -148,59 +157,52 @@
   <button class="btn-finalizar">Finalizar compra</button>
 </aside>
 
-<!-- Fim sacola -->
-
-
 <!--Perfil -->
 
 <section id="overlay-perfil" class="overlay-perfil">
-<section id="modal-perfil" class="modal-perfil">
-  <button id="fechar-perfil" class="fechar-btn">&times;</button>
-  <section class="login-container">
-    <section class="imagem">
-      <img src="assets/imagem/imagem_Logo/Logo2.png" class="logo-modal-login" alt="Logo">
-    </section>
+  <section id="modal-perfil" class="modal-perfil">
+    <button id="fechar-perfil" class="fechar-btn">&times;</button>
+    <section class="login-container">
+      <section class="imagem">
+        <img src="assets/imagem/imagem_Logo/Logo2.png" class="logo-modal-login" alt="Logo">
+      </section>
 
-    <h3 id="login-title">Escolha uma opção para entrar </h3>
+      <h3 id="login-title">Escolha uma opção para entrar </h3>
 
-    <section class="social-login">
+      <section class="social-login">
 
-      <button class="google">
-        <img src="assets/imagem/imagem_Logo/google.png" alt="Google">
-        Continuar com o Google
-      </button>
+        <button class="google">
+          <img src="assets/imagem/imagem_Logo/google.png" alt="Google">
+          Continuar com o Google
+        </button>
 
-    </section>
+      </section>
 
-    <p class="ou">OU</p>
+      <p class="ou">OU</p>
 
-    <div id="login-error-msg" style="color: red; margin-bottom: 10px; font-size: 14px;"></div>
+      <div id="login-error-msg" style="color: red; margin-bottom: 10px; font-size: 14px;"></div>
       <form id="form-perfil" class="form-login">
-      <div class="form-group">
-        <input type="email" id="emailTeste" name="email" placeholder=" " required>
-        <label for="emailTeste">Email:</label>
-        <span id="email-error" style="color:red; display:none;">
-          Email inválido.
-        </span>
-      </div>
+        <div class="form-group">
+          <input type="email" id="emailTeste" name="email" placeholder=" " required>
+          <label for="emailTeste">Email:</label>
+          <span id="email-error" style="color:red; display:none;">
+            Email inválido.
+          </span>
+        </div>
 
-      <div class="form-group">
-        <input type="password" id="senha" name="senha" placeholder=" " required>
-        <label for="senha">Senha:</label>
-      </div>
+        <div class="form-group">
+          <input type="password" id="senha" name="senha" placeholder=" " required>
+          <label for="senha">Senha:</label>
+        </div>
 
 
-      <a href="#" class="forgot">Esqueceu a senha?</a>
-      <button type="submit" class="btn-login">Fazer login</button>
-      <button type="button" class="btn-cadastro"><a href="cadastro">Crie sua conta</a></button>
-    </form>
+        <a href="#" class="forgot">Esqueceu a senha?</a>
+        <button type="submit" class="btn-login">Fazer login</button>
+        <button type="button" class="btn-cadastro"><a href="cadastro">Crie sua conta</a></button>
+      </form>
+    </section>
   </section>
 
 </section>
 
-</section>
-
 <script src="/assets/js/validacoes.js"></script>
-
-</section>
-

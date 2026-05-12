@@ -554,12 +554,21 @@ button {
   }
 
   .logo>img {
-    height: 28px !important;
+    height: 34px !important;
+    width: 180px;
+    display: block;
   }
 
-  .icon-btn {
+    .icon-btn {
     display: none;
   }
+
+  .user-icon {
+    display: flex !important;
+    margin-left: auto; 
+    padding-right: 10px; 
+    min-width: fit-content;
+}
 
   .search-icon {
     display: flex !important;
@@ -570,8 +579,14 @@ button {
     margin: 0 !important;
     overflow: hidden !important;
     pointer-events: none !important;
-    /* desativa clique aqui, o botão da navbar vai chamar direto */
   }
+  .user-icon span {
+    max-width: 100px !important; 
+    font-size: 11px !important;
+    white-space: nowrap;
+    overflow: visible; 
+    text-overflow: clip; 
+}
 
 
 
@@ -582,6 +597,8 @@ button {
   .header nav ul a {
     display: flex;
   }
+
+
 
 
   /*FOOTER*/
