@@ -6,33 +6,5 @@
     "senha": "$2b$10$BlkTxr0pzBj/VMGU8dF7feS0vA0ZYfRUyzeT7JFUz6aJk7z73D/d6",
     "imagem": "assets/imagem/icons/avatar.avif",
     "tipo": "admin"
-  },
-  {
-    "id": 2,
-    "nome": "Layne Alves da Silva",
-    "email": "layne.silva1007@gmail.com",
-    "senha": "$2b$10$18gP6wFebM1KXEwE9MWBWuJ38fVWje0ho0dLLRdTRIqnce61OjkBm",
-    "tipo": "comum"
-  },
-  {
-    "id": 3,
-    "nome": "Isabelle Monteiro",
-    "email": "isa@gmail.com",
-    "senha": "$2b$10$gKNghYWNLbsdZ2nm.cuV3uFDmFxsYARVqTipzjufaIqyKnxkjqvXO",
-    "tipo": "admin"
-  },
-  {
-    "id": 4,
-    "nome": "julia lima",
-    "email": "julia@gmail.com",
-    "senha": "$2b$10$ZVAjePKYfS4oHvsaKN0fUeEiT5mqrA.XyF8fsN8Kv.kRDi8lHez6O",
-    "tipo": "comum"
-  },
-  {
-    "id": 5,
-    "nome": "Leonardo Leu",
-    "email": "Leu@gmail.com",
-    "senha": "$2b$10$2uHgF47HvDeDZAQs5cMeA.jURdC3HDCOG/7lThMU4vZDkuqIHexFS",
-    "tipo": "comum"
   }
 ]
