@@ -31,7 +31,7 @@ const UserController = {
             if (!senha >= 8 && !caseOk && !numberOk && !specialOk) return console.log("Senha Inválida")
 
             const senhaHash = await bcrypt.hash(senha, 10);
-            
+
             const newUser = {
                 id: UserModel.users().reduce((maxId, user) => Math.max(maxId, user.id), 0) + 1,
                 nome,
@@ -40,7 +40,22 @@ const UserController = {
                 tipo: "comum"
             }
             await UserModel.cadastrar(newUser);
-            return res.redirect('/');
+            // Autentica o usuário automaticamente após o cadastro
+            const token = jwt.sign(
+                { id: newUser.id, nome: newUser.nome, tipo: newUser.tipo },
+                SECRET,
+                { expiresIn: '1d' }
+            );
+
+            res.cookie('token', token, { httpOnly: true, maxAge: 86400000 });
+
+            // Envia os dados de sucesso para o frontend tratar o redirecionamento
+            return res.json({
+                sucesso: true,
+                mensagem: "Cadastro realizado com sucesso! Bem-vindo(a)!",
+                nome: newUser.nome,
+                redirectUrl: '/'
+            });
         } catch (error) {
             console.error('Erro ao cadastrar usuário:', error);
             res.status(500).send('Erro ao cadastrar usuário');
@@ -67,7 +82,7 @@ const UserController = {
                 return res.status(401).json('Senha incorreta');
             }
 
-            
+
             const token = jwt.sign(
                 { id: user.id, nome: user.nome, tipo: user.tipo },
                 SECRET,
@@ -77,16 +92,16 @@ const UserController = {
             res.cookie('token', token, { httpOnly: true, maxAge: 86400000 });
 
 
-            let urlDestino = '/'; 
+            let urlDestino = '/';
             if (user.tipo === 'admin') {
-                urlDestino = '/for_adm'; 
+                urlDestino = '/for_adm';
             }
 
             return res.json({
                 sucesso: true,
                 nome: user.nome,
                 tipo: user.tipo,
-                redirectUrl: urlDestino 
+                redirectUrl: urlDestino
             });
 
 

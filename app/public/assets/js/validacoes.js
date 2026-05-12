@@ -21,8 +21,11 @@ document.addEventListener("DOMContentLoaded", () => {
         cidadeError: document.querySelector("#complemento-cidade"),
         estado: document.querySelectorAll("input[name='estado']"),
         estadoError: document.querySelector("#complemento-estado"),
-        senha: document.querySelectorAll("input[name='senha']"),
+        senha: document.querySelectorAll("#form-cadastro input[name='senha']"),
         senhaError: document.querySelector("#senha-error"),
+        confirmarSenha: document.querySelector("input[name='confirmar-senha']"),
+        confirmarSenhaErro: document.querySelector("#confirmar-senha-erro"),
+        confirmarSenhaOk: document.querySelector("#confirmar-senha-ok"),
     }
 
     const senhaRequisitos = {
@@ -258,9 +261,28 @@ document.addEventListener("DOMContentLoaded", () => {
                     senhaRequisitos.special.classList.toggle("valid", specialOk)
                     senhaRequisitos.special.classList.toggle("invalid", !specialOk)
                 }
+                // Re-valida confirmação de senha 
+                if (fields.confirmarSenha && fields.confirmarSenha.value.length > 0) {
+                    validarConfirmacao();
+                }
             });
         }
     });
+
+    function validarConfirmacao() {
+        const senhasIguais = fields.confirmarSenha.value.trim() === fields.senha[0].value.trim();
+        const temConteudo = fields.confirmarSenha.value.length > 0;
+
+        fields.confirmarSenhaErro.style.display = (!senhasIguais && temConteudo) ? "block" : "none";
+        fields.confirmarSenhaOk.style.display = (senhasIguais && temConteudo) ? "block" : "none";
+
+        fields.confirmarSenha.classList.toggle("invalid", !senhasIguais && temConteudo);
+        fields.confirmarSenha.classList.toggle("valid", senhasIguais && temConteudo);
+    }
+    if (fields.confirmarSenha) {
+        fields.confirmarSenha.addEventListener("input", validarConfirmacao);
+    }
+
 });
 
 
@@ -296,39 +318,100 @@ document.addEventListener("submit", async (e) => {
         alert("Não foi possível conectar ao servidor.");
     }
 });
+// Validação de cadastro
+document.addEventListener("submit", async (e) => {
+    if (e.target.id !== 'form-cadastro') return;
+    e.preventDefault();
+
+    const formData = new FormData(e.target);
+    const body = Object.fromEntries(formData.entries());
+
+    try {
+        const response = await fetch('/cadastro', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(body)
+        });
+        const data = await response.json();
+
+        if (response.ok && data.sucesso) {
+            localStorage.setItem('usuarioNome', data.nome);
+            alert(data.mensagem);
+            window.location.href = data.redirectUrl;
+        } else {
+            alert(data.error || "Erro ao realizar cadastro.");
+        }
+    } catch (error) {
+        console.error("Erro no fetch:", error);
+        alert("Não foi possível conectar ao servidor.");
+    }
+});
+
 
 // Mensagem de erro de acesso para pag de adm
-const params = new URLSearchParams(window.location.search);
-if (params.get('erro') === 'acesso_negado') {
+const acessoParams = new URLSearchParams(window.location.search);
+if (acessoParams.get('erro') === 'acesso_negado') {
     alert('Acesso negado! Apenas administradores podem entrar nessa página.');
 }
 
+
+//Transferir toda essa parte de script pro footer, aqui é somente validações
+
 // --- Após efetuar o login, aparece o nome de quem logou ---
+
+// Busca os dados e elementos principais
 const nome = localStorage.getItem('usuarioNome');
+const userIcon = document.querySelector(".user-icon");
+const userMenu = document.getElementById("user-menu");
+const btnSair = document.getElementById("btn-sair");
+const displayNome = document.getElementById('nome-usuario-display');
 
-    //desktop
-    const userIcon = document.querySelector(".user-icon");  
-    if (nome && userIcon) {
-        const primeiroNome = nome.split(' ')[0];
-        userIcon.innerHTML = `<span style="font-size:12px; font-weight:bold; font-family: 'Lora', serif; ">Olá, ${primeiroNome}</span>`;
+// Só executa a lógica se o usuário estiver logado
+if (nome && userIcon) {
+    const primeiroNome = nome.split(' ')[0];
 
-    // saudacoes no mobile, falta fazer no html e no css
-    // const mblSaudacao = document.getElementById('mbl_saudacao');
-    // const mblSaudacaoNome = document.getElementById('mbl_saudacao_nome');
-    // if (mblSaudacao && mblSaudacaoNome) {
-    //     mblSaudacaoNome.textContent = primeiroNome;
-    //     mblSaudacao.style.display = 'block';
-    // }
+    // DESKTOP: Exibe o nome ao lado do ícone 
+    if (displayNome) {
+        displayNome.textContent = `Olá, ${primeiroNome}`;
+    }
 
+    // MOBILE: Exibe a saudação na navbar inferior 
+    const mblSaudacao = document.getElementById('mbl_saudacao');
+    const mblSaudacaoNome = document.getElementById('mbl_saudacao_nome');
+    if (mblSaudacao && mblSaudacaoNome) {
+        mblSaudacaoNome.textContent = primeiroNome;
+        mblSaudacao.style.display = 'block';
+    }
+
+    //MENU DROPDOWN 
+
+    // Abre/Fecha o menu ao clicar no ícone de perfil
     userIcon.addEventListener("click", (e) => {
         e.preventDefault();
+        e.stopImmediatePropagation();
+        e.stopPropagation();
+        userMenu.classList.toggle("active");
+    }, true);
 
-        if (confirm("Deseja realmente sair da sua conta?")) {
-            localStorage.removeItem('usuarioNome');
-            window.location.reload();
+    // Fecha o menu se o usuário clicar em qualquer outro lugar da tela
+    document.addEventListener("click", (e) => {
+        if (userMenu && !userMenu.contains(e.target) && !userIcon.contains(e.target)) {
+            userMenu.classList.remove("active");
         }
     });
+
+    // Botão SAIR do menu 
+    if (btnSair) {
+        btnSair.addEventListener("click", (e) => {
+            e.preventDefault();
+            if (confirm("Deseja realmente sair da sua conta?")) {
+                localStorage.removeItem('usuarioNome');
+                window.location.reload();
+            }
+        });
+    }
 }
+
 
 
 
