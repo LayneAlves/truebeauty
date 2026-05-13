@@ -922,7 +922,7 @@ button {
   left: 0;
   width: 100%;
 
-  background: #fff;
+  background: #d9d9d9;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -963,7 +963,7 @@ button {
   position: relative;
   top: -15px;
 
-  background: #fff;
+  background: #d9d9d9;
   padding: 10px;
   border-radius: 50%;
 
