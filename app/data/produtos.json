@@ -1588,5 +1588,15 @@
     "estoque": "10",
     "subcategoria": "perfumes_feminino",
     "categoria": "perfumes"
+  },
+  {
+    "id": 200,
+    "nome": "Xêrosa Flores Brilhantes",
+    "preco": "26.10",
+    "descricao": "200ml",
+    "imagem": "/assets/imagem/produtos/1778798950265-Salon line xerosa azul.webp",
+    "estoque": "60",
+    "subcategoria": "body_splash",
+    "categoria": "perfumes"
   }
 ]
