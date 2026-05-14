@@ -1143,6 +1143,15 @@ input {
   color: #8B0000 !important;
   text-decoration: none;
 }
+@media (min-width: 481px) { 
+  .icon-btn img {
+    visibility: visible;
+  }
+
+  .user-icon img {
+    display: block;
+  }
+}
 
 /* perfil desktop */
 .login-container {
