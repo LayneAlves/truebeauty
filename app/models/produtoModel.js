@@ -11,51 +11,59 @@ const ProdutoModel = {
         const produtos = JSON.parse(data);
         return produtos;
     },
-    buscar(categoria, campo) {
+    buscar(valor, campo) {
         const data = fs.readFileSync(filePath, 'utf8');
         const produtos = JSON.parse(data);
 
-        if (categoria == "todas") {
-            return produtos;
+        if (campo === 'subcategoria') {
+            return produtos.filter(produto => produto.subcategoria === valor);
         }
-        if (campo == "categoria") {
-            return produtos.filter(produto => produto.categoria === categoria);
+
+
+        if (campo === 'categoria') {
+            return produtos.filter(produto => produto.categoria === valor);
         }
+
+
+        // sem filtro: retorna tudo
+        return produtos;
+
+
     },
 
-        cadastrar(newProduto) {
-    const produtos = this.produtos();
-    produtos.push(newProduto);
-    fs.writeFileSync(filePath, JSON.stringify(produtos, null, 2), 'utf8');
-},
+    cadastrar(newProduto) {
+        const produtos = this.produtos();
+        produtos.push(newProduto);
+        fs.writeFileSync(filePath, JSON.stringify(produtos, null, 2), 'utf8');
+    },
 
-salvar(produtos) {
-    fs.writeFileSync(filePath, JSON.stringify(produtos, null, 2), 'utf8');
-},
+    salvar(produtos) {
+        fs.writeFileSync(filePath, JSON.stringify(produtos, null, 2), 'utf8');
+    },
     async atualizar(id, dadosAtualizados) {
-    // 1. Pega a lista completa de produtos do arquivo JSON
-    const produtos = this.produtos();
+        // 1. Pega a lista completa de produtos do arquivo JSON
+        const produtos = this.produtos();
 
-    // 2. Encontra a posição (índice) do produto que tem o ID que queremos editar
-    const index = produtos.findIndex(p => p.id === id);
+        // 2. Encontra a posição (índice) do produto que tem o ID que queremos editar
+        const index = produtos.findIndex(p => p.id === id);
 
-    // 3. Se o produto existir (índice diferente de -1)
-    if (index !== -1) {
-        // Substitui o produto antigo pelo novo pacote de dados
-        produtos[index] = dadosAtualizados;
+        // 3. Se o produto existir (índice diferente de -1)
+        if (index !== -1) {
+            // Substitui o produto antigo pelo novo pacote de dados
+            produtos[index] = dadosAtualizados;
 
-        // 4. Grava a lista atualizada de volta no arquivo produtos.json
-        this.salvar(produtos);
-        return produtos[index];
-    } else {
-        throw new Error('Produto não encontrado para atualização.');
-    }
-},
+            // 4. Grava a lista atualizada de volta no arquivo produtos.json
+            this.salvar(produtos);
+            return produtos[index];
+        } else {
+            throw new Error('Produto não encontrado para atualização.');
+        }
+    },
     async excluir(id) {
-    const produtos = this.produtos(); // pega os produtos atuais
-    const novosProdutos = produtos.filter(p => p.id !== id);
-    this.salvar(novosProdutos); // salva de volta
-}
+        const produtos = this.produtos(); // pega os produtos atuais
+        const novosProdutos = produtos.filter(p => p.id !== id);
+        this.salvar(novosProdutos); // salva de volta
+    }
 
 }
 

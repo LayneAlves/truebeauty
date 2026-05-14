@@ -75,7 +75,7 @@
             <script>
                 const categoriaSelect = document.getElementById('cp-categoria');
                 const subcategoriaSelect = document.getElementById('cp-subcategoria');
-                const todasOptions = [...subcategoriaSelect.querySelectorAll('option[subcategoria]')];
+                const todasOptions = [...subcategoriaSelect.querySelectorAll('option[data-categoria]')];
 
                 function filtrarSubcategorias() {
                     const categoriaSelecionada = categoriaSelect.value;

@@ -348,69 +348,6 @@ document.addEventListener("submit", async (e) => {
 });
 
 
-// Mensagem de erro de acesso para pag de adm
-const acessoParams = new URLSearchParams(window.location.search);
-if (acessoParams.get('erro') === 'acesso_negado') {
-    alert('Acesso negado! Apenas administradores podem entrar nessa página.');
-}
-
-
-//Transferir toda essa parte de script pro footer, aqui é somente validações
-
-// --- Após efetuar o login, aparece o nome de quem logou ---
-
-// Busca os dados e elementos principais
-const nome = localStorage.getItem('usuarioNome');
-const userIcon = document.querySelector(".user-icon");
-const userMenu = document.getElementById("user-menu");
-const btnSair = document.getElementById("btn-sair");
-const displayNome = document.getElementById('nome-usuario-display');
-
-// Só executa a lógica se o usuário estiver logado
-if (nome && userIcon) {
-    const primeiroNome = nome.split(' ')[0];
-
-    // DESKTOP: Exibe o nome ao lado do ícone 
-    if (displayNome) {
-        displayNome.textContent = `Olá, ${primeiroNome}`;
-    }
-
-    // MOBILE: Exibe a saudação na navbar inferior 
-    const mblSaudacao = document.getElementById('mbl_saudacao');
-    const mblSaudacaoNome = document.getElementById('mbl_saudacao_nome');
-    if (mblSaudacao && mblSaudacaoNome) {
-        mblSaudacaoNome.textContent = primeiroNome;
-        mblSaudacao.style.display = 'block';
-    }
-
-    //MENU DROPDOWN 
-
-    // Abre/Fecha o menu ao clicar no ícone de perfil
-    userIcon.addEventListener("click", (e) => {
-        e.preventDefault();
-        e.stopImmediatePropagation();
-        e.stopPropagation();
-        userMenu.classList.toggle("active");
-    }, true);
-
-    // Fecha o menu se o usuário clicar em qualquer outro lugar da tela
-    document.addEventListener("click", (e) => {
-        if (userMenu && !userMenu.contains(e.target) && !userIcon.contains(e.target)) {
-            userMenu.classList.remove("active");
-        }
-    });
-
-    // Botão SAIR do menu 
-    if (btnSair) {
-        btnSair.addEventListener("click", (e) => {
-            e.preventDefault();
-            if (confirm("Deseja realmente sair da sua conta?")) {
-                localStorage.removeItem('usuarioNome');
-                window.location.reload();
-            }
-        });
-    }
-}
 
 
 

@@ -6,7 +6,7 @@ const ProdutoController = {
     async cadastrar(req, res) {
         try {
             //Recebe os dados do formulario
-            const { nome, preco, descricao, estoque, categoria } = req.body;
+            const { nome, preco, descricao, estoque, subcategoria, categoria } = req.body;
             let imagem = await processImage(req.file, "produtos");
             imagem = "/assets/imagem/produtos/" + imagem;
 
@@ -18,6 +18,7 @@ const ProdutoController = {
                 descricao,
                 imagem,
                 estoque,
+                subcategoria,
                 categoria
             }
 
@@ -50,12 +51,22 @@ const ProdutoController = {
     },
 
     async buscar(req, res, next) {
-        const query = req.query.categoria || '';
-        try {
-            const produtos = await ProdutoModel.buscar(query, 'categoria');
-            res.locals.produtos = await produtos;
-            next();
+        const subcategoria = req.query.subcategoria || '';
+        const categoria = req.query.categoria || '';
 
+        try {
+            let produtos;
+
+            if (subcategoria) {
+                produtos = await ProdutoModel.buscar(subcategoria, 'subcategoria');
+            } else if (categoria) {
+                produtos = await ProdutoModel.buscar(categoria, 'categoria');
+            } else {
+                produtos = await ProdutoModel.buscar('', '');
+            }
+
+            res.locals.produtos = produtos;
+            next();
 
         } catch (error) {
             console.error('Erro ao obter produtos:', error);
@@ -96,9 +107,9 @@ const ProdutoController = {
     async editarProduto(req, res) {
         try {
             const id = parseInt(req.params.id);
-            const { nome, preco, descricao, estoque, categoria } = req.body;
+            const { nome, preco, descricao, estoque, subcategoria, categoria } = req.body;
 
-           
+
             const produtos = await ProdutoModel.produtos();
             const produtoOriginal = produtos.find(p => p.id === id);
 
@@ -106,7 +117,7 @@ const ProdutoController = {
                 return res.status(404).json({ message: 'Produto não encontrado' });
             }
 
-        
+
             let imagem = produtoOriginal.imagem;
             if (req.file) {
                 const novaImagem = await processImage(req.file, "produtos");
@@ -120,6 +131,7 @@ const ProdutoController = {
                 descricao,
                 imagem,
                 estoque,
+                subcategoria,
                 categoria
             };
 
