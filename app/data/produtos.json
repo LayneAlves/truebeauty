@@ -6,8 +6,9 @@
     "descricao": "9g",
     "imagem": "/assets/imagem/produtos/1775601386140-gel_modelador_sobrancelha.webp",
     "estoque": "50",
-    "categoria": "maquiagens",
-    "subcategoria": "olho"
+    "subcategoria": "olho",
+    "categoria": "maquiagens"
+    
   },
   {
     "id": 3,
@@ -16,8 +17,9 @@
     "descricao": "3.8ml",
     "imagem": "/assets/imagem/produtos/1774478989166-Batom_LÃ­quido_ruby_rose.webp",
     "estoque": "50",
-    "categoria": "maquiagens",
-    "subcategoria": "batom"
+    "subcategoria": "batom",
+    "categoria": "maquiagens"
+
   },
   {
     "id": 4,
@@ -26,8 +28,9 @@
     "descricao": "350ml",
     "imagem": "/assets/imagem/produtos/1774479032928-gel_de_limpeza_principia.webp",
     "estoque": "50",
-    "categoria": "skin_care",
-    "subcategoria": "rosto"
+    "subcategoria": "rosto",
+    "categoria": "skin_care"
+
   },
   {
     "id": 5,
@@ -36,8 +39,9 @@
     "descricao": "2x250ml",
     "imagem": "/assets/imagem/produtos/1774480256027-kitEudoraRoxo.webp",
     "estoque": "100",
-    "categoria": "cabelos",
-    "subcategoria": "hidratacao"
+    "subcategoria": "hidratacao",
+    "categoria": "cabelos"
+    
   },
   {
     "id": 6,
@@ -46,8 +50,8 @@
     "descricao": "100ml",
     "imagem": "/assets/imagem/produtos/1774480310907-oleopaixao.webp",
     "estoque": "100",
-    "categoria": "cuidados_pessoais",
-    "subcategoria": ""
+    "subcategoria": "",
+    "categoria": "cuidados_pessoais"
   },
   {
     "id": 8,
@@ -56,8 +60,8 @@
     "descricao": "100ml",
     "imagem": "/assets/imagem/produtos/1774543569820-natura_homem_evolut.io.webp",
     "estoque": "100",
-    "categoria": "perfumes",
-    "subcategoria": "perfumes_masculino"
+    "subcategoria": "perfumes_masculino",
+    "categoria": "perfumes"
   },
   {
     "id": 15,
@@ -66,8 +70,8 @@
     "descricao": "1 unidade",
     "imagem": "/assets/imagem/produtos/1775523448255-esponja_base_corretivo.webp",
     "estoque": "10",
-    "categoria": "maquiagens",
-    "subcategoria": ""
+    "subcategoria": "",
+    "categoria": "maquiagens"
   },
   {
     "id": 16,
@@ -76,8 +80,8 @@
     "descricao": "75ml",
     "imagem": "/assets/imagem/produtos/1775692987556-glamourSecrets.webp",
     "estoque": "10",
-    "categoria": "perfumes",
-    "subcategoria": "perfumes_feminino"
+    "subcategoria": "perfumes_feminino",
+    "categoria": "perfumes"
   },
   {
     "id": 17,
@@ -86,8 +90,8 @@
     "descricao": "Shampoo + Leave-in + Máscara + Geleia 4 itens",
     "imagem": "/assets/imagem/produtos/1775694127287-widi-care-juba-kit-leave-in-mascara-geleia-shampoo.webp",
     "estoque": "10",
-    "categoria": "cabelos",
-    "subcategoria": ""
+    "subcategoria": "",
+    "categoria": "cabelos"
   },
   {
     "id": 21,
@@ -96,8 +100,8 @@
     "descricao": "200ml",
     "imagem": "/assets/imagem/produtos/1775697036236-cremeCorporal.webp",
     "estoque": "10",
-    "categoria": "cuidados-pessoais",
-    "subcategoria": ""
+    "subcategoria": "",
+    "categoria": "cuidados_pessoais"
   },
   {
     "id": 22,
@@ -106,8 +110,8 @@
     "descricao": "350ml",
     "imagem": "/assets/imagem/produtos/1775697085926-gel_de_limpeza_principia.webp",
     "estoque": "10",
-    "categoria": "skin_care",
-    "subcategoria": "rosto"
+    "subcategoria": "rosto",
+    "categoria": "skin_care"
   },
   {
     "id": 23,
@@ -116,8 +120,8 @@
     "descricao": "150g",
     "imagem": "/assets/imagem/produtos/1775697142690-granado.webp",
     "estoque": "10",
-    "categoria": "cuidados-pessoais",
-    "subcategoria": ""
+    "subcategoria": "",
+    "categoria": "cuidados_pessoais"
   },
   {
     "id": 24,
@@ -126,8 +130,8 @@
     "descricao": "40g",
     "imagem": "/assets/imagem/produtos/1775697245739-protetor_solar_cores.webp",
     "estoque": "10",
-    "categoria": "cuidados-pessoais",
-    "subcategoria": ""
+    "subcategoria": "protetor_solar",
+    "categoria": "cuidados_pessoais"
   },
   {
     "id": 26,
@@ -136,8 +140,8 @@
     "descricao": "50g",
     "imagem": "/assets/imagem/produtos/1775698016770-16344540.webp",
     "estoque": "10",
-    "categoria": "skin_care",
-    "subcategoria": "rosto"
+    "subcategoria": "rosto",
+    "categoria": "skin_care"
   },
   {
     "id": 27,
@@ -146,8 +150,8 @@
     "descricao": "500ml",
     "imagem": "/assets/imagem/produtos/1776381930133-inoar-meu-cacho-meu-crush.webp",
     "estoque": "10",
-    "categoria": "cabelos",
-    "subcategoria": ""
+    "subcategoria": "",
+    "categoria": "cabelos"
   },
   {
     "id": 28,
@@ -156,8 +160,8 @@
     "descricao": "200ml",
     "imagem": "/assets/imagem/produtos/1776471282252-vf_golden.webp",
     "estoque": "10",
-    "categoria": "perfumes_feminino",
-    "subcategoria": ""
+    "subcategoria": "perfumes_feminino",
+    "categoria": "perfumes"
   },
   {
     "id": 29,
@@ -166,8 +170,8 @@
     "descricao": "80ml Eau de Parfum Feminino",
     "imagem": "/assets/imagem/imagem_perfumes_masculino/aire.webp",
     "estoque": "50",
-    "categoria": "perfumes",
-    "subcategoria": "perfumes_feminino"
+    "subcategoria": "perfumes_feminino",
+    "categoria": "perfumes"
   },
   {
     "id": 30,
@@ -176,8 +180,8 @@
     "descricao": "100ml Desodorante Colônia Masculino",
     "imagem": "/assets/imagem/imagem_perfumes_masculino/Arbo_Puro_Boticario.jpg",
     "estoque": "50",
-    "categoria": "perfumes",
-    "subcategoria": "perfumes_masculino"
+    "subcategoria": "perfumes_masculino",
+    "categoria": "perfumes"
   },
   {
     "id": 31,
@@ -186,8 +190,8 @@
     "descricao": "120ml Eau de Toilette Masculino",
     "imagem": "/assets/imagem/imagens_perfumes/Invictus_paco_rabanne.webp",
     "estoque": "50",
-    "categoria": "perfumes",
-    "subcategoria": "perfumes_masculino"
+    "subcategoria": "perfumes_masculino",
+    "categoria": "perfumes"
   },
   {
     "id": 32,
@@ -196,8 +200,8 @@
     "descricao": "120ml Eau de Toilette Masculino",
     "imagem": "/assets/imagem/imagens_perfumes/paco_rabanne.webp",
     "estoque": "50",
-    "categoria": "perfumes",
-    "subcategoria": "perfumes_masculino"
+    "subcategoria": "perfumes_masculino",
+    "categoria": "perfumes"
   },
   {
     "id": 33,
@@ -206,8 +210,8 @@
     "descricao": "100ml Desodorante Colônia Masculino",
     "imagem": "/assets/imagem/imagens_perfumes/uomini.webp",
     "estoque": "50",
-    "categoria": "perfumes",
-    "subcategoria": "perfumes_masculino"
+    "subcategoria": "perfumes_masculino",
+    "categoria": "perfumes"
   },
   {
     "id": 34,
@@ -216,8 +220,8 @@
     "descricao": "100ml Desodorante Colônia Masculino",
     "imagem": "/assets/imagem/imagens_perfumes/insensatez_oboticario.jpg",
     "estoque": "50",
-    "categoria": "perfumes",
-    "subcategoria": "perfumes_masculino"
+    "subcategoria": "perfumes_masculino",
+    "categoria": "perfumes"
   },
   {
     "id": 35,
@@ -226,8 +230,8 @@
     "descricao": "100ml Desodorante Colônia",
     "imagem": "/assets/imagem/imagem_perfumes_masculino/kaiak.jpeg",
     "estoque": "50",
-    "categoria": "perfumes",
-    "subcategoria": "perfumes_masculino"
+    "subcategoria": "perfumes_masculino",
+    "categoria": "perfumes"
   },
   {
     "id": 36,
@@ -236,9 +240,9 @@
     "descricao": "100ml Desodorante Colônia Masculino",
     "imagem": "/assets/imagem/imagem_perfumes_masculino/coffee_man_addictive.jpg",
     "estoque": "50",
-    "categoria": "perfumes",
-    "subcategoria": "perfumes_masculino"
-  },
+    "subcategoria": "perfumes_masculino",
+    "categoria": "perfumes"
+    },
   {
     "id": 37,
     "nome": "Naturé Mocinhos Natura",
@@ -246,8 +250,8 @@
     "descricao": "100ml Desodorante Colônia Infantil",
     "imagem": "/assets/imagem/imagens_perfumes_infantil/naturé_mocinhos.webp",
     "estoque": "50",
-    "categoria": "perfumes",
-    "subcategoria": "perfumes_infantil"
+    "subcategoria": "perfumes_infantil",
+    "categoria": "perfumes"
   },
   {
     "id": 38,
@@ -256,8 +260,8 @@
     "descricao": "100ml Desodorante Colônia Infantil",
     "imagem": "/assets/imagem/imagens_perfumes_infantil/naturé_mocinhas.jpg",
     "estoque": "50",
-    "categoria": "perfumes",
-    "subcategoria": "perfumes_infantil"
+    "subcategoria": "perfumes_infantil",
+    "categoria": "perfumes"
   },
   {
     "id": 39,
@@ -266,8 +270,8 @@
     "descricao": "100ml Desodorante Colônia Infantil",
     "imagem": "/assets/imagem/imagens_perfumes_infantil/naturé_corre_corre.jpg",
     "estoque": "50",
-    "categoria": "perfumes",
-    "subcategoria": "perfumes_infantil"
+    "subcategoria": "perfumes_infantil",
+    "categoria": "perfumes"
   },
   {
     "id": 40,
@@ -276,8 +280,8 @@
     "descricao": "100ml Desodorante Colônia Infantil",
     "imagem": "/assets/imagem/imagens_perfumes_infantil/maChérie_boticario.webp",
     "estoque": "50",
-    "categoria": "perfumes",
-    "subcategoria": "perfumes_infantil"
+    "subcategoria": "perfumes_infantil",
+    "categoria": "perfumes"
   },
   {
     "id": 41,
@@ -286,8 +290,8 @@
     "descricao": "200ml",
     "imagem": "/assets/imagem/imagens_perfumes_infantil/johnson&johnson.webp",
     "estoque": "50",
-    "categoria": "perfumes",
-    "subcategoria": "perfumes_infantil"
+    "subcategoria": "perfumes_infantil",
+    "categoria": "perfumes"
   },
   {
     "id": 42,
@@ -296,8 +300,8 @@
     "descricao": "100ml",
     "imagem": "/assets/imagem/imagens_perfumes_infantil/granado_colonia_bebe.webp",
     "estoque": "50",
-    "categoria": "perfumes",
-    "subcategoria": "perfumes_infantil"
+    "subcategoria": "perfumes_infantil",
+    "categoria": "perfumes"
   },
   {
     "id": 43,
@@ -306,8 +310,8 @@
     "descricao": "100ml",
     "imagem": "/assets/imagem/imagens_perfumes_infantil/boti_nana_neném.webp",
     "estoque": "50",
-    "categoria": "perfumes",
-    "subcategoria": "perfumes_infantil"
+    "subcategoria": "perfumes_infantil",
+    "categoria": "perfumes"
   },
   {
     "id": 44,
@@ -316,8 +320,8 @@
     "descricao": "100ml Eau de Toilette",
     "imagem": "/assets/imagem/imagens_perfumes_infantil/50289306-eau-de-toilette-mmbb-100ml-300x300.jpg",
     "estoque": "50",
-    "categoria": "perfumes",
-    "subcategoria": "perfumes_infantil"
+    "subcategoria": "perfumes_infantil",
+    "categoria": "perfumes"
   },
   {
     "id": 45,
@@ -326,8 +330,8 @@
     "descricao": "300g",
     "imagem": "/assets/imagem/imagens_reconstrucao/forever_liss_repair.png",
     "estoque": "50",
-    "categoria": "cabelos",
-    "subcategoria": "reconstrucao"
+    "subcategoria": "reconstrucao",
+    "categoria": "cabelos"
   },
   {
     "id": 46,
@@ -336,8 +340,8 @@
     "descricao": "300g Máscara de Hidratação",
     "imagem": "/assets/imagem/imagens_hidratacao/forever_liss_banho_de_verniz.webp",
     "estoque": "50",
-    "categoria": "cabelos",
-    "subcategoria": "hidratacao"
+    "subcategoria": "hidratacao",
+    "categoria": "cabelos"
   },
   {
     "id": 47,
@@ -346,8 +350,8 @@
     "descricao": "300g",
     "imagem": "/assets/imagem/imagens_hidratacao/hidra_nutre.webp",
     "estoque": "50",
-    "categoria": "cabelos",
-    "subcategoria": "hidratacao"
+    "subcategoria": "hidratacao",
+    "categoria": "cabelos"
   },
   {
     "id": 48,
@@ -356,8 +360,8 @@
     "descricao": "Shampoo + Máscara 2 itens",
     "imagem": "/assets/imagem/imagens_hidratacao/kit_adormece_cabelo.webp",
     "estoque": "50",
-    "categoria": "cabelos",
-    "subcategoria": "hidratacao"
+    "subcategoria": "hidratacao",
+    "categoria": "cabelos"
   },
   {
     "id": 49,
@@ -366,8 +370,8 @@
     "descricao": "Shampoo + Condicionador + Máscara",
     "imagem": "/assets/imagem/imagens_hidratacao/kit_ahazo.jfif",
     "estoque": "50",
-    "categoria": "cabelos",
-    "subcategoria": "hidratacao"
+    "subcategoria": "hidratacao",
+    "categoria": "cabelos"
   },
   {
     "id": 50,
@@ -376,8 +380,8 @@
     "descricao": "300ml",
     "imagem": "/assets/imagem/imagens_hidratacao/l'oreal_elseve.webp",
     "estoque": "50",
-    "categoria": "cabelos",
-    "subcategoria": "hidratacao"
+    "subcategoria": "hidratacao",
+    "categoria": "cabelos"
   },
   {
     "id": 51,
@@ -386,8 +390,8 @@
     "descricao": "170ml",
     "imagem": "/assets/imagem/imagens_hidratacao/pantene_3minuts_milagrosos_hidratação.webp",
     "estoque": "50",
-    "categoria": "cabelos",
-    "subcategoria": "hidratacao"
+    "subcategoria": "hidratacao",
+    "categoria": "cabelos"
   },
   {
     "id": 52,
@@ -396,8 +400,8 @@
     "descricao": "Shampoo + Condicionador + Máscara",
     "imagem": "/assets/imagem/imagens_hidratacao/kit_aneethun.png",
     "estoque": "50",
-    "categoria": "cabelos",
-    "subcategoria": "hidratacao"
+    "subcategoria": "hidratacao",
+    "categoria": "cabelos"
   },
   {
     "id": 53,
@@ -406,8 +410,8 @@
     "descricao": "250g",
     "imagem": "/assets/imagem/imagens_hidratacao/vult_cabelos.webp",
     "estoque": "50",
-    "categoria": "cabelos",
-    "subcategoria": "hidratacao"
+    "subcategoria": "hidratacao",
+    "categoria": "cabelos"
   },
   {
     "id": 55,
@@ -416,8 +420,8 @@
     "descricao": "500g",
     "imagem": "/assets/imagem/imagens_reconstrucao/hobety_restore.jfif",
     "estoque": "50",
-    "categoria": "cabelos",
-    "subcategoria": "reconstrucao"
+    "subcategoria": "reconstrucao",
+    "categoria": "cabelos"
   },
   {
     "id": 56,
@@ -426,8 +430,8 @@
     "descricao": "Shampoo + Máscara 2 itens",
     "imagem": "/assets/imagem/imagens_reconstrucao/kint_haskell_benaneira.webp",
     "estoque": "50",
-    "categoria": "cabelos",
-    "subcategoria": "reconstrucao"
+    "subcategoria": "reconstrucao",
+    "categoria": "cabelos"
   },
   {
     "id": 57,
@@ -436,8 +440,8 @@
     "descricao": "Shampoo + Condicionador + Máscara",
     "imagem": "/assets/imagem/imagens_reconstrucao/kit_os_quimica.webp",
     "estoque": "50",
-    "categoria": "cabelos",
-    "subcategoria": "reconstrucao"
+    "subcategoria": "reconstrucao",
+    "categoria": "cabelos"
   },
   {
     "id": 58,
@@ -446,8 +450,8 @@
     "descricao": "300ml",
     "imagem": "/assets/imagem/imagens_reconstrucao/prohall_select_care_shampoo.webp",
     "estoque": "50",
-    "categoria": "cabelos",
-    "subcategoria": "reconstrucao"
+    "subcategoria": "reconstrucao",
+    "categoria": "cabelos"
   },
   {
     "id": 59,
@@ -456,8 +460,8 @@
     "descricao": "300g",
     "imagem": "/assets/imagem/imagens_reconstrucao/toda_toda_reconstrução.jfif",
     "estoque": "50",
-    "categoria": "cabelos",
-    "subcategoria": "reconstrucao"
+    "subcategoria": "reconstrucao",
+    "categoria": "cabelos"
   },
   {
     "id": 60,
@@ -466,8 +470,8 @@
     "descricao": "300g Máscara",
     "imagem": "/assets/imagem/imagens_reconstrucao/treatment_amazon.webp",
     "estoque": "50",
-    "categoria": "cabelos",
-    "subcategoria": "reconstrucao"
+    "subcategoria": "reconstrucao",
+    "categoria": "cabelos"
   },
   {
     "id": 61,
@@ -476,8 +480,8 @@
     "descricao": "400ml",
     "imagem": "/assets/imagem/imagens_reconstrucao/wella_ultimate_repair.png",
     "estoque": "50",
-    "categoria": "cabelos",
-    "subcategoria": "reconstrucao"
+    "subcategoria": "reconstrucao",
+    "categoria": "cabelos"
   },
   {
     "id": 62,
@@ -486,8 +490,8 @@
     "descricao": "300g",
     "imagem": "/assets/imagem/imagens_reconstrucao/bananeira_geo.jpg",
     "estoque": "50",
-    "categoria": "cabelos",
-    "subcategoria": "reconstrucao"
+    "subcategoria": "reconstrucao",
+    "categoria": "cabelos"
   },
   {
     "id": 64,
@@ -496,8 +500,8 @@
     "descricao": "200g Para micro-ondas",
     "imagem": "/assets/imagem/imagens_depilacao/ceraFria.webp",
     "estoque": "50",
-    "categoria": "cuidados_pessoais",
-    "subcategoria": "depilacao"
+    "subcategoria": "depilacao",
+    "categoria": "cuidados_pessoais"
   },
   {
     "id": 65,
@@ -506,8 +510,8 @@
     "descricao": "40g",
     "imagem": "/assets/imagem/imagens_depilacao/cremeRosto.jfif",
     "estoque": "50",
-    "categoria": "cuidados_pessoais",
-    "subcategoria": "depilacao"
+    "subcategoria": "depilacao",
+    "categoria": "cuidados_pessoais"
   },
   {
     "id": 66,
@@ -516,8 +520,8 @@
     "descricao": "600g",
     "imagem": "/assets/imagem/imagens_depilacao/ceraFriaAlg_Doce.jfif",
     "estoque": "50",
-    "categoria": "cuidados_pessoais",
-    "subcategoria": "depilacao"
+    "subcategoria": "depilacao",
+    "categoria": "cuidados_pessoais"
   },
   {
     "id": 67,
@@ -526,8 +530,8 @@
     "descricao": "1kg",
     "imagem": "/assets/imagem/imagens_depilacao/ceraGrande.jfif",
     "estoque": "50",
-    "categoria": "cuidados_pessoais",
-    "subcategoria": "depilacao"
+    "subcategoria": "depilacao",
+    "categoria": "cuidados_pessoais"
   },
   {
     "id": 68,
@@ -536,8 +540,8 @@
     "descricao": "20 folhas",
     "imagem": "/assets/imagem/imagens_depilacao/folhasProntas.webp",
     "estoque": "50",
-    "categoria": "cuidados_pessoais",
-    "subcategoria": "depilacao"
+    "subcategoria": "depilacao",
+    "categoria": "cuidados_pessoais"
   },
   {
     "id": 69,
@@ -546,8 +550,8 @@
     "descricao": "250g Pós Depilação",
     "imagem": "/assets/imagem/imagens_depilacao/gelCalmante.jfif",
     "estoque": "50",
-    "categoria": "cuidados_pessoais",
-    "subcategoria": "depilacao"
+    "subcategoria": "depilacao",
+    "categoria": "cuidados_pessoais"
   },
   {
     "id": 70,
@@ -556,8 +560,8 @@
     "descricao": "500ml",
     "imagem": "/assets/imagem/imagens_depilacao/oleoRemovedor.jfif",
     "estoque": "50",
-    "categoria": "cuidados_pessoais",
-    "subcategoria": "depilacao"
+    "subcategoria": "depilacao",
+    "categoria": "cuidados_pessoais"
   },
   {
     "id": 71,
@@ -566,8 +570,8 @@
     "descricao": "500 unidades",
     "imagem": "/assets/imagem/imagens_depilacao/palitos.jfif",
     "estoque": "50",
-    "categoria": "cuidados_pessoais",
-    "subcategoria": "depilacao"
+    "subcategoria": "depilacao",
+    "categoria": "cuidados_pessoais"
   },
   {
     "id": 72,
@@ -576,8 +580,8 @@
     "descricao": "100 lenços brancos",
     "imagem": "/assets/imagem/imagens_depilacao/papelDep.jfif",
     "estoque": "50",
-    "categoria": "cuidados_pessoais",
-    "subcategoria": "depilacao"
+    "subcategoria": "depilacao",
+    "categoria": "cuidados_pessoais"
   },
   {
     "id": 73,
@@ -586,8 +590,8 @@
     "descricao": "500ml",
     "imagem": "/assets/imagem/imagens_depilacao/preDep_higienizacao.jfif",
     "estoque": "50",
-    "categoria": "cuidados_pessoais",
-    "subcategoria": "depilacao"
+    "subcategoria": "depilacao",
+    "categoria": "cuidados_pessoais"
   },
   {
     "id": 74,
@@ -596,8 +600,8 @@
     "descricao": "250ml",
     "imagem": "/assets/imagem/imagens_Cuidados_Pessoais/nivea-sabonete-intimo.webp",
     "estoque": "50",
-    "categoria": "cuidados_pessoais",
-    "subcategoria": "higiene_intima"
+    "subcategoria": "higiene_intima",
+    "categoria": "cuidados_pessoais"
   },
   {
     "id": 75,
@@ -606,8 +610,8 @@
     "descricao": "16 unidades",
     "imagem": "/assets/imagem/imagens_higiene_intima/cotton_toalhas_umedecidas.jpeg",
     "estoque": "50",
-    "categoria": "cuidados_pessoais",
-    "subcategoria": "higiene_intima"
+    "subcategoria": "higiene_intima",
+    "categoria": "cuidados_pessoais"
   },
   {
     "id": 76,
@@ -616,8 +620,8 @@
     "descricao": "50ml",
     "imagem": "/assets/imagem/imagens_higiene_intima/higi_intima_clareador.png",
     "estoque": "50",
-    "categoria": "cuidados_pessoais",
-    "subcategoria": "higiene_intima"
+    "subcategoria": "higiene_intima",
+    "categoria": "cuidados_pessoais"
   },
   {
     "id": 77,
@@ -626,8 +630,8 @@
     "descricao": "60g",
     "imagem": "/assets/imagem/imagens_higiene_intima/intima_protect_gel_higiene_intima_calmante.jpg",
     "estoque": "50",
-    "categoria": "cuidados_pessoais",
-    "subcategoria": "higiene_intima"
+    "subcategoria": "higiene_intima",
+    "categoria": "cuidados_pessoais"
   },
   {
     "id": 78,
@@ -636,8 +640,8 @@
     "descricao": "500ml",
     "imagem": "/assets/imagem/imagens_higiene_intima/intima_regulateur_gel_lavant_intime_quotidien.webp",
     "estoque": "50",
-    "categoria": "cuidados_pessoais",
-    "subcategoria": "higiene_intima"
+    "subcategoria": "higiene_intima",
+    "categoria": "cuidados_pessoais"
   },
   {
     "id": 79,
@@ -646,8 +650,8 @@
     "descricao": "200ml Sabonete Líquido Íntimo",
     "imagem": "/assets/imagem/imagens_higiene_intima/mahair_intima.jpeg",
     "estoque": "50",
-    "categoria": "cuidados_pessoais",
-    "subcategoria": "higiene_intima"
+    "subcategoria": "higiene_intima",
+    "categoria": "cuidados_pessoais"
   },
   {
     "id": 80,
@@ -656,8 +660,8 @@
     "descricao": "150ml",
     "imagem": "/assets/imagem/imagens_higiene_intima/Nila_frescor_&_hidratação.webp",
     "estoque": "50",
-    "categoria": "cuidados_pessoais",
-    "subcategoria": "higiene_intima"
+    "subcategoria": "higiene_intima",
+    "categoria": "cuidados_pessoais"
   },
   {
     "id": 81,
@@ -666,8 +670,8 @@
     "descricao": "150ml",
     "imagem": "/assets/imagem/imagens_higiene_intima/nuaa_espuma_de_higiene_intima_suave.webp",
     "estoque": "50",
-    "categoria": "cuidados_pessoais",
-    "subcategoria": "higiene_intima"
+    "subcategoria": "higiene_intima",
+    "categoria": "cuidados_pessoais"
   },
   {
     "id": 82,
@@ -676,8 +680,8 @@
     "descricao": "50ml",
     "imagem": "/assets/imagem/imagens_higiene_intima/racco_intimo.webp",
     "estoque": "50",
-    "categoria": "cuidados_pessoais",
-    "subcategoria": "higiene_intima"
+    "subcategoria": "higiene_intima",
+    "categoria": "cuidados_pessoais"
   },
   {
     "id": 83,
@@ -686,8 +690,8 @@
     "descricao": "16 unidades",
     "imagem": "/assets/imagem/imagens_higiene_intima/intimus_defesa_natural.jpg",
     "estoque": "50",
-    "categoria": "cuidados_pessoais",
-    "subcategoria": "higiene_intima"
+    "subcategoria": "higiene_intima",
+    "categoria": "cuidados_pessoais"
   },
   {
     "id": 84,
@@ -696,8 +700,8 @@
     "descricao": "40g FPS 50",
     "imagem": "/assets/imagem/imagens_protetor_solar/792160---Protetor-Solar-Facial_LOreal_Paris_Solar_Expertise_Antioleosidade.webp",
     "estoque": "50",
-    "categoria": "cuidados_pessoais",
-    "subcategoria": "protetor_solar"
+    "subcategoria": "protetor_solar",
+    "categoria": "cuidados_pessoais"
   },
   {
     "id": 85,
@@ -706,8 +710,8 @@
     "descricao": "60g FPS 50",
     "imagem": "/assets/imagem/imagens_protetor_solar/anasol_fps_50_protetor_solar_facial.webp",
     "estoque": "50",
-    "categoria": "cuidados_pessoais",
-    "subcategoria": "protetor_solar"
+    "subcategoria": "protetor_solar",
+    "categoria": "cuidados_pessoais"
   },
   {
     "id": 86,
@@ -716,8 +720,8 @@
     "descricao": "40g FPS 50+",
     "imagem": "/assets/imagem/imagens_protetor_solar/la_roche_posay.webp",
     "estoque": "50",
-    "categoria": "cuidados_pessoais",
-    "subcategoria": "protetor_solar"
+    "subcategoria": "protetor_solar",
+    "categoria": "cuidados_pessoais"
   },
   {
     "id": 87,
@@ -726,8 +730,8 @@
     "descricao": "40ml FPS 50",
     "imagem": "/assets/imagem/imagens_protetor_solar/protetor_solar_nivea_sun_facial_toque_seco.webp",
     "estoque": "50",
-    "categoria": "cuidados_pessoais",
-    "subcategoria": "protetor_solar"
+    "subcategoria": "protetor_solar",
+    "categoria": "cuidados_pessoais"
   },
   {
     "id": 88,
@@ -736,8 +740,8 @@
     "descricao": "40g FPS 50",
     "imagem": "/assets/imagem/imagens_protetor_solar/Skinceuticals_Protetor_Solar_Facial_Blemish_Age_Uv_Defense_40g.webp",
     "estoque": "50",
-    "categoria": "cuidados_pessoais",
-    "subcategoria": "protetor_solar"
+    "subcategoria": "protetor_solar",
+    "categoria": "cuidados_pessoais"
   },
   {
     "id": 89,
@@ -746,8 +750,8 @@
     "descricao": "110ml FPS 30",
     "imagem": "/assets/imagem/imagens_protetor_solar/protetor_solar_corporal_cenoura_bronze.jpg",
     "estoque": "50",
-    "categoria": "cuidados_pessoais",
-    "subcategoria": "protetor_solar"
+    "subcategoria": "protetor_solar",
+    "categoria": "cuidados_pessoais"
   },
   {
     "id": 90,
@@ -756,8 +760,8 @@
     "descricao": "125ml FPS 30",
     "imagem": "/assets/imagem/imagens_protetor_solar/nivea_sun_protect_&_bronze.jpg",
     "estoque": "50",
-    "categoria": "cuidados_pessoais",
-    "subcategoria": "protetor_solar"
+    "subcategoria": "protetor_solar",
+    "categoria": "cuidados_pessoais"
   },
   {
     "id": 91,
@@ -766,8 +770,8 @@
     "descricao": "200ml FPS 50+",
     "imagem": "/assets/imagem/imagens_protetor_solar/mantecorp_skincare.webp",
     "estoque": "50",
-    "categoria": "cuidados_pessoais",
-    "subcategoria": "protetor_solar"
+    "subcategoria": "protetor_solar",
+    "categoria": "cuidados_pessoais"
   },
   {
     "id": 92,
@@ -776,8 +780,8 @@
     "descricao": "120ml FPS 50",
     "imagem": "/assets/imagem/imagens_protetor_solar/protetor_solar_corporal_em_spray.webp",
     "estoque": "50",
-    "categoria": "cuidados_pessoais",
-    "subcategoria": "protetor_solar"
+    "subcategoria": "protetor_solar",
+    "categoria": "cuidados_pessoais"
   },
   {
     "id": 94,
@@ -786,8 +790,8 @@
     "descricao": "30ml Matte",
     "imagem": "/assets/imagem/imagem_maquiagem/base_boca_rosa.jpg",
     "estoque": "50",
-    "categoria": "maquiagens",
-    "subcategoria": "base"
+    "subcategoria": "base",
+    "categoria": "maquiagens"
   },
   {
     "id": 95,
@@ -796,8 +800,8 @@
     "descricao": "40ml Tom 02",
     "imagem": "/assets/imagem/imagem_maquiagem/mari_maria_corretivo.jpg",
     "estoque": "50",
-    "categoria": "maquiagens",
-    "subcategoria": "corretivo"
+    "subcategoria": "corretivo",
+    "categoria": "maquiagens"
   },
   {
     "id": 96,
@@ -806,8 +810,8 @@
     "descricao": "10g",
     "imagem": "/assets/imagem/imagem_maquiagem/paleta_blush.jpg",
     "estoque": "50",
-    "categoria": "maquiagens",
-    "subcategoria": "po"
+    "subcategoria": "po",
+    "categoria": "maquiagens"
   },
   {
     "id": 97,
@@ -816,8 +820,8 @@
     "descricao": "9g",
     "imagem": "/assets/imagem/imagem_maquiagem/gel_modelador_sobrancelha.jpg",
     "estoque": "50",
-    "categoria": "cuidados_pessoais",
-    "subcategoria": "olhos"
+    "subcategoria": "olhos",
+    "categoria": "cuidados_pessoais"
   },
   {
     "id": 98,
@@ -826,8 +830,8 @@
     "descricao": "4x15ml",
     "imagem": "/assets/imagem/imagem_maquiagem/kit4_rimel.webp",
     "estoque": "50",
-    "categoria": "maquiagens",
-    "subcategoria": "olho"
+    "subcategoria": "olho",
+    "categoria": "maquiagens"
   },
   {
     "id": 99,
@@ -836,8 +840,8 @@
     "descricao": "BR006 1 unidade",
     "imagem": "/assets/imagem/imagem_maquiagem/pincel_blush.webp",
     "estoque": "50",
-    "categoria": "maquiagens",
-    "subcategoria": ""
+    "subcategoria": "",
+    "categoria": "maquiagens"
   },
   {
     "id": 100,
@@ -846,8 +850,8 @@
     "descricao": "BR002 1 unidade",
     "imagem": "/assets/imagem/imagem_maquiagem/pincel_base_corretivo.jfif",
     "estoque": "50",
-    "categoria": "maquiagens",
-    "subcategoria": ""
+    "subcategoria": "",
+    "categoria": "maquiagens"
   },
   {
     "id": 101,
@@ -856,8 +860,8 @@
     "descricao": "BR004 1 unidade",
     "imagem": "/assets/imagem/imagem_maquiagem/pincel_contorno.jfif",
     "estoque": "50",
-    "categoria": "maquiagens",
-    "subcategoria": ""
+    "subcategoria": "",
+    "categoria": "maquiagens"
   },
   {
     "id": 102,
@@ -866,8 +870,8 @@
     "descricao": "1 unidade",
     "imagem": "/assets/imagem/imagem_maquiagem/esponja_base_corretivo.jpg",
     "estoque": "50",
-    "categoria": "maquiagens",
-    "subcategoria": ""
+    "subcategoria": "",
+    "categoria": "maquiagens"
   },
   {
     "id": 103,
@@ -876,8 +880,8 @@
     "descricao": "1 unidade",
     "imagem": "/assets/imagem/imagem_maquiagem/esponja_po_solto.jfif",
     "estoque": "50",
-    "categoria": "maquiagens",
-    "subcategoria": "po"
+    "subcategoria": "po",
+    "categoria": "maquiagens"
   },
   {
     "id": 104,
@@ -886,8 +890,8 @@
     "descricao": "30g",
     "imagem": "/assets/imagem/imagem_maquiagem/prime_ruby_rose.webp",
     "estoque": "50",
-    "categoria": "maquiagens",
-    "subcategoria": "primer"
+    "subcategoria": "primer",
+    "categoria": "maquiagens"
   },
   {
     "id": 105,
@@ -896,8 +900,8 @@
     "descricao": "30g",
     "imagem": "/assets/imagem/imagem_maquiagem/prime_koloss.jpg",
     "estoque": "50",
-    "categoria": "maquiagens",
-    "subcategoria": "primer"
+    "subcategoria": "primer",
+    "categoria": "maquiagens"
   },
   {
     "id": 106,
@@ -906,8 +910,8 @@
     "descricao": "40g",
     "imagem": "/assets/imagem/imagem_maquiagem/prime_bruna_tavares.webp",
     "estoque": "50",
-    "categoria": "maquiagens",
-    "subcategoria": "primer"
+    "subcategoria": "primer",
+    "categoria": "maquiagens"
   },
   {
     "id": 107,
@@ -916,8 +920,8 @@
     "descricao": "30ml",
     "imagem": "/assets/imagem/imagem_maquiagem/prime_beyoung.webp",
     "estoque": "50",
-    "categoria": "maquiagens",
-    "subcategoria": "primer"
+    "subcategoria": "primer",
+    "categoria": "maquiagens"
   },
   {
     "id": 108,
@@ -926,8 +930,8 @@
     "descricao": "300ml",
     "imagem": "/assets/imagem/imagens_Cabelos/haskell_se_curve.avif",
     "estoque": "50",
-    "categoria": "cabelos",
-    "subcategoria": ""
+    "subcategoria": "",
+    "categoria": "cabelos"
   },
   {
     "id": 109,
@@ -936,8 +940,8 @@
     "descricao": "120ml",
     "imagem": "/assets/imagem/imagens_cabelos/mascCavaloForte.jpg",
     "estoque": "50",
-    "categoria": "cabelos",
-    "subcategoria": "reconstrucao"
+    "subcategoria": "reconstrucao",
+    "categoria": "cabelos"
   },
   {
     "id": 110,
@@ -946,8 +950,8 @@
     "descricao": "Shampoo 620ml + Máscara",
     "imagem": "/assets/imagem/imagens_Cabelos/Haskell_pós_progressiva.png",
     "estoque": "50",
-    "categoria": "cabelos",
-    "subcategoria": "reconstrucao"
+    "subcategoria": "reconstrucao",
+    "categoria": "cabelos"
   },
   {
     "id": 111,
@@ -956,8 +960,8 @@
     "descricao": "Shampoo 620ml + Máscara",
     "imagem": "/assets/imagem/imagens_Cabelos/Hidrabell_cabelos_lisos.webp",
     "estoque": "50",
-    "categoria": "cabelos",
-    "subcategoria": ""
+    "subcategoria": "",
+    "categoria": "cabelos"
   },
   {
     "id": 112,
@@ -966,8 +970,8 @@
     "descricao": "200ml Leave-in Anti-Volume",
     "imagem": "/assets/imagem/imagens_Cabelos/Foreverldiss_Bye_Bye_Volume.webp",
     "estoque": "50",
-    "categoria": "cabelos",
-    "subcategoria": ""
+    "subcategoria": "",
+    "categoria": "cabelos"
   },
   {
     "id": 113,
@@ -976,8 +980,8 @@
     "descricao": "300ml Sem Sal",
     "imagem": "/assets/imagem/imagens_Cabelos/Shampoo-Salon-Line-Meu-Liso-Sem-Sal-300ml.jpg",
     "estoque": "50",
-    "categoria": "cabelos",
-    "subcategoria": ""
+    "subcategoria": "",
+    "categoria": "cabelos"
   },
   {
     "id": 114,
@@ -986,8 +990,8 @@
     "descricao": "100ml Leave-in",
     "imagem": "/assets/imagem/imagens_Cabelos/Siàge_revela_os_cachos.webp",
     "estoque": "50",
-    "categoria": "cabelos",
-    "subcategoria": ""
+    "subcategoria": "",
+    "categoria": "cabelos"
   },
   {
     "id": 116,
@@ -996,8 +1000,8 @@
     "descricao": "Shampoo + Leave-in + Máscara + Geleia 4 itens",
     "imagem": "/assets/imagem/imagens_Cabelos/widi-care-juba-kit-leave-in-mascara-geleia-shampoo.webp",
     "estoque": "50",
-    "categoria": "cabelos",
-    "subcategoria": ""
+    "subcategoria": "",
+    "categoria": "cabelos"
   },
   {
     "id": 117,
@@ -1006,8 +1010,8 @@
     "descricao": "550g",
     "imagem": "/assets/imagem/imagens_Cabelos/Salon_line_gelatina.jpg",
     "estoque": "50",
-    "categoria": "cabelos",
-    "subcategoria": ""
+    "subcategoria": "",
+    "categoria": "cabelos"
   },
   {
     "id": 118,
@@ -1016,8 +1020,8 @@
     "descricao": "1L Shampoo",
     "imagem": "/assets/imagem/imagens_Cabelos/inoar-meu-cacho-meu-crush.webp",
     "estoque": "50",
-    "categoria": "cabelos",
-    "subcategoria": ""
+    "subcategoria": "",
+    "categoria": "cabelos"
   },
   {
     "id": 129,
@@ -1026,8 +1030,8 @@
     "descricao": "100ml Eau de Parfum",
     "imagem": "/assets/imagem/imagens_perfuma_feminino/boticollection.webp",
     "estoque": "50",
-    "categoria": "perfumes",
-    "subcategoria": "perfumes_feminino"
+    "subcategoria": "perfumes_feminino",
+    "categoria": "perfumes"
   },
   {
     "id": 130,
@@ -1036,8 +1040,8 @@
     "descricao": "80ml Eau de Parfum Feminino",
     "imagem": "/assets/imagem/imagens_perfumes/212_vip_rose.jpg",
     "estoque": "50",
-    "categoria": "perfumes",
-    "subcategoria": "perfumes_feminino"
+    "subcategoria": "perfumes_feminino",
+    "categoria": "perfumes"
   },
   {
     "id": 131,
@@ -1046,8 +1050,8 @@
     "descricao": "250ml",
     "imagem": "/assets/imagem/imagens_perfumes/bodySplash_VitoriaS.jpg",
     "estoque": "50",
-    "categoria": "perfumes",
-    "subcategoria": "body_splash"
+    "subcategoria": "body_splash",
+    "categoria": "perfumes"
   },
   {
     "id": 132,
@@ -1056,8 +1060,8 @@
     "descricao": "50ml Desodorante Colônia Feminino",
     "imagem": "/assets/imagem/imagens_perfuma_feminino/her_code.webp",
     "estoque": "50",
-    "categoria": "perfumes",
-    "subcategoria": "perfumes_feminino"
+    "subcategoria": "perfumes_feminino",
+    "categoria": "perfumes"
   },
   {
     "id": 133,
@@ -1066,8 +1070,8 @@
     "descricao": "100ml Desodorante Colônia Feminino",
     "imagem": "/assets/imagem/imagens_perfuma_feminino/liz_intense.webp",
     "estoque": "50",
-    "categoria": "perfumes",
-    "subcategoria": "perfumes_feminino"
+    "subcategoria": "perfumes_feminino",
+    "categoria": "perfumes"
   },
   {
     "id": 134,
@@ -1076,8 +1080,8 @@
     "descricao": "100ml Eau de Parfum",
     "imagem": "/assets/imagem/imagens_perfuma_feminino/ruby_ametist.jpg",
     "estoque": "50",
-    "categoria": "perfumes",
-    "subcategoria": "perfumes_feminino"
+    "subcategoria": "perfumes_feminino",
+    "categoria": "perfumes"
   },
   {
     "id": 136,
@@ -1086,8 +1090,8 @@
     "descricao": "200ml Body Splash",
     "imagem": "/assets/imagem/imagens_perfuma_feminino/vf_golden.webp",
     "estoque": "50",
-    "categoria": "perfumes",
-    "subcategoria": "perfumes_feminino"
+    "subcategoria": "perfumes_feminino",
+    "categoria": "perfumes"
   },
   {
     "id": 137,
@@ -1096,8 +1100,8 @@
     "descricao": "100ml Eau de Parfum",
     "imagem": "/assets/imagem/imagens_perfumes/essencialOud.webp",
     "estoque": "50",
-    "categoria": "perfumes",
-    "subcategoria": "perfumes_feminino"
+    "subcategoria": "perfumes_feminino",
+    "categoria": "perfumes"
   },
   {
     "id": 138,
@@ -1106,8 +1110,8 @@
     "descricao": "50ml Deo Parfum Feminino",
     "imagem": "/assets/imagem/imagens_perfumes/farWay.webp",
     "estoque": "50",
-    "categoria": "perfumes",
-    "subcategoria": "perfumes_feminino"
+    "subcategoria": "perfumes_feminino",
+    "categoria": "perfumes"
   },
   {
     "id": 139,
@@ -1116,8 +1120,8 @@
     "descricao": "50ml Eau de Parfum Feminino",
     "imagem": "/assets/imagem/imagens_perfumes/lunaIntenso.webp",
     "estoque": "50",
-    "categoria": "perfumes",
-    "subcategoria": "perfumes_feminino"
+    "subcategoria": "perfumes_feminino",
+    "categoria": "perfumes"
   },
   {
     "id": 140,
@@ -1126,8 +1130,8 @@
     "descricao": "75ml Desodorante Colônia Feminino",
     "imagem": "/assets/imagem/imagens_perfumes/florattaSimpleLove.webp",
     "estoque": "50",
-    "categoria": "perfumes",
-    "subcategoria": "perfumes_feminino"
+    "subcategoria": "perfumes_feminino",
+    "categoria": "perfumes"
   },
   {
     "id": 141,
@@ -1136,8 +1140,8 @@
     "descricao": "75ml Desodorante Colônia Feminino",
     "imagem": "/assets/imagem/imagens_perfumes/glamourSecrets.webp",
     "estoque": "50",
-    "categoria": "perfumes",
-    "subcategoria": "perfumes_feminino"
+    "subcategoria": "perfumes_feminino",
+    "categoria": "perfumes"
   },
   {
     "id": 152,
@@ -1146,8 +1150,8 @@
     "descricao": "60 unidades 80g",
     "imagem": "/assets/imagem/imagens_skin_care/51rM+XJUJPL._UF1000,1000_QL80_.jpg",
     "estoque": "50",
-    "categoria": "skin_care",
-    "subcategoria": "olhos"
+    "subcategoria": "olhos",
+    "categoria": "skin_care"
   },
   {
     "id": 153,
@@ -1156,8 +1160,8 @@
     "descricao": "15g",
     "imagem": "/assets/imagem/imagens_skin_care/bio-excellence-c.webp",
     "estoque": "50",
-    "categoria": "skin_care",
-    "subcategoria": "olhos"
+    "subcategoria": "olhos",
+    "categoria": "skin_care"
   },
   {
     "id": 154,
@@ -1166,8 +1170,8 @@
     "descricao": "15ml Clareador Periorbital",
     "imagem": "/assets/imagem/imagens_skin_care/7891142205346_0-20230529-193612.png",
     "estoque": "50",
-    "categoria": "skin_care",
-    "subcategoria": "olhos"
+    "subcategoria": "olhos",
+    "categoria": "skin_care"
   },
   {
     "id": 155,
@@ -1176,8 +1180,8 @@
     "descricao": "48g",
     "imagem": "/assets/imagem/imagens_skin_care/71uLphbHakL._AC_UL600_SR600,600_.jpg",
     "estoque": "50",
-    "categoria": "skin_care",
-    "subcategoria": "olhos"
+    "subcategoria": "olhos",
+    "categoria": "skin_care"
   },
   {
     "id": 156,
@@ -1186,8 +1190,8 @@
     "descricao": "30ml Anti-Olheiras",
     "imagem": "/assets/imagem/imagens_skin_care/258726-150-auto.webp",
     "estoque": "50",
-    "categoria": "skin_care",
-    "subcategoria": "olhos"
+    "subcategoria": "olhos",
+    "categoria": "skin_care"
   },
   {
     "id": 158,
@@ -1196,8 +1200,8 @@
     "descricao": "30ml Esfoliante Químico",
     "imagem": "/assets/imagem/imagens_skin_care/16344540.webp",
     "estoque": "50",
-    "categoria": "skin_care",
-    "subcategoria": "rosto"
+    "subcategoria": "rosto",
+    "categoria": "skin_care"
   },
   {
     "id": 159,
@@ -1206,8 +1210,8 @@
     "descricao": "25g Anti-Olheiras",
     "imagem": "/assets/imagem/imagens_skin_care/image.webp",
     "estoque": "50",
-    "categoria": "skin_care",
-    "subcategoria": "olhos"
+    "subcategoria": "olhos",
+    "categoria": "skin_care"
   },
   {
     "id": 160,
@@ -1216,8 +1220,8 @@
     "descricao": "10ml",
     "imagem": "/assets/imagem/imagens_skin_care/serum-hidratante-para-os-olhos-care-natural--1---1-.webp",
     "estoque": "50",
-    "categoria": "skin_care",
-    "subcategoria": "olhos"
+    "subcategoria": "olhos",
+    "categoria": "skin_care"
   },
   {
     "id": 162,
@@ -1226,8 +1230,8 @@
     "descricao": "350ml",
     "imagem": "/assets/imagem/imagens_skin_care/principia_gel.webp",
     "estoque": "50",
-    "categoria": "skin_care",
-    "subcategoria": "rosto"
+    "subcategoria": "rosto",
+    "categoria": "skin_care"
   },
   {
     "id": 163,
@@ -1236,8 +1240,8 @@
     "descricao": "30g",
     "imagem": "/assets/imagem/imagens_skin_care/serum-facial-creamy-vitamina-c-20-1-.jpg.webp",
     "estoque": "50",
-    "categoria": "skin_care",
-    "subcategoria": "rosto"
+    "subcategoria": "rosto",
+    "categoria": "skin_care"
   },
   {
     "id": 164,
@@ -1246,8 +1250,8 @@
     "descricao": "30ml",
     "imagem": "/assets/imagem/imagens_skin_care/images.jfif",
     "estoque": "50",
-    "categoria": "skin_care",
-    "subcategoria": "rosto"
+    "subcategoria": "rosto",
+    "categoria": "skin_care"
   },
   {
     "id": 165,
@@ -1256,8 +1260,8 @@
     "descricao": "30ml",
     "imagem": "/assets/imagem/imagens_skin_care/Serum_Hidratante_Neutrogena.webp",
     "estoque": "50",
-    "categoria": "skin_care",
-    "subcategoria": "rosto"
+    "subcategoria": "rosto",
+    "categoria": "skin_care"
   },
   {
     "id": 166,
@@ -1266,8 +1270,8 @@
     "descricao": "50ml",
     "imagem": "/assets/imagem/imagens_skin_care/Cerave.webp",
     "estoque": "50",
-    "categoria": "skin_care",
-    "subcategoria": "rosto"
+    "subcategoria": "rosto",
+    "categoria": "skin_care"
   },
   {
     "id": 167,
@@ -1276,8 +1280,8 @@
     "descricao": "30ml Esfoliante Químico",
     "imagem": "/assets/imagem/imagens_skin_care/images (1).jfif",
     "estoque": "50",
-    "categoria": "skin_care",
-    "subcategoria": "rosto"
+    "subcategoria": "rosto",
+    "categoria": "skin_care"
   },
   {
     "id": 168,
@@ -1286,8 +1290,8 @@
     "descricao": "150g",
     "imagem": "/assets/imagem/imagens_skin_care/esfoliante_corpo_e_rosto_labotrat_pitaya.webp",
     "estoque": "50",
-    "categoria": "skin_care",
-    "subcategoria": "rosto"
+    "subcategoria": "rosto",
+    "categoria": "skin_care"
   },
   {
     "id": 169,
@@ -1296,8 +1300,8 @@
     "descricao": "400ml Antiacne",
     "imagem": "/assets/imagem/imagens_skin_care/Darrow_actine.webp",
     "estoque": "50",
-    "categoria": "skin_care",
-    "subcategoria": "rosto"
+    "subcategoria": "rosto",
+    "categoria": "skin_care"
   },
   {
     "id": 170,
@@ -1306,8 +1310,8 @@
     "descricao": "30ml Sérum Hidratante Antissinais",
     "imagem": "/assets/imagem/imagens_skin_care/acido_hialuronico.jpg",
     "estoque": "50",
-    "categoria": "skin_care",
-    "subcategoria": "rosto"
+    "subcategoria": "rosto",
+    "categoria": "skin_care"
   },
   {
     "id": 171,
@@ -1316,8 +1320,8 @@
     "descricao": "30g Esfoliante Químico",
     "imagem": "/assets/imagem/imagens_skin_care/glicolicocreamy.webp",
     "estoque": "50",
-    "categoria": "skin_care",
-    "subcategoria": "rosto"
+    "subcategoria": "rosto",
+    "categoria": "skin_care"
   },
   {
     "id": 172,
@@ -1326,8 +1330,8 @@
     "descricao": "Gloss 2,5ml + Esfoliante 15g + Espuma 50ml",
     "imagem": "/assets/imagem/imagens_skin_care/antes-2025-07-09t144726152.webp",
     "estoque": "50",
-    "categoria": "skin_care",
-    "subcategoria": "labios"
+    "subcategoria": "labios",
+    "categoria": "skin_care"
   },
   {
     "id": 173,
@@ -1336,8 +1340,8 @@
     "descricao": "5g",
     "imagem": "/assets/imagem/imagens_skin_care/Mascara-para-Labios-Kiss-NY---Magic-Gel-Mask---1Un.webp",
     "estoque": "50",
-    "categoria": "skin_care",
-    "subcategoria": "labios"
+    "subcategoria": "labios",
+    "categoria": "skin_care"
   },
   {
     "id": 174,
@@ -1346,8 +1350,8 @@
     "descricao": "4,2g",
     "imagem": "/assets/imagem/imagens_skin_care/7896173100011.png",
     "estoque": "50",
-    "categoria": "skin_care",
-    "subcategoria": "labios"
+    "subcategoria": "labios",
+    "categoria": "skin_care"
   },
   {
     "id": 175,
@@ -1356,8 +1360,8 @@
     "descricao": "5,5g",
     "imagem": "/assets/imagem/imagens_skin_care/7891142207678_EPIDRATLABIOS-STILL.png.jpg.webp",
     "estoque": "50",
-    "categoria": "skin_care",
-    "subcategoria": "labios"
+    "subcategoria": "labios",
+    "categoria": "skin_care"
   },
   {
     "id": 176,
@@ -1366,8 +1370,8 @@
     "descricao": "15g",
     "imagem": "/assets/imagem/imagens_skin_care/images (2).jfif",
     "estoque": "50",
-    "categoria": "skin_care",
-    "subcategoria": "labios"
+    "subcategoria": "labios",
+    "categoria": "skin_care"
   },
   {
     "id": 177,
@@ -1376,8 +1380,8 @@
     "descricao": "15g 4 You Lip Scrub",
     "imagem": "/assets/imagem/imagens_skin_care/esfoliante-labial-com-oleo-de-coco-oceane-4-you-lip-scrub -1-.webp",
     "estoque": "50",
-    "categoria": "skin_care",
-    "subcategoria": "labios"
+    "subcategoria": "labios",
+    "categoria": "skin_care"
   },
   {
     "id": 178,
@@ -1386,8 +1390,8 @@
     "descricao": "10g",
     "imagem": "/assets/imagem/imagens_skin_care/12068602.webp",
     "estoque": "50",
-    "categoria": "skin_care",
-    "subcategoria": "labios"
+    "subcategoria": "labios",
+    "categoria": "skin_care"
   },
   {
     "id": 179,
@@ -1396,8 +1400,8 @@
     "descricao": "15g",
     "imagem": "/assets/imagem/imagens_skin_care/a0f6b9ee-b15e-47e8-bf71-2e10f70fe5c3-tec5zbxawp.webp",
     "estoque": "50",
-    "categoria": "skin_care",
-    "subcategoria": "labios"
+    "subcategoria": "labios",
+    "categoria": "skin_care"
   },
   {
     "id": 181,
@@ -1406,8 +1410,8 @@
     "descricao": "400ml",
     "imagem": "/assets/imagem/imagens_nutricao/advance_techniquer.webp",
     "estoque": "50",
-    "categoria": "cabelos",
-    "subcategoria": "nutricao"
+    "subcategoria": "nutricao",
+    "categoria": "cabelos"
   },
   {
     "id": 182,
@@ -1416,8 +1420,8 @@
     "descricao": "Máscara 200ml",
     "imagem": "/assets/imagem/imagens_nutricao/cadiveu.webp",
     "estoque": "50",
-    "categoria": "cabelos",
-    "subcategoria": "nutricao"
+    "subcategoria": "nutricao",
+    "categoria": "cabelos"
   },
   {
     "id": 183,
@@ -1426,8 +1430,8 @@
     "descricao": "300g",
     "imagem": "/assets/imagem/imagens_nutricao/forca_vitamina.webp",
     "estoque": "50",
-    "categoria": "cabelos",
-    "subcategoria": "nutricao"
+    "subcategoria": "nutricao",
+    "categoria": "cabelos"
   },
   {
     "id": 184,
@@ -1436,8 +1440,8 @@
     "descricao": "Shampoo + Máscara 2 itens",
     "imagem": "/assets/imagem/imagens_nutricao/kit_haskell_murumuru_para_hidratacao.avif",
     "estoque": "50",
-    "categoria": "cabelos",
-    "subcategoria": "nutricao"
+    "subcategoria": "nutricao",
+    "categoria": "cabelos"
   },
   {
     "id": 185,
@@ -1446,8 +1450,8 @@
     "descricao": "300g",
     "imagem": "/assets/imagem/imagens_nutricao/mascara_mega_nutrition.webp",
     "estoque": "50",
-    "categoria": "cabelos",
-    "subcategoria": "nutricao"
+    "subcategoria": "nutricao",
+    "categoria": "cabelos"
   },
   {
     "id": 186,
@@ -1456,8 +1460,8 @@
     "descricao": "250ml",
     "imagem": "/assets/imagem/imagens_nutricao/organic_shop.webp",
     "estoque": "50",
-    "categoria": "cabelos",
-    "subcategoria": "nutricao"
+    "subcategoria": "nutricao",
+    "categoria": "cabelos"
   },
   {
     "id": 187,
@@ -1466,8 +1470,8 @@
     "descricao": "300g",
     "imagem": "/assets/imagem/imagens_nutricao/walory_blondi.webp",
     "estoque": "50",
-    "categoria": "cabelos",
-    "subcategoria": "nutricao"
+    "subcategoria": "nutricao",
+    "categoria": "cabelos"
   },
   {
     "id": 188,
@@ -1476,8 +1480,8 @@
     "descricao": "250g",
     "imagem": "/assets/imagem/imagens_nutricao/eudora_siage.jpg",
     "estoque": "50",
-    "categoria": "cabelos",
-    "subcategoria": "nutricao"
+    "subcategoria": "nutricao",
+    "categoria": "cabelos"
   },
   {
     "id": 189,
@@ -1486,8 +1490,8 @@
     "descricao": "200ml Nutrição e Reparação",
     "imagem": "/assets/imagem/imagens_nutricao/cadiveu_vegan_repair.webp",
     "estoque": "50",
-    "categoria": "cabelos",
-    "subcategoria": "nutricao"
+    "subcategoria": "nutricao",
+    "categoria": "cabelos"
   },
   {
     "id": 190,
@@ -1496,8 +1500,8 @@
     "descricao": "300ml",
     "imagem": "/assets/imagem/imagens_nutricao/natura_lumina_shampoo.jpg",
     "estoque": "50",
-    "categoria": "cabelos",
-    "subcategoria": "nutricao"
+    "subcategoria": "nutricao",
+    "categoria": "cabelos"
   },
   {
     "id": 191,
@@ -1506,8 +1510,8 @@
     "descricao": "200ml",
     "imagem": "/assets/imagem/imagens_body_splash/morango_leite_splash.webp",
     "estoque": "50",
-    "categoria": "perfumes",
-    "subcategoria": "body_splash"
+    "subcategoria": "body_splash",
+    "categoria": "perfumes"
   },
   {
     "id": 192,
@@ -1516,8 +1520,8 @@
     "descricao": "100ml",
     "imagem": "/assets/imagem/imagens_body_splash/body_spray_imensi.webp",
     "estoque": "50",
-    "categoria": "perfumes",
-    "subcategoria": "body_splash"
+    "subcategoria": "body_splash",
+    "categoria": "perfumes"
   },
   {
     "id": 193,
@@ -1526,8 +1530,8 @@
     "descricao": "100ml",
     "imagem": "/assets/imagem/imagens_body_splash/body_spray_club6.webp",
     "estoque": "50",
-    "categoria": "perfumes",
-    "subcategoria": "body_splash"
+    "subcategoria": "body_splash",
+    "categoria": "perfumes"
   },
   {
     "id": 194,
@@ -1536,8 +1540,8 @@
     "descricao": "200ml",
     "imagem": "/assets/imagem/imagens_body_splash/body_splash_todo_dia.jpg",
     "estoque": "50",
-    "categoria": "perfumes",
-    "subcategoria": "body_splash"
+    "subcategoria": "body_splash",
+    "categoria": "perfumes"
   },
   {
     "id": 195,
@@ -1546,8 +1550,8 @@
     "descricao": "250ml",
     "imagem": "/assets/imagem/imagens_body_splash/body_splash_seduction.jpg",
     "estoque": "50",
-    "categoria": "perfumes",
-    "subcategoria": "body_splash"
+    "subcategoria": "body_splash",
+    "categoria": "perfumes"
   },
   {
     "id": 196,
@@ -1556,8 +1560,8 @@
     "descricao": "200ml",
     "imagem": "/assets/imagem/imagens_body_splash/body_splash_nativa_spa.webp",
     "estoque": "50",
-    "categoria": "perfumes",
-    "subcategoria": "body_splash"
+    "subcategoria": "body_splash",
+    "categoria": "perfumes"
   },
   {
     "id": 197,
@@ -1566,8 +1570,8 @@
     "descricao": "200ml",
     "imagem": "/assets/imagem/imagens_body_splash/body_splash_Infinity_Crystal.png",
     "estoque": "50",
-    "categoria": "perfumes",
-    "subcategoria": "body_splash"
+    "subcategoria": "body_splash",
+    "categoria": "perfumes"
   },
   {
     "id": 198,
@@ -1576,8 +1580,8 @@
     "descricao": "200ml",
     "imagem": "/assets/imagem/imagens_body_splash/BODY_SPLASH_BLUE_MIST.webp",
     "estoque": "50",
-    "categoria": "perfumes",
-    "subcategoria": "body_splash"
+    "subcategoria": "body_splash",
+    "categoria": "perfumes"
   },
   {
     "id": 199,
