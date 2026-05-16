@@ -1,7 +1,40 @@
-@import url('./header.css');
-@import url('./footer.css');
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&display=swap');
 @import url('./card.css');
 
+/* 
+   VARIÁVEIS GLOBAIS
+ */
+:root {
+  --color-primary:       #8B0000;
+  --color-primary-hover: #A52A2A;
+  --color-primary-dark:  #4f0103;
+  --color-primary-deep:  #990000;
+  --color-white:         #fff;
+  --color-text:          #333;
+  --color-text-muted:    rgba(0, 0, 0, 0.675);
+  --color-overlay-light: rgba(0, 0, 0, 0.25);
+  --color-overlay-dark:  rgba(0, 0, 0, 0.40);
+
+  --font-serif: 'Lora', serif;
+
+  --radius-sm:   8px;
+  --radius-md:   10px;
+  --radius-lg:   12px;
+  --radius-xl:   20px;
+  --radius-full: 50%;
+
+  --shadow-card:  0 4px 10px rgba(0, 0, 0, 0.15);
+  --shadow-soft:  0 4px 16px rgba(0, 0, 0, 0.08);
+  --shadow-nav:   0 -1px 10px var(--color-primary);
+  --shadow-arrow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  --shadow-cart:  0 4px 10px rgba(0, 0, 0, 0.2);
+
+  --transition: 0.3s ease;
+}
+
+/* 
+   RESET / BASE
+ */
 * {
   margin: 0;
   padding: 0;
@@ -9,16 +42,15 @@
 }
 
 body {
-  background: #fff;
-  color: #333;
+  background: var(--color-white);
+  color: var(--color-text);
   line-height: 1.6;
   overflow-x: hidden;
-  font-family: 'Lora', serif;
+  font-family: var(--font-serif);
+  padding-bottom: 80px;
 }
 
-menu {
-  font-size: 18px;
-}
+menu { font-size: 18px; }
 
 main {
   width: 100%;
@@ -29,7 +61,6 @@ main {
 img {
   max-width: 100%;
   height: auto;
-  /* IMPORTANTE: mude de 100% para auto */
   display: block;
 }
 
@@ -44,174 +75,126 @@ button {
   cursor: pointer;
 }
 
-/* HEADER */
-
-.icon-btn {
-  font-size: 26px;
-  /* Aumenta tamanho dos ícones */
-  background: none;
-  border: none;
-  cursor: pointer;
-  color: #333;
-  transition: color 0.3s ease;
+h3 {
+  color: var(--color-text-muted);
+  font-size: 15px;
+  margin-bottom: 3%;
 }
 
-/* BANNER PRINCIPAL */
-.main-banner img {
-  width: 100%;
-  margin: auto;
-  position: relative;
-  border-radius: 12px;
-  margin-top: 26%;
+/* 
+   BANNER PRINCIPAL
+ */
+.main-banner {
+  img {
+    width: 100%;
+    margin: auto;
+    position: relative;
+    border-radius: var(--radius-lg);
+    margin-top: 18%;
+  }
 }
 
-/* CATEGORIAS */
-
+/* 
+   CARROSSEL DE CATEGORIAS
+ */
 .categories-carousel {
   display: flex;
   margin: 7%;
   gap: 20px;
+
+  section {
+    width: 60%;
+    height: 400px;
+    border-radius: var(--radius-xl);
+    font-weight: 500;
+    text-align: center;
+    box-shadow: var(--shadow-soft);
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      transition: transform 0.6s ease;
+      z-index: 0;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: var(--color-overlay-light);
+      transition: background var(--transition);
+      z-index: 1;
+    }
+
+    &:hover::before { transform: scale(1.1); }
+    &:hover::after  { background: var(--color-overlay-dark); }
+
+    h2 {
+      color: var(--color-white);
+      position: absolute;
+      bottom: 48px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+    }
+
+    a {
+      color: black;
+      background-color: rgba(255, 255, 255, 0.85);
+      width: 100px;
+      height: 24px;
+      line-height: 24px;
+      border-radius: var(--radius-md);
+      position: absolute;
+      bottom: 1px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+      transition: var(--transition);
+
+      &:hover {
+        background-color: var(--color-primary);
+        color: var(--color-white);
+      }
+    }
+
+    /* Imagens por categoria */
+    &.cabelo::before  { background-image: url("https://i.pinimg.com/originals/3e/e1/d4/3ee1d4f8c52fc7637a257facd61423b3.jpg"); }
+    &.corpo::before   { background-image: url("https://img.freepik.com/fotos-premium/rosto-de-mulher-negra-e-creme-hidratante-para-beleza-da-pele-ou-cosmeticos-contra-um-fundo-de-estudio-cinza-retrato-de-mulher-africana-feliz-com-sorriso-para-locao-creme-hidratante-ou-produto-facial_590464-170930.jpg"); }
+    &.banho::before   { background-image: url("https://img.freepik.com/fotos-premium/esta-lavagem-do-corpo-me-deixa-com-uma-sensacao-fresca-que-permanece-foto-de-estudio-de-uma-jovem-tomando-banho-contra-um-fundo-azul_590464-62358.jpg"); }
+    &.perfume::before { background-image: url("https://www.makeupatelier.com.br/wp-content/uploads/2022/04/mulher-passando-perfume.jpg"); }
+    &.rosto::before   { background-image: url("https://img.freepik.com/fotos-premium/retrato-sereno-de-uma-mulher-de-beleza-natural_1365064-5523.jpg"); }
+  }
 }
 
-.categories-carousel section {
-  width: 60%;
-  height: 400px;
-  border-radius: 20px;
-  font-weight: 500;
-  text-align: center;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-  cursor: pointer;
-  position: relative;
-  overflow: hidden;
-}
-
-/* IMAGEM (AGORA VAI NO ::before) */
-.categories-carousel section::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  transition: transform 0.6s ease;
-  z-index: 0;
-}
-
-/* OVERLAY ESCURO SUAVE */
-.categories-carousel section::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.25);
-  transition: background 0.4s ease;
-  z-index: 1;
-}
-
-/* ZOOM NA IMAGEM */
-.categories-carousel section:hover::before {
-  transform: scale(1.1);
-}
-
-/* ESCURECE UM POUCO MAIS NO HOVER */
-.categories-carousel section:hover::after {
-  background: rgba(0, 0, 0, 0.4);
-}
-
-/* TEXTO */
-.categories-carousel section h2 {
-  color: #FFFFFF;
-  position: absolute;
-  bottom: 48px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 2;
-}
-
-/* BOTÃO */
-.categories-carousel section a {
-  color: black;
-  background-color: rgba(255, 255, 255, 0.85);
-  width: 100px;
-  height: 24px;
-  line-height: 24px;
-  border-radius: 10px;
-  position: absolute;
-  bottom: 1px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 2;
-  transition: .3s;
-}
-
-.categories-carousel section a:hover {
-  background-color: #8b0000;
-  color: #FFFFFF;
-}
-
-/* IMAGENS DAS CATEGORIAS (AGORA NO ::before) */
-
-.categories-carousel section.cabelo::before {
-  background-image: url("https://i.pinimg.com/originals/3e/e1/d4/3ee1d4f8c52fc7637a257facd61423b3.jpg");
-}
-
-.categories-carousel section.corpo::before {
-  background-image: url("https://img.freepik.com/fotos-premium/rosto-de-mulher-negra-e-creme-hidratante-para-beleza-da-pele-ou-cosmeticos-contra-um-fundo-de-estudio-cinza-retrato-de-mulher-africana-feliz-com-sorriso-para-locao-creme-hidratante-ou-produto-facial_590464-170930.jpg");
-}
-
-.categories-carousel section.banho::before {
-  background-image: url("https://img.freepik.com/fotos-premium/esta-lavagem-do-corpo-me-deixa-com-uma-sensacao-fresca-que-permanece-foto-de-estudio-de-uma-jovem-tomando-banho-contra-um-fundo-azul_590464-62358.jpg");
-}
-
-.categories-carousel section.perfume::before {
-  background-image: url("https://www.makeupatelier.com.br/wp-content/uploads/2022/04/mulher-passando-perfume.jpg");
-}
-
-.categories-carousel section.rosto::before {
-  background-image: url("https://img.freepik.com/fotos-premium/retrato-sereno-de-uma-mulher-de-beleza-natural_1365064-5523.jpg");
-}
-
-/* camada que escurece */
-.banho .overlay {
-  position: absolute;
-  inset: 0;
-  /* cobre tudo */
-  background: rgba(0, 0, 0, 0.35);
-  /* preto com transparência */
-}
-
-/* garante que título e botão fiquem por cima */
-.banho h2,
-.banho a {
-  position: relative;
-  z-index: 1;
-}
-
-/* 
-banner rotativo */
+/* BANNER ROTATIVO */
 .custom-carousel {
   width: 90%;
-  height: 400%;
-  /* max-width: 700px; */
-  margin: 0px auto;
+  margin: 0 auto;
   position: relative;
   overflow: hidden;
-  border-radius: 12px;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-soft);
 }
 
 .carousel-track {
   display: flex;
   transition: transform 0.6s cubic-bezier(.77, 0, .18, 1);
   width: 141%;
-}
 
-.carousel-track img {
-  width: 73%;
-  height: 100%;
-  object-fit: cover;
-  /* ou 'contain' se quiser que tudo da imagem apareça */
-  flex-shrink: 0;
-
+  img {
+    width: 73%;
+    height: 100%;
+    object-fit: cover;
+    flex-shrink: 0;
+  }
 }
 
 .carousel-dots {
@@ -221,54 +204,64 @@ banner rotativo */
   transform: translateX(-50%);
   display: flex;
   gap: 10px;
+
+  .dot {
+    width: 12px;
+    height: 12px;
+    border-radius: var(--radius-full);
+    background: var(--color-white);
+    opacity: 0.6;
+    cursor: pointer;
+    transition: opacity var(--transition);
+    border: 2px solid var(--color-primary);
+
+    &.active {
+      opacity: 1;
+      background: var(--color-primary);
+    }
+  }
 }
 
-.carousel-dots .dot {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  background: #fff;
-  opacity: 0.6;
-  cursor: pointer;
-  transition: opacity 0.3s;
-  border: 2px solid #8B0000;
-}
-
-.carousel-dots .dot.active {
-  opacity: 1;
-  background: #8B0000;
-}
-
-/* ...existing code... */
-
-/* DESCRIÇÃO + BOTÃO */
+/*
+  DESCRIÇÃO */
 .description {
   text-align: center;
   padding: 16px;
-  margin: 0px;
+
+  h3 { font-size: 13px; }
 }
 
-
-.description h3 {
-  font-size: 13px;
-}
-
-
-/* Seção produtos */
-
+/*
+   MAIS VENDIDOS — TÍTULO */
 .dica-make {
   text-align: center;
   padding: 4px 0;
-  font-family: 'Lora', serif;
-  background-color: #fff;
+  font-family: var(--font-serif);
+  background-color: var(--color-white);
+
+  h2 {
+    font-size: 2em;
+    margin-bottom: 40px;
+    color: transparent;
+    background-image: linear-gradient(90deg, var(--color-primary-deep), var(--color-primary-deep));
+    background-size: 200%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    font-family: var(--font-serif);
+    animation: cobrinha 3s linear infinite;
+    transition: transform var(--transition);
+
+    &:hover { transform: scale(1.05); }
+  }
 }
 
-.dica-make h2 {
-  color: #8B0000;
-  font-size: 2em;
-  margin-bottom: 40px;
+@keyframes cobrinha {
+  0%   { background-position: 0%; }
+  100% { background-position: 200%; }
 }
 
+/*
+   CARROSSEL WRAPPER + SETAS */
 .carousel-wrapper {
   position: relative;
   width: 100%;
@@ -279,32 +272,29 @@ banner rotativo */
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: #8B0000;
-  color: white;
+  background: var(--color-primary);
+  color: var(--color-white);
   border: none;
   width: 40px;
   height: 40px;
-  border-radius: 50%;
+  border-radius: var(--radius-full);
   font-size: 18px;
   cursor: pointer;
   z-index: 10;
-  transition: all 0.3s ease;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  transition: all var(--transition);
+  box-shadow: var(--shadow-arrow);
+
+  &:hover {
+    background: var(--color-primary-hover);
+    transform: translateY(-50%) scale(1.1);
+  }
+
+  &:first-child { left: 10px; }
+  &:last-child  { right: 10px; }
 }
 
-.scroll-arrow:hover {
-  background: #A52A2A;
-  transform: translateY(-50%) scale(1.1);
-}
-
-.scroll-arrow:first-child {
-  left: 10px;
-}
-
-.scroll-arrow:last-child {
-  right: 10px;
-}
-
+/*
+   CARDS DESTAQUE (MAIS VENDIDOS) */
 .cards-container {
   display: flex;
   flex-wrap: nowrap;
@@ -313,68 +303,54 @@ banner rotativo */
   width: 100%;
   overflow-x: auto;
   scrollbar-width: none;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
   margin: 0 auto;
   box-sizing: border-box;
   scroll-behavior: smooth;
+
+  &::-webkit-scrollbar { display: none; }
+
+  & > * { scroll-snap-align: start; }
 }
 
-.cards-container::-webkit-scrollbar {
-  display: none;
-}
-
-
+.categories-carousel { scroll-snap-type: x mandatory; }
+.categories-carousel > * { scroll-snap-align: start; }
 
 .card-destaque {
   position: relative;
   width: 350px;
   flex: 0 0 350px;
   height: 500px;
-  border-radius: 10px;
+  border-radius: var(--radius-md);
   overflow: hidden;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-  transition: transform 0.3s;
+  box-shadow: var(--shadow-card);
+  transition: transform var(--transition);
   background-color: #923636;
+
+  &:hover { transform: scale(1.03); }
+
+  .img-fundo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .img-produto {
+    position: absolute;
+    left: 14%;
+    top: 15px;
+    transform: translateX(-50%);
+    width: 74px;
+    height: auto;
+    z-index: 2;
+    display: flex;
+  }
 }
 
-.card:hover {
-  transform: scale(1.03);
-}
-
-.cards-container,
-.categories-carousel {
-  scroll-snap-type: x mandatory;
-  -webkit-overflow-scrolling: touch;
-}
-
-.cards-container>*,
-.categories-carousel>* {
-  scroll-snap-align: start;
-}
-
-/* imagem grande de fundo */
-.img-fundo {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-
-}
-
-/* imagem do produto sobreposta */
-.img-produto {
-  position: absolute;
-  left: 14%;
-  top: 15px;
-  transform: translateX(-50%);
-  width: 74px;
-  height: auto;
-  z-index: 2;
-  display: flex;
-}
-
-/* bloco das infos abaixo do produto */
 .maisvendidos {
   font-size: 70%;
-  background-color: white;
+  background-color: var(--color-white);
   position: absolute;
   bottom: 8px;
   left: 50%;
@@ -384,291 +360,144 @@ banner rotativo */
   z-index: 3;
   width: 80%;
   flex-direction: column;
-  border-radius: 8px;
-}
+  border-radius: var(--radius-sm);
 
-.maisvendidos button {
-  border-radius: 8px;
-  width: 100px;
-  height: 20px;
-  /* margin-left: 20px; */
-  margin-left: 0;
+  h3 {
+    margin-top: 5%;
+    font-size: 16px;
+    padding-left: 6px;
+  }
 
-
-}
-
-.maisvendidos h3 {
-  margin-top: 5%;
-  font-size: 16px;
-  /* padding-left: 18px; */
-  padding-left: 6px;
-}
-
-h3 {
-  color: rgba(0, 0, 0, 0.675);
-  font-size: 15px;
-  margin-bottom: 3%;
+  button {
+    border-radius: var(--radius-sm);
+    width: 100px;
+    height: 20px;
+    margin-left: 0;
+  }
 }
 
 .preco {
-  color: #4f0103;
+  color: var(--color-primary-dark);
   font-weight: bold;
   font-size: 16px;
-  /* padding-left: 18px; */
   padding-left: 5px;
 }
 
 button {
-  background: #8B0000;
-  color: #fff;
+  background: var(--color-primary);
+  color: var(--color-white);
   padding: 4px;
   margin-bottom: 3%;
   cursor: pointer;
-  font-size: 1.0em;
+  font-size: 1em;
   font-weight: bold;
 }
 
-/* Efeito h2 */
-
-.dica-make h2 {
-  font-size: 2em;
-  color: transparent;
-  background-image: linear-gradient(90deg, #990000, #990000, #990000, #990000);
-  background-size: 200%;
-  background-clip: text;
-  -webkit-background-clip: text;
-  font-family: 'Lora', serif;
-  animation: cobrinha 3s linear infinite;
-  transition: transform 0.3s;
+/*
+   NAVBAR MOBILE */
+.mbl_navbar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: var(--color-white);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 10px 0;
+  z-index: 999;
+  box-shadow: var(--shadow-nav);
 }
 
-@keyframes cobrinha {
-  0% {
-    background-position: 0%;
+.mbl_nav_item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 12px;
+  color: var(--color-text);
+  cursor: pointer;
+
+  img {
+    width: 22px;
+    margin-bottom: 4px;
   }
 
-  100% {
-    background-position: 200%;
+  p {
+    font-size: 11px;
+    margin: 0;
+    font-family: var(--font-serif);
   }
 }
 
-.dica-make h2:hover {
-  transform: scale(1.05);
+.mbl_nav_cart {
+  position: relative;
+  top: -15px;
+  background: var(--color-white);
+  padding: 10px;
+  border-radius: var(--radius-full);
+  box-shadow: var(--shadow-cart);
+
+  img { width: 28px; }
 }
 
-/* CELULAR */
+/*
+   MODAL DE LOGIN */
+.logo-modal-login {
+  width: 250px !important;
+  height: auto !important;
+  display: block !important;
+  margin: -60px auto -20px auto !important;
+  position: relative !important;
+  z-index: 10;
+}
+
+.login-container {
+  h2 {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+  }
+}
+
+/*
+   RESPONSIVIDADE
+ */
+
+/* Desktop: esconde setas de categorias e navbar mobile */
+@media (min-width: 992px) {
+  .carousel-wrapper--categorias .scroll-arrow { display: none; }
+  .mbl_navbar { display: none; }
+}
+
+/* Mobile */
 @media (max-width: 480px) {
 
-  /*CARROSSEL DE CATEGORIAS*/
   .categories-carousel {
     overflow-x: scroll;
     scrollbar-width: none;
     justify-content: left;
 
-  }
+    section {
+      min-width: 30%;
+      max-height: 200px;
+      margin: 30px 0;
 
-  .categories-carousel section {
-    min-width: 30%;
-    max-height: 200px;
-    margin: 30px 0px 30px 0px;
+      h2 {
+        bottom: 20px;
+        -webkit-text-stroke: 0.6px;
+        -webkit-text-stroke-color: #2b2a2a;
+      }
 
-  }
-
-  h2 {
-    font-size: 1.2em;
-  }
-
-  .categories-carousel section h2 {
-    bottom: 20px;
-    -webkit-text-stroke: 0.6px;
-    -webkit-text-stroke-color: #2b2a2a;
-  }
-
-  .categories-carousel section a {
-    max-width: 80px;
-    max-height: 20px;
-    font-size: 14px;
-    padding-bottom: 24px;
-
-  }
-
-  /*BANNER PRINCIPAL*/
-  .main-banner img {
-    max-width: 90%;
-  }
-
-  /*BANNER ROTATIVO*/
-  .custom-carousel {
-    max-width: 90%;
-
-  }
-
-  /*CARROSSEL DE PRODUTOS*/
-
-  .card-container {
-    width: 80vw;
-    margin: 50px auto;
-  }
-
-  .card-container section {
-    max-width: 150px;
-    max-height: 250px;
-  }
-
-  .card-container section header {
-    width: 100%;
-  }
-
-  .card-container section header img {
-    width: 100%;
-    height: 100%;
-    background-position: center;
-    object-fit: contain;
-  }
-
-  .card-container section article {
-    padding: 5px 10px;
-  }
-
-
-  .card-title {
-    font-size: 70%;
-    margin-bottom: 5px;
-  }
-
-  .card-text {
-    font-size: 70%;
-    margin-bottom: 5px;
-    /* margem inferior */
-  }
-
-  .card-price {
-    margin-bottom: 5px;
-  }
-
-  /*HEADER*/
-
-  .header nav>ul:nth-of-type(1) {
-    max-width: 45%;
-
-  }
-
-  .logo>img {
-    height: 34px !important;
-    width: 180px;
-    display: block;
-  }
-
-  .icon-btn {
-    display: none;
-  }
-
-  .user-icon {
-    display: flex !important;
-    margin-left: auto;
-    padding-right: 10px;
-    min-width: fit-content;
-  }
-
-  .search-icon {
-    display: flex !important;
-    opacity: 0 !important;
-    width: 1px !important;
-    height: 1px !important;
-    padding: 0 !important;
-    margin: 0 !important;
-    overflow: hidden !important;
-    pointer-events: none !important;
-  }
-
-  .user-icon span {
-    max-width: 100px !important;
-    font-size: 11px !important;
-    white-space: nowrap;
-    overflow: visible;
-    text-overflow: clip;
-  }
-
-
-
-  .bootstrap::before:active {
-    transform: rotate(90deg);
-  }
-
-  .header nav ul a {
-    display: flex;
-
-    .header nav>ul:nth-of-type(1) {
-      max-width: 75%;
+      a {
+        max-width: 80px;
+        max-height: 20px;
+        font-size: 14px;
+        padding-bottom: 24px;
+      }
     }
   }
 
-
-
-
-  /*FOOTER*/
-
-  nav {
-    margin: 25px 0px 30px 0px;
-  }
-
-  h3 {
-    font-size: 15px;
-  }
-
-  a {
-    font-size: 13px;
-  }
-
-  li {
-    font-size: 13px;
-  }
-
-  #redessociais {
-    column-gap: 5px;
-    margin-top: 16px;
-    margin-bottom: 30%;
-
-  }
-
-  .footer {
-    padding-top: 30px;
-    column-gap: 8px;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-
-  #prf {
-    margin-left: clamp(0rem, 6vw, 12.25rem);
-  }
-
-  #inf {
-    padding-right: clamp(2rem, 3vw, 6.25rem);
-  }
-
-  #icons {
-    align-items: center;
-    width: 70%;
-    padding-left: clamp(0rem, 1vw, 3.125rem);
-    gap: 16px;
-    flex: 2;
-  }
-
-  #icons,
-  img {
-    width: 100%;
-  }
-
-  #icons img {
-    max-width: 60%;
-  }
-
-  .footer nav {
-    padding: 0;
-  }
-
-
-  /*SACOLA*/
+  .main-banner img { max-width: 90%; }
+  .custom-carousel { max-width: 90%; }
 
   .btn-excluir {
     padding: 10px 15px;
@@ -681,209 +510,82 @@ button {
     margin-top: 14px;
   }
 
-  .info-item p {
-    font-size: 1.3rem;
-  }
-
-  strong {
-    font-size: 1.3rem;
-  }
-
-
-  /*MAIS VENDIDOS*/
+  .info-item p { font-size: 1.3rem; }
+  strong       { font-size: 1.3rem; }
 
   .card-destaque {
     max-width: 55%;
     max-height: 320px;
   }
 
-  .img-produto {
-    max-width: 20%;
-  }
+  .img-produto { max-width: 20%; }
 
-  /*FAZER LOGIN*/
   .info {
     height: 5%;
+
+    button { max-width: 45%; }
   }
 
-  .info button {
-    max-width: 45%;
-  }
-
-  .btn-login {
-    padding: 12px;
-  }
+  .btn-login { padding: 12px; }
 
   .modal-perfil {
     max-width: 100%;
     width: 400px;
     padding: 35px 0;
-
   }
 
+  .login-container p { margin-bottom: 5%; }
+  .login-title       { margin-bottom: 5%; }
 
-  .login-container p {
-    margin-bottom: 5%;
-  }
-
-  .login-title {
-    margin-bottom: 5%;
-  }
-
-  /*FINALIZAR COMPRA*/
-  .page-header {
-    margin: 0 4% 0;
-  }
-
-  h1 {
-    font-size: 1.5em;
-  }
-
+  .page-header { margin: 0 4% 0; }
+  h1           { font-size: 1.5em; }
 }
 
-
-
-
-/* TABLET */
+/* Tablet */
 @media (min-width: 481px) and (max-width: 991px) {
 
-  /*CARROSSEL DE CATEGORIAS */
   .categories-carousel {
     overflow-x: scroll;
     scrollbar-width: none;
     justify-content: left;
 
+    section {
+      min-width: 25%;
+      max-height: 320px;
+      margin: 30px 0;
+    }
   }
 
-  .categories-carousel section {
-    min-width: 25%;
-    max-height: 320px;
-    margin: 30px 0px 30px 0px;
-
-  }
-
-
-
-  /*BANNER ROTATIVO*/
-  .custom-carousel {
-    max-width: 95%;
-
-  }
-
-  /*BANNER PRINCIPAL*/
-  .main-banner img {
-    max-width: 95%;
-  }
-
-  /*CARROSSEL DE PRODUTOS*/
+  .main-banner img { max-width: 95%; }
+  .custom-carousel { max-width: 95%; }
 
   .card-container {
     width: 90vw;
     margin: 50px auto;
+
+    section {
+      max-width: 250px;
+      max-height: 350px;
+
+      header {
+        width: 100%;
+        box-shadow: none;
+
+        img {
+          width: 100%;
+          height: 100%;
+          background-position: center;
+          object-fit: contain;
+        }
+      }
+
+      article { padding: 10px 15px; }
+    }
   }
 
-  .card-container section {
-    max-width: 250px;
-    max-height: 350px;
-  }
-
-  .card-container section header {
-    width: 100%;
-    box-shadow: none;
-  }
-
-  .card-container section header img {
-    width: 100%;
-    height: 100%;
-    background-position: center;
-    object-fit: contain;
-
-  }
-
-  .card-container section article {
-    padding: 10px 15px;
-  }
-
-
-  .card-title {
-    font-size: 80%;
-    /* tamanho da fonte */
-    margin-bottom: 10px;
-    /* margem inferior */
-  }
-
-  .card-text {
-    font-size: 80%;
-    /* tamanho da fonte */
-    margin-bottom: 10px;
-    /* margem inferior */
-  }
-
-  .card-price {
-    margin-bottom: 10px;
-    font-size: 19px;
-  }
-
-
-  /*HEADER*/
-
-  .header nav>ul:nth-of-type(1) {
-    max-width: 45%;
-  }
-
-  .icon-btn {
-    padding: 15px;
-  }
-
-  .icon-btn img {
-    min-width: 30px;
-    min-height: 30px;
-  }
-
-  .search-icon:hover .search-input {
-    width: 160px;
-    padding: 0 18px;
-    opacity: 1;
-    font-size: 16px;
-  }
-
-  .header nav>label {
-    display: flex;
-    margin: 8px;
-    row-gap: 5px;
-  }
-
-
-
-  /*FOOTER*/
-
-  nav {
-    margin: 25px 0px 30px 0px;
-  }
-
-  a {
-    font-size: 15px;
-  }
-
-  li {
-    font-size: 13px;
-  }
-
-  #redessociais {
-    column-gap: 120px;
-    margin-top: 30px;
-
-  }
-
-  .footer {
-    padding-top: 30px;
-  }
-
-  .footer nav {
-    gap: 130px;
-  }
-
-  /*SACOLA*/
+  .card-title  { font-size: 80%; margin-bottom: 10px; }
+  .card-text   { font-size: 80%; margin-bottom: 10px; }
+  .card-price  { margin-bottom: 10px; font-size: 19px; }
 
   .btn-excluir {
     padding: 10px 15px;
@@ -897,134 +599,8 @@ button {
     font-size: 1.1rem;
   }
 
-  .info-item p {
-    font-size: 1.3rem;
-  }
+  .info-item p { font-size: 1.3rem; }
+  strong       { font-size: 1.3rem; }
 
-  strong {
-    font-size: 1.3rem;
-  }
-
-  /*FINALIZAR COMPRA*/
-  .page-header {
-    margin: 0 2% 0;
-  }
-
-
-
-}
-
-@media (min-width: 992px) {
-  .carousel-wrapper--categorias .scroll-arrow {
-    display: none;
-  }
-}
-
-/* NAVBAR MOBILE */
-
-/* .mbl_navbar {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-
-
-
-  background: #d9d9d9;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-
-  padding: 10px 0;
-  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
-
-  z-index: 999;
-} */
-
-.mbl_navbar {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  background: #fff;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  padding: 10px 0;
-  z-index: 999;
-  box-shadow: 0 -1px 10px #8B0000;
-
-}
-
-/* ITENS */
-.mbl_nav_item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  font-size: 12px;
-  color: #333;
-  cursor: pointer;
-}
-
-/* ÍCONES */
-.mbl_nav_item img {
-  width: 22px;
-  margin-bottom: 4px;
-}
-
-/* TEXTO */
-.mbl_nav_item p {
-  font-size: 11px;
-  margin: 0;
-  font-family: 'Lora', serif;
-  /* pode trocar pra sua fonte do projeto */
-}
-
-
-/* CARRINHO CENTRAL ESTILO ML */
-.mbl_nav_cart {
-  position: relative;
-  top: -15px;
-
-  background: #fff;
-  padding: 10px;
-  border-radius: 50%;
-
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-}
-
-/* ÍCONE MAIOR */
-.mbl_nav_cart img {
-  width: 28px;
-}
-
-/* ESPAÇO PRA NÃO ESCONDER CONTEÚDO */
-body {
-  padding-bottom: 80px;
-}
-
-/* só pra ESCONDER no desktop: */
-@media (min-width: 768px) {
-  .mbl_navbar {
-    display: none;
-  }
-}
-
-
-/* AJUSTE PARA NÃO CORTAR A LOGO */
-.logo-modal-login {
-  width: 250px !important;
-  height: auto !important;
-  display: block !important;
-
-  margin: -60px auto -20px auto !important;
-
-  position: relative !important;
-  z-index: 10;
-}
-
-/* Garante que o texto "Bem-vindo" não tenha espaço extra no topo */
-.login-container h2 {
-  margin-top: 0 !important;
-  padding-top: 0 !important;
+  .page-header { margin: 0 2% 0; }
 }

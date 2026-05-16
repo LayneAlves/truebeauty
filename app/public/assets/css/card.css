@@ -138,3 +138,47 @@
    margin-right: 2px;
    color: #8B0000;            
  }
+
+ @media(max-width: 480px){
+  /*CARROSSEL DE PRODUTOS*/
+
+  .card-container {
+    width: 80vw;
+    margin: 50px auto;
+  }
+
+  .card-container section {
+    max-width: 150px;
+    max-height: 250px;
+  }
+
+  .card-container section header {
+    width: 100%;
+  }
+
+  .card-container section header img {
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    object-fit: contain;
+  }
+
+  .card-container section article {
+    padding: 5px 10px;
+  }
+
+
+  .card-title {
+    font-size: 70%;
+    margin-bottom: 5px;
+  }
+
+  .card-text {
+    font-size: 70%;
+    margin-bottom: 5px;
+  }
+
+  .card-price {
+    margin-bottom: 5px;
+  }
+ }

@@ -33,7 +33,6 @@
 
     img {
         width: 28px;
-        /* aspect-ratio: 1/1; */
     }
     a{
         text-decoration: none;
@@ -50,7 +49,5 @@
     img{
         object-fit: cover;
         width: 100%;
-        /* aspect-ratio: 16/9; */
-        /* filter: invert(1); */
     }
 }

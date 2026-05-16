@@ -1,15 +1,17 @@
+/* CONFIGURAÇÃO BASE DA PÁGINA */
 html, body {
   height: 100%;
   margin: 0;
 }
 
 footer {
-  background: #770003; /* sua cor */
+  background: #770003;
   height: auto;
 }
+
+/* BLOCO PRINCIPAL DO FOOTER */
 .footer {
   width: 100%;
-  /* background-color: #770003; */
   color: white;
   padding: 16px 0;
   display: flex;
@@ -17,79 +19,150 @@ footer {
   justify-content: space-between;
   align-items: center;
   row-gap: 8px; 
-  /* height: auto; */
+
+  & > img {
+    width: 200px;
+    position: relative;
+  }
+
+  nav {
+    padding: 16px;
+    display: flex;
+    gap: 64px;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+      margin-bottom: 12px;
+
+      a {
+        color: white;
+        text-decoration: none;
+        font-size: 14px;
+        font-weight: 300;
+        transition: color 0.3s;
+
+        &:hover {
+          color: #ccc;
+        }
+      }
+
+      h3 {
+        font-size: 16px;
+        margin-top: 0;
+        margin-bottom: 16px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+    }
+  }
 }
 
-.footer > img {
-  width: 200px; /* AUMENTAR TAMANHO DA LOGO */
-  position: relative;
-}
-
-
-.footer nav {
-  padding: 16px;
-  display: flex;
-  gap: 64px;
-}
-
-#prf{
-  margin-left: clamp(3rem, 11vw, 21.25rem); /*equivalente a 340px so que mais responsivel*/
+/* SEÇÕES DO MENU */
+#prf {
+  margin-left: clamp(3rem, 11vw, 21.25rem);
   flex: 1.5;
 }
 
-#inf{
+#inf {
   flex: 1.5;
-  padding-left: clamp(1rem, 4vw, 6.25rem); /*equivalente a 100px so que mais responsivel*/
+  padding-left: clamp(1rem, 4vw, 6.25rem);
 }
 
-.footer ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.footer ul li {
-  margin-bottom: 8px;
-}
-
-.footer ul li h3 {
-  margin-bottom: 8px;
-  color: white;
-}
-
-
+/* LOGO E SEÇÃO DE REDES SOCIAIS */
 #icons {
   display: flex;
-  /* margin: end; */
-  align-items: center;
-  width: 70%;
-  padding-left: clamp(2rem, 5vw, 3.125rem); /*equivale a 50px so que mais responsivel*/
   flex-direction: column;
+  align-items: center;
   gap: 16px;
-  /* right: 80px; */
-  flex: 2;
+  flex: 1;
+
+  img {
+    max-width: 40%;
+    height: auto;
+    display: flex;
+  }
 }
 
 #redessociais {
   display: flex;
-  gap: 18px;
+  gap: 16px;
+  list-style: none;
   padding: 0;
   margin: 0;
-  list-style: none;
+
+  li a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    transition: background-color 0.3s;
+
+    svg {
+      fill: white;
+      transition: 0.3s;
+    }
+
+    &:hover {
+      background-color: white;
+
+      svg {
+        fill: #4f0103; 
+      }
+    }
+  }
 }
 
-#redessociais li a svg {
+/* COMPORTAMENTO RESPONSIVO (MOBILE) */
+@media(max-width: 480px) {
+  .footer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 30px;
+    gap: 0;
+    padding-bottom: 120px;
 
-  fill: white;
-  transition: 0.3s;
-}
+    nav {
+      flex-direction: row;
+      justify-content: center;
+      gap: 32px;
+      padding: 0 16px;
+      width: 100%;
+    }
+  }
 
-#redessociais li a:hover svg {
-  fill: #4f0103; 
-}
+  #prf {
+    margin-left: 0;
+    flex: unset;
+  }
 
-#icons img{
-  max-width: 40%;
-  height: auto;
-  display: flex;
+  #inf {
+    padding-left: 0;
+    padding-right: 0;
+    flex: unset;
+  }
+
+  #icons {
+    grid-column: span 2;
+    width: 100%;
+    padding-left: 0;
+    padding-top: 30px;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+
+    img {
+      max-width: 30%;
+    }
+  }
 }
