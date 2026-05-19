@@ -163,65 +163,105 @@
     });
 
 
-// Mensagem de erro de acesso para pag de adm
-const acessoParams = new URLSearchParams(window.location.search);
-if (acessoParams.get('erro') === 'acesso_negado') {
-    alert('Acesso negado! Apenas administradores podem entrar nessa página.');
-}
-
-
-// --- Após efetuar o login, aparece o nome de quem logou ---
-// Busca os dados e elementos principais
-const nome = localStorage.getItem('usuarioNome');
-const userIcon = document.querySelector(".user-icon");
-const userMenu = document.getElementById("user-menu");
-const btnSair = document.getElementById("btn-sair");
-const displayNome = document.getElementById('nome-usuario-display');
-
-// Só executa a lógica se o usuário estiver logado
-if (nome && userIcon) {
-    const primeiroNome = nome.split(' ')[0];
-
-    // DESKTOP: Exibe o nome ao lado do ícone 
-    if (displayNome) {
-        displayNome.textContent = `Olá, ${primeiroNome}`;
+    // Mensagem de erro de acesso para pag de adm
+    const acessoParams = new URLSearchParams(window.location.search);
+    if (acessoParams.get('erro') === 'acesso_negado') {
+        alert('Acesso negado! Apenas administradores podem entrar nessa página.');
     }
 
-    // MOBILE: Exibe a saudação na navbar inferior 
-    const mblSaudacao = document.getElementById('mbl_saudacao');
-    const mblSaudacaoNome = document.getElementById('mbl_saudacao_nome');
-    if (mblSaudacao && mblSaudacaoNome) {
-        mblSaudacaoNome.textContent = primeiroNome;
-        mblSaudacao.style.display = 'block';
-    }
 
-    //MENU DROPDOWN 
+    // --- Após efetuar o login, aparece o nome de quem logou ---
+    // Busca os dados e elementos principais
+    const nome = localStorage.getItem('usuarioNome');
+    const userIcon = document.querySelector(".user-icon");
+    const userMenu = document.getElementById("user-menu");
+    const btnSair = document.getElementById("btn-sair");
+    const displayNome = document.getElementById('nome-usuario-display');
 
-    // Abre/Fecha o menu ao clicar no ícone de perfil
-    userIcon.addEventListener("click", (e) => {
-        e.preventDefault();
-        e.stopImmediatePropagation();
-        e.stopPropagation();
-        userMenu.classList.toggle("active");
-    }, true);
+    // Só executa a lógica se o usuário estiver logado
+    if (nome && userIcon) {
+        const primeiroNome = nome.split(' ')[0];
 
-    // Fecha o menu se o usuário clicar em qualquer outro lugar da tela
-    document.addEventListener("click", (e) => {
-        if (userMenu && !userMenu.contains(e.target) && !userIcon.contains(e.target)) {
-            userMenu.classList.remove("active");
+        // DESKTOP: Exibe o nome ao lado do ícone 
+        if (displayNome) {
+            displayNome.textContent = `Olá, ${primeiroNome}`;
         }
-    });
 
-    // Botão SAIR do menu 
-    if (btnSair) {
-        btnSair.addEventListener("click", (e) => {
+        // MOBILE: Exibe a saudação na navbar inferior 
+        const mblSaudacao = document.getElementById('mbl_saudacao');
+        const mblSaudacaoNome = document.getElementById('mbl_saudacao_nome');
+        if (mblSaudacao && mblSaudacaoNome) {
+            mblSaudacaoNome.textContent = primeiroNome;
+            mblSaudacao.style.display = 'block';
+        }
+
+        //MENU DROPDOWN 
+
+        // Abre/Fecha o menu ao clicar no ícone de perfil
+        userIcon.addEventListener("click", (e) => {
             e.preventDefault();
-            if (confirm("Deseja realmente sair da sua conta?")) {
-                localStorage.removeItem('usuarioNome');
-                window.location.reload();
+            e.stopImmediatePropagation();
+            e.stopPropagation();
+            userMenu.classList.toggle("active");
+        }, true);
+
+        // Fecha o menu se o usuário clicar em qualquer outro lugar da tela
+        document.addEventListener("click", (e) => {
+            if (userMenu && !userMenu.contains(e.target) && !userIcon.contains(e.target)) {
+                userMenu.classList.remove("active");
             }
         });
-    }
-}
 
+        // Botão SAIR do menu 
+        if (btnSair) {
+            btnSair.addEventListener("click", (e) => {
+                e.preventDefault();
+                if (confirm("Deseja realmente sair da sua conta?")) {
+                    localStorage.removeItem('usuarioNome');
+                    window.location.reload();
+                }
+            });
+        }
+    }
+
+
+</script>
+
+<!-- NAVBAR MOBILE -->
+<script>
+    document.getElementById('mbl_btn_menu').addEventListener('click', () => {
+        document.querySelector('.logo').click();
+    });
+
+    document.getElementById('mbl_btn_user').addEventListener('click', () => {
+        const menuCheckbox = document.getElementById('menu-hamburguer');
+        menuCheckbox.checked = !menuCheckbox.checked;
+    });
+
+    document.getElementById('mbl_btn_search').addEventListener('click', (e) => {
+        e.stopPropagation();
+        const pesquisaAtiva = document.querySelector('.search-icon').classList.contains('active');
+        setPesquisaAtiva(!pesquisaAtiva);
+    });
+
+    document.getElementById('mbl_btn_menu2').addEventListener('click', () => {
+        document.querySelector('.user-icon').click();
+    });
+
+    document.getElementById('mbl_btn_cart').addEventListener('click', () => {
+        document.querySelector('.cart-icon').click();
+    });
+
+    document.addEventListener('click', (e) => {
+        const menuCheckbox = document.getElementById('menu-hamburguer');
+        const menuList = document.querySelector('.menu-list');
+        const menuBtn = document.getElementById('mbl_btn_user');
+        if (
+            menuCheckbox.checked &&
+            !menuList.contains(e.target) &&
+            !menuBtn.contains(e.target)
+        ) {
+            menuCheckbox.checked = false;
+        }
+    });
 </script>

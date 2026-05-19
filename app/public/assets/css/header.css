@@ -61,7 +61,7 @@
       }
     }
 
-    & > ul:nth-of-type(1) {
+    &>ul:nth-of-type(1) {
       display: flex;
       flex-direction: column;
       width: 100%;
@@ -75,7 +75,7 @@
       z-index: 10;
       list-style: none;
 
-      & > li div span {
+      &>li div span {
         margin-bottom: 8px;
         font-family: 'Lora', serif;
       }
@@ -85,7 +85,7 @@
       list-style: none;
     }
 
-    input:checked ~ ul:nth-of-type(1) {
+    input:checked~ul:nth-of-type(1) {
       left: 0;
     }
   }
@@ -158,7 +158,7 @@
   z-index: 1;
   font-size: 18px;
 
-  & > img {
+  &>img {
     height: 40px !important;
     display: block;
     pointer-events: none;
@@ -185,7 +185,7 @@
   }
 
   img {
-    display: none;
+    display: block;
     width: 24px;
     height: 24px;
   }
@@ -213,7 +213,8 @@
     display: block !important;
   }
 
-  a, button#btn-sair {
+  a,
+  button#btn-sair {
     display: block;
     width: 100%;
     padding: 12px 15px;
@@ -235,7 +236,7 @@
 }
 
 /* EFEITO DE BLUR NO CONTEÚDO */
-body.blurred > :not(header):not(#overlay-pesquisa):not(#search-input-global) {
+body.blurred> :not(header):not(#overlay-pesquisa):not(#search-input-global) {
   filter: blur(8px);
   transition: filter 0.25s ease;
   pointer-events: none;
@@ -415,8 +416,8 @@ body.blurred > :not(header):not(#overlay-pesquisa):not(#search-input-global) {
       border: 1px solid #e74c3c;
     }
 
-    &:focus + label,
-    &:not(:placeholder-shown) + label {
+    &:focus+label,
+    &:not(:placeholder-shown)+label {
       top: -8px;
       font-size: 12px;
       color: #8B0000;
@@ -601,15 +602,21 @@ h3 {
   color: #999;
   gap: 25px;
 
-  &::before, &::after {
+  &::before,
+  &::after {
     content: "";
     flex: 1;
     height: 1px;
     background: #ccc;
   }
 
-  &::before { margin-right: 15px; }
-  &::after { margin-left: 15px; }
+  &::before {
+    margin-right: 15px;
+  }
+
+  &::after {
+    margin-left: 15px;
+  }
 }
 
 .divider {
@@ -703,6 +710,7 @@ input {
     opacity: 0;
     transform: translateY(-5px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -780,7 +788,8 @@ input {
       display: block !important;
     }
 
-    a, button {
+    a,
+    button {
       display: block;
       width: 100%;
       padding: 12px 20px;
@@ -812,20 +821,20 @@ input {
   .header nav {
     box-shadow: 0 -1px 10px #8B0000;
 
-    & > ul:nth-of-type(1) {
-      max-width: 45%;
+    &>ul:nth-of-type(1) {
+      max-width: 75%;
     }
 
     ul a {
       display: flex;
 
-      .header nav > ul:nth-of-type(1) {
+      .header nav>ul:nth-of-type(1) {
         max-width: 75%;
       }
     }
   }
 
-  .logo > img {
+  .logo>img {
     height: 34px !important;
     width: 180px;
     display: block;
@@ -837,13 +846,60 @@ input {
 
   .search-icon {
     display: flex !important;
+    opacity: 1 !important;
+    width: auto !important;
+    height: auto !important;
+    padding: 6px !important;
+    margin: 0 8px !important;
+    overflow: visible !important;
+    pointer-events: all !important;
+    visibility: hidden !important;
+  }
+
+  .overlay-pesquisa {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.35);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s ease;
+    z-index: 900;
+    display: block;
+
+    &.ativo {
+      opacity: 1;
+      pointer-events: all;
+    }
+  }
+
+  .search-input {
+    position: fixed;
+    top: 17px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0 !important;
     opacity: 0 !important;
-    width: 1px !important;
-    height: 1px !important;
+    height: 36px;
+    border-radius: 18px;
     padding: 0 !important;
-    margin: 0 !important;
-    overflow: hidden !important;
-    pointer-events: none !important;
+    border: 1px solid #ddd;
+    z-index: 1100;
+    transition: all 0.3s ease;
+    pointer-events: none;
+
+    &.active {
+      width: 70vw !important;
+      padding: 0 12px !important;
+      opacity: 1 !important;
+      border-color: #8B0000;
+      background-color: #fff;
+      box-shadow: 0 2px 8px rgba(139, 0, 0, 0.3);
+      pointer-events: all;
+    }
   }
 
   .bootstrap::before:active {
@@ -856,7 +912,7 @@ input {
     padding: 0 10px;
     box-shadow: 0px 2px 5px -1px #8B0000;
 
-    & > ul:nth-of-type(1) {
+    &>ul:nth-of-type(1) {
       max-width: 45%;
       position: fixed;
       left: -100%;
@@ -867,7 +923,7 @@ input {
       padding-left: 3%;
     }
 
-    & > label {
+    &>label {
       display: flex;
       margin: 8px;
       row-gap: 5px;
@@ -877,10 +933,10 @@ input {
       }
     }
 
-    & > ul {
+    &>ul {
       align-items: flex-start !important;
 
-      & > li:hover {
+      &>li:hover {
         margin: 0;
         box-shadow: none;
       }
@@ -935,7 +991,7 @@ input {
     justify-content: space-between;
   }
 
-  #menu-hamburguer:checked ~ .menu-list {
+  #menu-hamburguer:checked~.menu-list {
     left: 0;
   }
 
@@ -998,7 +1054,7 @@ input {
   .header nav {
     position: relative;
 
-    & > ul {
+    &>ul {
       display: flex;
       flex-direction: row !important;
       justify-content: center !important;
@@ -1010,7 +1066,7 @@ input {
       transition: height 0.4s ease;
       box-shadow: 0 10px 10px rgba(0, 0, 0, 0.30);
 
-      & > li {
+      &>li {
         flex: 1;
         text-align: center;
         padding-bottom: 16px;
@@ -1032,7 +1088,7 @@ input {
           transition: height 0.4s ease;
         }
 
-        &:hover > ul {
+        &:hover>ul {
           height: 100%;
           transition: height 0.4s ease;
         }
