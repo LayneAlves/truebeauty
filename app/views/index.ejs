@@ -171,42 +171,6 @@
 
         <!-- Fim da seção -->
 
-        <!-- NAVBAR MOBILE -->
-        <section class="mbl_navbar">
-
-          <!-- MENU -->
-          <section class="mbl_nav_item" id="mbl_btn_user">
-            <img src="assets/imagem/icons/menu.png" alt="">
-            <p>Menu</p>
-          </section>
-
-
-          <!-- BUSCAR -->
-
-          <section class="mbl_nav_item" id="mbl_btn_search">
-            <img src="assets/imagem/icons/lupa.png" alt="lupa">
-            <p>Buscar</p>
-          </section>
-
-          <!-- CARRINHO (DESTAQUE CENTRAL) -->
-          <section class="mbl_nav_item mbl_nav_cart" id="mbl_btn_cart">
-            <img src="assets/imagem/icons/sacola.png" alt="">
-            <p>Sacola</p>
-          </section>
-
-          <!-- PERFIL -->
-          <section class="mbl_nav_item" id="mbl_btn_menu2">
-            <img src="assets/imagem/icons/perfil.png" alt="">
-            <p>Perfil</p>
-          </section>
-
-          <!-- INICIO -->
-          <section class="mbl_nav_item" id="mbl_btn_menu">
-            <img src="assets/imagem/icons/home3.png" alt="">
-            <p>Inicio</p>
-          </section>
-
-        </section>
       </main>
 
       <!-- FOOTER -->
@@ -261,51 +225,7 @@
             }
           }
         </script>
-
-        <!-- NAVBAR MOBILE  -->
-        <script>
-          // INICIO
-          document.getElementById('mbl_btn_menu').addEventListener('click', () => {
-            document.querySelector('.logo').click();
-          });
-
-          // MENU
-          document.getElementById('mbl_btn_user').addEventListener('click', () => {
-            const menuCheckbox = document.getElementById('menu-hamburguer');
-            menuCheckbox.checked = !menuCheckbox.checked;
-          });
-
-          // BUSCA
-          document.getElementById('mbl_btn_search').addEventListener('click', (e) => {
-            e.stopPropagation();
-            lupaBtnImg.click();
-          });
-
-          // PERFIL
-          document.getElementById('mbl_btn_menu2').addEventListener('click', () => {
-            document.querySelector('.user-icon').click();
-          });
-
-          // CARRINHO
-          document.getElementById('mbl_btn_cart').addEventListener('click', () => {
-            document.querySelector('.cart-icon').click();
-          });
-
-          // FECHAR MENU AO CLICAR FORA
-          document.addEventListener('click', (e) => {
-            const menuCheckbox = document.getElementById('menu-hamburguer');
-            const menuList = document.querySelector('.menu-list');
-            const menuBtn = document.getElementById('mbl_btn_user');
-
-            if (
-              menuCheckbox.checked &&
-              !menuList.contains(e.target) &&
-              !menuBtn.contains(e.target)
-            ) {
-              menuCheckbox.checked = false;
-            }
-          });
-        </script>
+        
   </body>
 
 </html>
