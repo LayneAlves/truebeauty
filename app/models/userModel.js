@@ -29,6 +29,19 @@ const UserModel = {
         return users.find(user => user.email.toLowerCase() === email.toLowerCase().trim());
 
     },
+    atualizar(id, dadosAtualizados) {
+        const users = this.users();
+        const index = users.findIndex(user => user.id === id);
+        if (index === -1) return null;
+
+        users[index] = { ...users[index], ...dadosAtualizados };
+        this.salvar(users);
+        return users[index];
+    },
+    pesquisarPorId(id) {
+    const users = this.users();
+    return users.find(user => user.id === id) || null;
+    },
 }
 
 module.exports = UserModel;

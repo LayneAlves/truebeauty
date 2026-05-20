@@ -5,13 +5,23 @@
     "email": "Sasi@gmail.com",
     "senha": "$2b$10$BlkTxr0pzBj/VMGU8dF7feS0vA0ZYfRUyzeT7JFUz6aJk7z73D/d6",
     "imagem": "assets/imagem/icons/avatar.avif",
-    "tipo": "admin"
+    "tipo": "admin",
+    "sobrenome": "Pinto",
+    "cpf": "000.097.514-16",
+    "genero": "prefiro_nao_dizer",
+    "dataNascimento": "1999-05-10",
+    "telefone": "980942679"
   },
   {
     "id": 2,
     "nome": "Isabelle Barros",
     "email": "isa@gmail.com",
     "senha": "$2b$10$lT7CgNwPPYVWZlZ/tC6Ni.sH7ZncTrT/9EJPLXqCRmQXRP/HCjKaW",
-    "tipo": "admin"
+    "tipo": "admin",
+    "sobrenome": "Monteiro",
+    "cpf": "56798343830",
+    "genero": "feminino",
+    "dataNascimento": "2006-04-28",
+    "telefone": "11976482926"
   }
 ]

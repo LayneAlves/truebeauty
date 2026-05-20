@@ -26,12 +26,6 @@ router.get('/categoria', ProdutoController.buscar, (req, res) => {
 // Rota da página de administração — exige login e perfil admin
 router.get('/for_adm', auth.verificarLogado, auth.somenteAdmin, for_admController.renderfor_adm);
 
-
-// router.get('/for_adm', for_admController.renderfor_adm);
-
-// router.get('/for_adm', auth.verificarLogado, auth.somenteAdmin, (req, res) => {    res.render('for_adm', { user: req.user }); 
-// });
-
 router.get('/', auth.verificarLogado, (req, res) => {
     res.render('index', { user: req.user });
 });
@@ -81,6 +75,9 @@ router.post('/banners/novo', imageUpload.single('imagem'), bannerController.cada
     res.render('banners');
 });
 
+// Rotas de minha conta
+router.get('/conta', UserController.renderConta);
+router.post('/conta/atualizar', UserController.atualizarConta);
 
 // Rotas de login
 router.post('/login', UserController.login);
