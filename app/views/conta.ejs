@@ -1,0 +1,205 @@
+<%- include('./include/head.ejs', {pagina:"conta"}) %>
+    </head>
+
+
+    <body>
+        <%- include('./include/header.ejs') %>
+
+
+
+            <main>
+                <aside class="sidebar-conta">
+
+                    <div class="sidebar-conta__perfil">
+                        <div class="sidebar-conta__avatar">
+                            <i class="ti ti-user"></i>
+                        </div>
+                        <span class="sidebar-conta__ola">
+                            Olá, <strong>
+                                <%= usuario.nome %>
+                            </strong>
+                        </span>
+                    </div>
+
+                    <nav class="sidebar-conta__nav">
+                        <a href="/conta" class="sidebar-conta__item ativo">
+                            <i class="ti ti-user-circle"></i>
+                            Dados pessoais
+                            <i class="ti ti-chevron-right sidebar-conta__arrow"></i>
+                        </a>
+                        <a href="/conta/enderecos" class="sidebar-conta__item">
+                            <i class="ti ti-map-pin"></i>
+                            Endereços
+                            <i class="ti ti-chevron-right sidebar-conta__arrow"></i>
+                        </a>
+                        <a href="/conta/pedidos" class="sidebar-conta__item">
+                            <i class="ti ti-shopping-bag"></i>
+                            Pedidos
+                            <i class="ti ti-chevron-right sidebar-conta__arrow"></i>
+                        </a>
+                        <a href="/conta/cartoes" class="sidebar-conta__item">
+                            <i class="ti ti-credit-card"></i>
+                            Cartões
+                            <i class="ti ti-chevron-right sidebar-conta__arrow"></i>
+                        </a>
+                        <a href="/conta/autenticacao" class="sidebar-conta__item">
+                            <i class="ti ti-shield-lock"></i>
+                            Autenticação
+                            <i class="ti ti-chevron-right sidebar-conta__arrow"></i>
+                        </a>
+                        <a href="/conta/lista" class="sidebar-conta__item">
+                            <i class="ti ti-heart"></i>
+                            Minha lista
+                            <i class="ti ti-chevron-right sidebar-conta__arrow"></i>
+                        </a>
+                        <a href="/conta/logout" class="sidebar-conta__item">
+                            <i class="ti ti-heart"></i>
+                            Sair
+                            <i class="ti ti-chevron-right sidebar-conta__arrow"></i>
+                        </a>
+
+                    </nav>
+
+
+                </aside>
+                <div class="container__formulario-produto">
+                    <form id="cp-product-form">
+                        <div class="cp-form-grid">
+
+                            <div class="conteudo">
+
+                                <!-- Nome | Sobrenome -->
+                                <div class="cp-form-group">
+                                    <label class="cp-label" for="cp-nome">Nome *</label>
+                                    <input type="text" id="cp-nome" name="nome" class="cp-input" placeholder="Seu nome"
+                                        value="<%= usuario.nome || '' %>" required>
+                                </div>
+                                <div class="cp-form-group">
+                                    <label class="cp-label" for="cp-sobrenome">Sobrenome</label>
+                                    <input type="text" id="cp-sobrenome" name="sobrenome" class="cp-input"
+                                        placeholder="Seu sobrenome" value="<%= usuario.sobrenome || '' %>">
+                                </div>
+
+                                <!-- Email (somente leitura) -->
+                                <div class="cp-form-group cp-full-width">
+                                    <label class="cp-label" for="cp-email">Email</label>
+                                    <input type="email" id="cp-email" class="cp-input" value="<%= usuario.email %>"
+                                        disabled>
+                                </div>
+
+                                <!-- CPF | Gênero -->
+                                <div class="cp-form-group">
+                                    <label class="cp-label" for="cp-cpf">CPF</label>
+                                    <input type="text" id="cp-cpf" name="cpf" class="cp-input"
+                                        placeholder="000.000.000-00" value="<%= usuario.cpf || '' %>">
+                                </div>
+                                <div class="cp-form-group">
+                                    <label class="cp-label" for="cp-genero">Gênero</label>
+                                    <select id="cp-genero" name="genero" class="cp-select">
+                                        <option value="">Selecione...</option>
+                                        <option value="feminino" <%=usuario.genero==='feminino' ? 'selected' : '' %>
+                                            >Feminino</option>
+                                        <option value="masculino" <%=usuario.genero==='masculino' ? 'selected' : '' %>
+                                            >Masculino</option>
+                                        <option value="outro" <%=usuario.genero==='outro' ? 'selected' : '' %>>Outro
+                                        </option>
+                                        <option value="prefiro_nao_dizer" <%=usuario.genero==='prefiro_nao_dizer'
+                                            ? 'selected' : '' %>>Prefiro não dizer</option>
+                                    </select>
+                                </div>
+
+                                <!-- Data de nascimento | Telefone -->
+                                <div class="cp-form-group">
+                                    <label class="cp-label" for="cp-nascimento">Data de nascimento</label>
+                                    <input type="date" id="cp-nascimento" name="dataNascimento" class="cp-input"
+                                        value="<%= usuario.dataNascimento || '' %>">
+                                </div>
+                                <div class="cp-form-group">
+                                    <label class="cp-label" for="cp-telefone">Telefone</label>
+                                    <input type="tel" id="cp-telefone" name="telefone" class="cp-input"
+                                        placeholder="(11) 99999-9999" value="<%= usuario.telefone || '' %>">
+                                </div>
+
+                            </div>
+
+                            <!-- Coluna direita: avatar / newsletter -->
+                            <div class="container__imagem">
+                                <div class="cp-form-group">
+                                    <label class="cp-label">Newsletter</label>
+                                    <div
+                                        style="padding: 1rem; background: white; border-radius: 10px; border: 2px solid #e8e8e8;">
+                                        <p style="color:#666; font-size:0.9rem; margin-bottom:0.75rem;">
+                                            Deseja receber e-mails com promoções?
+                                        </p>
+                                        <label style="display:flex; align-items:center; gap:0.5rem; cursor:pointer;">
+                                            <input type="checkbox" id="cp-newsletter" name="newsletter" value="true"
+                                                <%=usuario.newsletter ? 'checked' : '' %>>
+                                            <span style="font-size:0.9rem; color:#333;">
+                                                Quero receber e-mails com promoções.
+                                            </span>
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <!-- Feedback de salvamento -->
+                                <div id="cp-feedback" style="display:none; margin-top:1rem; padding:0.85rem 1rem;
+                                border-radius:10px; font-size:0.9rem; font-weight:500;"></div>
+                            </div>
+
+                        </div>
+
+                        <!-- Botões -->
+                        <div class="cp-form-actions">
+                            <button type="button" class="cp-button cp-button-cancel"
+                                onclick="location.reload()">Cancelar</button>
+                            <button type="submit" class="cp-button cp-button-primary">Salvar alterações</button>
+                        </div>
+
+                    </form>
+                </div>
+            </main>
+
+            <script>
+                document.getElementById('cp-product-form').addEventListener('submit', async function (e) {
+                    e.preventDefault();
+
+                    const body = {
+                        nome: document.getElementById('cp-nome').value,
+                        sobrenome: document.getElementById('cp-sobrenome').value,
+                        cpf: document.getElementById('cp-cpf').value,
+                        genero: document.getElementById('cp-genero').value,
+                        dataNascimento: document.getElementById('cp-nascimento').value,
+                        telefone: document.getElementById('cp-telefone').value,
+                        newsletter: document.getElementById('cp-newsletter').checked,
+                    };
+
+                    try {
+                        const res = await fetch('/conta/atualizar', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify(body)
+                        });
+                        const data = await res.json();
+
+                        const feedback = document.getElementById('cp-feedback');
+                        feedback.style.display = 'block';
+                        if (data.sucesso) {
+                            feedback.style.background = '#e8f5e9';
+                            feedback.style.color = '#2e7d32';
+                            feedback.style.border = '1px solid #c8e6c9';
+                        } else {
+                            feedback.style.background = '#ffebee';
+                            feedback.style.color = '#c62828';
+                            feedback.style.border = '1px solid #ffcdd2';
+                        }
+                        feedback.textContent = data.mensagem;
+
+                    } catch (err) {
+                        console.error('Erro ao salvar:', err);
+                    }
+                });
+            </script>
+
+    </body>
+
+    </html>
