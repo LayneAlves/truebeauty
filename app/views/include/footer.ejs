@@ -224,6 +224,39 @@
         }
     }
 
+    function verPedido(btn) {
+        const id = btn.getAttribute('data-id');
+
+        fetch(`/pedidos/${id}`)
+            .then(res => res.json())
+            .then(pedido => {
+                const itens = pedido.itens
+                    ? pedido.itens.map(i => `<li>${i.nome} — Qtd: ${i.quantidade} — R$ ${i.preco}</li>`).join('')
+                    : '<li>Sem itens registrados</li>';
+
+                alert(
+                    `Pedido #${pedido.id}\n` +
+                    `Cliente: ${pedido.cliente_nome}\n` +
+                    `Endereço: ${pedido.endereco}\n` +
+                    `Total: R$ ${pedido.total}\n` +
+                    `Status: ${pedido.status}`
+                );
+            })
+            .catch(() => alert('Erro ao carregar pedido.'));
+    }
+
+        // Botão SAIR do menu 
+        if (btnSair) {
+            btnSair.addEventListener("click", (e) => {
+                e.preventDefault();
+                if (confirm("Deseja realmente sair da sua conta?")) {
+                    localStorage.removeItem('usuarioNome');
+                    window.location.reload();
+                }
+            });
+        }
+    }
+
 
 </script>
 

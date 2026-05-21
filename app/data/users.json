@@ -22,6 +22,15 @@
     "cpf": "56798343830",
     "genero": "feminino",
     "dataNascimento": "2006-04-28",
-    "telefone": "11976482926"
+    "telefone": "(11) 99999-9999",
+    "endereco": {
+      "cep": "06454-080",
+      "rua": "Alameda Itapecuru",
+      "numero": "149",
+      "complemento": "apto 1",
+      "bairro": "Alphaville Centro Industrial e Empresarial/Alphaville.",
+      "cidade": "Barueri",
+      "estado": "SP"
+    }
   }
 ]

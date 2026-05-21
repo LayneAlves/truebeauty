@@ -1,5 +1,5 @@
 [
-    {
+  {
     "id": 1,
     "cliente_nome": "Lay",
     "data": "2026-04-13",
@@ -30,6 +30,71 @@
     "total": 150,
     "status": "entregue",
     "pagamento": "Débito"
+  },
+  {
+    "cliente_nome": "Isabelle Barros Monteiro",
+    "cliente_email": "",
+    "telefone": "(11) 99999-9999",
+    "endereco": "Alameda Itapecuru, 148 - Alphaville Centro Industrial e Empresarial/Alphaville., Barueri/SP - CEP: 06454-080",
+    "complemento": "apto 1",
+    "data": "2026-05-18",
+    "total": "89.90",
+    "status": "pendente",
+    "pagamento": "A definir",
+    "itens": [
+      {
+        "id": 1779145125168.226,
+        "nome": "Kit Eudora Roxo Shampoo e Condicionador",
+        "preco": "R$\n                    89.90",
+        "imagem": "http://localhost:3000/assets/imagem/produtos/1774480256027-kitEudoraRoxo.webp",
+        "quantidade": 1
+      }
+    ],
+    "usuario_id": 2,
+    "id": 5
+  },
+  {
+    "cliente_nome": "Isabelle Barros Monteiro",
+    "cliente_email": "",
+    "telefone": "(11) 99999-9999",
+    "endereco": "Alameda Itapecuru, 149 - Alphaville Centro Industrial e Empresarial/Alphaville., Barueri/SP - CEP: 06454-080",
+    "complemento": "apto 1",
+    "data": "2026-05-20",
+    "total": "69.90",
+    "status": "pendente",
+    "pagamento": "A definir",
+    "itens": [
+      {
+        "id": 1779319507737.329,
+        "nome": "Base retinol Payot",
+        "preco": "R$\n                  69.90",
+        "imagem": "http://localhost:3000/assets/imagem/produtos/1779319480852-base_payot.webp",
+        "quantidade": 1
+      }
+    ],
+    "usuario_id": 2,
+    "id": 6
+  },
+  {
+    "cliente_nome": "Isabelle Barros Monteiro",
+    "cliente_email": "",
+    "telefone": "(11) 99999-9999",
+    "endereco": "Alameda Itapecuru, 149 - Alphaville Centro Industrial e Empresarial/Alphaville., Barueri/SP - CEP: 06454-080",
+    "complemento": "apto 1",
+    "data": "2026-05-20",
+    "total": "44.90",
+    "status": "pendente",
+    "pagamento": "A definir",
+    "itens": [
+      {
+        "id": 1779321253092.5193,
+        "nome": "Gel de Limpeza Principia",
+        "preco": "R$\n                    44.90",
+        "imagem": "http://localhost:3000/assets/imagem/produtos/1774479032928-gel_de_limpeza_principia.webp",
+        "quantidade": 1
+      }
+    ],
+    "usuario_id": 2,
+    "id": 7
   }
-  
 ]
