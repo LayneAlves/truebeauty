@@ -42,6 +42,7 @@ const UserModel = {
     pesquisarPorId(id) {
     const users = this.users();
     return users.find(user => user.id === id) || null;
+    },
 
     atualizarEndereco(id, endereco) {
         const users = this.users();
