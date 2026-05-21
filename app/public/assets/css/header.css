@@ -1139,3 +1139,65 @@ input {
     align-items: center;
   }
 }
+
+.navbar-mobile {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: #fff;
+  border-top: 1px solid #ddd;
+  z-index: 1100;
+  justify-content: space-around;
+  align-items: center;
+  padding: 8px 0;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.mbl-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 11px;
+  color: #333;
+  text-decoration: none;
+  align-self: center;
+
+
+  i {
+    font-size: 20px;
+    color: #8B0000;
+  }
+}
+
+.mbl-btn--sacola {
+  position: relative;
+  top: -10px;
+  background: #8B0000;
+  border-radius: 50%;
+  width: 55px;
+  height: 55px;
+  justify-content: center;
+  color: #fff;
+
+  i {
+    color: #fff;
+    font-size: 22px;
+  }
+
+  span {
+    font-size: 10px;
+    color: #fff;
+  }
+}
+
+@media (max-width: 990px) {
+  .navbar-mobile {
+    display: flex;
+  }
+}

@@ -53,6 +53,35 @@
 
 </footer>
 
+<!-- NAVBAR MOBILE -->
+<nav class="navbar-mobile">
+    <button id="mbl_btn_menu" class="mbl-btn">
+        <i class="fas fa-bars"></i>
+        <span>Menu</span>
+    </button>
+
+    <button id="mbl_btn_search" class="mbl-btn">
+        <i class="fas fa-search"></i>
+        <span>Buscar</span>
+    </button>
+
+    <button id="mbl_btn_cart" class="mbl-btn mbl-btn--sacola">
+        <i class="fas fa-shopping-bag"></i>
+        <span>Sacola</span>
+    </button>
+
+    <button id="mbl_btn_menu2" class="mbl-btn">
+        <i class="fas fa-user"></i>
+        <span id="mbl_saudacao" style="display:none">Olá, <span id="mbl_saudacao_nome"></span></span>
+        <span class="mbl-perfil-label">Perfil</span>
+    </button>
+
+    <button id="mbl_btn_user" class="mbl-btn" onclick="window.location.href='/'">
+        <i class="fas fa-home"></i>
+        <span>Inicio</span>
+    </button>
+</nav>
+
 <!-- Js Perfil -->
 <script>
     const btnAbrirPerfil = document.querySelector('.user-icon');
@@ -263,10 +292,6 @@
 <!-- NAVBAR MOBILE -->
 <script>
     document.getElementById('mbl_btn_menu').addEventListener('click', () => {
-        document.querySelector('.logo').click();
-    });
-
-    document.getElementById('mbl_btn_user').addEventListener('click', () => {
         const menuCheckbox = document.getElementById('menu-hamburguer');
         menuCheckbox.checked = !menuCheckbox.checked;
     });
@@ -288,7 +313,7 @@
     document.addEventListener('click', (e) => {
         const menuCheckbox = document.getElementById('menu-hamburguer');
         const menuList = document.querySelector('.menu-list');
-        const menuBtn = document.getElementById('mbl_btn_user');
+        const menuBtn = document.getElementById('mbl_btn_menu');
         if (
             menuCheckbox.checked &&
             !menuList.contains(e.target) &&
