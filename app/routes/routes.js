@@ -12,6 +12,8 @@ const auth = require('../middleware/authMiddleware');
 const indexController = require('../controllers/indexController');
 const vertudoController = require('../controllers/vertudoController');
 const for_admController = require('../controllers/for_edmController');
+const CheckoutController = require('../controllers/checkoutController');
+
 
 // ROUTER
 router.get('/', ProdutoController.index);
@@ -42,9 +44,12 @@ router.get('/carrinho', (req, res) => {
     res.render('carrinho', { baseUrl: '' });
 });
 
+// Rotas do checkout
 router.get('/checkout', (req, res) => {
     res.render('checkout', { baseUrl: '' });
 });
+
+router.post('/checkout/finalizar', CheckoutController.finalizar);
 
 // Rotas de cadastro
 router.get('/cadastro', UserController.renderCadastro);
@@ -62,6 +67,8 @@ router.get('/produtos', ProdutoController.produtos, (req, res, next) => {
 
 // Rotas de pedidos
 router.get('/pedidos', PedidoController.listarPedidos);
+router.post('/pedidos/excluir/:id', PedidoController.excluirPedido);
+router.get('/pedidos/:id', PedidoController.verPedido);
 
 // Rotas de clientes
 router.get('/clientes', UserController.users);

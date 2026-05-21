@@ -12,6 +12,16 @@
     "nome": "Isabelle Barros",
     "email": "isa@gmail.com",
     "senha": "$2b$10$lT7CgNwPPYVWZlZ/tC6Ni.sH7ZncTrT/9EJPLXqCRmQXRP/HCjKaW",
-    "tipo": "admin"
+    "tipo": "admin",
+    "telefone": "(11) 99999-9999",
+    "endereco": {
+      "cep": "06454-080",
+      "rua": "Alameda Itapecuru",
+      "numero": "149",
+      "complemento": "apto 1",
+      "bairro": "Alphaville Centro Industrial e Empresarial/Alphaville.",
+      "cidade": "Barueri",
+      "estado": "SP"
+    }
   }
 ]
