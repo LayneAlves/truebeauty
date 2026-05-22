@@ -74,27 +74,5 @@
     ],
     "usuario_id": 2,
     "id": 6
-  },
-  {
-    "cliente_nome": "Isabelle Barros Monteiro",
-    "cliente_email": "",
-    "telefone": "(11) 99999-9999",
-    "endereco": "Alameda Itapecuru, 149 - Alphaville Centro Industrial e Empresarial/Alphaville., Barueri/SP - CEP: 06454-080",
-    "complemento": "apto 1",
-    "data": "2026-05-20",
-    "total": "44.90",
-    "status": "pendente",
-    "pagamento": "A definir",
-    "itens": [
-      {
-        "id": 1779321253092.5193,
-        "nome": "Gel de Limpeza Principia",
-        "preco": "R$\n                    44.90",
-        "imagem": "http://localhost:3000/assets/imagem/produtos/1774479032928-gel_de_limpeza_principia.webp",
-        "quantidade": 1
-      }
-    ],
-    "usuario_id": 2,
-    "id": 7
   }
 ]

@@ -8,16 +8,14 @@ const pedidosPath = path.join(__dirname, '../data/pedidos.json');
 const ProdutoModel = {
 
     produtos() {
-        // const data = fs.readFileSync(filePath, 'utf8');
-        // const produtos = JSON.parse(data);
-        // return produtos;
         const data = fs.readFileSync(filePath, 'utf8');
+        const produtos = JSON.parse(data);
+        return produtos;
         return JSON.parse(data);
     },
     buscar(valor, campo) {
         const data = fs.readFileSync(filePath, 'utf8');
-        // const produtos = JSON.parse(data);
-        const produtos = this.produtos();
+        const produtos = JSON.parse(data);
 
         if (campo === 'subcategoria') {
             return produtos.filter(produto => produto.subcategoria === valor);
@@ -34,7 +32,6 @@ const ProdutoModel = {
     cadastrar(newProduto) {
         const produtos = this.produtos();
         produtos.push(newProduto);
-        this.salvar(produtos);
 
         fs.writeFileSync(filePath, JSON.stringify(produtos, null, 2), 'utf8');
     },
@@ -67,26 +64,7 @@ const ProdutoModel = {
         this.salvar(novosProdutos); // salva de volta
     },
 
-    // ← função nova: desconta estoque ao finalizar pedido
-    async decrementarEstoque(itensCarrinho) {
-        const produtos = this.produtos();
-
-        for (const item of itensCarrinho) {
-            const produto = produtos.find(p => p.id === item.id);
-            if (!produto) continue;
-
-            const estoqueAtual = parseInt(produto.estoque);
-            const quantidade = parseInt(item.quantidade);
-
-            if (estoqueAtual < quantidade) {
-                throw new Error(`Estoque insuficiente para: ${produto.nome}`);
-            }
-
-            produto.estoque = String(estoqueAtual - quantidade);
-        }
-
-        this.salvar(produtos);
-    }
+   
 
 }
 

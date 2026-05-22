@@ -22,15 +22,15 @@
     "cpf": "56798343830",
     "genero": "feminino",
     "dataNascimento": "2006-04-28",
-    "telefone": "(11) 99999-9999",
-    "endereco": {
-      "cep": "06454-080",
-      "rua": "Alameda Itapecuru",
-      "numero": "149",
-      "complemento": "apto 1",
-      "bairro": "Alphaville Centro Industrial e Empresarial/Alphaville.",
-      "cidade": "Barueri",
-      "estado": "SP"
-    }
+    "telefone": "(11) 99999-9999"
+    
+  },
+  {
+    "id": 3,
+    "nome": "ana banana",
+    "email": "ana@gmail.com",
+    "senha": "$2b$10$sbyv0lShlSS28RDWimktx.Tkh5MGgfzYKd.VV4iNLPGZTgmzu5yv.",
+    "tipo": "comum",
+    "telefone": "(12) 88888-8888"
   }
 ]
