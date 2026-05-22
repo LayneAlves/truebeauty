@@ -1,0 +1,54 @@
+<aside class="sidebar-conta">
+
+    <div class="sidebar-conta__perfil">
+        <div class="sidebar-conta__avatar">
+            <i class="ti ti-user"></i>
+        </div>
+        <span class="sidebar-conta__ola">
+            Olá, <strong>
+                <%= usuario.nome %>
+            </strong>
+        </span>
+    </div>
+
+    <nav class="sidebar-conta__nav">
+        <a href="/conta" class="sidebar-conta__item ativo">
+            <i class="ti ti-user-circle"></i>
+            Dados pessoais
+            <i class="ti ti-chevron-right sidebar-conta__arrow"></i>
+        </a>
+        <a href="/conta/enderecos" class="sidebar-conta__item">
+            <i class="ti ti-map-pin"></i>
+            Endereços
+            <i class="ti ti-chevron-right sidebar-conta__arrow"></i>
+        </a>
+        <a href="/conta/pedidos" class="sidebar-conta__item">
+            <i class="ti ti-shopping-bag"></i>
+            Pedidos
+            <i class="ti ti-chevron-right sidebar-conta__arrow"></i>
+        </a>
+        <a href="/conta/cartoes" class="sidebar-conta__item">
+            <i class="ti ti-credit-card"></i>
+            Cartões
+            <i class="ti ti-chevron-right sidebar-conta__arrow"></i>
+        </a>
+        <a href="/conta/autenticacao" class="sidebar-conta__item">
+            <i class="ti ti-shield-lock"></i>
+            Autenticação
+            <i class="ti ti-chevron-right sidebar-conta__arrow"></i>
+        </a>
+        <a href="/conta/lista" class="sidebar-conta__item">
+            <i class="ti ti-heart"></i>
+            Minha lista
+            <i class="ti ti-chevron-right sidebar-conta__arrow"></i>
+        </a>
+        <a href="/conta/logout" class="sidebar-conta__item">
+            <i class="ti ti-heart"></i>
+            Sair
+            <i class="ti ti-chevron-right sidebar-conta__arrow"></i>
+        </a>
+
+    </nav>
+
+
+</aside>

@@ -86,6 +86,10 @@ router.post('/banners/novo', imageUpload.single('imagem'), bannerController.cada
 router.get('/conta', UserController.renderConta);
 router.post('/conta/atualizar', UserController.atualizarConta);
 
+// Rotas endereco
+router.get('/endereco', UserController.renderConta);
+router.post('/conta/endereco', UserController.atualizarConta);
+
 // Rotas de login
 router.post('/login', UserController.login);
 
