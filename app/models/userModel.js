@@ -44,28 +44,7 @@ const UserModel = {
     return users.find(user => user.id === id) || null;
     },
 
-    atualizarEndereco(id, endereco) {
-        const users = this.users();
-        const index = users.findIndex(u => u.id === id);
-
-        if (index !== -1) {
-            // Atualiza só os campos de endereço, sem sobrescrever nome/senha/etc
-            users[index] = {
-                ...users[index],
-                telefone: endereco.telefone,
-                endereco: {
-                    cep: endereco.cep,
-                    rua: endereco.endereco,
-                    numero: endereco.numero,
-                    complemento: endereco.complemento,
-                    bairro: endereco.bairro,
-                    cidade: endereco.cidade,
-                    estado: endereco.estado
-                }
-            };
-            this.salvar(users);
-        }
-    },
+ 
 }
 
 module.exports = UserModel;

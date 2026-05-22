@@ -1,5 +1,5 @@
 // models/pedidoModel.js
-const db = require('../config/db');
+// const db = require('../config/db');
 
 module.exports = {
     async listarPedidos() {

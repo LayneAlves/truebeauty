@@ -43,7 +43,7 @@ router.get('/checkout', (req, res) => {
     res.render('checkout', { baseUrl: '' });
 });
 
-router.post('/checkout/finalizar', CheckoutController.finalizar);
+// router.post('/checkout/finalizar', CheckoutController.finalizar);
 
 // Rotas de cadastro
 router.get('/cadastro', UserController.renderCadastro);
@@ -61,8 +61,7 @@ router.get('/produtos', ProdutoController.produtos, (req, res, next) => {
 
 // Rotas de pedidos
 router.get('/pedidos', PedidoController.listarPedidos);
-router.post('/pedidos/excluir/:id', PedidoController.excluirPedido);
-router.get('/pedidos/:id', PedidoController.verPedido);
+
 
 // Rotas de clientes
 router.get('/clientes', UserController.users);

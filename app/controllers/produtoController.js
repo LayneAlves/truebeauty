@@ -6,7 +6,6 @@ const ProdutoController = {
     async cadastrar(req, res) {
         try {
 
-            const produtos = await ProdutoModel.produtos();
             //Recebe os dados do formulario
             const { nome, preco, descricao, estoque, subcategoria, categoria } = req.body;
             let imagem = await processImage(req.file, "produtos");
