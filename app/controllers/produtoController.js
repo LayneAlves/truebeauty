@@ -5,6 +5,7 @@ const { processImage } = require('../middleware/imageUpload');
 const ProdutoController = {
     async cadastrar(req, res) {
         try {
+
             //Recebe os dados do formulario
             const { nome, preco, descricao, estoque, subcategoria, categoria } = req.body;
             let imagem = await processImage(req.file, "produtos");

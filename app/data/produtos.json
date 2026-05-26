@@ -8,7 +8,6 @@
     "estoque": "50",
     "subcategoria": "olho",
     "categoria": "maquiagens"
-    
   },
   {
     "id": 3,
@@ -19,7 +18,6 @@
     "estoque": "50",
     "subcategoria": "batom",
     "categoria": "maquiagens"
-
   },
   {
     "id": 4,
@@ -30,7 +28,6 @@
     "estoque": "50",
     "subcategoria": "rosto",
     "categoria": "skin_care"
-
   },
   {
     "id": 5,
@@ -41,7 +38,6 @@
     "estoque": "100",
     "subcategoria": "hidratacao",
     "categoria": "cabelos"
-    
   },
   {
     "id": 6,
@@ -242,7 +238,7 @@
     "estoque": "50",
     "subcategoria": "perfumes_masculino",
     "categoria": "perfumes"
-    },
+  },
   {
     "id": 37,
     "nome": "Naturé Mocinhos Natura",
@@ -1602,5 +1598,25 @@
     "estoque": "60",
     "subcategoria": "body_splash",
     "categoria": "perfumes"
+  },
+  {
+    "id": 201,
+    "nome": "Espuma de barbear ABOVE",
+    "preco": "19.99",
+    "descricao": "250ml",
+    "imagem": "/assets/imagem/produtos/1779148035654-espumadebarbear_above.webp",
+    "estoque": "60",
+    "subcategoria": "kit_barba",
+    "categoria": "cuidados_pessoais"
+  },
+  {
+    "id": 202,
+    "nome": "Base retinol Payot",
+    "preco": "69.90",
+    "descricao": "Cor 20, 35ml",
+    "imagem": "/assets/imagem/produtos/1779319480852-base_payot.webp",
+    "estoque": "50",
+    "subcategoria": "base",
+    "categoria": "maquiagens"
   }
 ]

@@ -1,3 +1,4 @@
+// const db = require('../../config/db');
 const fs = require('fs');
 const path = require('path');
 
@@ -12,4 +13,5 @@ module.exports = {
         const dados = fs.readFileSync(pedidosPath, 'utf8');
         return JSON.parse(dados);
     }
+
 }

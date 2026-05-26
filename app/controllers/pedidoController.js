@@ -1,7 +1,7 @@
 const PedidoModel = require('../models/pedidoModel');
 const PedidoController = {
-  
-  async listarPedidos(req, res) {
+
+    async listarPedidos(req, res) {
         try {
             const pedidos = PedidoModel.listarPedidos();
 
@@ -10,7 +10,8 @@ const PedidoController = {
             console.error(error);
             res.status(500).send("Erro ao listar pedidos");
         }
-    }
+    },
+
 };
 
 module.exports = PedidoController;

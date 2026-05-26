@@ -1,5 +1,5 @@
 <%- include('./include/head.ejs',{pagina:"checkout"}) %>
-</head>
+  </head>
 
   <body>
     <%- include('./include/header.ejs') %>
@@ -27,7 +27,7 @@
 
               <!-- Email -->
               <div class="form-group">
-                <input type="email" id="emailTeste" name="email" placeholder=" " required>
+                <input type="email" id="email" name="email" placeholder=" " required>
                 <label>Email</label>
                 <span id="email-error" style="color:red; display:none;">
                   Email inválido.
@@ -131,7 +131,7 @@
       <%- include('./include/footer.ejs') %>
 
 
-      <!-- Checkout -->
+        <!-- Checkout -->
         <script>
           class CheckoutPagina {
             constructor() {
@@ -188,25 +188,12 @@
                 }
               });
             }
-
-            finalizarPedido() {
-              // Simular processamento
-              alert('Pedido realizado com sucesso! Obrigado pela compra.');
-
-              // Limpar carrinho
-              localStorage.removeItem('carrinho');
-
-              // Redirecionar para home
-              window.location.href = '../';
-            }
           }
 
-          document.addEventListener('DOMContentLoaded', () => {
-            new CheckoutPagina();
-          });
+
         </script>
 
-      <!-- Mascara -->
+        <!-- Mascara -->
         <script>
           document.addEventListener('DOMContentLoaded', () => {
 
@@ -261,4 +248,4 @@
 
   </body>
 
-</html>
+  </html>

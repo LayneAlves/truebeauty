@@ -1,3 +1,4 @@
+// const db = require('../../config/db');
 const fs = require('fs');
 const path = require('path');
 const filePath = path.join(__dirname, '../data/users.json');
@@ -42,6 +43,8 @@ const UserModel = {
     const users = this.users();
     return users.find(user => user.id === id) || null;
     },
+
+ 
 }
 
 module.exports = UserModel;

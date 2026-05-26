@@ -1,3 +1,4 @@
+// const db = require('../../config/db');
 const fs = require('fs');
 const path = require('path');
 
@@ -10,6 +11,7 @@ const ProdutoModel = {
         const data = fs.readFileSync(filePath, 'utf8');
         const produtos = JSON.parse(data);
         return produtos;
+        return JSON.parse(data);
     },
     buscar(valor, campo) {
         const data = fs.readFileSync(filePath, 'utf8');
@@ -23,17 +25,14 @@ const ProdutoModel = {
         if (campo === 'categoria') {
             return produtos.filter(produto => produto.categoria === valor);
         }
-
-
         // sem filtro: retorna tudo
         return produtos;
-
-
     },
 
     cadastrar(newProduto) {
         const produtos = this.produtos();
         produtos.push(newProduto);
+
         fs.writeFileSync(filePath, JSON.stringify(produtos, null, 2), 'utf8');
     },
 
@@ -63,7 +62,9 @@ const ProdutoModel = {
         const produtos = this.produtos(); // pega os produtos atuais
         const novosProdutos = produtos.filter(p => p.id !== id);
         this.salvar(novosProdutos); // salva de volta
-    }
+    },
+
+   
 
 }
 
