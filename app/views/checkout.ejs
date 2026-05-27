@@ -169,25 +169,74 @@
 
             atualizarTotal() {
               const total = this.carrinho.reduce((sum, item) => {
-                const preco = parseFloat(item.preco.replace('R$', '').replace(',', '.'));
                 return sum + (preco * item.quantidade);
               }, 0);
-
               document.getElementById('total-pedido').textContent =
                 `Total: R$ ${total.toFixed(2).replace('.', ',')}`;
             }
 
             configurarEventos() {
-              document.getElementById('btn-finalizar').addEventListener('click', () => {
-                const form = document.getElementById('form-checkout');
+    
+              const btnFinalizar = document.getElementById('btn-finalizar');
+              
+              if (btnFinalizar) {
+                btnFinalizar.addEventListener('click', () => {
+                  const form = document.getElementById('form-checkout');
 
-                if (form.checkValidity()) {
-                  this.finalizarPedido();
-                } else {
-                  alert('Por favor, preencha todos os campos obrigatórios.');
-                }
-              });
+                  if (form.checkValidity()) {
+                    this.finalizarPedido();
+                  } else {
+                    alert('Por favor, preencha todos os campos obrigatórios.');
+                    form.reportValidity(); // Mostra visualmente quais campos faltam preencher
+                  }
+                });
+              }
             }
+
+            async finalizarPedido() {
+              const btnFinalizar = document.getElementById('btn-finalizar');
+              if (btnFinalizar.disabled) return;
+
+              btnFinalizar.disabled = true;
+              btnFinalizar.innerText = "Processando...";
+
+              // Captura todos os campos do formulário de Entrega
+              const dadosEntrega = {
+                telefone: document.getElementById('telefone').value,
+                cep: document.getElementById('cep').value,
+                rua: document.getElementById('rua').value,
+                numero: document.getElementById('numero').value,
+                complemento: document.getElementById('complemento').value,
+                bairro: document.getElementById('bairro').value,
+                cidade: document.getElementById('cidade').value,
+                estado: document.getElementById('estado').value,
+              };
+
+              try {
+                const resposta = await fetch('/conta/endereco', {
+                  method: 'POST',
+                  headers: { 'Content-Type': 'application/json' },
+                  body: JSON.stringify(dadosEntrega)
+                });
+                const resultado = await resposta.json();
+
+                if (resultado.sucesso) {
+                  alert('Pedido confirmado e endereço salvo com sucesso!');
+                  localStorage.removeItem('carrinho'); // Limpa o carrinho
+                  window.location.href = '/'; // Redireciona para a Home
+                } else {
+                  alert('Ocorreu um problema ao finalizar seu pedido: ' + (resultado.mensagem || 'Erro desconhecido'));
+                  btnFinalizar.disabled = false;
+                  btnFinalizar.innerText = "Confirmar Pedido";
+                }
+              } catch (erro) {
+                console.error('Erro no fluxo de checkout:', erro);
+                alert('Erro de conexão ao finalizar o pedido.');
+                btnFinalizar.disabled = false;
+                btnFinalizar.innerText = "Confirmar Pedido";
+              }
+            }
+
           }
 
 

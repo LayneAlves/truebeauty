@@ -1,0 +1,164 @@
+body {
+    --grid-column: 1fr;
+    display: flex;
+    align-items: flex-start;
+    gap: 28px;
+    padding: 4.5rem 40px 32px 40px !important;
+    padding-top: calc(110px + 32px);
+    min-height: 100vh;
+    box-sizing: border-box;
+
+    main {
+        display: flex;
+        flex-direction: column;
+        row-gap: 1.5rem;
+        min-width: 0;
+        width: 100%;
+        /* Garante preenchimento correto da tela */
+
+        /* Container do Formulário de Endereço baseado no seu modelo */
+        .container__formulario-endereco {
+            background: #fafafa;
+            border-radius: 16px;
+            padding: 1.75rem;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+            border: 1px solid #f0f0f0;
+            margin-top: 0;
+            max-width: 100%;
+            width: 1150px;
+            height: auto;
+            overflow-y: auto;
+
+            h1 {
+                font-size: 1.6rem;
+                color: #8B0000;
+                /* Tom vinho identitário */
+                margin-bottom: 0.2rem;
+            }
+
+            .subtitulo {
+                font-size: 0.9rem;
+                color: #666;
+                margin-bottom: 2rem;
+            }
+
+            form {
+                .cp-form-grid {
+                    display: grid;
+                    grid-template-columns: var(--grid-column);
+                    row-gap: 1.5rem;
+                    gap: 2rem;
+                }
+
+                .conteudo {
+                    display: grid;
+                    grid-template-columns: 1fr 1fr;
+                    gap: 16px;
+
+                    /* Campos que ocupam a linha inteira */
+                    .cp-full-width {
+                        grid-column: span 2;
+                    }
+
+                    /* Campos menores divididos em 3 ou mais colunas (CEP, Número, Estado) */
+                    .cp-small-width {
+                        @media (min-width: 576px) {
+                            grid-column: span 1;
+                        }
+                    }
+
+                    .cp-form-group {
+                        margin-bottom: 0;
+                        display: grid;
+
+                        .cp-label {
+                            display: block;
+                            margin-bottom: 0.4rem;
+                            font-weight: 500;
+                            color: #8B0000;
+                            /* Vinho elegante nos labels */
+                            font-size: 0.92rem;
+                        }
+
+                        .cp-input {
+                            width: 100%;
+                            padding: 0.85rem 1rem;
+                            border: 2px solid #e8e8e8;
+                            border-radius: 10px;
+                            font-size: 0.95rem;
+                            color: #333;
+                            box-shadow: 0 0 0 1px rgba(139, 0, 0, 0.05);
+                            background: white;
+                            transition: all 0.3s ease;
+                            box-sizing: border-box;
+                        }
+
+                        .cp-input::placeholder {
+                            color: #999;
+                        }
+
+                        .cp-input:focus {
+                            outline: none;
+                            border-color: #8B0000;
+                            box-shadow: 0 0 0 3px rgba(139, 0, 0, 0.1);
+                            transform: translateY(-1px);
+                        }
+                    }
+                }
+
+                .cp-form-actions {
+                    display: flex;
+                    align-items: center;
+                    justify-content: flex-start;
+                    /* Alinhado à esquerda para formulários de conta */
+                    margin-top: 40px;
+                    gap: 12px;
+
+                    .cp-button-primary {
+                        background: #8B0000;
+                        color: white;
+                        border-radius: 12px;
+                        font-size: 16px;
+                        padding: 12px 32px;
+                        border: none;
+                        font-weight: 600;
+                        cursor: pointer;
+                        transition: all 0.2s ease;
+
+                        &:hover {
+                            background: #6B0000;
+                            box-shadow: 0 4px 12px rgba(139, 0, 0, 0.2);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* Tratamentos de responsividade que você enviou */
+@media (min-width: 768px) {
+    body {
+        main {
+            flex-direction: row;
+            gap: 28px;
+            /* Ajusta o espaçamento do menu com o formulário */
+        }
+    }
+}
+
+@media (min-width: 991px) {
+    body {
+        main {
+            padding-top: 0px;
+            /* Evita espaçamento duplicado com o body */
+        }
+    }
+}
+
+@media (min-width: 1200px) {
+    body {
+        /* Preserva sua regra original de colunas se seu layout usar */
+        --grid-column: 1fr;
+    }
+}

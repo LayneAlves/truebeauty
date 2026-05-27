@@ -86,8 +86,8 @@ router.get('/conta', UserController.renderConta);
 router.post('/conta/atualizar', UserController.atualizarConta);
 
 // Rotas endereco
-router.get('/endereco', UserController.renderConta);
-router.post('/conta/endereco', UserController.atualizarConta);
+router.get('/endereco', auth.verificarLogado, UserController.renderEndereco);
+router.post('/conta/endereco', auth.verificarLogado, UserController.atualizarEndereco);
 
 // Rotas de login
 router.post('/login', UserController.login);
