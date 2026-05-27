@@ -22,15 +22,22 @@
     "cpf": "56798343830",
     "genero": "feminino",
     "dataNascimento": "2006-04-28",
-    "telefone": "(11) 99999-9999"
-    
+    "telefone": "(11) 99999-9999",
+    "endereco": {
+      "cep": "06364-140",
+      "rua": "Rua Padre Bento",
+      "numero": "77",
+      "complemento": "VL 1",
+      "bairro": "Jardim Ana Estela",
+      "cidade": "Carapicuíba",
+      "estado": "SP"
+    }
   },
   {
     "id": 3,
-    "nome": "ana banana",
-    "email": "ana@gmail.com",
-    "senha": "$2b$10$sbyv0lShlSS28RDWimktx.Tkh5MGgfzYKd.VV4iNLPGZTgmzu5yv.",
-    "tipo": "comum",
-    "telefone": "(12) 88888-8888"
+    "nome": "Leonardo Leu",
+    "email": "Leu@gmail.com",
+    "senha": "$2b$10$xKQRpCJvS6t8.tyPaRnSbeqho9gV50agFwkATGrbIpOpYNuoHAyM2",
+    "tipo": "comum"
   }
 ]

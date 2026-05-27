@@ -323,6 +323,14 @@ document.addEventListener("submit", async (e) => {
     if (e.target.id !== 'form-cadastro') return;
     e.preventDefault();
 
+    const btnSubmit = e.target.querySelector('button[type="submit"]');
+    // Se o botão já estiver desativado, cancela para evitar o duplo envio
+    if (btnSubmit && btnSubmit.disabled) return;
+
+    if (btnSubmit) {
+        btnSubmit.disabled = true; // Desativa o botão imediatamente
+    }
+
     const formData = new FormData(e.target);
     const body = Object.fromEntries(formData.entries());
 
@@ -346,10 +354,5 @@ document.addEventListener("submit", async (e) => {
         alert("Não foi possível conectar ao servidor.");
     }
 });
-
-
-
-
-
 
 

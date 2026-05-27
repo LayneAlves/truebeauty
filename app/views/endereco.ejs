@@ -1,6 +1,6 @@
-<%- include('./include/head.ejs', {pagina:"conta"}) %>
+<%- include('./include/head.ejs', {pagina:"endereco"}) %>
+    <link rel="stylesheet" href="<%=baseUrl%>/assets/css/aside.css" />
     </head>
-
 
     <body>
         <%- include('./include/header.ejs') %>
@@ -8,12 +8,116 @@
             <main>
                 <%- include('./include/menu/aside.ejs') %>
 
-                <h1>Endereços</h1>
+                    <div class="container__formulario-endereco">
+                        <h1>Meu Endereço de Entrega</h1>
+                        <p class="subtitulo">Gerencie seu endereço padrão para recebimento dos produtos.</p>
 
-                <button onclick="minhaFuncao()">Adicionar Endereço</button>
+                        <form id="form-endereco">
+                            <div class="cp-form-grid">
+                                <div class="conteudo">
 
-                <p>Nenhum enedereço cadastrado !</p>
+                                    <div class="cp-form-group cp-small-width">
+                                        <label class="cp-label" for="cep">CEP</label>
+                                        <input class="cp-input" type="text" name="cep" id="cep" maxlength="9"
+                                            value="<%= (usuario.endereco && usuario.endereco.cep) ? usuario.endereco.cep : '' %>"
+                                            required>
+                                    </div>
+
+                                    <div class="cp-form-group cp-small-width">
+                                        <label class="cp-label" for="telefone">Telefone de Contato</label>
+                                        <input class="cp-input" type="text" name="telefone" id="telefone"
+                                            value="<%= usuario.telefone || '' %>" required>
+                                    </div>
+
+                                    <div class="cp-form-group cp-full-width">
+                                        <label class="cp-label" for="rua">Rua / Logradouro</label>
+                                        <input class="cp-input" type="text" name="rua" id="rua"
+                                            value="<%= (usuario.endereco && usuario.endereco.rua) ? usuario.endereco.rua : '' %>"
+                                            required>
+                                    </div>
+
+                                    <div class="cp-form-group cp-small-width">
+                                        <label class="cp-label" for="numero">Número</label>
+                                        <input class="cp-input" type="number" name="numero" id="numero"
+                                            value="<%= (usuario.endereco && usuario.endereco.numero) ? usuario.endereco.numero : '' %>"
+                                            required>
+                                    </div>
+
+                                    <div class="cp-form-group cp-small-width">
+                                        <label class="cp-label" for="complemento">Complemento</label>
+                                        <input class="cp-input" type="text" name="complemento" id="complemento"
+                                            value="<%= (usuario.endereco && usuario.endereco.complemento) ? usuario.endereco.complemento : '' %>">
+                                    </div>
+
+                                    <div class="cp-form-group">
+                                        <label class="cp-label" for="bairro">Bairro</label>
+                                        <input class="cp-input" type="text" name="bairro" id="bairro"
+                                            value="<%= (usuario.endereco && usuario.endereco.bairro) ? usuario.endereco.bairro : '' %>"
+                                            required>
+                                    </div>
+
+                                    <div class="cp-form-group">
+                                        <label class="cp-label" for="cidade">Cidade</label>
+                                        <input class="cp-input" type="text" name="cidade" id="cidade"
+                                            value="<%= (usuario.endereco && usuario.endereco.cidade) ? usuario.endereco.cidade : '' %>"
+                                            required>
+                                    </div>
+
+                                    <div class="cp-form-group cp-full-width">
+                                        <label class="cp-label" for="estado">Estado</label>
+                                        <input class="cp-input" type="text" name="estado" id="estado"
+                                            value="<%= (usuario.endereco && usuario.endereco.estado) ? usuario.endereco.estado : '' %>"
+                                            required>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div class="cp-form-actions">
+                                <button type="submit" class="cp-button-primary">Salvar Alterações</button>
+                            </div>
+                        </form>
+                    </div>
             </main>
+
+
+                <script src="/assets/js/viacep.js"></script>
+                <script>
+                    document.getElementById('form-endereco').addEventListener('submit', async (e) => {
+                        e.preventDefault();
+                        const formData = new FormData(e.target);
+                        const dados = Object.fromEntries(formData.entries());
+
+                        try {
+                            const response = await fetch('/conta/endereco', {
+                                method: 'POST',
+                                headers: { 'Content-Type': 'application/json' },
+                                body: JSON.stringify(dados)
+                            });
+                            const resultado = await response.json();
+
+                            if (resultado.sucesso) {
+                                alert(resultado.mensagem);
+                            } else {
+                                alert('Erro: ' + resultado.mensagem);
+                            }
+                        } catch (error) {
+                            console.error(error);
+                            alert('Erro ao salvar as modificações.');
+                        }
+                    });
+
+                    // Máscara inteligente para o campo de CEP
+                    const cepInput = document.getElementById('cep');
+                    if (cepInput) {
+                        cepInput.addEventListener('input', function (e) {
+                            let valor = e.target.value.replace(/\D/g, '');
+                            if (valor.length > 8) valor = valor.slice(0, 8);
+                            valor = valor.replace(/^(\d{5})(\d)/, '$1-$2');
+                            e.target.value = valor;
+                        });
+                    }
+                </script>
     </body>
 
     </html>

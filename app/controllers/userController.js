@@ -123,7 +123,9 @@ const UserController = {
             res.render('conta', {
                 titulo: 'Minha Conta',
                 baseUrl: req.app.locals.baseUrl,
-                usuario: user
+                usuario: user,
+                user: user
+                
             });
         } catch (error) {
             console.error('Erro ao renderizar conta:', erro);
@@ -139,7 +141,6 @@ const UserController = {
 
             const { nome, sobrenome, cpf, genero, dataNascimento, telefone, newsletter } = req.body;
 
-            // Só atualiza campos permitidos — nunca senha, tipo ou id
             const dadosAtualizados = {
                 nome,
                 sobrenome: sobrenome || '',
@@ -157,6 +158,47 @@ const UserController = {
         } catch (err) {
             console.error('Erro ao atualizar conta:', err);
             res.status(500).json({ sucesso: false, mensagem: 'Erro interno' });
+        }
+    },
+
+
+    renderEndereco(req, res) {
+        try {
+            const token = req.cookies?.token;
+            if (!token) return res.redirect('/login');
+
+            const decoded = jwt.verify(token, SECRET);
+            const user = UserModel.pesquisarPorId(decoded.id);
+            if (!user) return res.redirect('/login');
+
+            res.render('endereco', {
+                titulo: 'Meus Endereços',
+                baseUrl: req.app.locals.baseUrl,
+                usuario: user,
+                user: user
+            });
+        } catch (error) {
+            console.error('Erro ao renderizar endereço:', error);
+            res.redirect('/login');
+        }
+    },
+
+    async atualizarEndereco(req, res) {
+        try {
+            const token = req.cookies?.token;
+            if (!token) return res.status(401).json({ sucesso: false, mensagem: 'Não autenticado' });
+
+            const decoded = jwt.verify(token, 'ChaveSecreta');
+            const { telefone, ...endereco } = req.body; 
+
+            const userAtualizado = UserModel.atualizar(decoded.id, { telefone, endereco });
+
+            if (!userAtualizado) return res.status(404).json({ sucesso: false, mensagem: 'Usuário não encontrado' });
+            return res.json({ sucesso: true, mensagem: 'Endereço atualizado com sucesso!' });
+
+        } catch (err) {
+            console.error('Erro ao atualizar endereço:', err);
+            res.status(500).json({ sucesso: false, mensagem: 'Erro interno no servidor.' });
         }
     }
 }
