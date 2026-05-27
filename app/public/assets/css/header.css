@@ -823,6 +823,8 @@ input {
 
     &>ul:nth-of-type(1) {
       max-width: 75%;
+      height: 100vh;
+      overflow-y: auto;
     }
 
     ul a {
