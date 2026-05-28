@@ -178,7 +178,6 @@
 
   span {
     font-size: 11px !important;
-    max-width: 70px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;

@@ -37,12 +37,18 @@
 .form-group {
   margin-bottom: 20px;
   width: 100%;
+  position: relative;
 
   label {
-    display: block;
-    margin-bottom: 8px;
-    font-weight: 500;
+    position: absolute;
+    left: 12px;
+    top: 14px;
+    background: white;
+    padding: 0 6px;
+    font-size: 14px;
     color: #333;
+    transition: 0.25s;
+    pointer-events: none;
   }
 
   input,
@@ -57,6 +63,13 @@
     &:focus {
       outline: none;
       border-color: #8B0000;
+    }
+
+    &:focus + label,
+    &:not(:placeholder-shown) + label {
+      top: -8px;
+      font-size: 12px;
+      color: #8B0000;
     }
   }
 }
@@ -278,12 +291,16 @@
     grid-template-columns: 1fr 1fr;
   }
 
-  &.numero-complemento {
+  &.endereco-numero {
+    grid-template-columns: 1fr;
+  }
+
+  &.numero-cidade {
     grid-template-columns: 1fr 2fr;
   }
 
-  &.bairro-cidade-estado {
-    grid-template-columns: 2fr 2fr 1fr;
+  &.bairro-estado {
+    grid-template-columns: 2fr 1fr;
   }
 }
 

@@ -10,7 +10,16 @@
     "cpf": "000.097.514-16",
     "genero": "prefiro_nao_dizer",
     "dataNascimento": "1999-05-10",
-    "telefone": "980942679"
+    "telefone": "(11) 98094-2679",
+    "endereco": {
+      "cep": "06420-090",
+      "rua": "Rua Luiz Gianezella",
+      "numero": "85",
+      "complemento": "casa 2",
+      "bairro": "Vila Nova",
+      "cidade": "Barueri",
+      "estado": "SP"
+    }
   },
   {
     "id": 2,

@@ -37,72 +37,73 @@
               <!-- Telefone + CEP -->
               <div class="form-row telefone-cep">
                 <div class="form-group">
-                  <input type="telefone" id="telefone" name="telefone" placeholder=" " required>
+                  <input type="tel" id="telefone" name="telefone" placeholder=" " required>
                   <label>Telefone</label>
                   <span id="telefone-error" style="color:red; display:none;">
-                    telefone inválido.
+                    Telefone inválido.
                   </span>
                 </div>
 
-                <div class="form-group-cep">
-                  <label for="cep">CEP</label>
-                  <input type="text" name="cep" id="cep" maxlength="9" required>
+                <div class="form-group">
+                  <input type="text" name="cep" id="cep" maxlength="9" placeholder=" " required>
+                  <label>CEP</label>
                   <span id="cep-error" style="color:red; display:none;">
                     CEP inválido.
                   </span>
                 </div>
               </div>
 
-
-
-              <!-- Endereço + Número -->
+              <!-- Endereço -->
               <div class="form-row endereco-numero">
                 <div class="form-group">
-                  <input placeholder="Rua" type="text" name="endereco" id="rua" required>
+                  <input type="text" name="endereco" id="rua" placeholder=" " required>
                   <label>Endereço</label>
                   <span id="endereco-error" style="color:red; display:none;">
-                    Endereco inválido.
+                    Endereço inválido.
                   </span>
                 </div>
+              </div>
 
-                <div class="form-group-numero">
+              <!-- Número + Cidade -->
+              <div class="form-row numero-cidade">
+                <div class="form-group">
                   <input type="number" id="numero" name="numero" placeholder=" " required>
                   <label>Número</label>
                   <span id="numero-error" style="color:red; display:none;">
                     Número inválido.
                   </span>
                 </div>
+
+                <div class="form-group">
+                  <input type="text" id="cidade" name="cidade" placeholder=" " required>
+                  <label>Cidade</label>
+                  <span id="cidade-error" style="color:red; display:none;">
+                    Cidade inválido.
+                  </span>
+                </div>
               </div>
 
               <!-- Complemento -->
               <div class="form-group">
-                <input type="complemento" id="complemento" name="complemento" placeholder=" " required>
+                <input type="text" id="complemento" name="complemento" placeholder=" " required>
                 <label>Complemento</label>
                 <span id="complemento-error" style="color:red; display:none;">
                   Complemento inválido.
                 </span>
               </div>
 
-              <!-- Bairro + Cidade + Estado -->
-              <div class="form-row bairro-cidade-estado">
+              <!-- Bairro + Estado -->
+              <div class="form-row bairro-estado">
                 <div class="form-group">
-                  <input type="bairro" id="bairro" name="bairro" placeholder=" " required>
+                  <input type="text" id="bairro" name="bairro" placeholder=" " required>
                   <label>Bairro</label>
                   <span id="bairro-error" style="color:red; display:none;">
                     Bairro inválido.
                   </span>
                 </div>
 
-                <div class="form-group-cidade">
-                  <input type="cidade" id="cidade" name="cidade" placeholder=" " required>
-                  <label>Cidade</label>
-                  <span id="cidade-error" style="color:red; display:none;">
-                    Cidade inválido.
-                  </span>
-                </div>
-
                 <div class="form-group">
-                  <input type="estado" id="estado" name="estado" placeholder=" " required>
+                  <input type="text" id="estado" name="estado" placeholder=" " required>
                   <label>Estado</label>
                   <span id="estado-error" style="color:red; display:none;">
                     Estado inválido.
@@ -125,6 +126,7 @@
 
             <button id="btn-finalizar" class="btn-finalizar-pedido">Confirmar Pedido</button>
           </div>
+
         </section>
       </main>
 
