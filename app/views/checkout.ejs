@@ -45,8 +45,8 @@
                 </div>
 
                 <div class="form-group-cep">
-                  <input placeholder="CEP" type="text" name="cep" id="cep" maxlength="9" required>
-                  <label>CEP</label>
+                  <label for="cep">CEP</label>
+                  <input type="text" name="cep" id="cep" maxlength="9" required>
                   <span id="cep-error" style="color:red; display:none;">
                     CEP inválido.
                   </span>
@@ -94,8 +94,8 @@
                 </div>
 
                 <div class="form-group-cidade">
-                  <label>Cidade</label>
                   <input type="cidade" id="cidade" name="cidade" placeholder=" " required>
+                  <label>Cidade</label>
                   <span id="cidade-error" style="color:red; display:none;">
                     Cidade inválido.
                   </span>
@@ -154,31 +154,35 @@
               const container = document.getElementById('itens-resumo');
 
               container.innerHTML = this.carrinho.map(item => `
-          <div class="item-resumo">
-            <img src="${item.imagem}" alt="${item.nome}">
-            <div class="item-info-resumo">
-              <strong>${item.nome}</strong><br>
-              Qtd: ${item.quantidade}
-            </div>
-            <div class="item-preco-resumo">${item.preco}</div>
-          </div>
-        `).join('');
+              <div class="item-resumo">
+                <img src="${item.imagem}" alt="${item.nome}">
+                <div class="item-info-resumo">
+                  <strong>${item.nome}</strong><br>
+                  Qtd: ${item.quantidade}
+                </div>
+                <div class="item-preco-resumo">${item.preco}</div>
+              </div>
+            `).join('');
 
               this.atualizarTotal();
             }
 
             atualizarTotal() {
               const total = this.carrinho.reduce((sum, item) => {
-                return sum + (preco * item.quantidade);
+                let precoTexto = String(item.preco);
+                let precoLimpo = precoTexto.replace('R$', '').replace(/\s/g, '').replace(',', '.');
+                let precoNumero = parseFloat(precoLimpo) || 0;
+                return sum + (precoNumero * item.quantidade);
               }, 0);
+
               document.getElementById('total-pedido').textContent =
                 `Total: R$ ${total.toFixed(2).replace('.', ',')}`;
             }
 
             configurarEventos() {
-    
+
               const btnFinalizar = document.getElementById('btn-finalizar');
-              
+
               if (btnFinalizar) {
                 btnFinalizar.addEventListener('click', () => {
                   const form = document.getElementById('form-checkout');
@@ -238,7 +242,9 @@
             }
 
           }
-
+          document.addEventListener('DOMContentLoaded', () => {
+            new CheckoutPagina();
+          })
 
         </script>
 

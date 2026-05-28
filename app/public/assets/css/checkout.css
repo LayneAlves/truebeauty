@@ -104,6 +104,24 @@
       background: #ff0000;
     }
   }
+
+
+  button {
+    position: absolute;
+    right: 5px;
+    top: 33px;
+    padding: 8px 15px;
+    background: #8B0000;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+
+    &:hover {
+      background: #ff0000;
+    }
+  }
 }
 
 /* GRUPOS ESPECÍFICOS DE ENDEREÇO (NÚMERO E COMPLEMENTO) */
@@ -189,12 +207,18 @@
 .form-group-cidade {
   margin-bottom: 20px;
   width: 100%;
+  position: relative;
 
   label {
-    display: block;
-    margin-bottom: 8px;
-    font-weight: 500;
+    position: absolute;
+    left: 12px;
+    top: 14px;
+    background: white;
+    padding: 0 6px;
+    font-size: 14px;
     color: #333;
+    transition: 0.25s;
+    pointer-events: none;
   }
 
   input {
@@ -208,6 +232,13 @@
     &:focus {
       outline: none;
       border-color: #8B0000;
+    }
+
+    &:focus + label,
+    &:not(:placeholder-shown) + label {
+      top: -8px;
+      font-size: 12px;
+      color: #8B0000;
     }
   }
 }
@@ -341,9 +372,17 @@
 
 /* COMPORTAMENTO RESPONSIVO (MEDIA QUERIES) */
 @media (max-width: 480px) {
-  .form-group input {
-    width: 92%;
+  .form-group input,
+  .form-group-cep input,
+  .form-group-numero input,
+  .form-group-complemento input,
+  .form-group-bairro input,
+  .form-group-cidade input,
+  .form-group-estado input {
+    width: 100%;
+    padding: 12px;
     margin-bottom: 5px;
+    box-sizing: border-box;
   }
 
   .form-group-cep {
