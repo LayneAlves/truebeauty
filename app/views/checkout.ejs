@@ -85,11 +85,8 @@
 
               <!-- Complemento -->
               <div class="form-group">
-                <input type="text" id="complemento" name="complemento" placeholder=" " required>
+                <input type="text" id="complemento" name="complemento" placeholder=" ">
                 <label>Complemento</label>
-                <span id="complemento-error" style="color:red; display:none;">
-                  Complemento inválido.
-                </span>
               </div>
 
               <!-- Bairro + Estado -->
@@ -224,6 +221,13 @@
                   headers: { 'Content-Type': 'application/json' },
                   body: JSON.stringify(dadosEntrega)
                 });
+                
+                if (resposta.status === 401) {
+                  alert('Você precisa estar logado para finalizar o pedido.');
+                  window.location.href = '/';
+                  return;
+                }
+
                 const resultado = await resposta.json();
 
                 if (resultado.sucesso) {

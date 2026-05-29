@@ -2,13 +2,14 @@ const jwt = require('jsonwebtoken');
 const SECRET = 'ChaveSecreta';
 
 const authMiddleware = {
-    // Bloqueia quem não está logado
     verificarLogado(req, res, next) {
         const token = req.cookies.token;
 
         if (!token) {
+            if (req.headers['content-type'] === 'application/json') {
+                return res.status(401).json({ sucesso: false, mensagem: 'Não autenticado' });
+            }
             return res.redirect('/?erro=acesso_negado');
-            // return res.redirect('/login');
         }
 
         try {
@@ -17,11 +18,13 @@ const authMiddleware = {
             next();
         } catch (err) {
             res.clearCookie('token');
+            if (req.headers['content-type'] === 'application/json') {
+                return res.status(401).json({ sucesso: false, mensagem: 'Sessão expirada' });
+            }
             return res.redirect('/login');
         }
     },
 
-    // Bloqueia quem não é admin
     somenteAdmin(req, res, next) {
         if (req.user && req.user.tipo === 'admin') {
             next();
