@@ -393,52 +393,6 @@ button {
   font-weight: bold;
 }
 
-/*
-   NAVBAR MOBILE */
-.mbl_navbar {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  background: var(--color-white);
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  padding: 10px 0;
-  z-index: 999;
-  box-shadow: var(--shadow-nav);
-}
-
-.mbl_nav_item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  font-size: 12px;
-  color: var(--color-text);
-  cursor: pointer;
-
-  img {
-    width: 22px;
-    margin-bottom: 4px;
-  }
-
-  p {
-    font-size: 11px;
-    margin: 0;
-    font-family: var(--font-serif);
-  }
-}
-
-.mbl_nav_cart {
-  position: relative;
-  top: -15px;
-  background: var(--color-white);
-  padding: 10px;
-  border-radius: var(--radius-full);
-  box-shadow: var(--shadow-cart);
-
-  img { width: 28px; }
-}
 
 /*
    MODAL DE LOGIN */
@@ -537,8 +491,10 @@ button {
   .login-container p { margin-bottom: 5%; }
   .login-title       { margin-bottom: 5%; }
 
-  .page-header { margin: 0 4% 0; }
+  .page-header { margin: 110px 4% 0; }
   h1           { font-size: 1.5em; }
+
+
 }
 
 /* Tablet */
