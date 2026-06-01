@@ -65,7 +65,6 @@
         <!-- DESCRIÇÃO + BOTÃO -->
         <section class="description">
           <h3>Descubra a verdadeira beleza com nossos produtos.</h3>
-          <!-- <a href="pagina.html" class="button">Conheça</a> -->
         </section>
 
         <!-- CARROSSEL DE PRODUTOS -->
@@ -89,7 +88,10 @@
                     <span class="currency">R$</span>
                     <%=produto.preco%>
                   </p>
-                  <a href="#" class="card-button">Comprar</a>
+                  <a href="#" class="card-button"
+                    onclick="adicionarCarrinho('<%= produto.id %>', '<%= produto.nome %>', 'R$ <%= produto.preco %>', '<%= produto.imagem %>'); return false;">
+                    Comprar
+                  </a>
                 </article>
               </section>
               <% }) %>
@@ -112,9 +114,8 @@
                 alt="Modelo com maquiagem">
               <div class="maisvendidos">
                 <h3>Clinique iD</h3>
-                <!-- <img class="img-produto" src="assets/imagem/imagens_skin_care/clinique_id.jpg" alt="Produto 1"> -->
                 <p class="preco">R$ 20,90</p>
-                <button>Comprar</button>
+                <button onclick="adicionarCarrinho('clinique-id', 'Clinique iD', 'R$ 20,90', 'assets/imagem/imagens_skin_care/clinique_id.jpg')">Comprar</button>
               </div>
             </div>
 
@@ -124,9 +125,8 @@
                 alt="Modelo com maquiagem">
               <div class="maisvendidos">
                 <h3>Salon Line</h3>
-                <!-- <img class="img-produto" src="assets/imagem/imagens_Cabelos/salonLine_coco.jpg" alt="Produto 2"> -->
                 <p class="preco">R$ 30,90</p>
-                <button>Comprar</button>
+                <button onclick="adicionarCarrinho('salon-line', 'Salon Line', 'R$ 30,90', 'assets/imagem/imagens_Cabelos/salonLine_coco.jpg')">Comprar</button>
               </div>
             </div>
 
@@ -136,9 +136,8 @@
                 alt="Modelo com maquiagem">
               <div class="maisvendidos">
                 <h3>Malbec</h3>
-                <!-- <img class="img-produto" src="assets/imagem/imagem_perfume_masculino/malbecMarrom.webp" alt="Produto 3"> -->
                 <p class="preco">R$ 125,00</p>
-                <button>Comprar</button>
+                <button onclick="adicionarCarrinho('malbec', 'Malbec', 'R$ 125,00', 'assets/imagem/imagem_perfume_masculino/malbecMarrom.webp')">Comprar</button>
               </div>
             </div>
 
@@ -148,9 +147,8 @@
                 alt="Modelo com perfume">
               <div class="maisvendidos">
                 <h3>Dior</h3>
-                <!-- <img class="img-produto" src="assets/imagem/imagem_maquiagem/baseDior.jpg" alt="Produto 4"> -->
                 <p class="preco">R$ 150,90</p>
-                <button>Comprar</button>
+                <button onclick="adicionarCarrinho('dior', 'Dior', 'R$ 150,90', 'assets/imagem/imagem_maquiagem/baseDior.jpg')">Comprar</button>
               </div>
             </div>
 
@@ -159,9 +157,8 @@
               <img class="img-fundo" src="assets/imagem/imagens_Cabelos/jadePicon.jpg" alt="Modelo com creme">
               <div class="maisvendidos">
                 <h3>Eudora</h3>
-                <!-- <img class="img-produto" src="assets/imagem/imagens_Cabelos/kitEudoraRoxo.webp" alt="Produto 5"> -->
                 <p class="preco">R$ 140,00</p>
-                <button>Comprar</button>
+                <button onclick="adicionarCarrinho('eudora', 'Eudora', 'R$ 140,00', 'assets/imagem/imagens_Cabelos/kitEudoraRoxo.webp')">Comprar</button>
               </div>
             </div>
 
@@ -200,20 +197,27 @@
           }, 3000);
 
           goToSlide(0);
-
-
         </script>
 
-        <!-- Seção de Mais Vendidos -->
+        <!-- Carrinho + Carrossel -->
         <script>
-          const botoes = document.querySelectorAll(".card button");
-          botoes.forEach(botao => {
-            botao.addEventListener("click", () => {
-              alert("Produto adicionado à sacola!");
-            });
-          });
+          // Função para adicionar ao carrinho (localStorage individual por dispositivo)
+          function adicionarCarrinho(id, nome, preco, imagem) {
+            let carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
 
-          // Função de seta para rolar TODOS os carrosséis 
+            const itemExistente = carrinho.find(item => item.id == id);
+
+            if (itemExistente) {
+              itemExistente.quantidade += 1;
+            } else {
+              carrinho.push({ id, nome, preco, imagem, quantidade: 1 });
+            }
+
+            localStorage.setItem('carrinho', JSON.stringify(carrinho));
+            alert(`"${nome}" adicionado à sacola!`);
+          }
+
+          // Função de seta para rolar TODOS os carrosséis
           function scrollCards(direction, selector = '.cards-container') {
             const container = document.querySelector(selector);
             const scrollAmount = 200;
@@ -225,6 +229,7 @@
             }
           }
         </script>
+
         <script>
           document.querySelectorAll('.categories-carousel section').forEach(section => {
             const link = section.querySelector('a');
@@ -235,7 +240,6 @@
             }
           });
         </script>
-        
 
   </body>
 
