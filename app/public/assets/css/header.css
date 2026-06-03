@@ -200,38 +200,40 @@
   top: 100%;
   right: 0;
   background-color: #ffffff !important;
-  min-width: 170px;
-  padding: 8px 0;
-  border-radius: 8px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  min-width: 180px;
+  padding: 32px 16px;
+  border-radius: 10px;
+  box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.15);
   border: 1px solid #eee;
-  z-index: 99999;
-  margin-top: 10px;
+  z-index: 1000;
+  text-align: left;
 
   &.active {
     display: block !important;
   }
 
-  a,
-  button#btn-sair {
+  a,#btn-sair {
     display: block;
-    width: 100%;
-    padding: 12px 15px;
-    text-decoration: none;
-    color: #8B0000 !important;
-    font-family: 'Lora', serif;
-    font-size: 13px;
-    font-weight: bold;
-    text-transform: uppercase;
-    background: #ffffff !important;
-    border: none !important;
-    cursor: pointer;
-    text-align: left;
+      width: 100%;
+      padding: 12px 20px;
+      text-decoration: none;
+      color: #8B0000 !important;
+      font-family: 'Lora', serif;
+      font-size: 14px;
+      font-weight: bold;
+      text-transform: uppercase;
+      background: none !important;
+      border: none !important;
+      cursor: pointer;
+      text-align: rigt;
+      transition: background 0.3s;
 
-    &:hover {
-      background-color: #fff5f0 !important;
-    }
+      &:hover {
+        background-color: #f9f9f9 !important;
+        color: #8B0000 !important;
+      }
   }
+
 }
 
 /* EFEITO DE BLUR NO CONTEÚDO */
@@ -676,6 +678,20 @@ input {
 .menu-item {
   display: flex;
   align-items: center;
+  gap: 8px;
+
+}
+
+.menu-item a {
+  flex-grow: 1;
+}
+
+#btn-logout-header {
+  display: none;
+}
+
+.item-logout {
+  flex: none !important;
 }
 
 .submenu-toggle {
@@ -826,6 +842,7 @@ input {
       max-width: 75%;
       height: 100vh;
       overflow-y: auto;
+      padding: 10px;
     }
 
     ul a {
@@ -908,6 +925,16 @@ input {
   .bootstrap::before:active {
     transform: rotate(90deg);
   }
+
+  /* Linhas que separam os itens do menu  */
+  .menu-item {
+    border-bottom: 1px solid rgba(139, 0, 0, 0.15) !important;
+  }
+
+  .btn-logout {
+    border-bottom: none !important;
+  }
+
 }
 
 @media (min-width: 481px) and (max-width: 990px) {
@@ -1203,4 +1230,21 @@ input {
   .navbar-mobile {
     display: flex;
   }
+
+  .btn-logout #btn-logout-header {
+    display: block;
+    background: none;
+    color: #8B0000;
+    padding: 12px 15px;
+    font-family: 'Lora', serif;
+    font-size: 15px;
+    font-weight: bold;
+    text-transform: uppercase;
+    border: none;
+    margin: 0;
+    width: 100%;
+    text-align: left;
+    border-bottom: none;
+  }
+
 }
