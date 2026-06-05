@@ -285,39 +285,97 @@ document.addEventListener("DOMContentLoaded", () => {
 
 });
 
-
-// Validação de Login
-document.addEventListener("submit", async (e) => {
-    if (e.target.id !== 'form-perfil') return;
-    e.preventDefault();
-
+// Validação de Login e Recuperação
+document.addEventListener("DOMContentLoaded", () => {
+    const formPerfil = document.getElementById('form-perfil');
     const loginErrorMsg = document.querySelector("#login-error-msg");
-    const formData = new FormData(e.target);
-    const emailInput = formData.get('email');
-    const senhaInput = formData.get('senha');
 
-    try {
-        const response = await fetch('/login', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ email: emailInput, senha: senhaInput })
+    // Elementos de controle do modal
+    const btnEsqueceuSenha = formPerfil.querySelector('#btn-esqueceu-senha');
+    const btnVoltarLogin = formPerfil.querySelector('#btn-voltar-login'); 
+    let modoRecuperacao = false;
+
+    //clique para entrar na tela de recuperação
+    if (btnEsqueceuSenha) {
+        btnEsqueceuSenha.addEventListener("click", (e) => {
+            e.preventDefault();
+            modoRecuperacao = true;
         });
-        const data = await response.json();
+    }
 
-        if (response.ok && data.sucesso) {
-            localStorage.setItem('usuarioNome', data.nome);
-            window.location.href = data.redirectUrl;
+    //clique para voltar para a tela de login normal
+    if (btnVoltarLogin) {
+        btnVoltarLogin.addEventListener("click", (e) => {
+            e.preventDefault();
+            modoRecuperacao = false;
+
+        });
+    }
+
+    formPerfil.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        const acaoFetch = modoRecuperacao ? '/recuperarSenha' : '/login';
+        const type = 'POST';
+
+        console.log("Rota ativa disparada no Fetch: ", acaoFetch);
+
+        if (loginErrorMsg) {
+            loginErrorMsg.style.display = 'none';
+            loginErrorMsg.textContent = '';
+        }
+
+        const emailInput = formPerfil.querySelector('#emailTeste') || formPerfil.querySelector('[type="email"]');
+        const senhaInput = formPerfil.querySelector('#senha');
+
+        const email = emailInput ? emailInput.value.trim() : '';
+        const senha = senhaInput ? senhaInput.value : '';
+
+        let corpoRequisicao = {};
+        if (acaoFetch === '/login') {
+            corpoRequisicao = { email, senha };
         } else {
+            corpoRequisicao = { email };
+        }
+
+        try {
+            const response = await fetch(acaoFetch, {
+                method: type,
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(corpoRequisicao)
+            });
+
+            const data = await response.json();
+
+            if (response.ok && data.sucesso) {
+                if (acaoFetch === "/login") {
+                    localStorage.setItem('usuarioNome', data.nome);
+                    window.location.href = data.redirectUrl;
+                } else if (acaoFetch === "/recuperar-senha") {
+                    if (loginErrorMsg) {
+                        loginErrorMsg.style.color = 'green';
+                        loginErrorMsg.textContent = data.mensagem || "E-mail enviado com sucesso!";
+                        loginErrorMsg.style.display = 'block';
+                    }
+                }
+                return;
+            }
+
             if (loginErrorMsg) {
-                loginErrorMsg.textContent = data.error || "Email ou senha incorretos.";
+                loginErrorMsg.style.color = 'red';
+                loginErrorMsg.textContent = data.mensagem || data.error || "Ocorreu um erro. Tente novamente.";
                 loginErrorMsg.style.display = 'block';
             }
+
+        } catch (error) {
+            console.error("Erro no fetch:", error);
+            alert("Não foi possível conectar ao servidor. Verifique sua conexão.");
         }
-    } catch (error) {
-        console.error("Erro no fetch:", error);
-        alert("Não foi possível conectar ao servidor.");
-    }
+    });
 });
+
+
+
 // Validação de cadastro
 document.addEventListener("submit", async (e) => {
     if (e.target.id !== 'form-cadastro') return;

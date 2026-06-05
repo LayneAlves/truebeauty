@@ -92,6 +92,17 @@ router.post('/conta/endereco', auth.verificarLogado, UserController.atualizarEnd
 // Rotas de login
 router.post('/login', UserController.login);
 
+// Rotas de recuperaçao de Senha
+
+// 1. Recebe o e-mail e envia o link de redefinição
+router.post('/recuperarSenha', UserController.solicitarRecuperacao);
+ 
+// 2. Usuário acessa o link do e-mail → renderiza o formulário de nova senha
+router.get('/redefinir-senha/:token', UserController.renderRedefinirSenha);
+ 
+// 3. Usuário envia a nova senha → atualiza e limpa o token
+router.post('/redefinir-senha', UserController.redefinirSenha);
+
 module.exports = router;
 
 //Rotas do navbar 

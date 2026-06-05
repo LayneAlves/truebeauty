@@ -48,5 +48,12 @@
     "email": "Leu@gmail.com",
     "senha": "$2b$10$xKQRpCJvS6t8.tyPaRnSbeqho9gV50agFwkATGrbIpOpYNuoHAyM2",
     "tipo": "comum"
+  },
+  {
+    "id": 4,
+    "nome": "Layne Alves da Silva",
+    "email": "layne.silva1007@gmail.com",
+    "senha": "$2b$10$o5QPr1ay92If/MdGHu1z1eMAHP7/vuJtVMOydzeOJ.pDAQs61R53u",
+    "tipo": "comum"
   }
 ]

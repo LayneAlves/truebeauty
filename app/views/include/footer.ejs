@@ -78,9 +78,9 @@
       </div>
       
     <button id="mbl_btn_menu2" class="mbl-btn">
-       <a href="/conta">
+       <!-- <a href="/conta"> -->
         <i class="fas fa-user"></i>
-       </a> 
+       <!-- </a>  -->
         <span id="mbl_saudacao" style="display:none">Olá, <span id="mbl_saudacao_nome"></span></span>
         <span class="mbl-perfil-label">Perfil</span>
     </button>
@@ -98,6 +98,8 @@
     const overlayPerfil = document.getElementById('overlay-perfil');
     const btnFecharPerfil = document.getElementById('fechar-perfil');
 
+
+
     function abrirPerfil() {
         modalPerfil.classList.add('ativo');
         overlayPerfil.classList.add('ativo');
@@ -113,6 +115,141 @@
     btnAbrirPerfil.addEventListener('click', abrirPerfil);
     btnFecharPerfil.addEventListener('click', fecharPerfil);
     // overlayPerfil.addEventListener('click', fecharPerfil);
+
+
+    //  LÓGICA DE LOGIN / RECUPERAÇÃO DE SENHA NO MODAL
+
+
+    const formPerfil        = document.getElementById('form-perfil');
+    const loginTitle        = document.getElementById('login-title');
+    const loginErrorMsg     = document.getElementById('login-error-msg');
+    const campaSenha        = document.querySelector('#form-perfil .form-group:has(#senha)');
+    const inputSenha        = document.getElementById('senha');
+    const btnEsqueceuSenha  = document.getElementById('btn-esqueceu-senha');
+    const btnVoltarLogin    = document.getElementById('btn-voltar-login');
+    const btnPrincipal      = document.getElementById('btn-principal-submit');
+    const socialLogin       = document.querySelector('.social-login');
+    const textoOu           = document.querySelector('.ou');
+
+    let modoRecuperacao = false;
+
+    // Entra no modo de recuperação de senha
+    function entrarModoRecuperacao() {
+        modoRecuperacao = true;
+        formPerfil.classList.add('recuperar');
+
+        loginTitle.textContent = 'Recuperação de Senha';
+        btnPrincipal.textContent = 'Enviar link de redefinição';
+
+        // Esconde visualmente o campo de senha e botões de login
+        campaSenha.style.display = 'none';
+        inputSenha.removeAttribute('required');
+        socialLogin.style.display = 'none';
+        textoOu.style.display = 'none';
+
+        // Alterna os links
+        btnEsqueceuSenha.style.display = 'none';
+        btnVoltarLogin.style.display = 'inline';
+
+        loginErrorMsg.textContent = '';
+    }
+
+    // Volta ao estado normal de login
+    function voltarParaLogin() {
+        modoRecuperacao = false;
+        formPerfil.classList.remove('recuperar');
+
+        loginTitle.textContent = 'Escolha uma opção para entrar';
+        btnPrincipal.textContent = 'Fazer login';
+
+        campaSenha.style.display = '';
+        inputSenha.setAttribute('required', '');
+        socialLogin.style.display = '';
+        textoOu.style.display = '';
+
+        btnEsqueceuSenha.style.display = 'inline';
+        btnVoltarLogin.style.display = 'none';
+
+        loginErrorMsg.textContent = '';
+        formPerfil.reset();
+    }
+
+    btnEsqueceuSenha.addEventListener('click', (e) => {
+        e.preventDefault();
+        entrarModoRecuperacao();
+    });
+
+    btnVoltarLogin.addEventListener('click', (e) => {
+        e.preventDefault();
+        voltarParaLogin();
+    });
+
+
+    //  SUBMIT DO FORMULÁRIO (login OU recuperação)
+
+
+    formPerfil.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        loginErrorMsg.textContent = '';
+        btnPrincipal.disabled = true;
+        const textOriginal = btnPrincipal.textContent;
+        btnPrincipal.textContent = 'Aguarde...';
+
+        const email = document.getElementById('emailTeste').value.trim();
+
+        if (modoRecuperacao) {
+            // ── Modo recuperação: envia solicitação de reset ──
+            try {
+                const res = await fetch('/recuperar-senha', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email })
+                });
+
+                const data = await res.json();
+
+                if (data.sucesso) {
+                    loginErrorMsg.style.color = 'green';
+                    loginErrorMsg.textContent = data.mensagem;
+                    //volta ao login após alguns segundos
+                    setTimeout(voltarParaLogin, 4000);
+                } else {
+                    loginErrorMsg.style.color = 'red';
+                    loginErrorMsg.textContent = data.mensagem;
+                }
+            } catch (err) {
+                loginErrorMsg.style.color = 'red';
+                loginErrorMsg.textContent = 'Erro de conexão. Tente novamente.';
+            }
+
+        } else {
+            // ── Modo login normal ──
+            const senha = inputSenha.value;
+            try {
+                const res = await fetch('/login', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email, senha })
+                });
+
+                const data = await res.json();
+
+                if (data.sucesso) {
+                    localStorage.setItem('usuarioNome', data.nome);
+                    window.location.href = data.redirectUrl;
+                } else {
+                    loginErrorMsg.style.color = 'red';
+                    loginErrorMsg.textContent = data || 'Credenciais inválidas.';
+                }
+            } catch (err) {
+                loginErrorMsg.style.color = 'red';
+                loginErrorMsg.textContent = 'Erro de conexão. Tente novamente.';
+            }
+        }
+
+        btnPrincipal.disabled = false;
+        btnPrincipal.textContent = textOriginal;
+    });
 
 </script>
 
