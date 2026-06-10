@@ -1,81 +1,108 @@
-// const db = require('../../config/db');
-const fs = require('fs');
-const path = require('path');
-const filePath = path.join(__dirname, '../data/users.json');
+const db = require('../config/db');
+// const fs = require('fs');
+// const path = require('path');
+// const filePath = path.join(__dirname, '../data/users.json');
 
 const UserModel = {
-    salvar(dados) {
-        fs.writeFileSync(filePath, JSON.stringify(dados, null, 2), 'utf8');
+    // salvar(dados) {ca
+    //     fs.writeFileSync(filePath, JSON.stringify(dados, null, 2), 'utf8');
+    // },
+
+    // users() {
+    //     const data = fs.readFileSync(filePath, 'utf8');
+    //     const users = JSON.parse(data);
+    //     return users;
+    // },
+
+    async users() {
+        const [rows] = await db.query('SELECT * FROM USUARIO');
+        return rows;
     },
 
-    users() {
-        const data = fs.readFileSync(filePath, 'utf8');
-        const users = JSON.parse(data);
-        return users;
+    // cadastrar(newUser) {
+    //     const users = this.users();
+
+    //     const usuarioComTipo = {
+    //         ...newUser,
+    //         tipo: newUser.tipo || "comum"
+    //     };
+
+    //     users.push(usuarioComTipo);
+    //     fs.writeFileSync(filePath, JSON.stringify(users, null, 2), 'utf8');
+    // },
+
+    async cadastrar(newUser) {
+        const { nome, email, senha, tipo } = newUser;
+        const [result] = await db.query(
+            `INSERT INTO USUARIO (NOME_USUARIO, EMAIL, SENHA_USUARIO, TIPO)
+             VALUES (?, ?, ?, ?)`,
+            [nome, email, senha, tipo || 'comum']
+        );
+        return result.insertId;
+    },
+    // pesquisar(email) {
+    //     const users = this.users();
+    //     return users.find(user => user.email.toLowerCase() === email.toLowerCase().trim());
+
+    // },
+
+    async pesquisar(email) {
+        const [rows] = await db.query(
+            'SELECT * FROM USUARIO WHERE EMAIL = ?',
+            [email.toLowerCase().trim()]
+        );
+        return rows[0] || null;
+    },
+    // atualizar(id, dadosAtualizados) {
+    //     const users = this.users();
+    //     const index = users.findIndex(user => user.id === id);
+    //     if (index === -1) return null;
+
+    //     users[index] = { ...users[index], ...dadosAtualizados };
+    //     this.salvar(users);
+    //     return users[index];
+    // },
+    // pesquisarPorId(id) {
+    //     const users = this.users();
+    //     return users.find(user => user.id === id) || null;
+    // },
+
+    async pesquisarPorId(id) {
+        const [rows] = await db.query(
+            'SELECT * FROM USUARIO WHERE ID_USUARIO = ?', [id]
+        );
+        return rows[0] || null;
     },
 
-    cadastrar(newUser) {
-        const users = this.users();
+    async atualizar(id, dadosAtualizados) {
+        const user = await this.pesquisarPorId(id);
+        if (!user) return null;
 
-        const usuarioComTipo = {
-            ...newUser,
-            tipo: newUser.tipo || "comum"
-        };
+        const nome = dadosAtualizados.nome || user.NOME_USUARIO;
+        const email = dadosAtualizados.email || user.EMAIL;
+        const tel = dadosAtualizados.tel || user.TEL_USUARIO;
+        const cpf = dadosAtualizados.cpf || user.CPF_USUARIO;
+        const tipo = dadosAtualizados.tipo || user.TIPO;
 
-        users.push(usuarioComTipo);
-        fs.writeFileSync(filePath, JSON.stringify(users, null, 2), 'utf8');
-    },
-    pesquisar(email) {
-        const users = this.users();
-        return users.find(user => user.email.toLowerCase() === email.toLowerCase().trim());
-
-    },
-    
-    pesquisarPorId(id) {
-    const users = this.users();
-    return users.find(user => user.id === id) || null;
+        await db.query(
+            `UPDATE USUARIO SET NOME_USUARIO=?, EMAIL=?, TEL_USUARIO=?, CPF_USUARIO=?, TIPO=?
+             WHERE ID_USUARIO=?`,
+            [nome, email, tel || null, cpf || null, tipo, id]
+        );
+        return this.pesquisarPorId(id);
     },
 
-    // Salva o token e sua expiração no registro do usuário
-    salvarTokenRecuperacao(email, token, expiracao) {
-        const users = this.users();
-        const index = users.findIndex(u => u.email.toLowerCase() === email.toLowerCase().trim());
-        if (index !== -1) return null; 
-
-        users[index].resetToken = token;
-        users[index].resetTokenExpiracao = expiracao;
-        this.salvar(users);
-        return users[index];
-
-    },
-    // Busca um usuário pelo token de recuperação
-    pesquisarPorToken(token) {
-        const users = this.users();
-        return users.find(u => u.resetToken === token) || null;
-    },
- 
-    // Atualiza a senha e limpa o token após a redefinição
-    redefinirSenha(token, novaSenhaHash) {
-        const users = this.users();
-        const index = users.findIndex(u => u.resetToken === token);
-        if (index === -1) return null;
- 
-        users[index].senha = novaSenhaHash;
-        users[index].resetToken = null;
-        users[index].resetTokenExpiracao = null;
-        this.salvar(users);
-        return users[index];
+    async atualizarEndereco(id, endereco) {
+        await db.query(
+            'UPDATE USUARIO SET TEL_USUARIO = ? WHERE ID_USUARIO = ?',
+            [endereco.telefone, id]
+        );
     },
 
-    atualizar(id, dadosAtualizados) {
-        const users = this.users();
-        const index = users.findIndex(user => user.id === id);
-        if (index === -1) return null;
+    salvar() { }
 
-        users[index] = { ...users[index], ...dadosAtualizados };
-        this.salvar(users);
-        return users[index];
-    },
+
+
 }
 
 
