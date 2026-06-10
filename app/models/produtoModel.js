@@ -45,8 +45,8 @@ const ProdutoModel = {
     //     return produtos;
     // },
 
-async buscar(valor, campo) {
-    const select = `
+    async buscar(valor, campo) {
+        const select = `
         SELECT
             p.COD_PRODUTO      AS id,
             p.NOME_PRODUTO     AS nome,
@@ -58,24 +58,24 @@ async buscar(valor, campo) {
             p.COD_CATEGORIA    AS categoria
         FROM PRODUTO p
     `;
- 
-    if (campo === 'subcategoria') {
-        const [rows] = await db.query(
-            select + `JOIN SUBCATEGORIAS s ON p.COD_SUBCATEGORIA = s.COD_SUBCATEGORIA
+
+        if (campo === 'subcategoria') {
+            const [rows] = await db.query(
+                select + `JOIN SUBCATEGORIAS s ON p.COD_SUBCATEGORIA = s.COD_SUBCATEGORIA
                       WHERE s.NOME_CATEGORIA = ?`, [valor]
-        );
-        return rows;
-    }
-    if (campo === 'categoria') {
-        const [rows] = await db.query(
-            select + `JOIN CATEGORIAS c ON p.COD_CATEGORIA = c.COD_CATEGORIA
+            );
+            return rows;
+        }
+        if (campo === 'categoria') {
+            const [rows] = await db.query(
+                select + `JOIN CATEGORIAS c ON p.COD_CATEGORIA = c.COD_CATEGORIA
                       WHERE c.NOME_CATEGORIA = ?`, [valor]
-        );
+            );
+            return rows;
+        }
+        const [rows] = await db.query(select);
         return rows;
-    }
-    const [rows] = await db.query(select);
-    return rows;
-},
+    },
 
     // cadastrar(newProduto) {
     //     const produtos = this.produtos();
@@ -86,10 +86,21 @@ async buscar(valor, campo) {
 
     async cadastrar(newProduto) {
         const { nome, preco, descricao, imagem, estoque, subcategoria, categoria } = newProduto;
+
+        // Busca o ID da categoria pelo nome
+        const [[cat]] = await db.query(
+            'SELECT COD_CATEGORIA FROM CATEGORIAS WHERE NOME_CATEGORIA = ?', [categoria]
+        );
+
+        // Busca o ID da subcategoria pelo nome
+        const [[sub]] = await db.query(
+            'SELECT COD_SUBCATEGORIA FROM SUBCATEGORIAS WHERE NOME_CATEGORIA = ?', [subcategoria]
+        );
+
         const [result] = await db.query(
             `INSERT INTO PRODUTO (NOME_PRODUTO, PRECO, DESCRICAO, IMAGEM, ESTOQUE, COD_SUBCATEGORIA, COD_CATEGORIA)
-             VALUES (?, ?, ?, ?, ?, ?, ?)`,
-            [nome, preco, descricao, imagem, estoque, subcategoria || null, categoria || null]
+         VALUES (?, ?, ?, ?, ?, ?, ?)`,
+            [nome, preco, descricao, imagem, estoque, sub?.COD_SUBCATEGORIA || null, cat?.COD_CATEGORIA || null]
         );
         return result.insertId;
     },
@@ -119,10 +130,18 @@ async buscar(valor, campo) {
 
     async atualizar(id, dadosAtualizados) {
         const { nome, preco, descricao, imagem, estoque, subcategoria, categoria } = dadosAtualizados;
+
+        const [[cat]] = await db.query(
+            'SELECT COD_CATEGORIA FROM CATEGORIAS WHERE NOME_CATEGORIA = ?', [categoria]
+        );
+        const [[sub]] = await db.query(
+            'SELECT COD_SUBCATEGORIA FROM SUBCATEGORIAS WHERE NOME_CATEGORIA = ?', [subcategoria]
+        );
+
         await db.query(
             `UPDATE PRODUTO SET NOME_PRODUTO=?, PRECO=?, DESCRICAO=?, IMAGEM=?, ESTOQUE=?,
-             COD_SUBCATEGORIA=?, COD_CATEGORIA=? WHERE COD_PRODUTO=?`,
-            [nome, preco, descricao, imagem, estoque, subcategoria || null, categoria || null, id]
+         COD_SUBCATEGORIA=?, COD_CATEGORIA=? WHERE COD_PRODUTO=?`,
+            [nome, preco, descricao, imagem, estoque, sub?.COD_SUBCATEGORIA || null, cat?.COD_CATEGORIA || null, id]
         );
     },
     // async excluir(id) {
