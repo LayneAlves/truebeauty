@@ -8,10 +8,10 @@ app.use((req, res, next) => {
     const host = req.get('host');
 
     app.locals.baseUrl = `${protocol}://${host}`;
-    next(); 
+    next();
 });
 
-app.set('view engine', 'ejs'); 
+app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'app/views'));
 
 app.use(express.json());
@@ -27,3 +27,8 @@ const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
     console.log(`Servidor rodando em port ${PORT}`);
 });
+
+const db = require('./app/config/db');
+db.getConnection()
+    .then(() => console.log('Conectado ao MySQL!'))
+    .catch(err => console.error('Erro na conexão:', err)); 

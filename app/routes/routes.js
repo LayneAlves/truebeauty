@@ -12,7 +12,7 @@ const auth = require('../middleware/authMiddleware');
 const indexController = require('../controllers/indexController');
 const vertudoController = require('../controllers/vertudoController');
 const for_admController = require('../controllers/for_edmController');
-const CheckoutController = require('../controllers/checkoutController');
+// const CheckoutController = require('../controllers/checkoutController');
 
 
 // ROUTER
