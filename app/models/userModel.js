@@ -15,7 +15,19 @@ const UserModel = {
     // },
 
     async users() {
-        const [rows] = await db.query('SELECT * FROM USUARIO');
+        const [rows] = await db.query(`
+        SELECT 
+            ID_USUARIO   AS id,
+            NOME_USUARIO AS nome,
+            EMAIL        AS email,
+            SENHA_USUARIO AS senha,
+            TIPO         AS tipo,
+            TEL_USUARIO  AS telefone,
+            CPF_USUARIO  AS cpf,
+            STATUS       AS status,
+            IMAGEM       AS imagem
+        FROM USUARIO
+    `);
         return rows;
     },
 
@@ -99,7 +111,6 @@ const UserModel = {
         );
     },
 
-    salvar() { }
 
 
 
