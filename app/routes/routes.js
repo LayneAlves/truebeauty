@@ -80,6 +80,7 @@ router.get('/banners', bannerController.listar);
 router.post('/banners/novo', imageUpload.single('imagem'), bannerController.cadastrarbanner, bannerController.listar, (req, res) => {
     res.render('banners');
 });
+router.post('/banners/status/:id', bannerController.toggleStatus);  // ← adiciona essa
 
 // Rotas de minha conta
 router.get('/conta', UserController.renderConta);

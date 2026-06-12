@@ -1,5 +1,6 @@
 const ProdutoModel = require('../models/produtoModel');
 const { processImage } = require('../middleware/imageUpload');
+const BannerModel = require('../models/bannerModel');
 
 
 const ProdutoController = {
@@ -171,6 +172,9 @@ const ProdutoController = {
             const produtos = await ProdutoModel.produtos();
             const categoriasJaVistas = {};
             const produtosPorCategoria = [];
+            const banners = await BannerModel.listar(); // ← busca todos
+            const bannersAtivos = banners.filter(b => b.status == 1); // ← filtra ativos
+
 
             for (let produto of produtos) {
                 if (!produto.categoria) continue; // ← volta para 'categoria' minúsculo
@@ -183,7 +187,7 @@ const ProdutoController = {
                 if (produtosPorCategoria.length === 6) break;
             }
 
-            res.render('index', { produtos: produtosPorCategoria });
+            res.render('index', { produtos: produtosPorCategoria, banners: bannersAtivos }); // ← passa banners
 
         } catch (error) {
             console.error('Erro ao obter produtos:', error);
