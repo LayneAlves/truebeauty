@@ -1188,7 +1188,7 @@ input {
   width: 100%;
   background: #fff;
   border-top: 1px solid #ddd;
-  z-index: 999;
+  z-index: 1001;
   justify-content: space-around;
   align-items: center;
   padding: 8px 0;
