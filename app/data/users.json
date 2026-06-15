@@ -54,6 +54,8 @@
     "nome": "Layne Alves da Silva",
     "email": "layne.silva1007@gmail.com",
     "senha": "$2b$10$o5QPr1ay92If/MdGHu1z1eMAHP7/vuJtVMOydzeOJ.pDAQs61R53u",
-    "tipo": "comum"
+    "tipo": "comum",
+    "resetToken": "d7ef5bb0c7ede2249eb7b572c395f55ee8e275ae816cb98305a43f8ecace3d50",
+    "resetTokenExpiracao": 1780967555056
   }
 ]

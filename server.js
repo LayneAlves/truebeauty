@@ -2,7 +2,7 @@ const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const app = express();
-// const email = require('./app/config/email');
+const email = require('./app/config/email');
 
 
 app.use((req, res, next) => {

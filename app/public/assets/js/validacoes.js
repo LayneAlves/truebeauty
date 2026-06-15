@@ -289,6 +289,7 @@ document.addEventListener("DOMContentLoaded", () => {
 document.addEventListener("DOMContentLoaded", () => {
     const formPerfil = document.getElementById('form-perfil');
     const loginErrorMsg = document.querySelector("#login-error-msg");
+    if (!formPerfil) return;
 
     // Elementos de controle do modal
     const btnEsqueceuSenha = formPerfil.querySelector('#btn-esqueceu-senha');
@@ -344,14 +345,15 @@ document.addEventListener("DOMContentLoaded", () => {
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(corpoRequisicao)
             });
-
+            
+            console.log("resposta: ", response)
             const data = await response.json();
 
             if (response.ok && data.sucesso) {
                 if (acaoFetch === "/login") {
                     localStorage.setItem('usuarioNome', data.nome);
                     window.location.href = data.redirectUrl;
-                } else if (acaoFetch === "/recuperar-senha") {
+                } else if (acaoFetch === "/recuperarSenha") {
                     if (loginErrorMsg) {
                         loginErrorMsg.style.color = 'green';
                         loginErrorMsg.textContent = data.mensagem || "E-mail enviado com sucesso!";
