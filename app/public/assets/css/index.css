@@ -437,6 +437,7 @@ button {
 
       h2 {
         bottom: 26px;
+        font-size: 16px;
         -webkit-text-stroke: 0.6px;
         -webkit-text-stroke-color: #2b2a2a;
       }
