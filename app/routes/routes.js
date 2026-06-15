@@ -12,7 +12,7 @@ const auth = require('../middleware/authMiddleware');
 const indexController = require('../controllers/indexController');
 const vertudoController = require('../controllers/vertudoController');
 const for_admController = require('../controllers/for_edmController');
-const CheckoutController = require('../controllers/checkoutController');
+// const CheckoutController = require('../controllers/checkoutController');
 
 
 // ROUTER
@@ -80,9 +80,10 @@ router.get('/banners', bannerController.listar);
 router.post('/banners/novo', imageUpload.single('imagem'), bannerController.cadastrarbanner, bannerController.listar, (req, res) => {
     res.render('banners');
 });
+router.post('/banners/status/:id', bannerController.toggleStatus); 
 
 // Rotas de minha conta
-router.get('/conta', UserController.renderConta);
+router.get('/conta', auth.verificarLogado, UserController.renderConta);
 router.post('/conta/atualizar', UserController.atualizarConta);
 
 // Rotas endereco

@@ -31,14 +31,21 @@
                 <span>
                   <%= banner.titulo %>
                 </span>
-                <span>
+                <span class="status-texto" id="status-texto-<%= banner.id %>">
                   <%= banner.status ? 'Ativo' : 'Inativo' %>
                 </span>
 
                 <span class="acoes">
+                  <!-- Switch Ativar/Desativar -->
+                  <label class="switch" title="Ativar/Desativar">
+                    <input type="checkbox" class="toggle-status" data-id="<%= banner.id %>"
+                      <%= banner.status ? 'checked' : '' %>>
+                    <span class="slider"></span>
+                  </label>
+
                   <!-- Botão Editar -->
                   <button type="button" class="btn-editar-icone" onclick="abrirModal(this)" data-id="<%= banner.id %>"
-                    data-nome="<%= banner.nome %>" title="Editar">
+                    data-titulo="<%= banner.titulo %>" title="Editar">
                     <i class="fa-solid fa-pencil" style="color: #8B0000"></i>
                   </button>
 
@@ -135,6 +142,27 @@
             document.getElementById('selectAll')?.addEventListener('change', function () {
               document.querySelectorAll('.select-banners').forEach(cb => {
                 cb.checked = this.checked;
+              });
+            });
+
+            // Toggle status (switch)
+            document.querySelectorAll('.toggle-status').forEach(toggle => {
+              toggle.addEventListener('change', async function () {
+                const id = this.dataset.id;
+                const status = this.checked ? 1 : 0;
+                const textoEl = document.getElementById('status-texto-' + id);
+                try {
+                  const res = await fetch(`/banners/status/${id}`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ status })
+                  });
+                  if (!res.ok) throw new Error();
+                  if (textoEl) textoEl.textContent = status ? 'Ativo' : 'Inativo';
+                } catch {
+                  alert('Erro ao alterar status do banner');
+                  this.checked = !this.checked; // reverte
+                }
               });
             });
           });

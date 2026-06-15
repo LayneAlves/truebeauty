@@ -90,7 +90,7 @@ h3 {
     margin: auto;
     position: relative;
     border-radius: var(--radius-lg);
-    margin-top: 18%;
+    margin-top: 20%;
   }
 }
 
@@ -436,7 +436,7 @@ button {
       margin: 30px 0;
 
       h2 {
-        bottom: 20px;
+        bottom: 26px;
         -webkit-text-stroke: 0.6px;
         -webkit-text-stroke-color: #2b2a2a;
       }

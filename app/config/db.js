@@ -1,23 +1,13 @@
-// models/pedidoModel.js
-// const db = require('../config/db');
+const mysql = require('mysql2/promise');
 
-module.exports = {
-    async listarPedidos() {
-        const [rows] = await db.query('SELECT * FROM PEDIDO ORDER BY DATA_HORA DESC');
-        return rows;
-    },
+const pool = mysql.createPool({
+    host: '216.172.172.19',
+    port: 3306,
+    user: 'danil458_truebeauty',
+    password: '@ITBtruebeauty',
+    database: 'danil458_truebeautyBD',
+    waitForConnections: true,
+    connectionLimit: 10
+});
 
-    async cadastrar(novoPedido) {
-        const { cliente_nome, total, status, usuario_id } = novoPedido;
-        const [result] = await db.query(
-            `INSERT INTO PEDIDO (VALOR_TOTAL, STATUS_PEDIDO, DATA_HORA, ID_USUARIO)
-             VALUES (?, ?, NOW(), ?)`,
-            [total, status, usuario_id || null]
-        );
-        return result.insertId;
-    },
-
-    async salvar(pedidos) {
-        // Não é necessário com MySQL — cada operação é feita diretamente
-    }
-};
+module.exports = pool;

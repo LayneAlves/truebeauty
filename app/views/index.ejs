@@ -13,7 +13,11 @@
       <main>
         <!-- BANNER PRINCIPAL -->
         <section class="main-banner">
-          <img src="assets/imagem/banners/dia-das-maes.webp" alt="Banner Dia das Mães">
+          <% if (banners && banners.length> 0) { %>
+            <img src="<%= banners[0].imagem %>" alt="<%= banners[0].titulo %>">
+            <% } else { %>
+              <img src="assets/imagem/banners/mes_de_junho.jpg" alt="Banner padrão">
+              <% } %>
         </section>
 
         <!-- CARROSSEL DE CATEGORIAS -->
@@ -115,7 +119,8 @@
               <div class="maisvendidos">
                 <h3>Clinique iD</h3>
                 <p class="preco">R$ 20,90</p>
-                <button onclick="adicionarCarrinho('clinique-id', 'Clinique iD', 'R$ 20,90', 'assets/imagem/imagens_skin_care/clinique_id.jpg')">Comprar</button>
+                <button
+                  onclick="adicionarCarrinho('clinique-id', 'Clinique iD', 'R$ 20,90', 'assets/imagem/imagens_skin_care/clinique_id.jpg')">Comprar</button>
               </div>
             </div>
 
@@ -126,7 +131,8 @@
               <div class="maisvendidos">
                 <h3>Salon Line</h3>
                 <p class="preco">R$ 30,90</p>
-                <button onclick="adicionarCarrinho('salon-line', 'Salon Line', 'R$ 30,90', 'assets/imagem/imagens_Cabelos/salonLine_coco.jpg')">Comprar</button>
+                <button
+                  onclick="adicionarCarrinho('salon-line', 'Salon Line', 'R$ 30,90', 'assets/imagem/imagens_Cabelos/salonLine_coco.jpg')">Comprar</button>
               </div>
             </div>
 
@@ -137,7 +143,8 @@
               <div class="maisvendidos">
                 <h3>Malbec</h3>
                 <p class="preco">R$ 125,00</p>
-                <button onclick="adicionarCarrinho('malbec', 'Malbec', 'R$ 125,00', 'assets/imagem/imagem_perfume_masculino/malbecMarrom.webp')">Comprar</button>
+                <button
+                  onclick="adicionarCarrinho('malbec', 'Malbec', 'R$ 125,00', 'assets/imagem/imagem_perfume_masculino/malbecMarrom.webp')">Comprar</button>
               </div>
             </div>
 
@@ -148,7 +155,8 @@
               <div class="maisvendidos">
                 <h3>Dior</h3>
                 <p class="preco">R$ 150,90</p>
-                <button onclick="adicionarCarrinho('dior', 'Dior', 'R$ 150,90', 'assets/imagem/imagem_maquiagem/baseDior.jpg')">Comprar</button>
+                <button
+                  onclick="adicionarCarrinho('dior', 'Dior', 'R$ 150,90', 'assets/imagem/imagem_maquiagem/baseDior.jpg')">Comprar</button>
               </div>
             </div>
 
@@ -158,7 +166,8 @@
               <div class="maisvendidos">
                 <h3>Eudora</h3>
                 <p class="preco">R$ 140,00</p>
-                <button onclick="adicionarCarrinho('eudora', 'Eudora', 'R$ 140,00', 'assets/imagem/imagens_Cabelos/kitEudoraRoxo.webp')">Comprar</button>
+                <button
+                  onclick="adicionarCarrinho('eudora', 'Eudora', 'R$ 140,00', 'assets/imagem/imagens_Cabelos/kitEudoraRoxo.webp')">Comprar</button>
               </div>
             </div>
 
