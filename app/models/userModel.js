@@ -1,18 +1,7 @@
 const db = require('../config/db');
-// const fs = require('fs');
-// const path = require('path');
-// const filePath = path.join(__dirname, '../data/users.json');
+
 
 const UserModel = {
-    // salvar(dados) {ca
-    //     fs.writeFileSync(filePath, JSON.stringify(dados, null, 2), 'utf8');
-    // },
-
-    // users() {
-    //     const data = fs.readFileSync(filePath, 'utf8');
-    //     const users = JSON.parse(data);
-    //     return users;
-    // },
 
     async users() {
         const [rows] = await db.query(`
@@ -31,32 +20,25 @@ const UserModel = {
         return rows;
     },
 
-    // cadastrar(newUser) {
-    //     const users = this.users();
-
-    //     const usuarioComTipo = {
-    //         ...newUser,
-    //         tipo: newUser.tipo || "comum"
-    //     };
-
-    //     users.push(usuarioComTipo);
-    //     fs.writeFileSync(filePath, JSON.stringify(users, null, 2), 'utf8');
-    // },
-
     async cadastrar(newUser) {
-        const { nome, email, senha, tipo } = newUser;
+        const { nome, email, senha, tipo, genero } = newUser;
+
+        let imagem;
+        if (genero === 'feminino') {
+            imagem = 'assets/imagem/icons/avatar.avif';
+        } else if (genero === 'masculino') {
+            imagem = 'assets/imagem/icons/avatarHomen.png';
+        } else {
+            imagem = 'assets/imagem/icons/avatarneutro.webp'; // padrão
+        }
+
         const [result] = await db.query(
-            `INSERT INTO USUARIO (NOME_USUARIO, EMAIL, SENHA_USUARIO, TIPO)
-             VALUES (?, ?, ?, ?)`,
-            [nome, email, senha, tipo || 'comum']
+            `INSERT INTO USUARIO (NOME_USUARIO, EMAIL, SENHA_USUARIO, TIPO, GENERO_USUARIO, IMAGEM)
+             VALUES (?, ?, ?, ?, ?, ?)`,
+            [nome, email, senha, tipo || 'comum', genero || null, imagem    ]
         );
         return result.insertId;
     },
-    // pesquisar(email) {
-    //     const users = this.users();
-    //     return users.find(user => user.email.toLowerCase() === email.toLowerCase().trim());
-
-    // },
 
     async pesquisar(email) {
         const [rows] = await db.query(
@@ -65,23 +47,19 @@ const UserModel = {
         );
         return rows[0] || null;
     },
-    // atualizar(id, dadosAtualizados) {
-    //     const users = this.users();
-    //     const index = users.findIndex(user => user.id === id);
-    //     if (index === -1) return null;
-
-    //     users[index] = { ...users[index], ...dadosAtualizados };
-    //     this.salvar(users);
-    //     return users[index];
-    // },
-    // pesquisarPorId(id) {
-    //     const users = this.users();
-    //     return users.find(user => user.id === id) || null;
-    // },
 
     async pesquisarPorId(id) {
         const [rows] = await db.query(
-            'SELECT * FROM USUARIO WHERE ID_USUARIO = ?', [id]
+            `SELECT 
+            ID_USUARIO      AS id,
+            NOME_USUARIO    AS nome,
+            EMAIL           AS email,
+            TIPO            AS tipo,
+            TEL_USUARIO     AS telefone,
+            CPF_USUARIO     AS cpf,
+            STATUS          AS status,
+            IMAGEM          AS imagem
+        FROM USUARIO WHERE ID_USUARIO = ?`, [id]
         );
         return rows[0] || null;
     },

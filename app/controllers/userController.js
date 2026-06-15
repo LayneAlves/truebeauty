@@ -7,19 +7,6 @@ const transporter = require('../config/email');
 
 
 const UserController = {
-
-    // async users(req, res) {
-    //     try {
-    //         const clientes = await UserModel.users();
-    //         res.render('clientes', {
-    //             clientes
-    //         });
-
-    //     } catch (error) {
-    //         console.log('Erro' + error)
-    //     }
-    // },
-
     async users(req, res) {
         try {
             const clientes = await UserModel.users();
@@ -29,55 +16,10 @@ const UserController = {
         }
     },
 
-    // async cadastrar(req, res) {
-    //     try {
-    //         const { nome, email, senha } = req.body;
-    //         if (!nome >= 10 && !nome.includes(" ")) return console.log("Nome inválido");
-
-    //         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    //         if (!email || !emailRegex.test(email)) return console.log("Email Inválido")
-
-    //         const caseOk = /[A-Z]/.test(senha) && /[a-z]/.test(senha)
-    //         const numberOk = /\d/.test(senha)
-    //         const specialOk = /[~!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?]/.test(senha)
-    //         if (!senha >= 8 && !caseOk && !numberOk && !specialOk) return console.log("Senha Inválida")
-
-    //         const senhaHash = await bcrypt.hash(senha, 10);
-
-    //         const newUser = {
-    //             id: UserModel.users().reduce((maxId, user) => Math.max(maxId, user.id), 0) + 1,
-    //             nome,
-    //             email,
-    //             senha: senhaHash,
-    //             tipo: "comum"
-    //         }
-    //         await UserModel.cadastrar(newUser);
-    //         // Autentica o usuário automaticamente após o cadastro
-    //         const token = jwt.sign(
-    //             { id: newUser.id, nome: newUser.nome, tipo: newUser.tipo },
-    //             SECRET,
-    //             { expiresIn: '1d' }
-    //         );
-
-    //         res.cookie('token', token, { httpOnly: true, maxAge: 86400000 });
-
-    //         // Envia os dados de sucesso para o frontend tratar o redirecionamento
-    //         return res.json({
-    //             sucesso: true,
-    //             mensagem: "Cadastro realizado com sucesso! Bem-vindo(a)!",
-    //             nome: newUser.nome,
-    //             redirectUrl: '/'
-    //         });
-    //     } catch (error) {
-    //         console.error('Erro ao cadastrar usuário:', error);
-    //         res.status(500).send('Erro ao cadastrar usuário');
-    //     }
-
-    // },
-
     async cadastrar(req, res) {
         try {
-            const { nome, email, senha } = req.body;
+            const { nome, email, senha, genero } = req.body;  // ← adiciona genero
+
             if (!nome >= 10 && !nome.includes(" ")) return console.log("Nome inválido");
 
             const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -94,10 +36,10 @@ const UserController = {
                 nome,
                 email,
                 senha: senhaHash,
-                tipo: "comum"
+                tipo: "comum",
+                genero  // ← passa o gênero para o model
             };
 
-            // ← id agora é gerado pelo banco automaticamente
             const novoId = await UserModel.cadastrar(newUser);
 
             const token = jwt.sign(
@@ -116,15 +58,9 @@ const UserController = {
             });
         } catch (error) {
             console.error('Erro ao cadastrar usuário:', error);
-            res.status(500).send('Erro ao cadastrar usuário');
+            res.status(500).json({ sucesso: false, mensagem: 'Erro ao cadastrar usuário' });
         }
     },
-    // renderCadastro(req, res) {
-    //     res.render('cadastro', {
-    //         titulo: 'Cadastro de Usuário',
-    //         baseUrl: req.app.locals.baseUrl
-    //     });
-    // },
 
     renderCadastro(req, res) {
         res.render('cadastro', {
@@ -132,49 +68,6 @@ const UserController = {
             baseUrl: req.app.locals.baseUrl
         });
     },
-
-    // async login(req, res) {
-    //     try {
-    //         const { email, senha } = req.body;
-    //         const user = await UserModel.pesquisar(email);
-
-    //         if (!user) {
-    //             return res.status(401).json('Email não encontrado');
-    //         }
-
-    //         const senhaValida = await bcrypt.compare(senha, user.senha);
-    //         if (!senhaValida) {
-    //             return res.status(401).json('Senha incorreta');
-    //         }
-
-
-    //         const token = jwt.sign(
-    //             { id: user.id, nome: user.nome, tipo: user.tipo },
-    //             SECRET,
-    //             { expiresIn: '1d' } // Expira em 1 dia
-    //         );
-
-    //         res.cookie('token', token, { httpOnly: true, maxAge: 86400000 });
-
-
-    //         let urlDestino = '/';
-    //         if (user.tipo === 'admin') {
-    //             urlDestino = '/for_adm';
-    //         }
-
-    //         return res.json({
-    //             sucesso: true,
-    //             nome: user.nome,
-    //             tipo: user.tipo,
-    //             redirectUrl: urlDestino
-    //         });
-
-
-    //     } catch (error) {
-    //         console.error('Erro ao fazer login:', error);
-    //         res.status(500).send('Erro ao fazer login');
-    //     }
-    // },
 
     async login(req, res) {
         try {
@@ -217,28 +110,6 @@ const UserController = {
         }
     },
 
-    // renderConta(req, res) {
-    //     try {
-    //         const token = req.cookies?.token;
-    //         if (!token) return res.redirect('/login');
-
-    //         const decoded = jwt.verify(token, SECRET);
-    //         const user = UserModel.pesquisarPorId(decoded.id);
-    //         if (!user) return res.redirect('/login');
-
-    //         res.render('conta', {
-    //             titulo: 'Minha Conta',
-    //             baseUrl: req.app.locals.baseUrl,
-    //             usuario: user,
-    //             user: user
-
-    //         });
-    //     } catch (error) {
-    //         console.error('Erro ao renderizar conta:', erro);
-    //         res.redirect('/login');
-    //     }
-    // },
-
     async renderConta(req, res) {
         try {
             const token = req.cookies?.token;
@@ -259,34 +130,6 @@ const UserController = {
             res.redirect('/login');
         }
     },
-
-    // async atualizarConta(req, res) {
-    //     try {
-    //         const token = req.cookies?.token;
-    //         if (!token) return res.status(401).json({ sucesso: false, mensagem: 'Não autenticado' });
-    //         const decoded = jwt.verify(token, SECRET);
-
-    //         const { nome, sobrenome, cpf, genero, dataNascimento, telefone, newsletter } = req.body;
-
-    //         const dadosAtualizados = {
-    //             nome,
-    //             sobrenome: sobrenome || '',
-    //             cpf: cpf || '',
-    //             genero: genero || '',
-    //             dataNascimento: dataNascimento || '',
-    //             telefone: telefone || '',
-    //             // newsletter: newsletter === 'true' || newsletter === true
-    //         };
-
-    //         const userAtualizado = UserModel.atualizar(decoded.id, dadosAtualizados);
-    //         if (!userAtualizado) return res.status(404).json({ sucesso: false, mensagem: 'Usuário não encontrado' });
-
-    //         return res.json({ sucesso: true, mensagem: 'Dados atualizados com sucesso!' });
-    //     } catch (err) {
-    //         console.error('Erro ao atualizar conta:', err);
-    //         res.status(500).json({ sucesso: false, mensagem: 'Erro interno' });
-    //     }
-    // },
 
     async atualizarConta(req, res) {
         try {
@@ -315,28 +158,6 @@ const UserController = {
         }
     },
 
-
-    // renderEndereco(req, res) {
-    //     try {
-    //         const token = req.cookies?.token;
-    //         if (!token) return res.redirect('/login');
-
-    //         const decoded = jwt.verify(token, SECRET);
-    //         const user = UserModel.pesquisarPorId(decoded.id);
-    //         if (!user) return res.redirect('/login');
-
-    //         res.render('endereco', {
-    //             titulo: 'Meus Endereços',
-    //             baseUrl: req.app.locals.baseUrl,
-    //             usuario: user,
-    //             user: user
-    //         });
-    //     } catch (error) {
-    //         console.error('Erro ao renderizar endereço:', error);
-    //         res.redirect('/login');
-    //     }
-    // },
-
     async renderEndereco(req, res) {
         try {
             const token = req.cookies?.token;
@@ -357,25 +178,6 @@ const UserController = {
             res.redirect('/login');
         }
     },
-
-    // async atualizarEndereco(req, res) {
-    //     try {
-    //         const token = req.cookies?.token;
-    //         if (!token) return res.status(401).json({ sucesso: false, mensagem: 'Não autenticado' });
-
-    //         const decoded = jwt.verify(token, 'ChaveSecreta');
-    //         const { telefone, ...endereco } = req.body;
-
-    //         const userAtualizado = UserModel.atualizar(decoded.id, { telefone, endereco });
-
-    //         if (!userAtualizado) return res.status(404).json({ sucesso: false, mensagem: 'Usuário não encontrado' });
-    //         return res.json({ sucesso: true, mensagem: 'Endereço atualizado com sucesso!' });
-
-    //     } catch (err) {
-    //         console.error('Erro ao atualizar endereço:', err);
-    //         res.status(500).json({ sucesso: false, mensagem: 'Erro interno no servidor.' });
-    //     }
-    // }
 
     async atualizarEndereco(req, res) {
         try {
@@ -398,7 +200,7 @@ const UserController = {
     async solicitarRecuperacao(req, res) {
         try {
             const { email } = req.body;
- 
+
             const user = UserModel.pesquisar(email);
             if (!user) {
                 return res.status(404).json({
@@ -406,18 +208,18 @@ const UserController = {
                     mensagem: 'Não encontramos uma conta com este e-mail.'
                 });
             }
- 
+
             // Gera token
             const token = crypto.randomBytes(32).toString('hex');
- 
+
             // Expira em 1 hora
             const expiracao = Date.now() + 60 * 60 * 1000;
- 
+
             UserModel.salvarTokenRecuperacao(email, token, expiracao);
- 
+
             const baseUrl = req.app.locals.baseUrl || `${req.protocol}://${req.get('host')}`;
             const link = `${baseUrl}/redefinir-senha/${token}`;
- 
+
             const htmlEmail = `
                 <!DOCTYPE html>
                 <html lang="pt-BR">
@@ -507,14 +309,14 @@ const UserController = {
                 </table>
                 </body>
                 </html>`;
-    
+
             await transporter.sendMail({
                 from: 'True Beauty <sactruebeauty@gmail.com>',
                 to: user.email,
                 subject: 'Redefinição de Senha – True Beauty',
                 html: htmlEmail
             });
- 
+
             return res.json({
                 sucesso: true,
                 mensagem: 'E-mail enviado! Verifique sua caixa de entrada.'
@@ -524,20 +326,20 @@ const UserController = {
             res.status(500).json({ sucesso: false, mensagem: 'Erro ao enviar e-mail. Tente novamente.' });
         }
     },
- 
+
     /*Valida o token e renderiza a página de redefinição.*/
     renderRedefinirSenha(req, res) {
         try {
             const { token } = req.params;
             const user = UserModel.pesquisarPorToken(token);
- 
+
             if (!user || !user.resetTokenExpiracao || Date.now() > user.resetTokenExpiracao) {
                 return res.render('token-invalido', {
                     titulo: 'Link inválido ou expirado',
                     baseUrl: req.app.locals.baseUrl
                 });
             }
- 
+
             res.render('redefinir-senha', {
                 titulo: 'Redefinir Senha',
                 baseUrl: req.app.locals.baseUrl,
@@ -548,38 +350,38 @@ const UserController = {
             res.redirect('/');
         }
     },
- 
+
     /* Recebe nova senha + token, valida, atualiza e limpa o token.*/
     async redefinirSenha(req, res) {
         try {
             const { token, novaSenha } = req.body;
- 
+
             const user = UserModel.pesquisarPorToken(token);
- 
+
             if (!user || !user.resetTokenExpiracao || Date.now() > user.resetTokenExpiracao) {
                 return res.status(400).json({
                     sucesso: false,
                     mensagem: 'Token inválido ou expirado. Solicite uma nova redefinição.'
                 });
             }
- 
+
             // Valida a força da nova senha
             const caseOk = /[A-Z]/.test(novaSenha) && /[a-z]/.test(novaSenha);
             const numberOk = /\d/.test(novaSenha);
             const specialOk = /[~!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?]/.test(novaSenha);
- 
+
             if (novaSenha.length < 8 || !caseOk || !numberOk || !specialOk) {
                 return res.status(400).json({
                     sucesso: false,
                     mensagem: 'A senha deve ter ao menos 8 caracteres, letras maiúsculas e minúsculas, número e símbolo.'
                 });
             }
- 
+
             const senhaHash = await bcrypt.hash(novaSenha, 10);
- 
+
             // Atualiza senha e limpa o token
             UserModel.redefinirSenha(token, senhaHash);
- 
+
             return res.json({
                 sucesso: true,
                 mensagem: 'Senha redefinida com sucesso! Você já pode fazer login.'
