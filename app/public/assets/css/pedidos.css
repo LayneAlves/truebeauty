@@ -57,25 +57,26 @@ body {
                     align-items: center;
                     border-bottom: 1px solid rgba(128, 128, 128, 0.479);
                     padding: 12px 20px;
+                    text-align: center;
 
-                        .status {
-                            font-weight: bold;
-                            padding: 4px 8px;
-                            text-transform: capitalize;
+                    .status {
+                        font-weight: bold;
+                        padding: 4px 8px;
+                        text-transform: capitalize;
 
-                            &.status-pendente {
-                                color: #f1b400;
-                            }
-
-                            &.status-recusado {
-                                color: #e53935;
-                            }
-
-                            &.status-entregue {
-                                color: #2e7d32;
-                            }
+                        &.status-pendente {
+                            color: #f1b400;
                         }
-                    
+
+                        &.status-recusado {
+                            color: #e53935;
+                        }
+
+                        &.status-entregue {
+                            color: #2e7d32;
+                        }
+                    }
+
                 }
 
             }

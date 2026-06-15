@@ -22,7 +22,7 @@ body {
             align-items: center;
             padding: 0 20px;
             width: 100%;
-            
+
 
             h1 {
                 font-family: 'Poppins', sans-serif;
@@ -48,7 +48,7 @@ body {
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
             margin-top: -70px;
             width: 1000px;
-            
+
             background-color: #ffffff;
             margin-top: -10px;
 
@@ -60,6 +60,7 @@ body {
                 grid-template-columns: var(--grid-column);
                 align-items: center;
                 padding: 12px 20px;
+                text-align: center;
             }
 
 
@@ -70,14 +71,16 @@ body {
                     grid-template-rows: 48px;
                     align-items: center;
                     border-bottom: 1px solid rgba(128, 128, 128, 0.479);
-                    padding: 12px 20px;
-                
+                    padding: 24px 20px;
+                    text-align: center;
+
                     .imagem {
                         position: relative;
                         width: 40px;
                         height: 40px;
                         overflow: hidden;
-                        
+                        text-align: left;
+
                         .img-produto {
                             position: relative;
                             width: 100%;
@@ -382,7 +385,7 @@ body {
     font-weight: 700;
     color: #8B0000;
     margin-bottom: 0.5rem;
-    
+
 }
 
 .cp-subtitle {
