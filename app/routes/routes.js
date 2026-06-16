@@ -72,6 +72,15 @@ router.post('/produtos/novo', imageUpload.single('imagem'), ProdutoController.ca
 // rota de excluir produto
 router.post('/produtos/excluir/:id', ProdutoController.excluirProduto);
 
+// rota de excluir banner 
+router.post('/banners/excluir/:id', bannerController.excluir);
+
+// rota de excluir pedido
+router.post('/pedidos/excluir/:id', PedidoController.excluirPedido);
+
+// rota de excluir cliente
+router.post('/clientes/excluir/:id', UserController.excluirCliente);
+
 //Rotas de salvar produto editado
 router.post('/produtos/editar/:id', imageUpload.single('imagem'), ProdutoController.editarProduto);
 

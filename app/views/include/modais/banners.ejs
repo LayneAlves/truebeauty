@@ -3,44 +3,64 @@
 
     <div class="modal-header">
       <span class="ep-modal-close-icon" onclick="fecharModal()">×</span>
-      <img src="assets/imagem/icons/icone_editar_produto.png" alt="">
-      <!-- <div> -->
-      <h2 class="title">Editar Produto</h2>
-      <!-- </div> -->
+      <h2 class="title">NOVO BANNER</h2>
     </div>
 
     <div class="content">
       <form id="formNovoBanner" class="tb-form" method="POST" enctype="multipart/form-data">
-        
-        <!-- LADO ESQUERDO (FORM) -->
+
+        <!-- LADO ESQUERDO -->
         <section>
           <div class="tb-field">
-            <label class="tb-label">Titulo</label>
-            <input type="text" id="editNome" name="titulo
-            " class="tb-input" required>
+            <label class="tb-label">Título *</label>
+            <input type="text" id="editNome" name="titulo" class="tb-input" placeholder="Título do banner" required>
+          </div>
+
+          <div class="tb-field">
+            <label class="tb-label">Categoria *</label>
+            <input type="text" id="editCategoria" name="categoria" class="tb-input" placeholder="Ex: Hero" required>
+          </div>
+
+          <div class="tb-field">
+            <label class="tb-label">Alt *</label>
+            <input type="text" id="editAlt" name="alt" class="tb-input" placeholder="Texto alternativo da imagem" required>
+          </div>
+
+          <div class="tb-field">
+            <label class="tb-label">Link</label>
+            <input type="text" id="editLink" name="link" class="tb-input" placeholder="Link no banner">
+          </div>
+
+          <div class="tb-row">
+            <div class="tb-field">
+              <label class="tb-label">Data início *</label>
+              <input type="date" id="editDataInicio" name="data_inicio" class="tb-input" required>
+            </div>
+            <div class="tb-field">
+              <label class="tb-label">Data fim</label>
+              <input type="date" id="editDataFim" name="data_fim" class="tb-input">
+            </div>
           </div>
         </section>
 
         <!-- LADO DIREITO (IMAGEM) -->
-        <div class="tb-image-side">
-          <label for="editImagem" class="tb-image-upload">
+        <section>
+          <label for="editImagemInput" class="tb-image-upload">
             <div class="tb-image-box">
               <img id="editImagemPreview" class="tb-image-preview" src="">
-
               <div class="tb-image-placeholder">
                 <span class="tb-image-icon">🖼️</span>
-                <p>Adicionar imagem</p>
+                <p>Clique para enviar</p>
               </div>
             </div>
           </label>
-
-          <input type="file" id="editImagem" name="imagem" hidden>
-        </div>
+          <input type="file" id="editImagemInput" name="imagem" accept="image/*" hidden>
+        </section>
 
         <!-- BOTÕES -->
         <div class="ep-modal-actions">
-          <button type="button" class="tb-button-secondary" onclick="fecharModal()">Cancelar</button>
-          <button type="submit" class="tb-button-primary">Salvar</button>
+          <button type="button" id="btnCancelar" class="tb-button-secondary">Cancelar</button>
+          <button type="submit" class="tb-button-primary">Cadastrar</button>
         </div>
 
       </form>
@@ -48,4 +68,3 @@
 
   </section>
 </div>
-

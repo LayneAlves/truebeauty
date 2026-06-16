@@ -29,18 +29,28 @@ const bannerController = {
             return res.status(500).json({ message: 'Erro ao cadastrar banner' });
         }
     },
-    
-    async toggleStatus(req, res) {
-            try {
-                const { id } = req.params;
-                const { status } = req.body; 
-                await BannerModel.toggleStatus(id, status);
-                res.json({ success: true });
-            } catch (error) {
-                console.error('Erro ao alterar status do banner:', error);
-                res.status(500).json({ message: 'Erro ao alterar status' });
-            }
+    async excluir(req, res) {
+        try {
+            const { id } = req.params;
+            await BannerModel.excluir(id);
+            res.redirect('/banners');
+        } catch (error) {
+            console.error('Erro ao excluir banner:', error);
+            res.status(500).json({ message: 'Erro ao excluir banner' });
         }
+    },
+
+    async toggleStatus(req, res) {
+        try {
+            const { id } = req.params;
+            const { status } = req.body;
+            await BannerModel.toggleStatus(id, status);
+            res.json({ success: true });
+        } catch (error) {
+            console.error('Erro ao alterar status do banner:', error);
+            res.status(500).json({ message: 'Erro ao alterar status' });
+        }
+    }
 
 };
 
