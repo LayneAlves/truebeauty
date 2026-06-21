@@ -86,10 +86,18 @@ router.post('/produtos/editar/:id', imageUpload.single('imagem'), ProdutoControl
 
 //Rotas Cadastrar banner
 router.get('/banners', bannerController.listar);
-router.post('/banners/novo', imageUpload.single('imagem'), bannerController.cadastrarbanner, bannerController.listar, (req, res) => {
-    res.render('banners');
-});
-router.post('/banners/status/:id', bannerController.toggleStatus); 
+
+router.post('/banners/novo',
+    imageUpload.fields([
+        { name: 'imagemDesktop', maxCount: 1 },
+        { name: 'imagemTablet', maxCount: 1 },
+        { name: 'imagemMobile', maxCount: 1 }
+    ]),
+    bannerController.cadastrarbanner,
+    bannerController.listar
+);
+
+router.post('/banners/status/:id', bannerController.toggleStatus);
 
 // Rotas de minha conta
 router.get('/conta', auth.verificarLogado, UserController.renderConta);
@@ -112,15 +120,15 @@ module.exports = router;
 
 // PERFIL
 router.get('/perfil', (req, res) => {
-  res.render('perfil');
+    res.render('perfil');
 });
 
 // CARRINHO
 router.get('/carrinho', (req, res) => {
-  res.render('carrinho');
+    res.render('carrinho');
 });
 
 // BUSCA
 router.get('/busca', (req, res) => {
-  res.render('busca');
+    res.render('busca');
 });

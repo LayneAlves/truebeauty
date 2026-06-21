@@ -1,4 +1,4 @@
-const BannerModel = require('../models/bannerModel'); // Certifique-se de criar este Model
+const BannerModel = require('../models/bannerModel'); 
 const { processImage } = require('../middleware/imageUpload');
 
 const bannerController = {
@@ -13,15 +13,38 @@ const bannerController = {
         }
     },
 
-
     async cadastrarbanner(req, res, next) {
         try {
-            const { titulo } = req.body;
-            let imagem = await processImage(req.file, "banners");
+            const { titulo, categoria, alt, link, data_inicio, data_fim } = req.body;
+
+            const fileDesktop = req.files?.imagemDesktop?.[0];
+            const fileTablet  = req.files?.imagemTablet?.[0];
+            const fileMobile  = req.files?.imagemMobile?.[0];
+
+            if (!fileDesktop) {
+                return res.status(400).json({ message: 'Imagem desktop é obrigatória' });
+            }
+
+            let imagem = await processImage(fileDesktop, "banners");
             imagem = "/assets/imagem/banners/" + imagem;
 
-            // ← id removido, banco gera automaticamente
-            const newBanner = { titulo, imagem };
+            let imagem_tablet = null;
+            if (fileTablet) {
+                imagem_tablet = await processImage(fileTablet, "banners");
+                imagem_tablet = "/assets/imagem/banners/" + imagem_tablet;
+            }
+
+            let imagem_mobile = null;
+            if (fileMobile) {
+                imagem_mobile = await processImage(fileMobile, "banners");
+                imagem_mobile = "/assets/imagem/banners/" + imagem_mobile;
+            }
+
+            const newBanner = { 
+                titulo, imagem, imagem_tablet, imagem_mobile,
+                categoria, alt, link, data_inicio, data_fim 
+            };
+
             await BannerModel.cadastrarbanner(newBanner);
             next();
         } catch (error) {
@@ -29,6 +52,7 @@ const bannerController = {
             return res.status(500).json({ message: 'Erro ao cadastrar banner' });
         }
     },
+
     async excluir(req, res) {
         try {
             const { id } = req.params;

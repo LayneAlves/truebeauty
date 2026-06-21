@@ -26,7 +26,12 @@
                   <%= banner.id %>
                 </span>
                 <span class="imagem">
-                  <img src="<%= banner.imagem %>" class="img-produto">
+                  <picture>
+                    <source srcset="<%= banner.imagem_mobile || banner.imagem %>" media="(max-width: 480px)">
+                    <source srcset="<%= banner.imagem_tablet || banner.imagem %>" media="(max-width: 768px)">
+                    <img src="<%= banner.imagem %>" class="img-produto" alt="<%= banner.titulo %>">
+                  </picture>
+
                 </span>
                 <span>
                   <%= banner.titulo %>
@@ -67,55 +72,49 @@
         <script>
           function abrirModal(botao) {
             try {
-              // 2. Referências do Modal
               const form = document.getElementById('formNovoBanner');
 
-              // 5. Lógica da Imagem
-              const preview = document.getElementById('editImagemPreview');
-              const imageBox = preview.closest('.tb-image-box'); // Pega o container da imagem
+              // Lógica da Imagem — agora trata os 3 campos: Desktop, Tablet, Mobile
+              const camposImagem = [
+                { inputId: 'editImagemDesktopInput', previewId: 'editImagemDesktopPreview', boxId: 'boxDesktop' },
+                { inputId: 'editImagemTabletInput', previewId: 'editImagemTabletPreview', boxId: 'boxTablet' },
+                { inputId: 'editImagemMobileInput', previewId: 'editImagemMobilePreview', boxId: 'boxMobile' }
+              ];
 
+              camposImagem.forEach(({ inputId, previewId, boxId }) => {
+                const inputArquivo = document.getElementById(inputId);
+                const previewImagem = document.getElementById(previewId);
+                const imageBox = document.getElementById(boxId);
 
-              if (preview) {
-                const timestamp = new Date().getTime();
-                if (imageBox) {
-                  imageBox.classList.add('has-image');
+                if (!inputArquivo || !previewImagem || !imageBox) {
+                  console.error(`ERRO: elemento não encontrado — verifique se ${inputId}, ${previewId} e ${boxId} existem no modal.`);
+                  return;
                 }
 
-                preview.onerror = function () {
+                // Se a imagem de preview falhar ao carregar, usa uma imagem padrão
+                previewImagem.onerror = function () {
                   console.error("Falha ao carregar a imagem no caminho:", this.src);
-                  this.src = '/img/default.png'; // Caminho da sua imagem padrão
+                  this.src = '/assets/imagem/icons/placeholder.jpg';
                 };
-              } else {
-                console.error("ERRO: O elemento com ID 'editImagemPreview' não foi encontrado no DOM. Verifique o arquivo do modal.");
-              }
-              // Identifica o botão de escolher arquivo, a área de visualização e o quadro da imagem
-              const inputArquivo = document.getElementById('editImagemInput');
-              const previewImagem = document.getElementById('editImagemPreview');
 
-              if (inputArquivo) {
-                // Quando você seleciona uma nova foto, essa função começa a trabalhar
+                // Quando o usuário escolhe um arquivo nesse input específico
                 inputArquivo.addEventListener('change', function () {
-                  const arquivo = this.files[0]; // Pega o arquivo que você escolheu
+                  const arquivo = this.files[0];
 
                   if (arquivo) {
-                    const leitor = new FileReader(); // Cria um "leitor" para processar o arquivo
+                    const leitor = new FileReader();
 
-                    // O que acontece assim que o "leitor" termina de ler a foto:
                     leitor.onload = function (e) {
-                      // Coloca a foto escolhida no lugar da foto antiga no modal
                       previewImagem.src = e.target.result;
-
-                      // Ativa o visual do CSS para mostrar a foto e esconder o texto de fundo
                       imageBox.classList.add('has-image');
-                    }
+                    };
 
-                    // Manda o leitor ler a foto selecionada
                     leitor.readAsDataURL(arquivo);
                   }
                 });
-              }
+              });
 
-              // 6. Configura o formulário e abre o modal
+              // Configura o formulário e abre o modal
               if (form) form.action = `/banners/novo`;
               document.getElementById('modal-banners').style.display = 'flex';
 
@@ -124,7 +123,7 @@
             }
           }
 
-          // ❌ FUNÇÕES DE FECHAMENTO
+          // FUNÇÃO DE FECHAMENTO
           function fecharModal() {
             document.getElementById('modal-banners').style.display = 'none';
           }

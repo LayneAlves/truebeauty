@@ -43,19 +43,52 @@
           </div>
         </section>
 
-        <!-- LADO DIREITO (IMAGEM) -->
-        <section>
-          <label for="editImagemInput" class="tb-image-upload">
-            <div class="tb-image-box">
-              <img id="editImagemPreview" class="tb-image-preview" src="">
-              <div class="tb-image-placeholder">
-                <span class="tb-image-icon">🖼️</span>
-                <p>Clique para enviar</p>
-              </div>
-            </div>
-          </label>
-          <input type="file" id="editImagemInput" name="imagem" accept="image/*" hidden>
-        </section>
+        <!-- LADO DIREITO (IMAGENS) -->
+<section class="tb-images-section">
+
+  <div class="tb-field">
+    <label class="tb-label">Imagem Desktop *</label>
+    <label for="editImagemDesktopInput" class="tb-image-upload">
+      <div class="tb-image-box" id="boxDesktop">
+        <img id="editImagemDesktopPreview" class="tb-image-preview" alt="Preview da imagem desktop">
+        <div class="tb-image-placeholder">
+          <span class="tb-image-icon">🖼️</span>
+          <p>Clique para enviar</p>
+        </div>
+      </div>
+    </label>
+    <input type="file" id="editImagemDesktopInput" name="imagemDesktop" accept="image/*" hidden required>
+  </div>
+
+  <div class="tb-field">
+    <label class="tb-label">Imagem Tablet</label>
+    <label for="editImagemTabletInput" class="tb-image-upload">
+      <div class="tb-image-box" id="boxTablet">
+        <img id="editImagemTabletPreview" class="tb-image-preview" alt="Preview da imagem tablet">
+        <div class="tb-image-placeholder">
+          <span class="tb-image-icon">🖼️</span>
+          <p>Clique para enviar</p>
+        </div>
+      </div>
+    </label>
+    <input type="file" id="editImagemTabletInput" name="imagemTablet" accept="image/*" hidden>
+  </div>
+
+  <div class="tb-field">
+    <label class="tb-label">Imagem Mobile</label>
+    <label for="editImagemMobileInput" class="tb-image-upload">
+      <div class="tb-image-box" id="boxMobile">
+        <img id="editImagemMobilePreview" class="tb-image-preview" alt="Preview da imagem mobile">
+        <div class="tb-image-placeholder">
+          <span class="tb-image-icon">🖼️</span>
+          <p>Clique para enviar</p>
+        </div>
+      </div>
+    </label>
+    <input type="file" id="editImagemMobileInput" name="imagemMobile" accept="image/*" hidden>
+  </div>
+
+</section>
 
         <!-- BOTÕES -->
         <div class="ep-modal-actions">

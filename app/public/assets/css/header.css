@@ -950,7 +950,7 @@ input {
 @media (min-width: 481px) and (max-width: 990px) {
   .header nav {
     padding: 0 10px;
-    box-shadow: 0px 2px 5px -1px #8B0000;
+
 
     &>ul:nth-of-type(1) {
       max-width: 45%;

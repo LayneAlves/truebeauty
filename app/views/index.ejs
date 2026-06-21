@@ -13,11 +13,16 @@
       <main>
         <!-- BANNER PRINCIPAL -->
         <section class="main-banner">
-          <% if (banners && banners.length> 0) { %>
-            <img src="<%= banners[0].imagem %>" alt="<%= banners[0].titulo %>">
-            <% } else { %>
-              <img src="assets/imagem/banners/mes_de_junho.jpg" alt="Banner padrão">
-              <% } %>
+          <picture>
+            <% if (banners && banners.length> 0) { %>
+              <source media="(max-width: 480px)" srcset="<%= banners[0].imagem_mobile || banners[0].imagem %>">
+              <source media="(max-width: 991px)" srcset="<%= banners[0].imagem_tablet || banners[0].imagem %>">
+              <img src="<%= banners[0].imagem %>" alt="<%= banners[0].alt || banners[0].titulo %>">
+              <% } else { %>
+                <source media="(max-width: 480px)" srcset="/assets/imagem/banners/copaMobile.jpeg">
+                <img src="/assets/imagem/banners/copa.png" alt="Banner padrão">
+                <% } %>
+          </picture>
         </section>
 
         <!-- CARROSSEL DE CATEGORIAS -->

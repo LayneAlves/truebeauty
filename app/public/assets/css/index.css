@@ -5,29 +5,29 @@
    VARIÁVEIS GLOBAIS
  */
 :root {
-  --color-primary:       #8B0000;
+  --color-primary: #8B0000;
   --color-primary-hover: #A52A2A;
-  --color-primary-dark:  #4f0103;
-  --color-primary-deep:  #990000;
-  --color-white:         #fff;
-  --color-text:          #333;
-  --color-text-muted:    rgba(0, 0, 0, 0.675);
+  --color-primary-dark: #4f0103;
+  --color-primary-deep: #990000;
+  --color-white: #fff;
+  --color-text: #333;
+  --color-text-muted: rgba(0, 0, 0, 0.675);
   --color-overlay-light: rgba(0, 0, 0, 0.25);
-  --color-overlay-dark:  rgba(0, 0, 0, 0.40);
+  --color-overlay-dark: rgba(0, 0, 0, 0.40);
 
   --font-serif: 'Lora', serif;
 
-  --radius-sm:   8px;
-  --radius-md:   10px;
-  --radius-lg:   12px;
-  --radius-xl:   20px;
+  --radius-sm: 8px;
+  --radius-md: 10px;
+  --radius-lg: 12px;
+  --radius-xl: 20px;
   --radius-full: 50%;
 
-  --shadow-card:  0 4px 10px rgba(0, 0, 0, 0.15);
-  --shadow-soft:  0 4px 16px rgba(0, 0, 0, 0.08);
-  --shadow-nav:   0 -1px 10px var(--color-primary);
+  --shadow-card: 0 4px 10px rgba(0, 0, 0, 0.15);
+  --shadow-soft: 0 4px 16px rgba(0, 0, 0, 0.08);
+  --shadow-nav: 0 -1px 10px var(--color-primary);
   --shadow-arrow: 0 2px 8px rgba(0, 0, 0, 0.2);
-  --shadow-cart:  0 4px 10px rgba(0, 0, 0, 0.2);
+  --shadow-cart: 0 4px 10px rgba(0, 0, 0, 0.2);
 
   --transition: 0.3s ease;
 }
@@ -50,7 +50,9 @@ body {
   padding-bottom: 80px;
 }
 
-menu { font-size: 18px; }
+menu {
+  font-size: 18px;
+}
 
 main {
   width: 100%;
@@ -87,10 +89,17 @@ h3 {
 .main-banner {
   img {
     width: 100%;
+
     margin: auto;
     position: relative;
     border-radius: var(--radius-lg);
     margin-top: 20%;
+  }
+
+  .imagem picture {
+    display: block;
+    width: 100%;
+    height: 100%;
   }
 }
 
@@ -133,8 +142,13 @@ h3 {
       z-index: 1;
     }
 
-    &:hover::before { transform: scale(1.1); }
-    &:hover::after  { background: var(--color-overlay-dark); }
+    &:hover::before {
+      transform: scale(1.1);
+    }
+
+    &:hover::after {
+      background: var(--color-overlay-dark);
+    }
 
     h2 {
       color: var(--color-white);
@@ -166,11 +180,25 @@ h3 {
     }
 
     /* Imagens por categoria */
-    &.cabelo::before  { background-image: url("https://i.pinimg.com/originals/3e/e1/d4/3ee1d4f8c52fc7637a257facd61423b3.jpg"); }
-    &.corpo::before   { background-image: url("https://img.freepik.com/fotos-premium/rosto-de-mulher-negra-e-creme-hidratante-para-beleza-da-pele-ou-cosmeticos-contra-um-fundo-de-estudio-cinza-retrato-de-mulher-africana-feliz-com-sorriso-para-locao-creme-hidratante-ou-produto-facial_590464-170930.jpg"); }
-    &.banho::before   { background-image: url("https://img.freepik.com/fotos-premium/esta-lavagem-do-corpo-me-deixa-com-uma-sensacao-fresca-que-permanece-foto-de-estudio-de-uma-jovem-tomando-banho-contra-um-fundo-azul_590464-62358.jpg"); }
-    &.perfume::before { background-image: url("https://www.makeupatelier.com.br/wp-content/uploads/2022/04/mulher-passando-perfume.jpg"); }
-    &.rosto::before   { background-image: url("https://img.freepik.com/fotos-premium/retrato-sereno-de-uma-mulher-de-beleza-natural_1365064-5523.jpg"); }
+    &.cabelo::before {
+      background-image: url("https://i.pinimg.com/originals/3e/e1/d4/3ee1d4f8c52fc7637a257facd61423b3.jpg");
+    }
+
+    &.corpo::before {
+      background-image: url("https://img.freepik.com/fotos-premium/rosto-de-mulher-negra-e-creme-hidratante-para-beleza-da-pele-ou-cosmeticos-contra-um-fundo-de-estudio-cinza-retrato-de-mulher-africana-feliz-com-sorriso-para-locao-creme-hidratante-ou-produto-facial_590464-170930.jpg");
+    }
+
+    &.banho::before {
+      background-image: url("https://img.freepik.com/fotos-premium/esta-lavagem-do-corpo-me-deixa-com-uma-sensacao-fresca-que-permanece-foto-de-estudio-de-uma-jovem-tomando-banho-contra-um-fundo-azul_590464-62358.jpg");
+    }
+
+    &.perfume::before {
+      background-image: url("https://www.makeupatelier.com.br/wp-content/uploads/2022/04/mulher-passando-perfume.jpg");
+    }
+
+    &.rosto::before {
+      background-image: url("https://img.freepik.com/fotos-premium/retrato-sereno-de-uma-mulher-de-beleza-natural_1365064-5523.jpg");
+    }
   }
 }
 
@@ -228,7 +256,9 @@ h3 {
   text-align: center;
   padding: 16px;
 
-  h3 { font-size: 13px; }
+  h3 {
+    font-size: 13px;
+  }
 }
 
 /*
@@ -251,13 +281,20 @@ h3 {
     animation: cobrinha 3s linear infinite;
     transition: transform var(--transition);
 
-    &:hover { transform: scale(1.05); }
+    &:hover {
+      transform: scale(1.05);
+    }
   }
 }
 
 @keyframes cobrinha {
-  0%   { background-position: 0%; }
-  100% { background-position: 200%; }
+  0% {
+    background-position: 0%;
+  }
+
+  100% {
+    background-position: 200%;
+  }
 }
 
 /*
@@ -289,8 +326,13 @@ h3 {
     transform: translateY(-50%) scale(1.1);
   }
 
-  &:first-child { left: 10px; }
-  &:last-child  { right: 10px; }
+  &:first-child {
+    left: 10px;
+  }
+
+  &:last-child {
+    right: 10px;
+  }
 }
 
 /*
@@ -305,17 +347,26 @@ h3 {
   scrollbar-width: none;
   scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
-  margin: 0 auto;
+  margin: 0 20px;
   box-sizing: border-box;
   scroll-behavior: smooth;
 
-  &::-webkit-scrollbar { display: none; }
+  &::-webkit-scrollbar {
+    display: none;
+  }
 
-  & > * { scroll-snap-align: start; }
+  &>* {
+    scroll-snap-align: start;
+  }
 }
 
-.categories-carousel { scroll-snap-type: x mandatory; }
-.categories-carousel > * { scroll-snap-align: start; }
+.categories-carousel {
+  scroll-snap-type: x mandatory;
+}
+
+.categories-carousel>* {
+  scroll-snap-align: start;
+}
 
 .card-destaque {
   position: relative;
@@ -328,7 +379,9 @@ h3 {
   transition: transform var(--transition);
   background-color: #923636;
 
-  &:hover { transform: scale(1.03); }
+  &:hover {
+    transform: scale(1.03);
+  }
 
   .img-fundo {
     width: 100%;
@@ -350,7 +403,7 @@ h3 {
 
 .maisvendidos {
   font-size: 70%;
-  background-color: var(--color-white);
+  background-color: #ffffff80;
   position: absolute;
   bottom: 8px;
   left: 50%;
@@ -358,7 +411,7 @@ h3 {
   transform: translateX(-50%);
   text-align: center;
   z-index: 3;
-  width: 80%;
+  width: 50%;
   flex-direction: column;
   border-radius: var(--radius-sm);
 
@@ -418,12 +471,25 @@ button {
 
 /* Desktop: esconde setas de categorias e navbar mobile */
 @media (min-width: 992px) {
-  .carousel-wrapper--categorias .scroll-arrow { display: none; }
-  .mbl_navbar { display: none; }
+  .carousel-wrapper--categorias .scroll-arrow {
+    display: none;
+  }
+
+  .mbl_navbar {
+    display: none;
+  }
 }
 
 /* Mobile */
 @media (max-width: 480px) {
+  .carousel-wrapper {
+    position: relative;
+    flex-wrap: wrap;
+    justify-content: center;
+    overflow-x: hidden;
+    margin: 0 auto;
+
+  }
 
   .categories-carousel {
     overflow-x: scroll;
@@ -431,12 +497,12 @@ button {
     justify-content: left;
 
     section {
-      min-width: 30%;
+      min-width: 40%;
       max-height: 200px;
       margin: 30px 0;
 
       h2 {
-        bottom: 26px;
+        bottom: 40px;
         font-size: 16px;
         -webkit-text-stroke: 0.6px;
         -webkit-text-stroke-color: #2b2a2a;
@@ -447,12 +513,36 @@ button {
         max-height: 20px;
         font-size: 14px;
         padding-bottom: 24px;
+        margin-bottom: 10px;
       }
     }
   }
 
-  .main-banner img { max-width: 90%; }
-  .custom-carousel { max-width: 90%; }
+  .main-banner img {
+    max-width: 100%;
+    height: 100%;
+    object-fit: contain;
+
+  }
+
+  .main-banner,
+  .custom-carousel {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+  }
+
+  .carousel-track {
+    height: 100%;
+  }
+
+  .carousel-track img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
 
   .btn-excluir {
     padding: 10px 15px;
@@ -465,23 +555,35 @@ button {
     margin-top: 14px;
   }
 
-  .info-item p { font-size: 1.3rem; }
-  strong       { font-size: 1.3rem; }
+  .info-item p {
+    font-size: 1.3rem;
+  }
+
+  strong {
+    font-size: 1.3rem;
+  }
 
   .card-destaque {
-    max-width: 55%;
+    width: 80vh;
+    max-width: 300px;
     max-height: 320px;
   }
 
-  .img-produto { max-width: 20%; }
+  .img-produto {
+    max-width: 20%;
+  }
 
   .info {
     height: 5%;
 
-    button { max-width: 45%; }
+    button {
+      max-width: 45%;
+    }
   }
 
-  .btn-login { padding: 12px; }
+  .btn-login {
+    padding: 12px;
+  }
 
   .modal-perfil {
     max-width: 100%;
@@ -489,11 +591,21 @@ button {
     padding: 35px 0;
   }
 
-  .login-container p { margin-bottom: 5%; }
-  .login-title       { margin-bottom: 5%; }
+  .login-container p {
+    margin-bottom: 5%;
+  }
 
-  .page-header { margin: 110px 4% 0; }
-  h1           { font-size: 1.5em; }
+  .login-title {
+    margin-bottom: 5%;
+  }
+
+  .page-header {
+    margin: 110px 4% 0;
+  }
+
+  h1 {
+    font-size: 1.5em;
+  }
 
 
 }
@@ -513,8 +625,14 @@ button {
     }
   }
 
-  .main-banner img { max-width: 95%; }
-  .custom-carousel { max-width: 95%; }
+  .main-banner img {
+    max-width: 95%;
+
+  }
+
+  .custom-carousel {
+    max-width: 95%;
+  }
 
   .card-container {
     width: 90vw;
@@ -526,7 +644,7 @@ button {
 
       header {
         width: 100%;
-        box-shadow: none;
+        box-shadow: none !important;
 
         img {
           width: 100%;
@@ -536,13 +654,26 @@ button {
         }
       }
 
-      article { padding: 10px 15px; }
+      article {
+        padding: 10px 15px;
+      }
     }
   }
 
-  .card-title  { font-size: 80%; margin-bottom: 10px; }
-  .card-text   { font-size: 80%; margin-bottom: 10px; }
-  .card-price  { margin-bottom: 10px; font-size: 19px; }
+  .card-title {
+    font-size: 80%;
+    margin-bottom: 10px;
+  }
+
+  .card-text {
+    font-size: 80%;
+    margin-bottom: 10px;
+  }
+
+  .card-price {
+    margin-bottom: 10px;
+    font-size: 19px;
+  }
 
   .btn-excluir {
     padding: 10px 15px;
@@ -556,8 +687,15 @@ button {
     font-size: 1.1rem;
   }
 
-  .info-item p { font-size: 1.3rem; }
-  strong       { font-size: 1.3rem; }
+  .info-item p {
+    font-size: 1.3rem;
+  }
 
-  .page-header { margin: 0 2% 0; }
+  strong {
+    font-size: 1.3rem;
+  }
+
+  .page-header {
+    margin: 0 2% 0;
+  }
 }
