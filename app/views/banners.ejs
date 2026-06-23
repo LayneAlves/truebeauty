@@ -50,7 +50,14 @@
 
                   <!-- Botão Editar -->
                   <button type="button" class="btn-editar-icone" onclick="abrirModal(this)" data-id="<%= banner.id %>"
-                    data-titulo="<%= banner.titulo %>" title="Editar">
+                    data-titulo="<%= banner.titulo %>" data-categoria="<%= banner.categoria || '' %>"
+                    data-alt="<%= banner.alt || '' %>" data-link="<%= banner.link || '' %>"
+                    data-data-inicio="<%= banner.data_inicio ? new Date(banner.data_inicio).toISOString().split('T')[0] : '' %>"
+                    data-data-fim="<%= banner.data_fim ? new Date(banner.data_fim).toISOString().split('T')[0] : '' %>"
+                    data-destino="<%= banner.destino %>" data-imagem="<%= banner.imagem %>"
+                    data-imagem-tablet="<%= banner.imagem_tablet || '' %>"
+                    data-imagem-mobile="<%= banner.imagem_mobile || '' %>" title="Editar">
+
                     <i class="fa-solid fa-pencil" style="color: #8B0000"></i>
                   </button>
 
@@ -73,8 +80,19 @@
           function abrirModal(botao) {
             try {
               const form = document.getElementById('formNovoBanner');
+              const modalTitle = document.querySelector('#modal-banners .title');
+              const btnSubmit = document.querySelector('#formNovoBanner .tb-button-primary');
 
-              // Lógica da Imagem — agora trata os 3 campos: Desktop, Tablet, Mobile
+              const campos = {
+                titulo: document.getElementById('editNome'),
+                categoria: document.getElementById('editCategoria'),
+                alt: document.getElementById('editAlt'),
+                link: document.getElementById('editLink'),
+                data_inicio: document.getElementById('editDataInicio'),
+                data_fim: document.getElementById('editDataFim'),
+                destino: document.getElementById('editDestino')
+              };
+
               const camposImagem = [
                 { inputId: 'editImagemDesktopInput', previewId: 'editImagemDesktopPreview', boxId: 'boxDesktop' },
                 { inputId: 'editImagemTabletInput', previewId: 'editImagemTabletPreview', boxId: 'boxTablet' },
@@ -86,36 +104,79 @@
                 const previewImagem = document.getElementById(previewId);
                 const imageBox = document.getElementById(boxId);
 
-                if (!inputArquivo || !previewImagem || !imageBox) {
-                  console.error(`ERRO: elemento não encontrado — verifique se ${inputId}, ${previewId} e ${boxId} existem no modal.`);
-                  return;
-                }
+                if (!inputArquivo || !previewImagem || !imageBox) return;
 
-                // Se a imagem de preview falhar ao carregar, usa uma imagem padrão
                 previewImagem.onerror = function () {
-                  console.error("Falha ao carregar a imagem no caminho:", this.src);
                   this.src = '/assets/imagem/icons/placeholder.jpg';
                 };
 
-                // Quando o usuário escolhe um arquivo nesse input específico
-                inputArquivo.addEventListener('change', function () {
+                inputArquivo.oninput = function () {
                   const arquivo = this.files[0];
-
                   if (arquivo) {
                     const leitor = new FileReader();
-
                     leitor.onload = function (e) {
                       previewImagem.src = e.target.result;
                       imageBox.classList.add('has-image');
                     };
-
                     leitor.readAsDataURL(arquivo);
                   }
-                });
+                };
               });
 
-              // Configura o formulário e abre o modal
-              if (form) form.action = `/banners/novo`;
+              if (botao) {
+                // ===== MODO EDIÇÃO =====
+                const id = botao.dataset.id;
+                form.dataset.id = id; // Guarda o ID no form para o envio usar depois
+
+                campos.titulo.value = botao.dataset.titulo || '';
+                campos.categoria.value = botao.dataset.categoria || '';
+                campos.alt.value = botao.dataset.alt || '';
+                campos.link.value = botao.dataset.link || '';
+                campos.data_inicio.value = botao.dataset.dataInicio || '';
+                campos.data_fim.value = botao.dataset.dataFim || '';
+                campos.destino.value = botao.dataset.destino || 'hero';
+
+                const imagensExistentes = {
+                  editImagemDesktopPreview: botao.dataset.imagem,
+                  editImagemTabletPreview: botao.dataset.imagemTablet,
+                  editImagemMobilePreview: botao.dataset.imagemMobile
+                };
+                Object.entries(imagensExistentes).forEach(([previewId, src]) => {
+                  const previewImagem = document.getElementById(previewId);
+                  const imageBox = previewImagem?.closest('.tb-image-box');
+                  if (previewImagem && src) {
+                    previewImagem.src = src;
+                    imageBox?.classList.add('has-image');
+                  }
+                });
+
+                document.getElementById('editImagemDesktopInput').required = false;
+                document.getElementById('editImagemTabletInput').required = false;
+                document.getElementById('editImagemMobileInput').required = false;
+
+                form.action = `/banners/editar/${id}`;
+                if (modalTitle) modalTitle.textContent = 'EDITAR BANNER';
+                if (btnSubmit) btnSubmit.textContent = 'Salvar alterações';
+
+              } else {
+                // ===== MODO CADASTRO =====
+                form.reset();
+                delete form.dataset.id;
+                campos.destino.value = 'hero';
+
+                document.querySelectorAll('.tb-image-box').forEach(box => {
+                  box.classList.remove('has-image');
+                  const img = box.querySelector('.tb-image-preview');
+                  if (img) img.src = '';
+                });
+
+                document.getElementById('editImagemDesktopInput').required = true;
+                form.action = `/banners/novo`;
+                if (modalTitle) modalTitle.textContent = 'NOVO BANNER';
+                if (btnSubmit) btnSubmit.textContent = 'Cadastrar';
+              }
+
+              atualizarDestinoBanner();
               document.getElementById('modal-banners').style.display = 'flex';
 
             } catch (erro) {
@@ -123,12 +184,32 @@
             }
           }
 
-          // FUNÇÃO DE FECHAMENTO
+          function atualizarDestinoBanner() {
+            const destino = document.getElementById('editDestino').value;
+            const isRotativo = destino === 'rotativo';
+
+            const inputTablet = document.getElementById('editImagemTabletInput');
+            const inputMobile = document.getElementById('editImagemMobileInput');
+            const instrucao = document.getElementById('instrucaoRotativo');
+            const labelTablet = document.getElementById('labelImagemTablet');
+            const labelMobile = document.getElementById('labelImagemMobile');
+
+            // Só exige arquivos novos se não estivermos editando
+            const form = document.getElementById('formNovoBanner');
+            const analisandoEdicao = !!form.dataset.id;
+
+            inputTablet.required = isRotativo && !analisandoEdicao;
+            inputMobile.required = isRotativo && !analisandoEdicao;
+
+            if (instrucao) instrucao.style.display = isRotativo ? 'block' : 'none';
+            if (labelTablet) labelTablet.textContent = isRotativo ? 'Imagem Tablet *' : 'Imagem Tablet';
+            if (labelMobile) labelMobile.textContent = isRotativo ? 'Imagem Mobile *' : 'Imagem Mobile';
+          }
+
           function fecharModal() {
             document.getElementById('modal-banners').style.display = 'none';
           }
 
-          // Eventos de clique
           document.addEventListener('DOMContentLoaded', () => {
             document.querySelector('.ep-modal-close-icon')?.addEventListener('click', fecharModal);
 
@@ -138,14 +219,35 @@
               }
             });
 
-            // Select All
+            // CORREÇÃO DO ENVIO (SUBMIT) DO FORMULÁRIO VIA FETCH
+            document.getElementById('formNovoBanner')?.addEventListener('submit', function (e) {
+              e.preventDefault();
+
+              const formData = new FormData(this);
+              const url = this.action;
+
+              fetch(url, {
+                method: 'POST',
+                body: formData
+              })
+                .then(res => res.json())
+                .then(data => {
+                  if (data.success) {
+                    fecharModal();
+                    window.location.reload();
+                  } else {
+                    alert(data.message || 'Erro ao salvar banner');
+                  }
+                })
+                .catch(err => console.error('Erro:', err));
+            });
+
             document.getElementById('selectAll')?.addEventListener('change', function () {
               document.querySelectorAll('.select-banners').forEach(cb => {
                 cb.checked = this.checked;
               });
             });
 
-            // Toggle status (switch)
             document.querySelectorAll('.toggle-status').forEach(toggle => {
               toggle.addEventListener('change', async function () {
                 const id = this.dataset.id;
@@ -161,7 +263,7 @@
                   if (textoEl) textoEl.textContent = status ? 'Ativo' : 'Inativo';
                 } catch {
                   alert('Erro ao alterar status do banner');
-                  this.checked = !this.checked; // reverte
+                  this.checked = !this.checked;
                 }
               });
             });

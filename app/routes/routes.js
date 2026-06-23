@@ -7,16 +7,15 @@ const bannerController = require('../controllers/bannerController');
 const { imageUpload } = require('../middleware/imageUpload');
 const auth = require('../middleware/authMiddleware');
 
-
 // CONTROLLERS
 const indexController = require('../controllers/indexController');
 const vertudoController = require('../controllers/vertudoController');
 const for_admController = require('../controllers/for_edmController');
-// const CheckoutController = require('../controllers/checkoutController');
-
 
 // ROUTER
+// router.get('/', ProdutoController.index);
 router.get('/', ProdutoController.index);
+
 
 router.get('/vertudo', ProdutoController.produtos, (req, res) => {
     res.render('vertudo');
@@ -25,13 +24,13 @@ router.get('/vertudo', ProdutoController.produtos, (req, res) => {
 router.get('/categoria', ProdutoController.buscar, (req, res) => {
     res.render('categoria');
 });
+
 // Rota da página de administração — exige login e perfil admin
 router.get('/for_adm', auth.verificarLogado, auth.somenteAdmin, for_admController.renderfor_adm);
 
 router.get('/', auth.verificarLogado, (req, res) => {
     res.render('index', { user: req.user });
 });
-
 
 // Rotas do carrinho
 router.get('/carrinho', (req, res) => {
@@ -42,8 +41,6 @@ router.get('/carrinho', (req, res) => {
 router.get('/checkout', (req, res) => {
     res.render('checkout', { baseUrl: '' });
 });
-
-// router.post('/checkout/finalizar', CheckoutController.finalizar);
 
 // Rotas de cadastro
 router.get('/cadastro', UserController.renderCadastro);
@@ -61,7 +58,6 @@ router.get('/produtos', ProdutoController.produtos, (req, res, next) => {
 
 // Rotas de pedidos
 router.get('/pedidos', PedidoController.listarPedidos);
-
 
 // Rotas de clientes
 router.get('/clientes', UserController.users);
@@ -97,6 +93,17 @@ router.post('/banners/novo',
     bannerController.listar
 );
 
+//Rotas editar banner
+router.post('/banners/editar/:id',
+    imageUpload.fields([
+        { name: 'imagemDesktop', maxCount: 1 },
+        { name: 'imagemTablet', maxCount: 1 },
+        { name: 'imagemMobile', maxCount: 1 }
+    ]),
+    bannerController.editar,
+    bannerController.listar
+);
+
 router.post('/banners/status/:id', bannerController.toggleStatus);
 
 // Rotas de minha conta
@@ -110,25 +117,13 @@ router.post('/conta/endereco', auth.verificarLogado, UserController.atualizarEnd
 // Rotas de login
 router.post('/login', UserController.login);
 
-// Rotas de recuperaçao de Senha
-
-
-
-module.exports = router;
-
-//Rotas do navbar 
-
-// PERFIL
+// Rotas do navbar 
 router.get('/perfil', (req, res) => {
     res.render('perfil');
 });
 
-// CARRINHO
-router.get('/carrinho', (req, res) => {
-    res.render('carrinho');
-});
-
-// BUSCA
 router.get('/busca', (req, res) => {
     res.render('busca');
 });
+
+module.exports = router;

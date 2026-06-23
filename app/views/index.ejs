@@ -58,184 +58,205 @@
         </div>
 
         <!-- BANNER ROTATIVO -->
-        <section class="custom-carousel">
-          <div class="carousel-track">
-            <img src="assets/imagem/banners/banner-cebolinha.jpeg" alt="Banner 1">
-            <img src="assets/imagem/banners/banner-masculino.jpeg" alt="Banner 2">
-            <img src="assets/imagem/banners/banner-feminino.jpeg" alt="Banner 3">
-          </div>
-          <div class="carousel-dots">
-            <span class="dot active"></span>
-            <span class="dot"></span>
-            <span class="dot"></span>
-          </div>
-        </section>
+        <% if (bannersRotativo && bannersRotativo.length> 0) { %>
+          <section class="custom-carousel">
+            <div class="carousel-track">
+              <% bannersRotativo.forEach(banner=> { %>
+                <picture>
+                  <source media="(max-width: 480px)" srcset="<%= banner.imagem_mobile || banner.imagem %>">
+                  <source media="(max-width: 991px)" srcset="<%= banner.imagem_tablet || banner.imagem %>">
+                  <img src="<%= banner.imagem %>" alt="<%= banner.alt || banner.titulo %>">
+                </picture>
+                <% }) %>
+            </div>
 
-        <!-- DESCRIÇÃO + BOTÃO -->
-        <section class="description">
-          <h3>Descubra a verdadeira beleza com nossos produtos.</h3>
-        </section>
-
-        <!-- CARROSSEL DE PRODUTOS -->
-        <div class="carousel-wrapper">
-          <button type="button" class="scroll-arrow left" onclick="scrollCards('left', '.card-container')">‹</button>
-
-          <section class="card-container">
-            <% produtos.forEach(produto=> { %>
-              <section>
-                <header>
-                  <img src="<%=produto.imagem%>" alt="<%=produto.nome%>">
-                </header>
-                <article>
-                  <h2 class="card-title">
-                    <%=produto.nome%>
-                  </h2>
-                  <p class="card-text">
-                    <%=produto.descricao%>
-                  </p>
-                  <p class="card-price">
-                    <span class="currency">R$</span>
-                    <%=produto.preco%>
-                  </p>
-                  <a href="#" class="card-button"
-                    onclick="adicionarCarrinho('<%= produto.id %>', '<%= produto.nome %>', 'R$ <%= produto.preco %>', '<%= produto.imagem %>'); return false;">
-                    Comprar
-                  </a>
-                </article>
-              </section>
-              <% }) %>
+            <% if (bannersRotativo.length> 1) { %>
+              <div class="carousel-dots">
+                <% bannersRotativo.forEach((banner, idx)=> { %>
+                  <span class="dot <%= idx === 0 ? 'active' : '' %>" data-i="<%= idx %>"></span>
+                  <% }) %>
+              </div>
+              <% } %>
           </section>
+          <% } %>
 
-          <button type="button" class="scroll-arrow right" onclick="scrollCards('right', '.card-container')">›</button>
-        </div>
+            <!-- DESCRIÇÃO + BOTÃO -->
+            <section class="description">
+              <h3>Descubra a verdadeira beleza com nossos produtos.</h3>
+            </section>
 
-        <!-- Seção de destaque -->
-        <div class="dica-make">
-          <h2>Mais Vendidos</h2>
-        </div>
-        <div class="carousel-wrapper">
-          <button type="button" class="scroll-arrow left" onclick="scrollCards('left')">‹</button>
-          <div class="cards-container">
+            <!-- CARROSSEL DE PRODUTOS -->
+            <div class="carousel-wrapper">
+              <button type="button" class="scroll-arrow left"
+                onclick="scrollCards('left', '.card-container')">‹</button>
 
-            <!-- Produto 1 -->
-            <div class="card-destaque">
-              <img class="img-fundo" src="assets/imagem/imagens_skin_care/emilia_clarke_1.webp"
-                alt="Modelo com maquiagem">
-              <div class="maisvendidos">
-                <h3>Clinique iD</h3>
-                <p class="preco">R$ 20,90</p>
-                <button
-                  onclick="adicionarCarrinho('clinique-id', 'Clinique iD', 'R$ 20,90', 'assets/imagem/imagens_skin_care/clinique_id.jpg')">Comprar</button>
-              </div>
+              <section class="card-container">
+                <% produtos.forEach(produto=> { %>
+                  <section>
+                    <header>
+                      <img src="<%=produto.imagem%>" alt="<%=produto.nome%>">
+                    </header>
+                    <article>
+                      <h2 class="card-title">
+                        <%=produto.nome%>
+                      </h2>
+                      <p class="card-text">
+                        <%=produto.descricao%>
+                      </p>
+                      <p class="card-price">
+                        <span class="currency">R$</span>
+                        <%=produto.preco%>
+                      </p>
+                      <a href="#" class="card-button"
+                        onclick="adicionarCarrinho('<%= produto.id %>', '<%= produto.nome %>', 'R$ <%= produto.preco %>', '<%= produto.imagem %>'); return false;">
+                        Comprar
+                      </a>
+                    </article>
+                  </section>
+                  <% }) %>
+              </section>
+
+              <button type="button" class="scroll-arrow right"
+                onclick="scrollCards('right', '.card-container')">›</button>
             </div>
 
-            <!-- Produto 2 -->
-            <div class="card-destaque">
-              <img class="img-fundo" src="assets/imagem/imagens_Cabelos/propagandaCachos.webp"
-                alt="Modelo com maquiagem">
-              <div class="maisvendidos">
-                <h3>Salon Line</h3>
-                <p class="preco">R$ 30,90</p>
-                <button
-                  onclick="adicionarCarrinho('salon-line', 'Salon Line', 'R$ 30,90', 'assets/imagem/imagens_Cabelos/salonLine_coco.jpg')">Comprar</button>
+            <!-- Seção de destaque -->
+            <div class="dica-make">
+              <h2>Mais Vendidos</h2>
+            </div>
+            <div class="carousel-wrapper">
+              <button type="button" class="scroll-arrow left" onclick="scrollCards('left')">‹</button>
+              <div class="cards-container">
+
+                <!-- Produto 1 -->
+                <div class="card-destaque">
+                  <img class="img-fundo" src="assets/imagem/imagens_skin_care/emilia_clarke_1.webp"
+                    alt="Modelo com maquiagem">
+                  <div class="maisvendidos">
+                    <h3>Clinique iD</h3>
+                    <p class="preco">R$ 20,90</p>
+                    <button
+                      onclick="adicionarCarrinho('clinique-id', 'Clinique iD', 'R$ 20,90', 'assets/imagem/imagens_skin_care/clinique_id.jpg')">Comprar</button>
+                  </div>
+                </div>
+
+                <!-- Produto 2 -->
+                <div class="card-destaque">
+                  <img class="img-fundo" src="assets/imagem/imagens_Cabelos/propagandaCachos.webp"
+                    alt="Modelo com maquiagem">
+                  <div class="maisvendidos">
+                    <h3>Salon Line</h3>
+                    <p class="preco">R$ 30,90</p>
+                    <button
+                      onclick="adicionarCarrinho('salon-line', 'Salon Line', 'R$ 30,90', 'assets/imagem/imagens_Cabelos/salonLine_coco.jpg')">Comprar</button>
+                  </div>
+                </div>
+
+                <!-- Produto 3 -->
+                <div class="card-destaque">
+                  <img class="img-fundo" src="assets/imagem/imagens_Perfumes/propagandaMalbec.jpg"
+                    alt="Modelo com maquiagem">
+                  <div class="maisvendidos">
+                    <h3>Malbec</h3>
+                    <p class="preco">R$ 125,00</p>
+                    <button
+                      onclick="adicionarCarrinho('malbec', 'Malbec', 'R$ 125,00', 'assets/imagem/imagem_perfume_masculino/malbecMarrom.webp')">Comprar</button>
+                  </div>
+                </div>
+
+                <!-- Produto 4 -->
+                <div class="card-destaque">
+                  <img class="img-fundo" src="assets/imagem/imagem_maquiagem/propagandaMaquiagem.jpg"
+                    alt="Modelo com perfume">
+                  <div class="maisvendidos">
+                    <h3>Dior</h3>
+                    <p class="preco">R$ 150,90</p>
+                    <button
+                      onclick="adicionarCarrinho('dior', 'Dior', 'R$ 150,90', 'assets/imagem/imagem_maquiagem/baseDior.jpg')">Comprar</button>
+                  </div>
+                </div>
+
+                <!-- Produto 5 -->
+                <div class="card-destaque">
+                  <img class="img-fundo" src="assets/imagem/imagens_Cabelos/jadePicon.jpg" alt="Modelo com creme">
+                  <div class="maisvendidos">
+                    <h3>Eudora</h3>
+                    <p class="preco">R$ 140,00</p>
+                    <button
+                      onclick="adicionarCarrinho('eudora', 'Eudora', 'R$ 140,00', 'assets/imagem/imagens_Cabelos/kitEudoraRoxo.webp')">Comprar</button>
+                  </div>
+                </div>
+
               </div>
+              <button type="button" class="scroll-arrow right" onclick="scrollCards('right')">›</button>
             </div>
 
-            <!-- Produto 3 -->
-            <div class="card-destaque">
-              <img class="img-fundo" src="assets/imagem/imagens_Perfumes/propagandaMalbec.jpg"
-                alt="Modelo com maquiagem">
-              <div class="maisvendidos">
-                <h3>Malbec</h3>
-                <p class="preco">R$ 125,00</p>
-                <button
-                  onclick="adicionarCarrinho('malbec', 'Malbec', 'R$ 125,00', 'assets/imagem/imagem_perfume_masculino/malbecMarrom.webp')">Comprar</button>
-              </div>
-            </div>
-
-            <!-- Produto 4 -->
-            <div class="card-destaque">
-              <img class="img-fundo" src="assets/imagem/imagem_maquiagem/propagandaMaquiagem.jpg"
-                alt="Modelo com perfume">
-              <div class="maisvendidos">
-                <h3>Dior</h3>
-                <p class="preco">R$ 150,90</p>
-                <button
-                  onclick="adicionarCarrinho('dior', 'Dior', 'R$ 150,90', 'assets/imagem/imagem_maquiagem/baseDior.jpg')">Comprar</button>
-              </div>
-            </div>
-
-            <!-- Produto 5 -->
-            <div class="card-destaque">
-              <img class="img-fundo" src="assets/imagem/imagens_Cabelos/jadePicon.jpg" alt="Modelo com creme">
-              <div class="maisvendidos">
-                <h3>Eudora</h3>
-                <p class="preco">R$ 140,00</p>
-                <button
-                  onclick="adicionarCarrinho('eudora', 'Eudora', 'R$ 140,00', 'assets/imagem/imagens_Cabelos/kitEudoraRoxo.webp')">Comprar</button>
-              </div>
-            </div>
-
-          </div>
-          <button type="button" class="scroll-arrow right" onclick="scrollCards('right')">›</button>
-        </div>
-
-        <!-- Fim da seção -->
+            <!-- Fim da seção -->
 
       </main>
 
       <!-- FOOTER -->
       <%- include('./include/footer.ejs') %>
 
-        <!-- Banner Carrocel -->
         <script>
-          const track = document.querySelector('.carousel-track');
-          const dots = document.querySelectorAll('.carousel-dots .dot');
-          const slides = track.children;
-          let current = 0;
+          document.addEventListener('DOMContentLoaded', () => {
 
-          function goToSlide(idx) {
-            track.style.transform = `translateX(-${idx * 73}%)`;
-            dots.forEach(dot => dot.classList.remove('active'));
-            dots[idx].classList.add('active');
-            current = idx;
-          }
+            // 1. SCRIPT DO CARROSSEL ROTATIVO
+            const track = document.querySelector('.custom-carousel .carousel-track');
+            const dots = document.querySelectorAll('.custom-carousel .carousel-dots .dot');
 
-          dots.forEach((dot, idx) => {
-            dot.addEventListener('click', () => goToSlide(idx));
-          });
+            if (track) {
+              const slides = track.children;
+              let current = 0;
+              const totalSlides = slides.length;
 
-          setInterval(() => {
-            let next = (current + 1) % slides.length;
-            goToSlide(next);
-          }, 3000);
+              function goToSlide(idx) {
+                if (idx < 0 || idx >= totalSlides) return;
+                track.style.transform = `translateX(-${idx * 100}%)`;
 
-          goToSlide(0);
-        </script>
+                if (dots && dots.length > 0) {
+                  dots.forEach(dot => dot.classList.remove('active'));
+                  if (dots[idx]) dots[idx].classList.add('active');
+                }
+                current = idx;
+              }
 
-        <!-- Carrinho + Carrossel -->
-        <script>
-          // Função para adicionar ao carrinho (localStorage individual por dispositivo)
-          function adicionarCarrinho(id, nome, preco, imagem) {
-            let carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+              if (dots && dots.length > 0) {
+                dots.forEach((dot, idx) => {
+                  dot.addEventListener('click', () => goToSlide(idx));
+                });
+              }
 
-            const itemExistente = carrinho.find(item => item.id == id);
+              if (totalSlides > 1) {
+                setInterval(() => {
+                  let next = (current + 1) % totalSlides;
+                  goToSlide(next);
+                }, 4000);
+              }
 
-            if (itemExistente) {
-              itemExistente.quantidade += 1;
-            } else {
-              carrinho.push({ id, nome, preco, imagem, quantidade: 1 });
+              goToSlide(0);
             }
 
-            localStorage.setItem('carrinho', JSON.stringify(carrinho));
-            alert(`"${nome}" adicionado à sacola!`);
-          }
+            // 2. SCRIPT DE CLIQUES NAS CATEGORIAS (Protegido contra null)
+            const categoriaSections = document.querySelectorAll('.categories-carousel section');
+            if (categoriaSections.length > 0) {
+              categoriaSections.forEach(section => {
+                const link = section.querySelector('a');
+                if (link) {
+                  section.addEventListener('click', () => {
+                    window.location.href = link.href;
+                  });
+                }
+              });
+            }
 
-          // Função de seta para rolar TODOS os carrosséis
+          });
+
+          // 3. SCRIPT DE AUXÍLIO DE ROLAGEM LATERAIS (Fora do DOMContentLoaded para escopo global)
           function scrollCards(direction, selector = '.cards-container') {
             const container = document.querySelector(selector);
-            const scrollAmount = 200;
-
+            if (!container) return;
+            const scrollAmount = 280;
             if (direction === 'left') {
               container.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
             } else {
@@ -244,6 +265,33 @@
           }
         </script>
 
+        <!-- Carrinho + Carrossel (MOVIDO PARA CÁ) -->
+        <!-- <script>
+          function adicionarCarrinho(id, nome, preco, imagem) {
+            let carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+            const itemExistente = carrinho.find(item => item.id == id);
+            if (itemExistente) {
+              itemExistente.quantidade += 1;
+            } else {
+              carrinho.push({ id, nome, preco, imagem, quantidade: 1 });
+            }
+            localStorage.setItem('carrinho', JSON.stringify(carrinho));
+            alert(`"${nome}" adicionado à sacola!`);
+          }
+
+          function scrollCards(direction, selector = '.cards-container') {
+            const container = document.querySelector(selector);
+            const scrollAmount = 200;
+            if (direction === 'left') {
+              container.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+            } else {
+              container.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+            }
+          }
+        </script> -->
+
+
+        <!-- Cliques nas Categorias-->
         <script>
           document.querySelectorAll('.categories-carousel section').forEach(section => {
             const link = section.querySelector('a');

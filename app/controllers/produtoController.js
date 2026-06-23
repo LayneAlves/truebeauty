@@ -187,18 +187,22 @@ const ProdutoController = {
                 if (produtosPorCategoria.length === 6) break;
             }
 
-            res.render('index', { produtos: produtosPorCategoria, banners: bannersAtivos }); // ← passa banners
+            // Separa os banners ativos pelo destino correto
+            const bannersHero = bannersAtivos.filter(b => b.destino === 'hero');
+            const bannersRotativo = bannersAtivos.filter(b => b.destino === 'rotativo');
+
+            // Agora passa as variáveis exatas que o seu index.ejs está esperando
+            res.render('index', {
+                produtos: produtosPorCategoria,
+                banners: bannersHero, 
+                bannersRotativo: bannersRotativo 
+            });
 
         } catch (error) {
             console.error('Erro ao obter produtos:', error);
             return res.json({ message: 'Erro ao obter produtos' });
         }
     },
-    // async excluirProduto(req, res) {
-    //     const id = parseInt(req.params.id);
-    //     await ProdutoModel.excluir(id);
-    //     res.redirect('/produtos');
-    // },
 
     async excluirProduto(req, res) {
         try {
