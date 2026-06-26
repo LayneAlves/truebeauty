@@ -505,10 +505,12 @@ button {
     scrollbar-width: none;
     justify-content: left;
 
+
     section {
       min-width: 40%;
       max-height: 200px;
       margin: 30px 0;
+      
 
       h2 {
         bottom: 40px;
@@ -586,7 +588,7 @@ button {
   .card-destaque {
     width: 80vh;
     max-width: 300px;
-    max-height: 320px;
+    max-height: 459px;
   }
 
   .img-produto {
