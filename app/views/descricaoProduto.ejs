@@ -1,0 +1,141 @@
+<%- include('./include/head.ejs', {pagina: "descricaoProduto" }) %>
+    <link rel="stylesheet" href="/assets/css/descricao.css" />
+    </head>
+
+    <body>
+        <%- include('./include/header.ejs') %>
+
+            <main class="produto-detalhe-container">
+                <section class="produto-principal">
+                    <div class="produto-imagem">
+                        <img src="<%= produto.imagem %>" alt="<%= produto.nome %>" id="prod-imagem">
+                    </div>
+
+                    <div class="produto-compra-box">
+                        <h1 id="prod-nome">
+                            <%= produto.nome %>
+                        </h1>
+
+                        <p class="produto-preco">
+                            Total: <strong id="preco-dinamico">R$ <%= produto.preco %></strong>
+                        </p>
+
+                        <div class="controle-quantidade">
+                            <button type="button" class="btn-qtd" id="diminuir-qtd">-</button>
+                            <input type="number" id="input-qtd-detalhe" value="1" min="1" readonly>
+                            <button type="button" class="btn-qtd" id="aumentar-qtd">+</button>
+                        </div>
+
+                        <div class="botoes-acao">
+                            <button type="button" class="btn-adicionar" id="adicionar-sacola">Adicionar à
+                                sacola</button>
+                            <button type="button" class="btn-comprar-direto" id="btn-compra-checkout">Comprar</button>
+
+                            <button type="button" id="btn-finalizar-compra" style="display: none;"></button>
+                        </div>
+                    </div>
+                </section>
+
+                <hr class="divisor">
+
+                <section class="produto-info-detalhada">
+                    <h2>Descrição do Produto</h2>
+                    <p class="descricao-resumida">
+                        <%= produto.descricao %>
+                    </p>
+
+                    <div class="detalhes-adicionais">
+                        <h3>Benefícios e Características</h3>
+                        <p>Desenvolvido com foco em alta performance e sofisticação para a True Beauty.</p>
+                        <h3>Modo de Uso</h3>
+                        <p>Aplique a quantidade desejada sobre a área indicada e massageie suavemente.</p>
+                    </div>
+                </section>
+            </main>
+
+            <%- include('./include/footer.ejs') %>
+
+                <script>
+                    
+                    document.addEventListener('DOMContentLoaded', () => {
+                        // 1. Tratamento seguro do preço unitário
+                        const precoOriginalStr = "<%= produto.preco %>";
+
+                        // Força a conversão correta lidando com ponto ou vírgula direto do banco de dados
+                        let precoUnitario = parseFloat(precoOriginalStr);
+                        if (isNaN(precoUnitario)) {
+                            precoUnitario = parseFloat(precoOriginalStr.replace('R$', '').replace(/\./g, '').replace(',', '.').trim()) || 0;
+                        }
+
+                        const inputQtd = document.getElementById('input-qtd-detalhe');
+                        const precoDinamico = document.getElementById('preco-dinamico');
+
+                        // 2. Lógica Dinâmica de Recálculo (+ e -) corrigida para não multiplicar errado
+                        function atualizarValorTela() {
+                            const qtd = parseInt(inputQtd.value) || 1;
+                            const total = precoUnitario * qtd;
+                            precoDinamico.innerHTML = `R$ ${total.toFixed(2).replace('.', ',')}`;
+                        }
+
+                        document.getElementById('aumentar-qtd').addEventListener('click', () => {
+                            inputQtd.value = parseInt(inputQtd.value) + 1;
+                            atualizarValorTela();
+                        });
+
+                        document.getElementById('diminuir-qtd').addEventListener('click', () => {
+                            if (parseInt(inputQtd.value) > 1) {
+                                inputQtd.value = parseInt(inputQtd.value) - 1;
+                                atualizarValorTela();
+                            }
+                        });
+
+                        // 3. Função padrão de montagem do objeto enviando o preço mascarado com vírgula para o carrinho.js ler
+                        function obterDadosProduto() {
+                            const precoFormatadoComVirgula = `R$ ${precoUnitario.toFixed(2).replace('.', ',')}`;
+                            return {
+                                id: '<%= produto.id %>', // Mantido exatamente como você exigiu
+                                nome: "<%= produto.nome %>",
+                                preco: precoFormatadoComVirgula,
+                                imagem: "<%= produto.imagem %>"
+                            };
+                        }
+
+                        // 4. Ação: Adicionar à Sacola
+                        document.getElementById('adicionar-sacola').addEventListener('click', () => {
+                            const qtd = parseInt(inputQtd.value) || 1;
+                            if (window.carrinho) {
+                                for (let i = 0; i < qtd; i++) {
+                                    window.carrinho.adicionarItem(obterDadosProduto());
+                                }
+                            }
+                        });
+
+                        // 5. Ação: Comprar (Corrigido para mapear o ID real "btn-compra-checkout" e travar o clique fantasma)
+                        const btnCompra = document.getElementById('btn-compra-checkout');
+                        if (btnCompra) {
+                            btnCompra.addEventListener('click', (e) => {
+                                // e.stopImmediatePropagation impede o seu carrinho.js de rodar o clique duplicado sem preço
+                                e.stopImmediatePropagation();
+                                e.preventDefault();
+
+                                const qtd = parseInt(inputQtd.value) || 1;
+                                if (window.carrinho) {
+                                    // Bloqueia temporariamente a abertura lateral visual
+                                    const originalAbrir = window.carrinho.abrirSacola;
+                                    window.carrinho.abrirSacola = () => { };
+
+                                    for (let i = 0; i < qtd; i++) {
+                                        window.carrinho.adicionarItem(obterDadosProduto());
+                                    }
+
+                                    // Restaura a função original e redireciona de imediato
+                                    window.carrinho.abrirSacola = originalAbrir;
+                                    window.location.href = '/checkout';
+                                }
+                            }, true); // O 'true' captura o clique antes do script global do carrinho agir
+                        }
+                    });
+                </script>
+    </body>
+
+    </html>

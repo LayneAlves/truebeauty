@@ -1,0 +1,306 @@
+/* ==========================================================================
+   1. RESET GLOBAL & CONFIGURAÇÕES BASE
+   ========================================================================== */
+
+/* O seletor * garante que o box-sizing se aplique a tudo. 
+   O border-box faz com que o padding e a border fiquem embutidos na largura total, 
+   evitando que elementos quebrem ou transbordem a tela do celular. */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* O body traz as definições globais da página. 
+   Garante fundo limpo, suavização de fontes e herança da tipografia sofisticada. */
+body {
+  background-color: #ffffff;
+  font-family: 'Lora', 'Georgia', serif; /* Fonte elegante com serifa para True Beauty */
+  color: #333333;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Redefinição de inputs e botões para herdarem a fonte do body e não quebrarem o layout */
+input, button {
+  font-family: inherit;
+}
+
+/* ==========================================================================
+   2. CONTAINER PRINCIPAL (MOBILE FIRST)
+   ========================================================================== */
+
+/* Envolve toda a página abaixo do header.
+   No mobile, 20px de espaçamento impede que o texto cole na borda física do celular. */
+.produto-detalhe-container {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto; /* Centraliza o conteúdo se a tela for maior que 1200px */
+}
+
+/* Bloco que une a Imagem e os Controles de Compra.
+   Usamos display block com espaçamento vertical simples para empilhamento natural no mobile. */
+.produto-principal {
+  display: block;
+}
+
+/* ==========================================================================
+   3. IMAGEM DO PRODUTO (EM DESTAQUE)
+   ========================================================================== */
+
+.produto-imagem {
+  width: 100%;
+  margin-bottom: 24px; /* Separa a imagem do título que vem logo abaixo no mobile */
+}
+
+.produto-imagem img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px; /* Cantos levemente arredondados transmitem suavidade */
+  object-fit: cover;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06); /* Sombra suave profissional */
+}
+
+/* ==========================================================================
+   4. CAIXA DE COMPRA & PREÇO (PRODUTO-COMPRA-BOX)
+   ========================================================================== */
+
+.produto-compra-box {
+  width: 100%;
+}
+
+/* Título principal do cosmético */
+.produto-compra-box h1 {
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 1.3;
+  margin-bottom: 12px;
+  color: #4a0e17; /* Vinho escuro institucional */
+}
+
+/* Preço dinâmico */
+.produto-preco {
+  font-size: 22px;
+  font-weight: 700;
+  color: #800f2f; /* Tom vinho vibrante para destacar o valor */
+  margin-bottom: 24px;
+}
+
+/* ==========================================================================
+   5. CONTROLE DE QUANTIDADE (+ e -)
+   ========================================================================== */
+
+/* Alinha os botões e o input horizontalmente na mesma linha */
+.controle-quantidade {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  padding: 4px;
+  margin-bottom: 24px;
+  background-color: #fafafa;
+}
+
+/* Estilo estrito dos botões + e - */
+.btn-qtd {
+  background-color: transparent;
+  border: none;
+  width: 36px;
+  height: 36px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #4a0e17;
+  cursor: pointer;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+/* Efeito ao passar o dedo/mouse no botão de quantidade */
+.btn-qtd:hover {
+  background-color: #800f2f;
+  color: #ffffff;
+}
+
+/* Campo numérico central */
+#input-qtd-detalhe {
+  width: 44px;
+  height: 36px;
+  text-align: center;
+  border: none;
+  background-color: transparent;
+  font-size: 16px;
+  font-weight: 600;
+  color: #333333;
+  -moz-appearance: textfield; /* Remove setas padrão do navegador */
+}
+
+/* Remove setas padrão do Chrome/Safari/Edge para o input number */
+#input-qtd-detalhe::-webkit-outer-spin-button,
+#input-qtd-detalhe::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* ==========================================================================
+   6. BOTÕES DE AÇÃO (ADICIONAR À SACOLA / COMPRAR)
+   ========================================================================== */
+
+/* No mobile, os botões ficam empilhados para dar uma área de clique confortável */
+.botoes-acao {
+  display: block;
+}
+
+.btn-adicionar, 
+.btn-comprar-direto {
+  display: block;
+  width: 100%;
+  padding: 15px 20px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 6px;
+  cursor: pointer;
+  text-align: center;
+  transition: all 0.2s ease-in-out;
+}
+
+/* Botão "Adicionar à sacola" - Estilo elegante vazado (Outlined) */
+.btn-adicionar {
+  background-color: #ffffff;
+  color: #800f2f;
+  border: 2px solid #800f2f;
+  margin-bottom: 12px; /* Separa do botão de baixo */
+}
+
+.btn-adicionar:hover {
+  background-color: #fcf0f2; /* Leve fundo rosado/vinho no hover */
+}
+
+/* Botão "Comprar" - Estilo sólido de conversão direta */
+.btn-comprar-direto {
+  background-color: #800f2f;
+  color: #ffffff;
+  border: 2px solid #800f2f;
+}
+
+.btn-comprar-direto:hover {
+  background-color: #5c0a21; /* Vinho mais escuro ao clicar/focar */
+  border-color: #5c0a21;
+}
+
+/* Linha divisória fina */
+.divisor {
+  border: 0;
+  height: 1px;
+  background-color: #eeeeee;
+  margin: 32px 0;
+}
+
+/* ==========================================================================
+   7. SEÇÃO DE INFORMAÇÕES DETALHADAS (DESCRIÇÃO COMPLETA)
+   ========================================================================== */
+
+.produto-info-detalhada {
+  width: 100%;
+}
+
+/* Título principal da descrição */
+.produto-info-detalhada h2 {
+  font-size: 20px;
+  font-weight: 600;
+  color: #4a0e17;
+  margin-bottom: 12px;
+}
+
+/* Texto resumido do produto */
+.descricao-resumida {
+  font-size: 15px;
+  line-height: 1.6;
+  color: #666666;
+  margin-bottom: 24px;
+}
+
+/* Subtítulos (Benefícios, Modo de uso...) */
+.detalhes-adicionais h3 {
+  font-size: 16px;
+  font-weight: 600;
+  color: #800f2f;
+  margin-top: 20px;
+  margin-bottom: 6px;
+}
+
+/* Parágrafos internos dos detalhes adicionais */
+.detalhes-adicionais p {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #555555;
+}
+
+/* ==========================================================================
+   8. MEDIA QUERIES (ADAPTAÇÃO PARA TELAS GRANDES - DESKTOP)
+   ========================================================================== */
+
+/* Quando a largura da tela for igual ou maior que 768px (Tablets em diante) */
+@media (min-width: 768px) {
+  
+  /* A área principal vira duas colunas horizontais lado a lado */
+  .produto-principal {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+    margin-bottom: 40px;
+  }
+
+  /* Coluna da Esquerda (Imagem) */
+  .produto-imagem {
+    display: table-cell;
+    width: 50%;
+    vertical-align: top;
+    padding-right: 30px; /* Cria o espaçamento entre a imagem e as informações */
+    margin-bottom: 0; /* Remove a margem inferior do mobile */
+  }
+
+  /* Coluna da Direita (Dados da Compra) */
+  .produto-compra-box {
+    display: table-cell;
+    width: 50%;
+    vertical-align: middle; /* Centraliza verticalmente o bloco de compra em relação à imagem */
+    padding-left: 30px;
+  }
+
+  /* Ajuste no título para telas maiores */
+  .produto-compra-box h1 {
+    font-size: 30px;
+  }
+
+  /* No desktop, os botões de ação ficam na mesma linha (lado a lado) */
+  .botoes-acao {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+  }
+
+  .btn-adicionar {
+    display: table-cell;
+    width: 48%;
+    margin-bottom: 0; /* Remove o espaçamento de empilhamento do mobile */
+  }
+
+  /* Elemento fantasma para simular o espaço entre os dois botões no modelo de tabela */
+  .botoes-acao::after {
+    content: "";
+    display: inline-block;
+    width: 4%;
+  }
+
+  .btn-comprar-direto {
+    display: table-cell;
+    width: 48%;
+  }
+}

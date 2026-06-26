@@ -107,9 +107,8 @@
                         <span class="currency">R$</span>
                         <%=produto.preco%>
                       </p>
-                      <a href="#" class="card-button"
-                        onclick="adicionarCarrinho('<%= produto.id %>', '<%= produto.nome %>', 'R$ <%= produto.preco %>', '<%= produto.imagem %>'); return false;">
-                        Comprar
+                      <a href="/produto/<%= produto.id %>" class="card-btn-detalhes">
+                        Ver Detalhes
                       </a>
                     </article>
                   </section>

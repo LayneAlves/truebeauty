@@ -857,6 +857,7 @@ input {
 
     ul a {
       display: flex;
+      padding: 12px;
 
       .header nav>ul:nth-of-type(1) {
         max-width: 75%;

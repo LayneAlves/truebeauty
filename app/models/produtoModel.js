@@ -1,18 +1,7 @@
 const db = require('../config/db');
-// const fs = require('fs');
-// const path = require('path');
-
-// const filePath = path.join(__dirname, '../data/produtos.json');
-// const pedidosPath = path.join(__dirname, '../data/pedidos.json');
 
 const ProdutoModel = {
 
-    // produtos() {
-    //     const data = fs.readFileSync(filePath, 'utf8');
-    //     const produtos = JSON.parse(data);
-    //     return produtos;
-    //     return JSON.parse(data);
-    // },
 
     async produtos() {
         const [rows] = await db.query(`
@@ -29,21 +18,25 @@ const ProdutoModel = {
         `);
         return rows;
     },
-    // buscar(valor, campo) {
-    //     const data = fs.readFileSync(filePath, 'utf8');
-    //     const produtos = JSON.parse(data);
 
-    //     if (campo === 'subcategoria') {
-    //         return produtos.filter(produto => produto.subcategoria === valor);
-    //     }
-
-
-    //     if (campo === 'categoria') {
-    //         return produtos.filter(produto => produto.categoria === valor);
-    //     }
-    //     // sem filtro: retorna tudo
-    //     return produtos;
-    // },
+    // Busca produtos por id
+    async buscarPorId(id) {
+        const [rows] = await db.query(`
+            SELECT
+                COD_PRODUTO      AS id,
+                NOME_PRODUTO     AS nome,
+                PRECO            AS preco,
+                DESCRICAO        AS descricao,
+                IMAGEM           AS imagem,
+                ESTOQUE          AS estoque,
+                COD_SUBCATEGORIA AS subcategoria,
+                COD_CATEGORIA    AS categoria
+            FROM PRODUTO
+            WHERE COD_PRODUTO = ?
+        `, [id]);
+        return rows[0];
+    },
+    
 
     async buscar(valor, campo) {
         const select = `

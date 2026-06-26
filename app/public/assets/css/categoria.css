@@ -30,6 +30,7 @@ body {
     .card-container section {
       @media (max-width: 480px) {
         width: 100%;
+        max-width: 200px;
         height: auto;
         min-height: 280px;
       }

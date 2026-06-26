@@ -13,7 +13,7 @@ const vertudoController = require('../controllers/vertudoController');
 const for_admController = require('../controllers/for_edmController');
 
 // ROUTER
-// router.get('/', ProdutoController.index);
+
 router.get('/', ProdutoController.index);
 
 
@@ -55,6 +55,9 @@ router.get('/cadastroProduto', (req, res) => {
 router.get('/produtos', ProdutoController.produtos, (req, res, next) => {
     res.render('produtos');
 });
+
+// Página de descrição do produto
+router.get('/produto/:id', ProdutoController.exibirDetalhes);
 
 // Rotas de pedidos
 router.get('/pedidos', PedidoController.listarPedidos);
