@@ -25,13 +25,10 @@
                   <%=produto.preco%>
                 </p>
 
-                <a href="/produto/<%= produto.id %>" class="card-btn-detalhes">
-                  Ver Detalhes
-                  </a>
-                  <!-- <a href="#" class="card-button"
-                  onclick="adicionarCarrinho('<%= produto.id %>', '<%= produto.nome %>', 'R$ <%= produto.preco %>', '<%= produto.imagem %>'); return false;">
+                <a href="/produto/<%= produto.id %>" class="card-button" onclick="event.stopPropagation();">
                   Comprar
-                </a> -->
+                </a>
+                
               </article>
             </section>
             <% }) %>

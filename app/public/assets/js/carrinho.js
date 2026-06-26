@@ -115,10 +115,17 @@ class Carrinho {
         <p>${item.preco}</p>
       </div>
       <div class="acoes-item">
-        <input type="number" min="1" value="${item.quantidade}" class="input-quantidade" data-id="${item.id}">
-        <button class="btn-excluir" data-id="${item.id}">Excluir</button>
+        <form action="/produtos/excluir/${item.id}" method="POST" style="display:inline;"
+              onsubmit="return confirm('Tem certeza que deseja excluir?')">
+              <button type="button" class="btn-excluir-icone" title="Limpar item" 
+                  onclick="window.carrinho.removerItem('${item.id}');" 
+                      style="background: none; border: none; padding: 0; cursor: pointer;">
+                      <i class="fa-solid fa-trash-can" style="color: #8B0000;"></i>
+              </button>
+        </form>
       </div>
     `;
+    return div;
 
     const inputQuantidade = div.querySelector('.input-quantidade');
     const btnExcluir = div.querySelector('.btn-excluir');
